@@ -146,6 +146,9 @@ _idle:
 	ldub	[%g1 + %lo(_qrunflag)], %g1
 	tst	%g1
 #ifndef SAS
+#ifdef QEMU_IDLE_HINT
+	ta	0x77			! send idle hint to QEMU
+#endif QEMU_IDLE_HINT
 	bz	_idle			! no
 	nop
 #else SAS
