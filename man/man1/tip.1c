@@ -25,7 +25,7 @@ tip \- connect to remote system
 .LP
 .B tip
 establishes a full-duplex terminal connection to a remote host.
-Once the connection is established, a remote session using 
+Once the connection is established, a remote session using
 .B tip
 behaves like an interactive session on a local terminal.
 .LP
@@ -55,12 +55,12 @@ file of the form:
 When it finds such an entry, it sets the connection speed
 accordingly.  If it finds no such entry,
 .B tip
-interprets 
+interprets
 .BI \- speed-entry
 as if it were a system name, resulting in an error message.
 .LP
-If you omit 
-.BI \- speed-entry\fR, 
+If you omit
+.BI \- speed-entry\fR,
 .B tip
 uses the
 .B tip0
@@ -69,7 +69,7 @@ entry to set a speed for the connection.
 When establishing the connection
 .B tip
 sends a connection message to the remote system.  The default value for
-this message can be found in the 
+this message can be found in the
 .I remote
 file.
 .LP
@@ -85,14 +85,14 @@ processes from sampling the terminal line.  In addition,
 honors the locking protocol used by
 .BR uucp (1C).
 .LP
-When 
+When
 .B tip
 starts up it reads commands from the file
 .B \&.tiprc
 in your home directory.
 .SH OPTIONS
 .TP
-.B \-v 
+.B \-v
 Display commands from the
 .B \&.tiprc
 file as they are executed.
@@ -192,7 +192,7 @@ to send the file to
 .BR tip .
 .TP
 .B ~|
-Pipe the output from a remote command to a local process. 
+Pipe the output from a remote command to a local process.
 The command string sent to the local
 system is processed by the shell.
 .TP
@@ -255,7 +255,7 @@ displayed on the screen. A file transfer may be aborted with an interrupt.
 .LP
 .B tip
 may be used to dial up remote systems using a number of auto-call unit's
-(\s-1ACU\s0's). 
+(\s-1ACU\s0's).
 When the remote system description contains the
 .B du
 capability,
@@ -372,7 +372,7 @@ by prepending a
 .B !
 to the name.  Other variable types are set by appending an
 .B =
-and the value. 
+and the value.
 The entire assignment must not have any blanks in it.
 A single set command may be used to interrogate as
 well as set a number of variables.
@@ -389,7 +389,7 @@ option makes
 display the sets as they are made.
 Comments preceded by a
 .B #
-sign can appear in the 
+sign can appear in the
 .B \&.tiprc
 file.
 .LP
@@ -400,7 +400,7 @@ variables known to
 .TP
 .B beautify
 (bool) Discard unprintable characters when a session is being scripted;
-abbreviated 
+abbreviated
 .BR be .
 If the
 .B nb
@@ -533,7 +533,7 @@ should wait for the echo-check response when
 .B echocheck
 is set; abbreviated
 .BR et .
-If the 
+If the
 .B et
 capability is present,
 .B etimeout
@@ -599,7 +599,7 @@ is initially set to
 Do hardware flow control;
 abbreviated
 .BR hf .
-If the 
+If the
 .B hf
 capability is present,
 .B hardwareflow
@@ -673,7 +673,7 @@ capability is present,
 .B parity
 is initially set to the value of that capability; otherwise,
 .B parity
-is set to 
+is set to
 .BR none .
 .br
 .ne 8
@@ -711,7 +711,7 @@ is set to
 .BR \en .
 .TP
 .B raise
-(bool) Upper case mapping mode; abbreviated 
+(bool) Upper case mapping mode; abbreviated
 .BR ra .
 When this mode is enabled, all lower case letters will be mapped to
 upper case by
@@ -798,7 +798,7 @@ cannot be changed from within
 .BR sc .
 When
 .B script
-is 
+is
 .IR on ,
 .B tip
 will record everything transmitted by the remote machine in
@@ -834,7 +834,7 @@ characters to
 .SM SPACE
 characters during file transfers; abbreviated
 .BR tab .
-When 
+When
 .B tabexpand
 is
 .IR on ,
@@ -860,7 +860,7 @@ is initially set to
 flow control to limit the rate that data is sent
 by the remote host; abbreviated
 .BR ta .
-If the 
+If the
 .B nt
 capability is present,
 .B tandem
@@ -874,7 +874,7 @@ is initially set to
 .B verbose
 (bool) Verbose mode; abbreviated
 .BR verb ;
-When verbose mode is enabled, 
+When verbose mode is enabled,
 .B tip
 prints messages while dialing, shows the current number
 of lines transferred during a file transfer operations,
@@ -899,7 +899,7 @@ or taken from the environment.
 .TP
 .SB HOME
 (str) The home directory to use for the
-.B ~c 
+.B ~c
 command; default
 value is taken from the environment.
 .br
@@ -983,7 +983,7 @@ file in which outgoing calls are logged
 .TP
 .B /etc/remote
 .PD
-.br 
+.br
 .ne 10
 .SH "SEE ALSO"
 .BR cu (1C),
@@ -997,6 +997,6 @@ file in which outgoing calls are logged
 .LP
 There are two additional variables
 .B chardelay
-and 
+and
 .B linedelay
 that are currently not implemented.

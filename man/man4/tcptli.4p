@@ -1,4 +1,4 @@
-.\" @(#)tcptli.4p 1.1 94/10/31 SMI; 
+.\" @(#)tcptli.4p 1.1 94/10/31 SMI;
 .\"
 .TH TCPTLI 4P "2 December 1989"
 .SH NAME
@@ -44,17 +44,17 @@ The notion of an address is the same as the socket address
 .SM
 TCPTLI
 maintains transport state information for
-each outstanding connection 
+each outstanding connection
 and the current state of the provider
-may be retrieved via the 
+may be retrieved via the
 .BR t_getstate(3N)
-call. See 
-.BR t_getstate(3N) 
+call. See
+.BR t_getstate(3N)
 for a list of possible states.
 .LP
-A server usually starts up with the 
+A server usually starts up with the
 .BR t_open(3N)
-call followed by 
+call followed by
 .BR t_bind(3N)
 to bind an address that it
 listens for incoming connection. It may call
@@ -65,32 +65,32 @@ request from another transport user, and then calls
 if it is willing to provide its service. TLI allows
 a server to accept connection on the same file descriptor
 it is listening on, or a different file descriptor (as
-in the sense of socket's 
+in the sense of socket's
 .BR accept(2)
 ).
 .LP
-A client usually calls 
-.BR t_open(3N) 
+A client usually calls
+.BR t_open(3N)
 and followed by
-a call to 
-.BR t_bind(3N). 
-Then it calls 
+a call to
+.BR t_bind(3N).
+Then it calls
 .BR t_connect(3N)
 to the address of a server advertized for providing
 service. Once the connection is established, it may
-use 
+use
 .BR t_rcv(3N)
-and 
-.BR t_snd(3N) 
+and
+.BR t_snd(3N)
 to receive and send data.
-The routine 
-.BR t_close(3N) 
+The routine
+.BR t_close(3N)
 is used to terminate the
 connection.
 .SH TLI ERRORS
 An TLI operation may fail if one of the
 following error conditions is encountered. They
-are returned by the TLI user level library. 
+are returned by the TLI user level library.
 .TP 20
 .SM TBADADDR
 Incorrect/invalid address format supplied by the user.
@@ -171,7 +171,7 @@ error (TCP).
 .SM EWOULDBLOCK
 The operation would block as normally the file descriptors
 are set with non-blocking flag.
-.TP 
+.TP
 .SM EACCES
 Permission denied.
 .TP
@@ -194,8 +194,8 @@ The system ran out of memory for internal (network) data structures.
 Only TCP (i.e. connection oriented) protocol is supported, no
 UDP. The maximum network connection is 32 by default. A
 new kernel has to be configured if an increase of such limit
-is desired: by changing the entry 
-.BR pseudo-device 
+is desired: by changing the entry
+.BR pseudo-device
 .BR tcptli32
 in the kernel config file to
 .BR tcptli64.

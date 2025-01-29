@@ -47,14 +47,14 @@ and
 .B ldnrseek(\|)
 .RB "return " \s-1SUCCESS\s+1 " or " \s-1FAILURE\s+1 .
 .B ldrseek(\|)
-will fail if 
+will fail if
 .I sectindx
 is greater than the number of sections in the object file;
 .B ldnrseek(\|)
 will fail if there is no section name corresponding with
 .IR sectname .
 Either function will fail if the specified section has no relocation entries or
-if it cannot seek to the specified 
+if it cannot seek to the specified
 relocation entries.
 .LP
 Note: the first section has an index of

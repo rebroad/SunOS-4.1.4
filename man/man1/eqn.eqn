@@ -1,5 +1,5 @@
 '\" e
-.\" @(#)eqn.eqn 1.1 94/10/31 SMI; 
+.\" @(#)eqn.eqn 1.1 94/10/31 SMI;
 .EQ
 .nr 99 \n(.s
 .nr 98 \n(.f
@@ -15,16 +15,16 @@ eqn, neqn, checkeq \- typeset mathematics
 .B eqn
 [
 .BI \-d xy
-] 
+]
 [
 .BI \-f n
-] 
+]
 [
 .BI \-p n
-] 
+]
 [
 .BI \-s n
-] 
+]
 [
 .I filename
 ] .\|.\|.
@@ -59,7 +59,7 @@ describing equations.
 .B eqn
 is a preprocessor for
 .BR troff (1)
-and is intended for devices that can print 
+and is intended for devices that can print
 .BR troff 's
 output.
 .B neqn
@@ -78,7 +78,7 @@ example% neqn \fIfilename\fP .\|.\|. | nroff
 .LP
 If no
 .IR filename s
-are specified, 
+are specified,
 .B eqn
 and
 .B neqn
@@ -161,7 +161,7 @@ characters.  Braces {\|} are used for grouping;
 generally speaking, anywhere a single character like
 .I x
 could appear, a
-complicated construction enclosed in braces may be used instead. 
+complicated construction enclosed in braces may be used instead.
 Tilde (\s+2\^~\^\s0) represents a full
 .SM SPACE
 in the output, circumflex (\s+2\^^\^\s0) half as much.
@@ -174,8 +174,8 @@ Thus
 .RB ` "x sub i" '
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
-.as 11 "makes  
+.rm 11
+.as 11 "makes
 .ps 10
 .ft 2
 .ds 12 "x
@@ -193,7 +193,7 @@ Thus
 produces
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "a
@@ -220,7 +220,7 @@ and
 gives
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "e
@@ -249,7 +249,7 @@ Fractions are made with
 yields
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "a
@@ -277,7 +277,7 @@ makes square roots:
 results in
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "\f11\fP
@@ -314,7 +314,7 @@ introduce lower and upper
 limits on arbitrary things:
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "\f1lim\fP
@@ -367,7 +367,7 @@ and
 produces
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "x
@@ -389,11 +389,11 @@ produces
 \h'-\n(15u-\n(13u/2u+.1m'\v'24u'\l'\n(15u-.2m'\h'.1m'\v'24u'
 .as 12 "\*(13
 .ds 12 \|\v'0u'\b'\(lc\(bv\(lf'\v'0u'\*(12\|\v'0u'\b'\(rc\(bv\(rf'\v'0u'
-.ds 13 "\ 
+.ds 13 "\
 .as 12 "\*(13
 .ds 13 "\(eq
 .as 12 "\*(13
-.ds 13 "\ 
+.ds 13 "\
 .as 12 "\*(13
 .ds 13 "\f11\fP
 .as 12 "\*(13
@@ -420,7 +420,7 @@ and \fB""\fR for nothing at all (useful for a right-side-only bracket).
 .br
 .ne 4
 .LP
-Vertical piles of things are made with 
+Vertical piles of things are made with
 .BR pile ,
 .BR lpile ,
 .BR cpile ,
@@ -430,7 +430,7 @@ and
 produces
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "a
@@ -455,7 +455,7 @@ produces
 .ps \n(99
 .ft \n(98
 \*(11
-There can be an arbitrary number of elements in a pile. 
+There can be an arbitrary number of elements in a pile.
 .B lpile
 left-justifies,
 .B pile
@@ -471,7 +471,7 @@ Matrices are made with
 produces
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "x
@@ -525,7 +525,7 @@ and
 is
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "x
@@ -561,7 +561,7 @@ is
 is
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "y
@@ -581,11 +581,11 @@ is
 .ds 13 \s10\v'-.68m'\h'.05m'\l'\n(12u-.1m'\h'.05m'\v'.68m'\s0
 .nr 13 \w'\s10\*(13'
 .as 12 \h'-\n(12u-\n(13u/2u+\n(14u'\v'0-\n(10u'\*(13\v'\n(10u'\h'-\n(13u+\n(12u/2u-\n(14u'
-.ds 13 "\ 
+.ds 13 "\
 .as 12 "\|\*(13
 .ds 13 "\(eq
 .as 12 "\*(13
-.ds 13 "\ 
+.ds 13 "\
 .as 12 "\*(13
 .ds 13 "n
 .nr 13 \w'\s10\*(13'
@@ -613,7 +613,7 @@ and
 is
 .nr 99 \n(.s
 .nr 98 \n(.f
-.rm 11 
+.rm 11
 .ps 10
 .ft 2
 .ds 12 "x
@@ -625,11 +625,11 @@ is
 .ds 13 \v'-.4m'\s7\(->\s0\v'.4m'
 .nr 13 \w'\s10\*(13'
 .as 12 \h'-\n(12u-\n(13u/2u+\n(14u'\v'0-\n(10u'\*(13\v'\n(10u'\h'-\n(13u+\n(12u/2u-\n(14u'
-.ds 13 "\ 
+.ds 13 "\
 .as 12 "\|\*(13
 .ds 13 "\(eq
 .as 12 "\*(13
-.ds 13 "\ 
+.ds 13 "\
 .as 12 "\*(13
 .ds 13 "y
 .nr 13 \w'\s10\*(13'

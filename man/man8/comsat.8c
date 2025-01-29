@@ -37,7 +37,7 @@ the first 7 lines or 560 characters of the message are printed
 on the user's terminal.  Lines which appear to be part of
 the message header other than the
 .BR From ,
-.BR To , 
+.BR To ,
 .BR Date ,
 or
 .B Subject

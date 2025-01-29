@@ -1,4 +1,4 @@
-.\" @(#)ld.1 1.1 94/10/31 SMI;  
+.\" @(#)ld.1 1.1 94/10/31 SMI;
 .TH LD 1 "21 January 1990"
 .SH NAME
 ld, ld.so \- link editor, dynamic link editor
@@ -16,7 +16,7 @@ ld, ld.so \- link editor, dynamic link editor
 .BI \-B "binding-keyword"
 ] [
 .B \-d
-] 
+]
 .if t .ti +0.5i
 [
 .B \-dc
@@ -71,11 +71,11 @@ ld, ld.so \- link editor, dynamic link editor
 .B \-X
 ] [
 .BI \-y sym
-] 
+]
 .if t .ti +0.5i
 [
 .B \-z
-] 
+]
 .I filename
 \&.\|.\|.
 .SH DESCRIPTION
@@ -89,16 +89,16 @@ combines object programs to create an
 file or another object program suitable for further
 .B ld
 processing
-(with the 
+(with the
 .B \-r
-option).  The object modules on which 
+option).  The object modules on which
 .B ld
 operates are specified on the command line, and can be:
 .RS
 .TP 3
 \(bu
 simple object files, which typically end in the
-.BR .o 
+.BR .o
 suffix, and are referred to as \*(lqdot-oh\*(rq files
 .TP 3
 \(bu
@@ -108,7 +108,7 @@ library archives
 or \*(lqlibraries\*(rq
 .TP 3
 \(bu
-dynamically-bound, sharable object files 
+dynamically-bound, sharable object files
 .RB ( .so ),
 are also referred to as \*(lqshared libraries,\*(rq
 which are created from previous
@@ -138,14 +138,14 @@ filenames, except for abbreviated library
 names specified with
 .B \-l
 options, and some binding control options specified by
-.BR \-B 
+.BR \-B
 (which can appear anywhere in the line).
-.TP 
+.TP
 .BI \-align " datum"
 Force the global uninitialized data symbol
 .I datum
-(usually a 
-.SM FORTRAN 
+(usually a
+.SM FORTRAN
 common block) to be page-aligned.  Increase its size to a whole number of
 pages, and place its first byte at the start of a page.
 .TP
@@ -163,7 +163,7 @@ and their interpretations are:
 .RS
 .TP 15
 .B definitions
-If the resulting program were run now, there would be no run-time undefined 
+If the resulting program were run now, there would be no run-time undefined
 symbol diagnostics.  This assertion is set by default.
 .TP
 .B nodefinitions
@@ -180,23 +180,23 @@ The resulting load has no relocation items remaining in its text.
 .TP
 .BI \-A " name"
 Incremental loading: linking is to be done in a manner so that the
-resulting object may be read into an already executing program. 
+resulting object may be read into an already executing program.
 .I name
 is the name of a file whose symbol table is taken as a basis
 on which to define additional symbols.
-Only newly linked material is 
-entered into the text and data portions of 
+Only newly linked material is
+entered into the text and data portions of
 .BR a.out ,
 but the new symbol table will reflect all symbols defined before and after
-the incremental load. 
+the incremental load.
 This argument must appear before any other object
 file in the argument list.
-One or both of the 
+One or both of the
 .B \-T
 options may be used as well, and will be taken to mean that the newly linked
 segment will commence at the corresponding addresses (which must be a multiple
-of the page size). 
-The default value is the old value of 
+of the page size).
+The default value is the old value of
 .BR _end .
 .br
 .ne 10
@@ -209,15 +209,15 @@ are:
 .TP 15
 .B dynamic
 Allow dynamic binding: do not resolve symbolic references, allow creation of
-run-time symbol and relocation environment. 
+run-time symbol and relocation environment.
 .B -Bdynamic
 is the default.
 When
 .B \-Bdynamic
-is in effect, all sharable objects encountered until a 
+is in effect, all sharable objects encountered until a
 succeeding
 .B \-Bstatic
-may be added dynamically to the object being 
+may be added dynamically to the object being
 linked.  Non-sharable objects are bound statically.
 .TP
 .B nosymbolic
@@ -240,10 +240,10 @@ specified with
 .BR \-e ,
 or if dynamic loading is in effect.
 .RE
-.TP 
+.TP
 .B  \-d
 Force common storage for uninitialized variables and other
-common symbols to be allocated in the current 
+common symbols to be allocated in the current
 .B ld
 run, even when the
 .B \-r
@@ -257,7 +257,7 @@ but also copy initialized data referenced by this program
 from shared objects.
 .TP
 .B \-dp
-Force an alias definition of undefined procedure entry points. 
+Force an alias definition of undefined procedure entry points.
 Used with dynamic binding to improve sharing and the locality
 of run-time relocations.
 .TP
@@ -269,16 +269,16 @@ bytes long.
 .BI \-e " entry"
 Define the entry point: the
 .I entry
-argument is made the 
+argument is made the
 name of the entry point of the loaded program.  Implies
 .BR \-Bsymbolic .
-.TP 
-.BI \-l x\|\fR[ . v\|\fR] 
+.TP
+.BI \-l x\|\fR[ . v\|\fR]
 This option is an abbreviation for the library name
 .BI lib x .a\fR,
 where
 .I x
-is a string.  
+is a string.
 .B ld
 searches for libraries first in any directories specified with
 .B \-L
@@ -287,10 +287,10 @@ options, then in the standard directories
 .BR /usr/lib ,
 and
 .BR /usr/local/lib .
-A library is searched when its name is encountered, 
+A library is searched when its name is encountered,
 so the placement of a
 .B \-l
-is significant.  If a dynamically loadable object is found, and 
+is significant.  If a dynamically loadable object is found, and
 .B \-Bdynamic
 is in effect at that point on the command line, then
 .B ld
@@ -305,7 +305,7 @@ suffix can be used to indicate a specific library version.
 Add
 .I dir
 to the list of directories in which to search for libraries.
-Directories specified with 
+Directories specified with
 .B \-L
 are searched before the standard directories,
 .BR /lib ,
@@ -314,12 +314,12 @@ and
 .BR /usr/local/lib .
 When building a program in which one or more objects are loaded when
 .B -Bdynamic
-is in effect, those directories specified by 
+is in effect, those directories specified by
 .B \-L
 options will be \*(lqremembered\*(rq for use at execution time.  This permits
-the construction of software that uses shared objects as libraries not 
+the construction of software that uses shared objects as libraries not
 residing
-in the standard locations and avoids requiring the specification of 
+in the standard locations and avoids requiring the specification of
 the
 .SB LD_LIBRARY_PATH
 environment variable
@@ -336,7 +336,7 @@ not just during the operation of
 .B \-M
 Produce a primitive load map, listing the names of the files
 which will be loaded.
-.TP 
+.TP
 .B  \-n
 Arrange (by giving the output file a 0410 \*(lqmagic number\*(rq)
 that when the output
@@ -349,7 +349,7 @@ the text.  Implies
 Do not make the text portion read-only.  (Use \*(lqmagic number\*(rq 0407.)
 Implies
 .BR \-Bstatic .
-.TP 
+.TP
 .BI  \-o " name"
 .I name
 is made the name of the
@@ -358,20 +358,20 @@ output file, instead of
 .BR a.out .
 .br
 .ne 3
-.TP 
+.TP
 .B \-p
-Arrange for the data segment to begin on a page boundary, even if the text is 
+Arrange for the data segment to begin on a page boundary, even if the text is
 not shared (with the
 .B \-N
 option).
-.TP 
+.TP
 .B  \-r
 Generate relocation bits in the output file
 so that it can be the subject of another
 .B ld
 run.  This flag also prevents final definitions from being given to common
 symbols, and suppresses the \*(lqundefined symbol\*(rq diagnostics.
-.TP 
+.TP
 .B \-s
 Strip the output, that is, remove the symbol table and relocation bits to save
 space (but impair the usefulness of the debuggers).  This information can also
@@ -388,8 +388,8 @@ Trace: display the name of each file as it is processed.
 .TP
 .BR \-T \|[\| text \|]\| \fIhex\fR
 Start the text segment at location
-.IR hex .  
-Specifying 
+.IR hex .
+Specifying
 .B \-T
 is the same as using the
 .B \-Ttext
@@ -399,10 +399,10 @@ option.
 Start the data segment at location
 .IR hex .
 This option is only of use
-to programmers wishing to write code for 
+to programmers wishing to write code for
 .SM PROM\s0s,
 since the resulting code cannot be executed by the system.
-.TP 
+.TP
 .BI  \-u " name"
 Enter
 .I name
@@ -410,12 +410,12 @@ as an undefined symbol.
 This is useful for loading
 wholly from a library, since initially the symbol table is empty and an
 unresolved reference is needed to force the loading of the first routine.
-.TP 
+.TP
 .B  \-x
 Preserve only global (non-\fB.globl\fP) symbols in the output symbol
 table; only enter external symbols.
 This option saves some space in the output file.
-.TP 
+.TP
 .B \-X
 Record local symbols, except for those whose names begin with
 .BR L .
@@ -450,7 +450,7 @@ With this format the first few
 .SM BSS
 segment symbols may actually end up
 in the data segment;
-this is to avoid wasting the space resulting from rounding the data 
+this is to avoid wasting the space resulting from rounding the data
 segment size.  Implies
 .BR \-Bdynamic .
 .SH USAGE
@@ -467,7 +467,7 @@ rule include some of the binding control options specified by
 and the abbreviated library-names specified by
 .RB ` \-l '.
 These may appear
-anywhere, and their influence is dependent upon their location.  
+anywhere, and their influence is dependent upon their location.
 Some options may be obtained from
 environment variables, such options are interpreted before any
 on the command line (see
@@ -497,15 +497,15 @@ member containing the definition.
 On Sun386i, a library contains a dictionary of symbols,  On
 other Sun systems, processing library archives through
 .BR ranlib (1)
-provides this dictionary.  In addition, you can use 
+provides this dictionary.  In addition, you can use
 .BR lorder (1),
 in combination with
 .BR tsort (1)
-to place library members in calling order (see 
+to place library members in calling order (see
 .BR lorder (1)
 for details), or both (for fastest symbol lookup).
 The first member of an archived processed by
-.B ranlib 
+.B ranlib
 has the reserved name of
 .BR _\^_.\s-1SYMDEF\s0 ,
 which
@@ -515,7 +515,7 @@ members of the archive.
 .LP
 Sharable objects
 .RB ( .so )
-are scanned for symbol definitions and references, 
+are scanned for symbol definitions and references,
 but are not normally included in the output from
 .BR ld ,
 except in cases where a shared library exports initialized data
@@ -542,14 +542,14 @@ The
 option specifies a short name for an object
 file or archive used as a library.
 The full name of the object file is
-derived by adding the prefix 
+derived by adding the prefix
 .B lib
 and a suffix of either
 .B .a
 or
 .BR .so [ .\c
 .IR v ]
-to indicate an 
+to indicate an
 .BR ar (1V)
 archive or a shared library, respectively.
 The specific suffix used is determined through rules discussed in
@@ -598,16 +598,16 @@ on and off.
 Like
 .BR \-l ,
 the influence of each depends upon its location within the
-command line. 
+command line.
 When
 .B \-Bdynamic
-is in effect, 
+is in effect,
 .B \-l
 searches may be satisfied by the first occurrence of either form of
-library 
+library
 .RB ( .so
 or
-.BR .a ), 
+.BR .a ),
 but if both are encountered, the
 .B .so
 form is preferred.  When
@@ -621,13 +621,13 @@ for the
 .B .a
 form.  Furthermore, an explicit request to load a
 .B .so
-file is treated as an error.  
+file is treated as an error.
 .LP
 After
 .B ld
 has processed all input files and command line options, the form of
 the output it produces is based on the information provided in
-both.  
+both.
 .B ld
 first tries to reduce all symbolic references to
 relative numerical offsets within the executable it is building.  To
@@ -648,15 +648,15 @@ be performed for all symbols having definitions existing in the
 material provided.
 .RE
 .LP
-It should be noted that uninitialized \*(lqcommon\*(rq areas 
+It should be noted that uninitialized \*(lqcommon\*(rq areas
 (for example, uninitialized C globals) are allocated by the
 link editor
 .I after
 it has collected all references.
 In particular, this allocation can not occur in a program that still
-requires the addition of information contained in a 
+requires the addition of information contained in a
 .B \&.so
-file, as the missing information may affect the allocation process.  
+file, as the missing information may affect the allocation process.
 Initialized \*(lqcommons\*(rq however,  are allocated within the executable
 in which their definition appears.
 .LP
@@ -671,7 +671,7 @@ only if it has been provided
 absolute address, either implicitly through the specification of an
 entry point, or explicitly through
 .B ld
-command-line options. 
+command-line options.
 If, after performing all the reductions it can,
 there are no further relocations or definitions to perform, then
 .B ld
@@ -687,11 +687,11 @@ An incompletely linked \*(lqmain\*(rq program should be
 linked with a \*(lqbootstrap\*(rq routine that invokes
 .BR ld.so ,
 which uses the information
-contained in the main program's 
+contained in the main program's
 .SB _\^_DYNAMIC
 to assemble the rest
 of the executables constituting the entire program.  A standard
-Sun compilation driver (such as 
+Sun compilation driver (such as
 .BR cc (1V))
 automatically includes such a module in each \*(lqmain\*(rq executable.
 .LP
@@ -709,7 +709,7 @@ mimics that used when
 is run, and like
 .BR ld ,
 can be influenced by the setting of
-.SB LD_LIBRARY_PATH 
+.SB LD_LIBRARY_PATH
 and any
 .B \-L
 options specified to
@@ -755,7 +755,7 @@ The first decimal component is called the library's
 \*(lqmajor version\*(rq number,
 and the second component its \*(lqminor version\*(rq number.  When
 .B ld
-records a 
+records a
 .B .so
 used as a library, it also records these two
 numbers in the database used by
@@ -780,7 +780,7 @@ execution to be terminated.
 .TP
 \(bu
 Highest Minor Version: in the presence of multiple instances of
-libraries that match the desired major version, 
+libraries that match the desired major version,
 .B ld.so
 uses the highest minor version it finds.  However, if the highest minor
 version found at execution time is less than the version found at
@@ -792,16 +792,16 @@ The semantics of version numbers are such that major version numbers
 should be changed whenever interfaces are changed.  Minor versions
 should be changed to reflect compatible updates to libraries, and
 programs will silently favor the highest compatible version they can
-obtain.  
+obtain.
 .SS Special Symbols
 .LP
-A number of symbols have special meanings to 
+A number of symbols have special meanings to
 .B ld
 and programs should not define these symbols.  The symbols described
 below are those actually seen by
 .BR ld .
 Note: C and several
-other languages prepend symbols they use with 
+other languages prepend symbols they use with
 .RB ` _ '.
 .TP
 .BR _etext
@@ -860,14 +860,14 @@ output files.
 A colon-separated list of directories in which to search for
 libraries specified with the
 .B \-l
-option.  Similar to the 
+option.  Similar to the
 .SB PATH
 environment variable.
 .SB LD_LIBRARY_PATH
 also affects library searching during execution-time loading, causing
-the search to use first those directories found in 
+the search to use first those directories found in
 the environment variable, then any directories specified by
-.B \-L 
+.B \-L
 options, and finally the standard directories
 .B /usr/lib
 and
@@ -902,7 +902,7 @@ example% ld $LD_OPTIONS \fR.\|.\|. \fIother-arguments \fR.\|.\|.
 .LP
 Note: Environment variable-names beginning with the characters
 .RB ` LD_ '
-are reserved for possible future enhancements to 
+are reserved for possible future enhancements to
 .BR ld .
 .SH FILES
 .PD 0
@@ -944,7 +944,7 @@ output file
 Options are being overloaded and are an inappropriate vehicle for describing
 to
 .B ld
-the wide variety of things it can do. 
+the wide variety of things it can do.
 There needs to be
 a link-editing language which can be used in the more complex situations.
 .LP

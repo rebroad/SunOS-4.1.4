@@ -50,13 +50,13 @@ fsck \- file system consistency check and interactive repair
 .LP
 .B fsck
 is a program that checks and repairs file system consistency. It can
-operate in two modes, \*(lqpreen\*(rq and interactive. 
+operate in two modes, \*(lqpreen\*(rq and interactive.
 \*(lqPreen\*(rq is a non-interactive mode which
 only repairs a subset of file system inconsistencies.
 The interactive mode allows users to audit and repair any inconsistencies.
 .SS "\*(lqPreen\*(rq Mode"
 .LP
-With the 
+With the
 .B \-p
 option,
 .B fsck
@@ -79,11 +79,11 @@ option.  This helps systems that do not have sufficient memory to
 run enough \fBfsck\fPs to check all disks in parallel.
 Preen mode is normally used in the
 .B /etc/rc
-script during automatic reboot.  
+script during automatic reboot.
 .LP
 Each file system's super block
 .B clean flag
-is examined and only 
+is examined and only
 those file systems not marked
 .B clean
 or
@@ -93,9 +93,9 @@ A message identifying the name of the device
 and its file system's state is printed if the
 clean flag indicates that checking is not
 necessary.
-If the 
+If the
 .B \-f
-(force) option 
+(force) option
 is in effect,
 .B fsck
 checks the file system regardless
@@ -106,7 +106,7 @@ Only partitions marked in
 with a file system type of \*(lq4.2\*(rq and a non-zero pass number
 are checked.
 If the force option is in effect,
-file systems with pass number 1 (typically 
+file systems with pass number 1 (typically
 .BR / ,
 .BR /usr ,
 and
@@ -128,7 +128,7 @@ block, automatically.
 It displays a message
 for each inconsistency corrected that
 identifies the nature of, and file system on which, the correction
-is to take place. 
+is to take place.
 After successfully correcting a file system,
 .B fsck
 sets the file system's super block
@@ -182,17 +182,17 @@ The amount and severity of data
 lost can be determined from the diagnostic output.
 .LP
 The default action for each correction is to wait for the operator to
-respond either 
+respond either
 .B yes
-or 
+or
 .BR no .
 If the operator does not have write permission on the file system,
 .B fsck
-defaults to a 
+defaults to a
 .B \-n
 (no corrections) action.
 .LP
-If no file systems are given to 
+If no file systems are given to
 .B fsck
 then a default list of file systems is read from
 the file
@@ -241,7 +241,7 @@ Clean flag state.
 .PP
 Orphaned files and directories (allocated but unreferenced) are,
 with the operator's concurrence, reconnected by
-placing them in the 
+placing them in the
 .B lost+found
 directory.
 The name assigned is the inode number.  If the
@@ -277,7 +277,7 @@ Check writable file systems only.
 .B \-y
 Assume a
 .B yes
-response to all questions asked by 
+response to all questions asked by
 .BR fsck ;
 this should be used with extreme caution, as it is a free license
 to continue, even after severe problems are encountered.
@@ -285,7 +285,7 @@ to continue, even after severe problems are encountered.
 .B -n
 Assume a
 .B no
-response to all questions asked by 
+response to all questions asked by
 .BR fsck ;
 do not open the file system for writing.
 .TP
@@ -335,10 +335,10 @@ default list of file systems to check
 list of mounted file systems
 .PD
 .SH EXIT STATUS
-.TP 
+.TP
 .B 0
 Either no errors detected or all errors were corrected.
-.TP 
+.TP
 .B 2
 A
 .SM QUIT
@@ -362,13 +362,13 @@ An
 signal was caught during processing.
 .SH DIAGNOSTICS
 .LP
-The diagnostics produced by 
+The diagnostics produced by
 .B fsck
 are fully enumerated and explained in the
 .I "System and Network Administration Manual"
 with the following additions.
 .TP
-1. 
+1.
 After checking
 a file system in non-preening mode, the question:
 .sp 0.5
@@ -384,14 +384,14 @@ A \*(lqyes\*(rq response instructs
 to reset this state to
 .B active
 if there
-are inconsistencies, or to 
+are inconsistencies, or to
 .B stable
 if there are no uncorrected inconsistencies.
 A \*(lqno\*(rq response instructs
 .B fsck
 to leave the existing state unchanged.
 .TP
-2. 
+2.
 When \fBfsck\fP is run in preen mode, the file systems that need additional
 attention are normally scrolled off the screen.  With the enhanced version of
 \fBfsck\fP these file systems listed as \fBfsck\fP exits.  This provides the

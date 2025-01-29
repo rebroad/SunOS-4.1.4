@@ -13,7 +13,7 @@ ed, red \- basic line editor
 [
 .BI \-p " string"
 ]
-[ 
+[
 .I filename
 ]
 .LP
@@ -27,7 +27,7 @@ ed, red \- basic line editor
 [
 .BI \-p " string"
 ]
-[ 
+[
 .I filename
 ]
 .SH DESCRIPTION
@@ -42,7 +42,7 @@ system.  Although superseded by
 .BR ex (1)
 and
 .BR vi (1)
-for most purposes, 
+for most purposes,
 .B ed
 is still used by various system utilities.
 .LP
@@ -60,9 +60,9 @@ within the buffer, or to substitute character strings within lines.
 .B red
 is a restricted version of
 .BR ed .
-It will only allow editing of files in the current directory, and 
-prohibits executing commands using 
-.BI ! command\fR. 
+It will only allow editing of files in the current directory, and
+prohibits executing commands using
+.BI ! command\fR.
 Attempts to bypass these restrictions result in an error message.
 .SH OPTIONS
 .TP 10
@@ -89,7 +89,7 @@ command).  Also, suppress printing the
 diagnostic before overwriting unsaved changes in the buffer.
 .TP
 .B \-x
-Edit an encrypted file (see 
+Edit an encrypted file (see
 .BR crypt (1)
 for details).
 .TP
@@ -101,7 +101,7 @@ as the editing prompt in command mode.
 .SS Command Structure
 .LP
 .B ed
-commands have a simple and regular structure. 
+commands have a simple and regular structure.
 They consist of an optional
 .IR address ,
 or two optional
@@ -110,7 +110,7 @@ separated by a comma or semicolon, then a single-character
 .IR command ,
 which may be followed by a
 .I parameter
-for that 
+for that
 .IR command :
 .RS
 .HP
@@ -190,7 +190,7 @@ The last line of the buffer.
 The current line.
 .B ed
 keeps track of the line on which you last performed an operation.
-This line is called the 
+This line is called the
 .IR "current line" .
 You can address this line by typing a \*(lqdot\*(rq character.
 .TP
@@ -198,7 +198,7 @@ You can address this line by typing a \*(lqdot\*(rq character.
 By relative line number.
 Address the line number that is
 .I n
-lines higher, or 
+lines higher, or
 .I n
 lines lower than the current line.
 .TP
@@ -214,17 +214,17 @@ An
 .I \s-1RE\s0
 is a Regular Expression, described under
 .B "Regular Expressions"
-below.  When enclosed by slashes, 
+below.  When enclosed by slashes,
 .I \s-1RE\s0
 addresses the first line found by searching for a matching string.
-The search proceeds forward from the line following the 
+The search proceeds forward from the line following the
 current line, and wraps through the beginning of the buffer to
 include all preceding lines, as well as the current line.
 .TP
 .BI ? \s-1RE\s0 ?
 An
 .I \s-1RE\s0
-enclosed in question marks addresses the first line containing 
+enclosed in question marks addresses the first line containing
 a match found by searching backward from the line preceding the current
 line.  The search wraps through the end of the buffer to include
 all lines following the current line (in reverse order), as well as
@@ -235,7 +235,7 @@ An address followed by a plus sign
 .RB (\^ + \^)
 or a minus sign
 .RB ( \- ),
-followed by a decimal number, specifies 
+followed by a decimal number, specifies
 that address plus or minus the indicated number of lines.
 (The plus sign may be omitted.)  If the address
 is omitted, the current line is used as the base.  For
@@ -254,7 +254,7 @@ As a consequence of this rule and the previous rule, the address
 refers to the line preceding the current line.
 (To maintain compatibility with earlier versions of
 .BR ed ,
-the character 
+the character
 .RB ` \s+2^\s0 '
 is equivalent to
 .RB ` \- '.)
@@ -298,7 +298,7 @@ that of the first address.
 .LP
 .B ed
 supports a limited form of regular-expression notation, which
-can be used in a line address to specify lines by content. 
+can be used in a line address to specify lines by content.
 A regular expression (\s-1RE\s0) specifies a set of character strings to
 match against \(em such as \*(lqany string containing
 digits 5 through 9\*(rq or \*(lqonly lines containing uppercase letters.\*(rq
@@ -341,7 +341,7 @@ matches the \*(lqquoted\*(rq character.  A backslash followed by one of
 .BR { ,
 or
 .BR } ,
-represents an 
+represents an
 .I operator
 in a regular expression, as described below.
 .TP
@@ -404,9 +404,9 @@ end of a \*(lqword.\*(rq
 A nonempty string of characters, enclosed in square brackets
 matches any single character in the string.  For example,
 .B [abcxyz]
-matches any single character from the set 
+matches any single character from the set
 .RB ` abcxyz '.
-When the first character of the string is a caret 
+When the first character of the string is a caret
 .RB ( \s+2^\s0 ),
 then the
 .SM RE
@@ -415,15 +415,15 @@ matches any character
 .SM NEWLINE
 and those in the remainder of the string.  For example,
 .RB ` [\s+2^\s045678] '
-matches any character except 
+matches any character except
 .RB ` 45678 '.
-A caret in any other position 
+A caret in any other position
 is interpreted as an ordinary character.
 .TP
 .BI [\|] \|c\|.\|.\|.\| ]
 The right square bracket does not
 terminate the enclosed string if it is the first character
-(after an initial 
+(after an initial
 .RB ` \s+2^\s0 ',
 if any), in the bracketed string.  In this position it is
 treated as an ordinary character.
@@ -442,14 +442,14 @@ The
 is treated as an ordinary character if it occurs first (or first
 after an initial
 .BR \s+2^\s0 )
-or last in the string.  
+or last in the string.
 .TP
 .I d
 Delimiter character.
 The character used to delimit an
 .SM RE
-within a command is special for that command (for example, see how 
-.B / 
+within a command is special for that command (for example, see how
+.B /
 is used in the
 .B g
 command, below).
@@ -465,7 +465,7 @@ matches a concatenation of text strings, each of which
 is a match for a successive
 .SM RE
 in the search pattern.
-.TP 
+.TP
 .B *
 A single-character
 .SM RE\s0,
@@ -538,10 +538,10 @@ and
 matches whatever the unadorned
 .SM RE
 matches, but saves the
-string matched by the enclosed 
+string matched by the enclosed
 .SM RE
 in a numbered substring register.
-There can be up to nine such substrings in an 
+There can be up to nine such substrings in an
 .SM RE\s0,
 and
 parenthesis operators can be nested.
@@ -549,7 +549,7 @@ parenthesis operators can be nested.
 .BI \e n
 Match the contents of the
 .IR n th
-substring register from the current 
+substring register from the current
 .SM RE\s0.
 This provides a mechanism for extracting matched substrings.
 For example, the expression
@@ -558,15 +558,15 @@ matches a line consisting entirely of two adjacent non-null
 appearances of the same string.
 When nested parenthesized substrings are present,
 .I n
-is determined by counting occurrences of 
+is determined by counting occurrences of
 .B \e(
 starting from the left.
 .TP
 .B /\|/
-The null 
+The null
 .SM RE
 .RB ( /\|/ )
-is equivalent to the last 
+is equivalent to the last
 .SM RE encountered.
 .SS Commands
 .LP
@@ -582,7 +582,7 @@ and
 for
 .IR insert ,
 allow you to add new text to the buffer.  While accepting
-new text, 
+new text,
 .B ed
 is said to be in
 .IR "input mode" .
@@ -646,7 +646,7 @@ into the buffer after the addressed line.  The resulting current line is
 the last line of input, or the addressed line if no text is entered.
 Address
 .B 0
-is legal for this command, in which case the 
+is legal for this command, in which case the
 .I text
 is placed at the beginning of the buffer.
 The maximum number of characters per input line (from a
@@ -663,7 +663,7 @@ terminal) is 256, including the final
 Change lines.
 Delete the addressed lines, and then accept lines of
 .I text
-to replace them. 
+to replace them.
 .B c
 accepts one or two addresses;
 the default is the current line.  The resulting current line is the last
@@ -671,7 +671,7 @@ line of input, or the line preceding the deleted lines if no text is
 entered.
 .TP
 .RB \u\s-2( \|. \|, \|.\| )\s0\d\| d
-Delete the addressed lines from the buffer. 
+Delete the addressed lines from the buffer.
 .B d
 accepts one or two addresses;
 the default is the current line.  The resulting current line is
@@ -682,7 +682,7 @@ line.
 .BI e " filename"
 Edit a file.
 Delete the entire contents of the buffer, and then read in the named
-file.  The resulting current line is the last line of the buffer. 
+file.  The resulting current line is the last line of the buffer.
 .B e
 reports the number of characters read into the buffer, and sets
 .I filename
@@ -695,15 +695,15 @@ is given, the current filename, if any, is used
 .B f
 command, below).  If
 .I filename
-is replaced by a shell 
+is replaced by a shell
 .RB ( sh (1))
-command prefaced with a 
+command prefaced with a
 .RB ` ! ',
 the shell command is executed and its output is read into the
 buffer after the current line.
 Such a shell command is
 .I not
-used as the current filename. 
+used as the current filename.
 .B e
 displays a
 .B ?
@@ -750,11 +750,11 @@ for each matching line in succession,
 setting the current line to each in turn.
 .I command-list
 can contain a single command, or it can be continued across
-input lines, with one 
+input lines, with one
 .B ed
 command per line, by escaping all but the last
 .SM NEWLINE
-with a 
+with a
 .B \e
 character.  Operations that place
 .B ed
@@ -770,7 +770,7 @@ the final
 .RB ` . '
 terminating text input may be omitted if it is the
 last line of the
-.IR command-list . 
+.IR command-list .
 .BR g ,
 .BR G ,
 .BR v ,
@@ -783,7 +783,7 @@ permitted.  An empty
 is equivalent to the
 .B p
 command.
-.HP 
+.HP
 .RB \u\s-2( \|1 \|, \|$\|)\s0\d\|
 .BI G/ \s-1RE\s0 /
 .br
@@ -802,7 +802,7 @@ command (other than one of the
 .BR v ,
 and
 .B V
-commands) can be performed upon that line.  A 
+commands) can be performed upon that line.  A
 .SM NEWLINE
 acts as a null command; an
 .B &
@@ -812,11 +812,11 @@ Commands entered during execution of the
 command can address and affect lines other than the current line.
 The
 .B G
-command can be terminated by an interrupt (typically 
+command can be terminated by an interrupt (typically
 .SM CTRL-D\s0).
 .TP
 .B h
-Help. 
+Help.
 Display a short error message that explains
 the reason for the most recent
 .B ?
@@ -836,9 +836,9 @@ diagnostic, or automatically printing diagnostic messages as well.
 .B \&.
 Insert Text.
 .PD
-Insert the given 
+Insert the given
 .I text
-into the buffer, above the addressed line. 
+into the buffer, above the addressed line.
 .B i
 accepts one
 .IR address ;
@@ -849,12 +849,12 @@ before the addressed line.  This command differs from the
 command only in the placement of the input text;
 Address 0 is not allowed for this command.
 The maximum number of characters that may be entered from a
-terminal is 256 per line (including the 
+terminal is 256 per line (including the
 .SM NEWLINE
 character).
 .TP
 .RB \u\s-2( \|. \|, \|.+1 \|)\s0\d\| j
-Join Lines. 
+Join Lines.
 Remove the
 .SM NEWLINE
 character from between the two addressed lines.
@@ -868,8 +868,8 @@ Mark the addressed line with the name
 a lower-case letter.
 The address-form,
 .BI \(fm c\fR,
-addresses the line marked by 
-.IR c . 
+addresses the line marked by
+.IR c .
 .B k
 accepts one
 .IR address ;
@@ -885,7 +885,7 @@ and
 .SM BACKSPACE
 are represented by visually mnemonic overstrikes.
 All other nonprinting characters are
-shown in octal, with long lines folded. 
+shown in octal, with long lines folded.
 .B l
 accepts one or two addresses;
 the default is the current line.
@@ -907,7 +907,7 @@ Move addressed lines to just after
 Address 0 is legal, and moves the addressed line(s) to
 the beginning of the file.  An error results if
 .I address
-falls within the range of lines to move. 
+falls within the range of lines to move.
 .B m
 accepts two addresses
 to specify a range of lines to move; the default
@@ -916,9 +916,9 @@ moved lines.
 .TP
 .RB \u\s-2( \|. \|, \|. \|)\s0\d\| n
 Number the displayed lines.
-Print the addressed lines, preceding each with its line number and a 
-.SM TAB 
-character. 
+Print the addressed lines, preceding each with its line number and a
+.SM TAB
+character.
 .B n
 accepts one or two addresses;
 the default is the current line.  The resulting current line is
@@ -932,7 +932,7 @@ or
 .BR w .
 .TP
 .RB \u\s-2( \|. \|, \|. \|)\s0\d\| p
-Print the addressed lines. 
+Print the addressed lines.
 .B p
 accepts one or two addresses;
 the default is the current line.  The resulting current line is
@@ -946,7 +946,7 @@ or
 .BR w .
 For example,
 .B dp
-deletes the current line and prints the new 
+deletes the current line and prints the new
 current line.
 .TP
 .B P
@@ -1000,7 +1000,7 @@ commands).  The current filename is
 .I not
 altered; if there is no current filename,
 .I filename
-becomes the current filename. 
+becomes the current filename.
 .B r
 accepts one
 .IR address ;
@@ -1013,9 +1013,9 @@ If the read is successful, the number of characters read is typed.
 The resulting current line is the last line read in from the file.
 If
 .I filename
-is replaced by a shell 
+is replaced by a shell
 .RB ( sh (1))
-command prefaced with a 
+command prefaced with a
 .BR ! ,
 the shell command is executed and its output is read in.
 Such a shell command is
@@ -1037,7 +1037,7 @@ Substitute.
 Search each addressed line for the first occurrence of a string matching
 the specified
 .IR \s-1RE\s0 ,
-and replace it with 
+and replace it with
 .IR rs ,
 the replacement string.  If
 .B g
@@ -1056,16 +1056,16 @@ If a number
 .I n
 is appended, replace only the
 .IR n 'th
-occurrence of the matched string on each addressed line. 
+occurrence of the matched string on each addressed line.
 .B s
 accepts one or two addresses;
 the default is the current line.  The resulting current line is the
 last line on which a substitution is made.  An error results if
 .I \s-1RE\s0
 matches no strings in the addressed line or range.
-Any character (other than 
+Any character (other than
 .SM SPACE
-or 
+or
 .SM NEWLINE
 can be used instead of
 .B /
@@ -1077,9 +1077,9 @@ As with
 .SM RE\s0's
 in addresses, you can refer to the entire string matched by
 .I \s-1RE\s0
-with an 
+with an
 .RB ` & ';
-you can refer to parenthesized substrings within 
+you can refer to parenthesized substrings within
 .I \s-1RE\s0
 using
 .BR \e1 \|.\|.\|.\| \e\fIn.
@@ -1097,10 +1097,10 @@ loses its special meaning when it is
 in a replacement string of more than one
 character, or if it is preceded by a backslash.
 .IP
-A line may be split by substituting a 
+A line may be split by substituting a
 .SM NEWLINE
 character into it.
-The 
+The
 .SM NEWLINE
 in the
 .I replacement
@@ -1123,7 +1123,7 @@ just after the given
 (transfer) is like
 .B m
 (move), except that it copies of the lines,
-rather than moving them. 
+rather than moving them.
 .B t
 accepts two addresses preceding the operation letter, the current
 address is the default.  The resulting current line is the last
@@ -1150,7 +1150,7 @@ initially set to every line that does
 .I not
 match the
 .SM RE\s0.
-.HP 
+.HP
 .RB \u\s-2( \|1 \|, \|$ \|)\s0\d\|
 .BI V/ \s-1RE\s0
 .br
@@ -1160,7 +1160,7 @@ command, except that the lines selected are those that do
 .I not
 match the
 .IR \s-1RE\s0 .
-.HP 
+.HP
 .RB \u\s-2( \|1 \|, \|$ \|)\s0\d\|
 .BI w " filename"
 .br
@@ -1175,7 +1175,7 @@ altered; if there is no current filename, then
 .I filename
 becomes current.  If no
 .I filename
-is given, the current filename, if any, is used. 
+is given, the current filename, if any, is used.
 .B w
 accepts one or two addresses;
 the default is all lines in the file.  The current line is unchanged.
@@ -1183,9 +1183,9 @@ If the command is successful, the number of characters written is
 displayed.
 If
 .I filename
-is replaced by a shell 
+is replaced by a shell
 .RB ( sh (1))
-command prefaced with a 
+command prefaced with a
 .RB ` ! ',
 the shell command is executed with standard input taken from
 the addressed lines.  Such a shell command is
@@ -1207,7 +1207,7 @@ Subsequent
 .BR e ,
 .BR r ,
 and
-.B w 
+.B w
 commands encrypt and decrypt the text with this key (see
 .BR crypt (1)).
 An empty key turns off encryption.  Encryption can also be
@@ -1240,7 +1240,7 @@ The current line is unchanged.
 .TP
 .SB NEWLINE
 .PD
-An address, alone on a line, prints the addressed line.  A 
+An address, alone on a line, prints the addressed line.  A
 .SM NEWLINE
 alone is equivalent to
 .RB ` \&.+1p ',
@@ -1260,7 +1260,7 @@ command level.
 .SS File Format Specification Support
 .LP
 .B ed
-supports the 
+supports the
 .BR fspec (5)
 formatting capability for displaying lines.  When the first line of a
 file is a format specification of the form:
@@ -1272,9 +1272,9 @@ file is a format specification of the form:
 .LP
 where
 .I ts
-is the column number of a 
+is the column number of a
 .SM TAB
-stop and 
+stop and
 .I max
 is the maximum line length for display purposes, and with the
 terminal in
@@ -1283,10 +1283,10 @@ or
 .RB ` "stty tab3" '
 mode (see
 .BR stty (1V)
-for details), the indicated 
+for details), the indicated
 .SM TAB
 stops are used in displayed lines.
-While inserting text, however, 
+While inserting text, however,
 .SM TAB
 stops are set to every eighth
 column.
@@ -1318,7 +1318,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .SH FILES
@@ -1367,7 +1367,7 @@ When reading a file,
 discards
 .SM ASCII
 .SM NUL
-characters and all characters after the last 
+characters and all characters after the last
 .SM NEWLINE\s0.
 Files (such as executable images)
 that contain characters not in the
@@ -1386,7 +1386,7 @@ If the closing delimiter of an
 or of a
 replacement string (such as
 .BR / )
-would be the last character before a 
+would be the last character before a
 .SM NEWLINE\s0,
 that delimiter can be omitted, in which case the addressed line
 is printed.  The following pairs of commands are equivalent:
@@ -1419,7 +1419,7 @@ If changes have been made in the buffer since the last
 .B w
 command,
 .B ed
-issues a warning 
+issues a warning
 .B ?
 when a command is given that would destroy the buffers contents.
 A second
@@ -1446,7 +1446,7 @@ The sequence
 .B \en
 in an
 .SM RE
-does not match a 
+does not match a
 .SM NEWLINE
 character.
 .LP
@@ -1459,5 +1459,5 @@ The encryption facilities of
 are not available on software
 shipped outside the U.S.
 .LP
-If the editor input is coming from a command file, the editor exits at 
+If the editor input is coming from a command file, the editor exits at
 the first failure of a command in that file.

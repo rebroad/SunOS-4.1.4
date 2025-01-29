@@ -19,9 +19,9 @@ software installation option.  Refer to
 .TX INSTALL
 for information on how to install optional software.
 .SH DESCRIPTION
-.IX "tftp command" "" "\fLtftp\fR command"  
+.IX "tftp command" "" "\fLtftp\fR command"
 .IX files  transfer
-.IX "file transfer protocol"  "trivial, \fLtftp\fP command" 
+.IX "file transfer protocol"  "trivial, \fLtftp\fP command"
 .LP
 .B tftp
 is the user interface to the Internet

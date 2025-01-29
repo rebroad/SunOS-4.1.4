@@ -8,7 +8,7 @@ compress, uncompress, zcat \- compress or expand files, display expanded content
 [
 .B \-b
 .I bits
-] 
+]
 [
 .IR filename \&.\|.\|.
 ]
@@ -53,21 +53,21 @@ Huffman coding (as used in
 or adaptive Huffman coding
 .RB ( old-compact (1)),
 and takes less time to compute.
-The 
-.I bits 
+The
+.I bits
 parameter specified during compression is encoded within
 the compressed
 file, along with a magic number to ensure that neither
-decompression of 
+decompression of
 random data nor recompression of compressed data is subsequently
-allowed. 
+allowed.
 .LP
 Compressed files can be restored to their original form using
 .BR uncompress .
 .LP
-.B zcat 
+.B zcat
 produces uncompressed output on the standard output, but leaves
-the compressed 
+the compressed
 .B \&.\|Z
 file intact.
 .SH OPTIONS
@@ -189,7 +189,7 @@ The input remains uncompressed.
 Although compressed files are compatible between
 machines with large memory,
 .BR \-b 12
-should be used for file transfer to architectures with 
+should be used for file transfer to architectures with
 a small process data space (64KB or less).
 .LP
 .B compress

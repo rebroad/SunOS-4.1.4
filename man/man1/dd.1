@@ -22,28 +22,28 @@ physical I/O.
 Input file is taken from
 .IR name ;
 standard input is default.
-.TP 
+.TP
 .BI of= name
 Output file is taken from
 .IR name ;
-standard output is default.  Note: 
+standard output is default.  Note:
 .B dd
 creates an explicit output file; therefore the
 .B seek
 option is usually useless with explicit
 output except in special cases such as
 using magnetic tape or raw disk files.
-.TP 
+.TP
 .BI ibs= n
 Input block size
 .I n
 bytes (default 512).
-.TP 
+.TP
 .BI obs= n
 Output block size
 .I n
 bytes (default 512).
-.TP 
+.TP
 .BI bs= n
 Set both input and output block size, superseding
 .B ibs
@@ -53,10 +53,10 @@ also, if no conversion is specified,
 it is particularly efficient since
 no copy need be done.  Block sizes for the Sun386i are 9k for 3.5-inch
 floppy disks, and 126b (blocks) for quarter-inch tapes.
-.TP 
+.TP
 .BI cbs= n
 Conversion buffer size.
-.TP 
+.TP
 .BI skip= n
 Skip
 .IR n ""
@@ -67,7 +67,7 @@ Copy
 .I n
 input files before terminating (makes sense only
 when input is a magtape or similar device).
-.TP 
+.TP
 .BI seek= n
 Seek
 .I n
@@ -77,12 +77,12 @@ otherwise usually useless if the explicit output file
 was named with the
 .B of
 option.
-.TP 
+.TP
 .BI count= n
 Copy only
 .IR n ""
 input records.
-.TP 
+.TP
 .PD 0
 .B conv=ascii
 .ds h \h'\w'\fBconv='u'
@@ -231,21 +231,21 @@ corresponds better to certain
 .SM IBM
 print train conventions.  There is no universal solution.
 .LP
-The 
+The
 .B block
-and 
+and
 .B unblock
 options cannot be combined with the
 .BR ascii ,
 .B ebcdic
 or
 .BR ibm .
-Invalid combinations 
+Invalid combinations
 silently ignore all but the last mutually-exclusive keyword.
 .\"Not all combinations of \fBconv={\fIarg\fP\|,\fR .\|.\|.\|\fB}\fR
 .\"work.  Some are silently ignored; for example:
 .\".TP 15
-.\".B conv={ibm,block} 
+.\".B conv={ibm,block}
 .\"ignores the \fBibm\fP option.
 .\".TP 15
 .\".B conv={ibm,ebcdic,ascii},{block,unblock}

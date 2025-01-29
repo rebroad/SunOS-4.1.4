@@ -39,7 +39,7 @@ to indicate whether to add or remove a client.
 .I clientname
 is the hostname of the client.
 .I yp_type
-indicates the type of 
+indicates the type of
 .SM YP
 server or service to provide to the
 client, if any; it can be one of
@@ -53,16 +53,16 @@ is the number of bytes reserved for client's swap
 file.
 .I rootpath
 is the pathname of parent directory in which various client root
-directories reside; 
+directories reside;
 .IB rootpath / clientname
 is the pathname of the client's root directory.
 .I swappath
 is the pathname of parent directory in which various client swap files
-reside;  
+reside;
 .IB swappath / clientname
 is the pathname of the client's swap file.
 .I homepath
-is the pathname of the (parent) directory in which the various home 
+is the pathname of the (parent) directory in which the various home
 directories are to reside; it is the pathname of the directory
 that the client is to mount as
 .BR /home .
@@ -73,12 +73,12 @@ executables for the architecture specified by the
 argument.
 This is the directory that the client mounts as
 .BR /usr .
-.I arch 
-specifies the client's architecture (for instance, 
+.I arch
+specifies the client's architecture (for instance,
 .BR sun4 ,
 .BR sun3 .\|.\|.).
 .B setup_client
-with no arguments displays a usage message that includes the proper 
+with no arguments displays a usage message that includes the proper
 .I arch
 argument for each supported architecture.
 .SH USAGE
@@ -86,9 +86,9 @@ argument for each supported architecture.
 Before you add or remove a client, you must first make sure
 that the Internet and Ethernet addresses for
 .I clientname
-are listed in the 
+are listed in the
 .SM YP
-hosts database (if the server is running the 
+hosts database (if the server is running the
 \s-1YP\s0 name service), or
 in the server's
 .B /etc/hosts
@@ -115,15 +115,15 @@ results.
 updates the
 .B /etc/bootparams
 file.
-If the server is a 
-.SM YP 
-master, it updates local 
+If the server is a
+.SM YP
+master, it updates local
 .SM YP
 database.
 It
 .I does not
-propagate the local update to other 
-.SM YP 
+propagate the local update to other
+.SM YP
 servers.
 To propagate the
 updates, use the following commands:
@@ -137,9 +137,9 @@ example# make
 .RE
 .LP
 If the server is running the
-.SM YP 
-name service but is not a 
-.SM YP 
+.SM YP
+name service but is not a
+.SM YP
 master,
 .BR setup_client
 issues a warning to indicate that the database is out of date.

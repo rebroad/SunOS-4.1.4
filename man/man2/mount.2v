@@ -192,7 +192,7 @@ allocated address space.
 .SM EIO
 The UFS file system has been tuned to use contiguous blocks that are larger
 than the maximum block size than the device drivers can support.
-.TP 
+.TP
 .SM ELOOP
 Too many symbolic links were encountered in
 translating the path name of
@@ -291,14 +291,14 @@ A component of the path prefix of
 is not a directory.
 .TP
 .SM ENXIO
-The major device number of 
+The major device number of
 .I fspec
 is out of range (this indicates no device driver exists
 for the associated hardware).
 .SH SYSTEM V ERRORS
 .TP 20
 .SM EBUSY
-The device referred to by 
+The device referred to by
 .I spec
 is currently mounted.
 .IP

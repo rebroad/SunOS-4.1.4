@@ -30,12 +30,12 @@ for information on how to install optional software.
 copies the standard input to the standard output and performs
 line overlays implied by reverse
 .SM LINEFEED
-characters (\s-1ESC\s0\-7 in 
+characters (\s-1ESC\s0\-7 in
 .SM ASCII\s0)
 and by forward and reverse half
 .SM LINEFEED
-characters (\s-1ESC\s0\-9 and 
-.SM ESC\s0\-8).  
+characters (\s-1ESC\s0\-9 and
+.SM ESC\s0\-8).
 .B col
 is particularly
 useful for filtering multicolumn output made with the
@@ -46,18 +46,18 @@ and output resulting from use of the
 .BR tbl (1)
 preprocessor.
 .LP
-The control characters 
-.SM SO 
+The control characters
+.SM SO
 (\s-1ASCII
-code 017), and 
-.SM SI 
-(016) 
+code 017), and
+.SM SI
+(016)
 are assumed to start and end text in an alternate character set.
 The character set (primary or alternate) associated with each
-printing character read is remembered; on output, 
-.SM SO 
-and 
-.SM SI 
+printing character read is remembered; on output,
+.SM SO
+and
+.SM SI
 characters are generated
 where necessary to maintain the correct treatment of each character.
 .LP
@@ -66,12 +66,12 @@ All control characters are removed from the input except
 .SM BACKSPACE\s0,
 .SM TAB\s0,
 .SM RETURN\s0,
-.SM NEWLINE\s0, 
-.SM ESC 
-(033) followed by one of 7, 8, 9, 
-.SM SI , 
-.SM SO , 
-and 
+.SM NEWLINE\s0,
+.SM ESC
+(033) followed by one of 7, 8, 9,
+.SM SI ,
+.SM SO ,
+and
 .SM VT
 (013).  This last character is an alternate form of
 full reverse
@@ -120,17 +120,17 @@ Pass escape-sequences that
 .B col
 does not know about to the output,
 rather than stripping them out.
-This option is highly discouraged unless 
+This option is highly discouraged unless
 you are fully aware of the position of the escape
 sequences within the text.
-.SH SYSTEM V OPTIONS 
+.SH SYSTEM V OPTIONS
 .TP
 .B \-x
 Suppress converting
 .SM SPACE
 characters to
 .SM TAB
-characters.  
+characters.
 .SH ENVIRONMENT
 .LP
 The environment variables
@@ -159,7 +159,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .SH "SEE ALSO"

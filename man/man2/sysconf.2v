@@ -37,7 +37,7 @@ The convention used throughout sections 2 and 3 is that
 means that
 .SM LIMIT
 is something that
-can change from system to system and applications that 
+can change from system to system and applications that
 want accurate values need to call
 .BR sysconf(\|) .
 These values are things that have been historically available in
@@ -77,13 +77,13 @@ Name	Meaning
 \s-1{ARG_MAX}\s0	Max combined size of \fBargv[\|]\fP & \fBenvp[\|]\fR.
 \s-1{CHILD_MAX}\s0	Max processes allowed to any \s-1UID\s0.
 \s-1{CLK_TCK}\s0	Ticks per second (\fBclock_t\fR).
-\s-1{NGROUPS_MAX}\s0	Max simultaneous groups one may 
+\s-1{NGROUPS_MAX}\s0	Max simultaneous groups one may
 	belong to.
 \s-1{OPEN_MAX}\s0	Max open files per process.
 \s-1{_POSIX_JOB_CONTROL}\s0	Job control supported (boolean).
-\s-1{_POSIX_SAVED_IDS}\s0	Saved ids (\fBseteuid(\|)\fR) supported 
+\s-1{_POSIX_SAVED_IDS}\s0	Saved ids (\fBseteuid(\|)\fR) supported
 	(boolean).
-\s-1{_POSIX_VERSION}\s0	Version of the \s-1POSIX.1\s0 standard 
+\s-1{_POSIX_VERSION}\s0	Version of the \s-1POSIX.1\s0 standard
 	supported.
 .TE
 .RE
@@ -127,8 +127,8 @@ to indicate the error.
 .SH ERRORS
 .TP 15
 .SM EINVAL
-The value of 
-.I name 
+The value of
+.I name
 is invalid.
 .\".SH SEE ALSO
 .\".BR getrlimit (2)

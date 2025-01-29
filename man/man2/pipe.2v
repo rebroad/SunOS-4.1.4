@@ -68,10 +68,10 @@ signal is generated if a write on a pipe with only one end is attempted.
 .LP
 Upon successful completion,
 .B pipe(\|)
-marks for update the 
+marks for update the
 .BR st_atime ,
 .BR st_ctime ,
-and 
+and
 .B st_mtime
 fields of the pipe.
 .SH RETURN VALUES

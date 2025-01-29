@@ -35,7 +35,7 @@ m4 \- macro language processor
 .BI \-U name
 ]
 [
-.I filename 
+.I filename
 ].\|.\|.
 .SH AVAILABILITY
 .LP
@@ -322,7 +322,7 @@ Additional operators include
 bitwise
 .RB ` & ',
 .RB ` \(bv ',
-.RB ` ^ ' 
+.RB ` ^ '
 and
 .RB ` ~ '.
 Octal, decimal and hex numbers may be specified as in C.
@@ -413,7 +413,7 @@ anywhere else.
 .\".br
 .\"Is there a better way to phrase "anywhere else"?
 .\".br
-The 
+The
 .BR cc (1V)
 command does not generate or support 8-bit symbol names
 because, until

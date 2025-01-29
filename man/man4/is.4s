@@ -22,7 +22,7 @@ channel		is4	at isc4 ipi_addr 0x00400	# channel 0 slave 4
 .LP
 The first four
 .B controller
-and 
+and
 .B channel
 lines given in the synopsis section above correspond to
 the first, second, third, and fourth
@@ -39,7 +39,7 @@ This driver, the
 .B is
 driver, presents a generic
 .SM IPI\s0-3
-interface to the 
+interface to the
 .B id
 driver, which handles the controller as if it were a channel-attached
 .SM IPI\s0-3
@@ -51,8 +51,8 @@ The
 .B csr
 value gives the
 .SM VME
-address of the controller. 
-The 
+address of the controller.
+The
 .B ipi_addr
 field gives the 3-byte channel, slave, and facility address supported
 by the controller; the facility address portion is ignored and should
@@ -60,7 +60,7 @@ be specified as zero.
 .SH SEE ALSO
 .BR id (4S)
 .SH DIAGNOSTICS
-.TP 
+.TP
 .B "isc\fIn\fP: channel reset timed out"
 The probe routine, called during system initialization, determined that
 the controller reset, initiated by the boot, had not completed in the
@@ -74,7 +74,7 @@ The specified address contained a slave address larger than 7.
 The configuration did not specify an interrupt vector for the controller.
 .TP
 .B "is\fIn\fP: refnum lookup on success failed.  refnum \fIrefnum\fP"
-A completion interrupt occurred for a command which was unknown to the 
+A completion interrupt occurred for a command which was unknown to the
 controller.
 The interrupt is ignored.
 .TP
@@ -92,7 +92,7 @@ for this controller,
 .B "is\fIn\fP: is_reset_slave: resetting slave"
 The driver is resetting the controller under  direction
 from  the
-.B id 
+.B id
 disk driver.
 This occurs during recovery
 from timed out requests, also known as missing interrupts.

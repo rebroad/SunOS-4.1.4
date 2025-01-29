@@ -14,7 +14,7 @@ registerrpc, svc_register, svc_unregister, xprt_register, xprt_unregister \- lib
 .IX "xprt_register()" "" "\fLxprt_register()\fP \(em register servers"
 .IX "xprt_unregister()" "" "\fLxprt_unregister()\fP \(em register servers"
 .LP
-These routines are a part of the 
+These routines are a part of the
 .SM RPC
 library which allows the
 .SM RPC
@@ -72,7 +72,7 @@ is used to encode the results.
 This routine returns 0 if the registration succeeded, \-1
 otherwise.
 .IP
-Warning: 
+Warning:
 Remote procedures registered in this form
 are accessed using the
 .SM UDP/IP
@@ -136,9 +136,9 @@ struct svc_req *request;
 .IP
 The
 .B svc_register(\|)
-routine returns 
+routine returns
 .SM TRUE
-if it succeeds, and 
+if it succeeds, and
 .SM FALSE
 otherwise.
 .br

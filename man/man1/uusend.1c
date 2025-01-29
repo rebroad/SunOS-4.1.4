@@ -46,7 +46,7 @@ name is used.
 .LP
 The source file can be
 .RB ` \- ',
-meaning to use the standard input. 
+meaning to use the standard input.
 These options are primarily intended for internal use of
 .BR uusend .
 .LP

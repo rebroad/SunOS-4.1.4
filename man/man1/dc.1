@@ -1,4 +1,4 @@
-.\" @(#)dc.1 1.1 94/10/31 SMI; 
+.\" @(#)dc.1 1.1 94/10/31 SMI;
 .TH DC 1 "23 September 1987"
 .SH NAME
 dc \- desk calculator
@@ -35,7 +35,7 @@ The following input constructs are recognized:
 .I number
 Push a number onto the stack.
 A number is an unbroken string of the digits 0-9.
-It may be preceded by an underscore 
+It may be preceded by an underscore
 .RB ` _ '
 to input a negative number, and may contain decimal points.
 .HP 10
@@ -92,7 +92,7 @@ Duplicate the top value on the stack.
 Print the top value on the stack.
 The top value remains unchanged.
 .TP
-.B P 
+.B P
 Interpret the top of the stack as an
 .SM ASCII
 string, remove and print it.
@@ -118,10 +118,10 @@ commands.
 Replace the number on the top of the stack with its scale factor.
 .TP
 .BR  [ \|.\|.\|. \|]
-Put the bracketed 
+Put the bracketed
 .SM ASCII
 string onto the top of the stack.
-.TP 
+.TP
 .BI < x "  >" x "  =" \|x
 Pop and compare top two elements of the stack.
 Execute register
@@ -175,7 +175,7 @@ Take a line of input from the input source (usually the terminal)
 and execute it.
 .TP
 .B "; :"
-Used by 
+Used by
 .BR bc
 for array operations.
 .SH EXAMPLE

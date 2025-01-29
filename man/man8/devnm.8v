@@ -15,7 +15,7 @@ for information on how to install optional software.
 .IX "devnm command" "" "\fLdevnm\fP command"
 .B devnm
 identifies the special file associated with the mounted file system
-where each 
+where each
 .I name
 argument resides.
 This command can be used to construct a mount table entry for the
@@ -25,7 +25,7 @@ file system.
 If
 .B /usr
 is mounted on
-.BR /dev/dsk/c1d0s2 , 
+.BR /dev/dsk/c1d0s2 ,
 then the command:
 .RS
 .B /usr/etc/devnm /usr

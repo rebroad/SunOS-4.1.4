@@ -65,7 +65,7 @@ of all symbols (auto, static,
 and global) in each file separately, or with the
 .B \-c
 option, in combination.
-Each symbol 
+Each symbol
 contains an asterisk
 .B (\(**)
 before the declaring reference.
@@ -74,8 +74,8 @@ The System V version of
 .BR cxref ,
 run as
 .BR /usr/5bin/cxref ,
-makes the 
-.B C 
+makes the
+.B C
 preprocessor search for include files in
 .B /usr/5include
 before searching for them in

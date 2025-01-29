@@ -18,15 +18,15 @@ is the same as for the
 file described in
 .BR passwd (5).
 .LP
-The text file for the 
+The text file for the
 .SM NIS
 password map is stored in the
 .B /etc/passwd
-file on the 
+file on the
 .SM NIS
 master of an
 .SM NIS
-domain. 
+domain.
 Other systems in a domain can also have a local
 .B /etc/passwd
 file.
@@ -34,7 +34,7 @@ The local file is accessed first by programs such as
 .BR passwd (1),
 and if it contains a line beginning with the character
 .RB ` + ',
-the 
+the
 .SM NIS
 map will be accessed.
 .LP
@@ -42,7 +42,7 @@ The local
 .B /etc/passwd
 file can specify users that are not available on a
 network-wide basis.
-This implies that the 
+This implies that the
 .SM NIS
 master cannot use the local
 .B /etc/passwd
@@ -50,7 +50,7 @@ file to specify users that are to be
 known only to the local system.
 Sun386i systems allow the
 .BR /etc/passwd
-file on the 
+file on the
 .SM NIS
 master to be used locally, creating the
 .SM NIS

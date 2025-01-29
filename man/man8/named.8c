@@ -41,7 +41,7 @@ Print debugging information.
 is a number indicating the level of messages printed.
 .TP
 .BI \-p " port"
-Use 
+Use
 .I port
 as the port number, rather than the standard port number.
 .TP
@@ -117,7 +117,7 @@ The master file consists of entries of the form:
 .BI < domain >
 .BI < opt_ttl >
 .BI < opt_class >
-.BI < type > 
+.BI < type >
 .BI < resource_record_data >
 .br
 .RE

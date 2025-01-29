@@ -28,20 +28,20 @@ gpconfig \- initialize the VME Graphics Processor or SBus GS graphics accelerato
 .IX "GS, initialize graphics accelerator \(em \fLgpconfig\fR"
 .LP
 .B gpconfig
-binds a 
+binds a
 .SM VME
 color frame buffer (either the
 .BR cgtwo (4S)
 or
 .BR cgnine (4S))
 to the
-.SM VME 
+.SM VME
 .SM GP
 (Graphics Processor),
 then loads and starts the appropriate microcode in the
 .SM GP\s0.
 .LP
-.B gpconfig 
+.B gpconfig
 also loads and starts the appropriate microcode in the SBus
 .SM GS
 .\" What does GS stand for?
@@ -53,10 +53,10 @@ For example, the command line:
 .IP
 .B "/usr/etc/gpconfig gpone0  cgtwo0"
 .LP
-binds the 
+binds the
 .SM VME
 .B cgtwo0
-frame buffer board to the 
+frame buffer board to the
 .SM VME
 .B gpone0
 Graphics Processor.
@@ -67,7 +67,7 @@ then refers to the combination of
 and
 .BR cgtwo0 .
 .LP
-All 
+All
 .SM VME
 frame buffer boards bound to a
 .SM VME
@@ -88,7 +88,7 @@ systems, this binds
 .B gpone0
 and either
 .B cgtwo0
-or 
+or
 .B cgnine0
 as
 .BR gpone0a ,
@@ -99,7 +99,7 @@ to use the specified frame buffer if it is present, redirects
 to be
 .B /dev/gpone0a
 and loads and starts the appropriate microcode.
-.LP 
+.LP
 For SBus systems, this loads and starts the appropriate microcode.
 .LP
 If another configuration is desired, edit the command line in
@@ -150,7 +150,7 @@ For SBus systems, the default
 .I fbunit
 is
 .BR /dev/cgtwelve0 .
-There is no 
+There is no
 .IR gpunit .
 A
 .I gpunit
@@ -169,9 +169,9 @@ Only one
 device, two
 .SM GP+
 devices, and four
-.SM GP2 
+.SM GP2
 devices may be bound to a frame buffer at a single time.
-Note:  this option has no effect on the SBus 
+Note:  this option has no effect on the SBus
 .SM GS
 .BR cgtwelve (4S)
 device.
@@ -186,7 +186,7 @@ with
 Only the last
 .B \-f
 option in the command line takes effect.
-Note:  this option has no effect on the SBus 
+Note:  this option has no effect on the SBus
 .SM GS
 .BR cgtwelve (4S)
 device.

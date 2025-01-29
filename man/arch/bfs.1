@@ -9,11 +9,11 @@ bfs \- big file scanner
 .SH DESCRIPTION
 .IX "bfs command" "" "\fLbfs\fP \(em scan big file"
 .I bfs
-allows you to scan through large files using 
+allows you to scan through large files using
 line addresses similar to those for
 .IR ed (1).
 .I bfs
-is read-only and processes 
+is read-only and processes
 files as large as 1024K bytes, or
 32K lines with up to 512 characters each, including the newline.
 .I bfs
@@ -70,7 +70,7 @@ and the null command operate as described in
 .IR ed (1).
 Commands such as \fB\-\-\-\fP, \fB+++\-\fP,
 \fB+++=\fP, \fB\-12\fP, and \fB+4p\fP are accepted.
-Note that \fB1,10p\fP and \fB1,10\fP both print 
+Note that \fB1,10p\fP and \fB1,10\fP both print
 the first ten lines.
 .TP .85i
 .BR P " \s-1RETURN\s0"
@@ -80,18 +80,18 @@ and display of error messages.
 .TP
 .B f
 print the name of the file being scanned;
-there is no 
+there is no
 .I remembered\^
 file name.
 .TP
 .B w
-command is similar to that of 
-.IR ed (1), 
+command is similar to that of
+.IR ed (1),
 but is independent of output diversion, truncation, or crunching
 (see the
 .BR xo , \ xt \ and \ xc
 commands, below).
-.TP 
+.TP
 .BI xf " file"\^
 Further commands are taken from the named
 .IR file .
@@ -108,7 +108,7 @@ commands may be nested to a depth of 10.
 List the marks currently in use (marks are set by the
 .B k
 command).
-.TP 
+.TP
 .BI xo " \fR[\|\fPfile\fR\|]\fP"\^
 Further output from the
 .B p
@@ -121,7 +121,7 @@ If
 is missing, output is diverted to the standard output.
 Note that each diversion causes truncation
 or creation of the file.
-.TP 
+.TP
 .BI : " label"
 This positions a
 .I label
@@ -130,35 +130,35 @@ The
 .I label
 is terminated by newline.  Blanks between the
 .B :
-and the start of 
+and the start of
 .I label
 are ignored.
 This command may also be used to insert comments
 into a command file, since labels need not be referenced.
-.TP 
+.TP
 ( \fB. \fR, \fB. \fR)\fBxb/\fIregular expression\fB/\fIlabel\fR
 Jump to \fIlabel\fP if the command succeeds.
 It fails under any of the following conditions:
-.RS 
+.RS
 .PD 0
 .TP
-1. 
+1.
 Either address is not between
 .B 1
 and
 .BR $ .
 .TP
-2. 
+2.
 The second address is less than the first.
 .TP
-3. 
+3.
 The regular expression does not match at least one line
 in the specified range, including the first and last lines.
 .RE
 .IP
-This command does not issue an error message on bad addresses. 
+This command does not issue an error message on bad addresses.
 Note that the command
-.RS 
+.RS
 .IP
 xb/^/ label
 .RE
@@ -191,11 +191,11 @@ following the \fBxv\fP.
 .RS
 The commands
 .IP
-\fBxv5100\fP 
+\fBxv5100\fP
 .LP
-and 
+and
 .IP
-\fBxv5 100p\fP 
+\fBxv5 100p\fP
 assign the value \fB100\fP to the variable
 .BR 5 ,
 and the value \fB100p\fP to the variable
@@ -207,11 +207,11 @@ To express a variable's value, prepend a
 to the variable name.
 For example, using the above assignments
 for variables \fB5\fP and \fB6\fP:
-.RS 
+.RS
 1,%5p
-.br 
+.br
 1,%5p
-.br 
+.br
 %6
 .RE
 .LP
@@ -227,21 +227,21 @@ requirement is that the first character of
 be a
 \fB!\fP.
 For example:
-.RS 
+.RS
 \fB\&.\fRw junk
 .br
 xv5!cat junk
-.br 
+.br
 !rm junk
 .RE
 .IP
-To include 
+To include
 .B !
 as the first character of
 .IR value ,
 precede it with a
 \fB\e\fP.
-.RS 
+.RS
 .IP
 xv7\e!date
 .RE
@@ -261,32 +261,32 @@ system command
 (\fB!\fIcommand\^\fR)
 or nonzero value, respectively, to the
 specified label.
-The two examples below both 
+The two examples below both
 search for the next five lines containing
 the string \fBsize\fP.
-.RS 
+.RS
 xv55
-.br 
+.br
 : l
-.br 
+.br
 /size/
-.br 
+.br
 xv5!expr %5 \- 1
-.br 
+.br
 !if 0%5 != 0 exit 2
-.br 
+.br
 xbn l
 .br
 xv45
-.br 
+.br
 : l
-.br 
+.br
 /size/
-.br 
+.br
 xv4!expr %4 \- 1
-.br 
+.br
 !if 0%4 = 0 exit 2
-.br 
+.br
 xbz l
 .br
 .RE

@@ -14,10 +14,10 @@ inline \- in-line procedure call expander
 .RI [ " fpu-option " ]
 .IR filename .\|.\|.
 .SH DESCRIPTION
-.IX "inline command" "" "\fLinline\fR command" 
+.IX "inline command" "" "\fLinline\fR command"
 .IX "expand assembly-language calls in-line, \fLinline\fP"
 .IX "procedure calls, assembler, expand in-line, \fLinline\fP"
-.LP 
+.LP
 .B inline
 expands assembly language calls in the indicated source files
 into copies of the corresponding procedure bodies obtained from an
@@ -25,7 +25,7 @@ into copies of the corresponding procedure bodies obtained from an
 specified with the
 .B \-i
 option.
-If no 
+If no
 .I inlinefile
 is specified, the
 source files are simply concatenated and written to the standard
@@ -37,7 +37,7 @@ the benefit produced is derived from subsequent peephole
 optimization.
 .SH OPTIONS
 .TP
-.B \-w 
+.B \-w
 Display warnings for duplicate definitions on the standard error.
 .TP
 .B \-v
@@ -48,7 +48,7 @@ in-line expanded in the sourcefile on the standard error.
 write output to the indicated file; standard output by default.
 .TP
 .BI \-i " inlinefile"
-Read in-line code templates from 
+Read in-line code templates from
 .IR inlinefile .
 .TP
 .I cpu-option
@@ -105,7 +105,7 @@ only)
 .TP
 .B \-ffpa
 expand
-.B .ffpa 
+.B .ffpa
 code templates
 .RB ( \-mc68020
 only)
@@ -113,7 +113,7 @@ only)
 .RE
 .RE
 .SH USAGE
-Each 
+Each
 .I inlinefile
 contains one or more labeled assembly language templates of the form:
 .RS
@@ -199,14 +199,14 @@ In-line templates should be coded as expansions of C-compatible
 procedure calls,
 with the difference that the return address cannot be depended
 upon to be in the expected place, since no call instruction will
-have been executed.  See 
+have been executed.  See
 .SM FILES,
 below, for examples.
 .LP
 In-line templates must conform to standard Sun parameter passing
 and register usage conventions, as detailed below.  They must
 not call routines that violate these conventions; for example,
-assembly language routines such as 
+assembly language routines such as
 .BR setjmp (3V)
 may cause problems.
 .LP
@@ -214,7 +214,7 @@ Registers other than the ones mentioned below must not be
 used or set.
 .LP
 Branch instructions in an in-line template may only transfer
-to numeric labels 
+to numeric labels
 .RB ( 1f ,
 .BR 2b ,
 and so on) defined within the in-line
@@ -263,7 +263,7 @@ on the Sun Floating-Point Accelerator.  No other registers may be used.
 The template must delete exactly
 .I argsize
 bytes from the
-stack.  This is to enable 
+stack.  This is to enable
 .B inline
 to deal with autoincrement and
 autodecrement addressing modes, which in turn are used by
@@ -276,7 +276,7 @@ Use
 .BI j cc
 branch mnemonics instead of
 .BI b cc.
-The 
+The
 .BI b cc
 ops are span limited and will fail if retargeted to a label whose
 span overflows the branch displacement field.

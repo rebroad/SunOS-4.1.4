@@ -40,7 +40,7 @@ sets the 4 megabyte process memory flag in each
 .I filename
 program image,
 limiting the virtual address space for each program to 4 megabytes.
-If a 
+If a
 .RB ` \- '
 is used,
 .B set4
@@ -146,7 +146,7 @@ a child has the parent's data and stack limits.
 During this time, the
 program is checked to see if it will fit into memory.
 If the parent had the 4 megabyte limit set, the test fails, because the
-child program is running with the parent's 4 megabyte limit. 
+child program is running with the parent's 4 megabyte limit.
 This only affects programs which have more than 4 megabytes
 of global or static data compiled into the program.
 It does not affect programs which use

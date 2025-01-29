@@ -6,14 +6,14 @@ awk \- pattern scanning and processing language
 .B awk
 [
 .BI \-f " program-file"
-] 
+]
 [
 .BI \-F c
-] 
-[ 
+]
+[
 .I program
-] 
-[ 
+]
+[
 .IB variable = value
 \&\.\|.\|. ]
 [
@@ -35,12 +35,12 @@ The filename
 .RB ` \- '
 means the standard input.
 .LP
-The set of patterns may either appear literally on 
+The set of patterns may either appear literally on
 the command line as
 .IR program ,
 or, by using the
 .RB ` "\-f \fIprogram-file\fP" '
-option, the set of patterns may be in a 
+option, the set of patterns may be in a
 .IR program-file ;
 a
 .I program-file
@@ -68,13 +68,13 @@ before the first record of the next
 .I filename
 argument is read.
 .LP
-With each pattern in 
+With each pattern in
 .I program
 there can be an associated action
-that will be performed when a line of a 
+that will be performed when a line of a
 .I filename
 matches the pattern.
-See the discussion below for the format of input lines and the 
+See the discussion below for the format of input lines and the
 .B awk
 language.  Each line in each input
 .I filename
@@ -84,16 +84,16 @@ the associated action is performed for each matched pattern.
 .LP
 .TP
 .BI \-f " program-file"
-Use the contents of 
+Use the contents of
 .I program-file
-as the source for the 
+as the source for the
 .IR program .
 .TP
 .BI \-F c
-Use the character 
+Use the character
 .I c
 as the field separator (\s-1FS\s0) character.  See
-the discussion of 
+the discussion of
 .SM FS
 below.
 .SH USAGE
@@ -117,18 +117,18 @@ A pattern-action statement has the form
 .RS
 .IB pattern " { " action " }"
 .RE
-A missing 
+A missing
 .I action
-means copy the line to the output; a missing 
+means copy the line to the output; a missing
 .I pattern
 always matches.
 .SS Action Statements
 .LP
-An 
+An
 .I action
-is a sequence of 
+is a sequence of
 .IR statement s.
-A 
+A
 .I statement
 can be one of the following:
 .RS
@@ -140,7 +140,7 @@ can be one of the following:
 .TP
 \fBfor (\fR \fIexpression\fR \fB;\fR \fIconditional\fR \fB;\fR \fIexpression\fR \fB)\fR \fIstatement\fR
 .TP
-.B break 
+.B break
 .TP
 .B continue
 .TP
@@ -153,7 +153,7 @@ can be one of the following:
 \fBSprintf\fR \fIformat\fR [ \fB,\fR \fIexpression-list\fR ] [ \fB> \fIexpression\fR ]
 .TP
 .B next
-skip remaining patterns on this input line 
+skip remaining patterns on this input line
 .TP
 .B exit
 skip the rest of the input
@@ -162,10 +162,10 @@ skip the rest of the input
 .SS Format of the awk Language
 .LP
 .IR statement s
-are terminated by semicolons, 
+are terminated by semicolons,
 .SM NEWLINE
 characters or right braces.
-An empty 
+An empty
 .I expression-list
 stands for the whole line.
 .LP
@@ -190,7 +190,7 @@ and
 are also available in expressions.
 .LP
 .I variable
-may be scalars, array elements (denoted 
+may be scalars, array elements (denoted
 .IB x " [ " i
 .BR ] )
 or fields.  Variables are initialized to the null string.
@@ -198,34 +198,34 @@ Array subscripts may be any string, not necessarily numeric,
 providing a form of associative memory.
 String constants are quoted \fB"\fR.\|.\|. \fB"\fR.
 .LP
-The 
+The
 .B print
 statement prints its arguments on the standard output
-(or on a file if 
+(or on a file if
 .BI > filename
 is present), separated by the current output field separator,
 and terminated by the output record separator.
-The 
+The
 .B printf
 statement formats its expression list according to the
-format template 
+format template
 .I format
 (see
 .BR printf (3V)
 for a description of the formatting control characters).
 .SS Built In Functions
 .LP
-The built-in function 
+The built-in function
 .B length
 returns the length of its argument
 taken as a string, or of the whole line if no argument.
-There are also built-in functions 
+There are also built-in functions
 .BR exp ,
 .BR log ,
 .BR sqrt ,
 and
 .BR int ,
-where 
+where
 .B int
 truncates its argument to an integer.
 .RB ` substr(
@@ -233,9 +233,9 @@ truncates its argument to an integer.
 .IB m ,
 .I n
 .BR ) '
-returns the 
+returns the
 .IR n -character
-substring of 
+substring of
 .I s
 that begins at position
 .IR m .
@@ -246,7 +246,7 @@ that begins at position
 .RB \|.\|.\|. ) '
 formats the expressions according to the
 .BR printf
-format given by 
+format given by
 .IR format ,
 and returns the resulting string.
 .SS Patterns
@@ -275,13 +275,13 @@ A relational expression is one of the following:
 expression matchop regular-expression
 expression relop expression
 .ft R
-.fi 
+.fi
 .RE
 .LP
-where a 
+where a
 .I relop
 is any of the six relational operators in C,
-and a 
+and a
 .I matchop
 is either
 .B ~
@@ -304,7 +304,7 @@ input line is read, in which case
 must be the last pattern.
 .SS Special Variable Names
 .LP
-A single character 
+A single character
 .I c
 may be used to separate the fields by starting
 the program with
@@ -316,7 +316,7 @@ or by using the
 option.
 .LP
 Other variable names with special meanings
-include 
+include
 .BR \s-1NF\s0 ,
 the number of fields in the current record;
 .BR \s-1NR\s0 ,
@@ -326,7 +326,7 @@ the name of the current input file;
 .BR \s-1OFS\s0 ,
 the output field separator (default blank);
 .BR \s-1ORS\s0 ,
-the output record separator (default 
+the output record separator (default
 .SM NEWLINE\s0);
 and
 .BR \s-1OFMT\s0 ,
@@ -420,11 +420,11 @@ workaround is to use the
 (see
 .BR printf (3V))
 function to store the character
-into a variable by its 
+into a variable by its
 .SM ASCII
 sequence.
 .IP
-.ft B 
+.ft B
 dq = sprintf("%c", 34)
 .LP
 Syntax errors result in the cryptic message

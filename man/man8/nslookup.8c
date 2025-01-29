@@ -36,7 +36,7 @@ Use the name server on the host machine
 with the given Internet address.
 .SH USAGE
 .SS Overview
-The Internet domain name-space is tree-structured, with 
+The Internet domain name-space is tree-structured, with
 top-level domains such as:
 .RS
 .TP

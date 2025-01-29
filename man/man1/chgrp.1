@@ -12,7 +12,7 @@ chgrp \- change the group ownership of a file
 .B \-f
 ] [
 .B \-R
-] 
+]
 .IR "groupfilename" .\|.\|.
 .SH DESCRIPTION
 .IX  chgrp  ""  "\fLchgrp\fP \(em change group ID of file"
@@ -26,11 +26,11 @@ of the
 .IR filename s
 given as arguments to
 .IR group .
-The group may be either a decimal 
-.SM GID 
+The group may be either a decimal
+.SM GID
 or a group name found in the
 .SM GID
-file, 
+file,
 .BR /etc/group .
 .LP
 You must belong to the specified group and be the owner of the
@@ -39,14 +39,14 @@ or be the super-user.
 .SH OPTIONS
 .TP
 .B \-f
-Force.  Do not report errors. 
+Force.  Do not report errors.
 .TP
 .B \-R
 Recursive.
 .B chgrp
 descends through
 the directory, and any subdirectories,
-setting the specified 
+setting the specified
 .SM GID
 as it proceeds.
 When symbolic links are encountered, their group is changed,

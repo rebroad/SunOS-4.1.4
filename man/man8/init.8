@@ -19,23 +19,23 @@ init \- process control initialization
 is invoked inside
 the operating system as the last step in the boot procedure.
 It normally runs the sequence of commands in the script
-.B /etc/rc.boot 
+.B /etc/rc.boot
 (see
 .BR rc (8))
-to check the file system.  If passed the 
+to check the file system.  If passed the
 .B \-b
-option from the boot program, 
+option from the boot program,
 .B init
 skips this step.
-If the file system check succeeds or is skipped, 
+If the file system check succeeds or is skipped,
 .B init
 runs the commands in
 .B /etc/rc
-and 
+and
 .B /etc/rc.local
-to begin multiuser operation; otherwise it commences single-user 
-operation by giving the super-user a shell on the console.  It is 
-possible to pass the 
+to begin multiuser operation; otherwise it commences single-user
+operation by giving the super-user a shell on the console.  It is
+possible to pass the
 .B \-s
 parameter from the boot program to
 .B init
@@ -58,12 +58,12 @@ as determined by
 or the console terminal is not labeled \*(lqsecure\*(rq in
 .BR /etc/ttytab .
 .LP
-Whenever single-user operation is terminated (for instance by killing 
+Whenever single-user operation is terminated (for instance by killing
 the single-user shell)
 .B init
 runs the scripts mentioned above.
 .PP
-In multi-user operation, 
+In multi-user operation,
 .BR init 's
 role is to create a process for each
 terminal port on which a user may log in.

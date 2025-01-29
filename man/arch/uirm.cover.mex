@@ -1,4 +1,4 @@
-.\" @(#)uirm.cover.mex 1.1 94/10/31 SMI; 
+.\" @(#)uirm.cover.mex 1.1 94/10/31 SMI;
 .DN "UNIX Interface Reference Manual"
 .PA 800-1752-02
 .RV "Revision 1 of 5 August 1987"
@@ -20,6 +20,6 @@ System V are trademarks of AT&T Bell Laboratories.
 .LP
 Intel\(rg and Multibus\(rg are registered trademarks of Intel Corporation.
 .LP
-DEC\(rg, PDP\(rg, VT\(rg, and VAX\(rg 
+DEC\(rg, PDP\(rg, VT\(rg, and VAX\(rg
 are registered trademarks of Digital Equipment Corporation.
 .bp

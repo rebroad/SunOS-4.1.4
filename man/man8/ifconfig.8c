@@ -97,7 +97,7 @@ parameter is a string of the form
 .IR "name\^unit" ,
 for example
 .B le0
-or 
+or
 .BR ie1 .
 Three special interface names,
 .BR \-a ,
@@ -137,7 +137,7 @@ family
 the address is either a host name present in the host name data
 base (see
 .BR hosts (5))
-or in the 
+or in the
 Network Information Service
 (\s-1NIS\s0)
 map
@@ -269,7 +269,7 @@ then the network number is looked up in the
 map
 (or in the
 .BR /etc/netmasks )
-file if not running the 
+file if not running the
 .SM NIS
 service.
 .TP
@@ -342,6 +342,6 @@ tried to alter an interface's configuration.
 The network information service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

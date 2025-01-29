@@ -26,7 +26,7 @@ master server.
 is used only by
 .SM SNAP\s0,
 and contains basic information about each printer,
-terminal, and modem on the network. 
+terminal, and modem on the network.
 This file contains a one-line entry for each device,
 and each field
 .I must
@@ -65,13 +65,13 @@ bus serial card.
 .I type
 .BR printer ,
 .BR terminal ,
-or 
+or
 .BR modem .
 .TP
 .I status
 indicates the device status.
 For terminals and printers, this can be
-.B on 
+.B on
 or
 .BR off .
 An
@@ -89,7 +89,7 @@ to enable dialin and dialout, or
 An
 .B off
 status means the device is disabled from access by the
-SunOS operating system, but it can still be accessed by 
+SunOS operating system, but it can still be accessed by
 .SM DOS\s0.
 .TP
 .I baud
@@ -110,7 +110,7 @@ For terminals, this can be
 .B vt100
 or
 .BR wyse-50
-for 
+for
 .SM DEC VT\s0-100
 and compatibles or
 for Wyse WY-50 and compatibles.
@@ -122,7 +122,7 @@ for Hayes and compatibles.
 is only used for unique naming of printers on the network.
 Up to 16 characters can be entered.
 This field is blank for terminals and modems \(em simply insert a
-.SM TAB 
+.SM TAB
 character.
 .TP
 .I #comment
@@ -134,7 +134,7 @@ can contain anything you want, up to a maximum of 96 characters.
 In this example of an
 .B ext_ports
 file, the system vulcan has an epson printer attached
-to its parallel port, and a Wyse-50 terminal attached to its 
+to its parallel port, and a Wyse-50 terminal attached to its
 serial port, but with logins currently disabled.
 The system android has a
 .SM VT\s0100
@@ -187,6 +187,6 @@ does the necessary locking.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

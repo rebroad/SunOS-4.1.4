@@ -4,7 +4,7 @@
 mlockall, munlockall \- lock (or unlock) address space
 .SH SYNOPSIS
 .LP
-.nf 
+.nf
 .ft B
 #include <sys/mman.h>
 .ft
@@ -32,11 +32,11 @@ int munlockall(\|)
 .LP
 .B mlockall(\|)
 locks all pages mapped by an address space in memory.
-The value of 
+The value of
 .I flags
 determines whether the pages to be locked are simply
 those currently mapped by the address space, those that will be mapped in the
-future, or both.  
+future, or both.
 .I flags
 is built from the options defined in
 .B <sys/mman.h>
@@ -52,15 +52,15 @@ as:
 .fi
 .RE
 .LP
-If 
+If
 .SB MCL_FUTURE
-is specified to 
+is specified to
 .B mlockall(\|) ,
 then as mappings are added to the address space (or existing mappings are
-replaced) they will also be locked, provided sufficient memory is 
+replaced) they will also be locked, provided sufficient memory is
 available.
 .LP
-Mappings locked via 
+Mappings locked via
 .B mlockall(\|)
 with any option may be explicitly unlocked with a
 .B munlock(\|)
@@ -71,7 +71,7 @@ removes address space locks and locks on mappings in the address space.
 .LP
 All conditions and constraints on the use of locked memory as exist for
 .B mlock(\|)
-apply to 
+apply to
 .B mlockall(\|) .
 .SH RETURN VALUES
 .LP
@@ -97,7 +97,7 @@ not be locked due to sufficient resources.
 .I flags
 contains values other than
 .SB MCL_CURRENT
-and 
+and
 .BR \s-1MCL_FUTURE\s0 .
 .TP
 .SM EPERM

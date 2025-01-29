@@ -76,11 +76,11 @@ returns its first argument.
 .BR ferror (3V)
 .SH BUGS
 .LP
-If the input to 
-.B gets (\|) 
-or  
-.B fgets (\|) 
-contains a  
+If the input to
+.B gets (\|)
+or
+.B fgets (\|)
+contains a
 null character,
 the null
 terminates the input,

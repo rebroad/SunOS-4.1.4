@@ -77,7 +77,7 @@ completes successfully, you can change directory
 to the
 .BI .\|. /config_file
 directory, where it has placed the new makefile, and use
-.BR make  
+.BR make
 to build a kernel.
 The output files placed in this directory include
 .BR ioconf.c ,
@@ -106,7 +106,7 @@ file which includes all the
 files which have no source.
 This reduces the number of files which have to be
 .BR stat ed
-during a system build. 
+during a system build.
 This is done by prelinking all the files for which no source exists
 into another file which is then linked in place of all these
 files when the kernel is made.
@@ -115,7 +115,7 @@ This makefile is faster because it does not
 the object files during the build.
 .TP
 .B \-g
-Get the current version of a missing source file from its 
+Get the current version of a missing source file from its
 .SM SCCS
 history, if possible.
 .TP
@@ -148,7 +148,7 @@ Use
 instead of
 .B \&.\|./\s-1OBJ\s0
 as the directory to find the object files when the corresponding
-source file is not present in order 
+source file is not present in order
 to generate the files necessary to compile and link
 your kernel.
 .SH USAGE
@@ -160,13 +160,13 @@ are specified to
 .B config
 in the same way they are specified to the C
 compiler, a number starting with
-.B 0x 
+.B 0x
 is a hex number and a number starting with just a
-.B  0 
-is an octal number.  
+.B  0
+is an octal number.
 .LP
 Comments are begin with a
-.RB  # 
+.RB  #
 character, and end at the next
 .SM NEWLINE.
 Lines beginning with
@@ -193,10 +193,10 @@ Note: the double quotes around
 are part of the syntax, and must be included.
 .TP
 \fBcpu "\fItype\fB"
-This system is to run on the 
+This system is to run on the
 .SM CPU
 type specified.
-More than one 
+More than one
 .SM CPU
 type can appear in the config file.
 .\"Legal
@@ -251,8 +251,8 @@ None of the standard options use such a value.
 In addition, options can be used to bring in additional files if
 the option is listed in the
 .B files
-files. 
-All options should be listed in upper case. 
+files.
+All options should be listed in upper case.
 In this case, no corresponding
 .IB option .h
 will be created as it would be using the corresponding
@@ -261,7 +261,7 @@ method.
 .TP
 .BI config " sysname config_clauses\|.\|.\|."
 Generate a system with name
-.I sysname 
+.I sysname
 and configuration as specified in
 .IR config-clauses .
 The
@@ -293,7 +293,7 @@ If a specific partition is omitted \(em for example, if only
 .IP
 is specified \(em the
 .RB ` a '
-partition is assumed. 
+partition is assumed.
 When a generic system is being built, no root
 specification should be given; the root device will be defined
 at boot time by prompting the console.
@@ -352,7 +352,7 @@ and location is recorded in global kernel variables
 .I dumpsize
 and
 .IR dumplo ,
-respectively, for use by 
+respectively, for use by
 .BR savecore (8).
 .RE
 .LP
@@ -373,7 +373,7 @@ The second group of lines in the configuration file describe which
 devices your system has and what they are connected to
 (for example, an
 .SM IPI
-Channel Adaptor on the 
+Channel Adaptor on the
 .SM VME\s0bus).
 These lines have the following format:
 .RS
@@ -396,7 +396,7 @@ These types have the following meanings:
 .TP 15
 .B controller
 A disk or tape controller.
-.TP 
+.TP
 .BR disk " or " tape
 Devices connected to a controller.
 .TP
@@ -422,7 +422,7 @@ For pseudo-devices,
 may be specified as an integer, that gives the value of the
 symbol defined in the header file created for that device, and
 is generally used to indicate the number of instances of the
-pseudo-device to create. 
+pseudo-device to create.
 .RE
 .LP
 .I dev_name
@@ -445,10 +445,10 @@ tape controller.
 is what the device you are specifying is connected to.
 It is either
 .BR nexus? ,
-a bus type, or a controller.  
+a bus type, or a controller.
 There are several bus types which  are used by
 .B config
-and the kernel.  
+and the kernel.
 .LP
 The possible bus types are:
 .ne 10
@@ -468,7 +468,7 @@ On board io
 .\"system only)
 .\".TP
 .\".B mbio
-.\"Multibus io   
+.\"Multibus io
 .\".RB ( sun2
 .\"system only)
 .TP
@@ -496,12 +496,12 @@ On board io
 24 bit
 .SM VME\s0bus/
 32 bit data
-.TP 
+.TP
 .B vme32d32 (vme32)
 32 bit
 .SM VME\s0bus/
 32 bit data
-.TP 
+.TP
 .B ipi
 IPI pseudo bus
 .RB ( sun4
@@ -529,13 +529,13 @@ is a sequence of the following:
 .RS
 .TP 18
 .BI csr " address"
-Specify the address of the 
-.B csr 
+Specify the address of the
+.B csr
 (command and status registers) for a
-device. The 
-.B csr 
+device. The
+.B csr
 addresses specified for the device are  the
-addresses within the bus type specified.  
+addresses within the bus type specified.
 .IP
 The
 .B csr
@@ -577,8 +577,8 @@ You can put question marks on a
 This allows redundancy, as a single system can
 be built which will boot on different hardware configurations.
 .LP
-The easiest way to understand 
-.B config 
+The easiest way to understand
+.B config
 files it to look at a working
 one and modify it to suit your system.
 Good examples are provided in
@@ -591,22 +591,22 @@ Desktop
 usage is a good deal simpler than what is described
 above, due primarily to information provided by the
 .SM PROM
-monitor that obviates the specific descriptions of 
+monitor that obviates the specific descriptions of
 .B csr
-and 
+and
 .B vector
 values.
-There is no need to declare a 
+There is no need to declare a
 .BR nexus ,
-or a 
+or a
 .BR controller :
 all primary controllers and main I/O units are simply described
-by the 
+by the
 .B device-driver
 keyword.
-That is, a complete specification of all 
+That is, a complete specification of all
 .SB UART
-controllers (see 
+controllers (see
 .BR zs (4S))
 for a
 desktop \s-1SPARC\s0system
@@ -664,12 +664,12 @@ grammar (described above in
 `\fBDesktop \s-1SPARC\s0system Input Grammar\fP').
 For
 .SM VME\s0bus
-devices, such as 
+devices, such as
 .SM IPI\s0,
 the grammar is similar to the common grammar.
 For sbus devices, such as
 .SM SCSI\s0,
-the grammar is similar to that of desktop 
+the grammar is similar to that of desktop
 \s-1SPARC\s0systems.
 .ne 6
 .SH FILES
@@ -687,7 +687,7 @@ are:
 .SB GENERIC
 The generic configuration file for a given Sun system.
 This file contains all possible device description lines for the particular
-architecture.	  
+architecture.
 .TP
 .SB GENERIC_SMALL
 A reduced generic configuration file for certain vanilla

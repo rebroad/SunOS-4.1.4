@@ -5,15 +5,15 @@ csplit \- split a file with respect to a given context
 .SH SYNOPSIS
 .B csplit
 [
-.B \-f 
-.I prefix 
+.B \-f
+.I prefix
 ] [
-.B \-k 
+.B \-k
 ] [
 .B \-s
 ]
-.I filename 
-.I argument1 
+.I filename
+.I argument1
 [
 .RI .\|.\|. argumentn
 ]
@@ -46,15 +46,15 @@ through
 .BR xx\fIn .
 .I n
 may not be greater than 99.
-These sections receive the following portions of the 
+These sections receive the following portions of the
 file:
-.TP .85i 
+.TP .85i
 .BR xx00
 From the start of
 .I filename
 up to (but not including) the line indicated by
-.I argument1  
-(see 
+.I argument1
+(see
 .SM OPTIONS
 below for an explanation of these arguments.)
 .PD 0
@@ -64,7 +64,7 @@ From the line indicated by
 .I argument1
 up to the line indicated by
 .IR argument2 .
-.TP 
+.TP
 .BR xx\fIn :
 From the line referenced by
 .I argumentn
@@ -79,23 +79,23 @@ it creates if an error occurs.
 .SH OPTIONS
 .TP .85i
 .BI \-f \ prefix
-name the created files 
+name the created files
 .IB prefix 00
 through
 .IR prefixn .
 .TP .85i
 .B \-k
 Suppress removal of created files when an error occurs.
-.TP .85i 
+.TP .85i
 .B \-s
 Suppress printing of character counts.
 .LP
 The arguments
 .I argument1
 through
-.I argumentn 
+.I argumentn
 can be a combination of the following selection operators:
-.TP .85i 
+.TP .85i
 .BI / rexp /
 A file is to be created for the section from the current line
 up to (but not including) the line containing the regular expression
@@ -108,18 +108,18 @@ This argument may be followed by an optional
 some number of lines
 (for example,
 .BR /Page/\-5 ).
-.TP .85i 
+.TP .85i
 .RI % rexp %
 This argument is the same as
 .RI / rexp /,
 except that no file is created for the selected section.
-.TP .85i 
+.TP .85i
 .I lineno
 A file is to be created from the current line up to (but not including)
 .IR lineno .
 The current line becomes
 .IR lineno .
-.TP .85i 
+.TP .85i
 .RI { num }
 Repeat argument.
 This argument may follow any of the above arguments.
@@ -169,7 +169,7 @@ csplit \-k prog.\|c\ \ \(fm%main\|(%\(fm\ \ \(fm/^\|}\|/+1\(fm\ \ {20}
 .SH DIAGNOSTICS
 .LP
 Self-explanatory except for:
-.IP 
+.IP
 .B arg \- out of range
 .LP
 which means that the given argument did not refer to a line

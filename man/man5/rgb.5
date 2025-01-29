@@ -16,23 +16,23 @@ Available only on Sun 386i systems running a SunOS 4.0.\fIx\fR
 release or earlier.  Not a SunOS 4.1 release feature.
 .SH DESCRIPTION
 .B \&.rgb
-is an 
+is an
 .SM ASCII
 file containing consecutive lines terminated by newlines.
-Each line starts with three integers, each in the range 0-255. 
-These integers are the 
-.SM RGB 
-equivalent for the color named on the 
-same line.  At least one tab character delimits the 
-last integer from the name field. 
+Each line starts with three integers, each in the range 0-255.
+These integers are the
+.SM RGB
+equivalent for the color named on the
+same line.  At least one tab character delimits the
+last integer from the name field.
 The coloreditor searches for this file, first in the current
 directory; next, in the users home directory; and finally, in \fB/usr/lib\fR.
-The user can add to or delete from the 
-.B \&.rgb 
+The user can add to or delete from the
+.B \&.rgb
 file that he or she has access to, thus
 changing the available color table for subsequent invocations of coloredit.
 .SH EXAMPLES
-The following is an example of a 
+The following is an example of a
 .B \&.rgb
 file.
 .LP

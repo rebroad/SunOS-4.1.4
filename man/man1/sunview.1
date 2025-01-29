@@ -32,32 +32,32 @@ sunview \- the SunView window environment
 [
 .B \-b
 .I red green blue
-] 
+]
 [
 .B \-d
 .I display-device
-] 
+]
 [
 .B \-f
 .I red green blue
-] 
+]
 [
 .B \-k
 .I keyboard-device
-] 
+]
 .if t .ti +.5i
 [
 .B \-m
 .I mouse-device
-] 
+]
 [
 .BR \-n \||\| \-s
 .I startup-filename
-] 
+]
 [
 .B \-background
 .I raster-filename
-] 
+]
 .if t .ti +.5i
 [
 .B \-pattern
@@ -80,20 +80,20 @@ See
 .B Start-up Processing
 below to learn how to specify your own
 initial layout of tools.
-Some of the behavior of 
+Some of the behavior of
 .B sunview
-is controlled by settings in your defaults database; see 
+is controlled by settings in your defaults database; see
 .B SunView Defaults
-below, and 
+below, and
 .BR defaultsedit (1)
 for more information.
 .LP
 To exit
 .B sunview
-use the 
+use the
 .B Exit SunView
 menu item. In an emergency, type
-.SM CTRL-D 
+.SM CTRL-D
 then
 .SM CTRL-Q
 (there is no confirmation in this case).
@@ -107,7 +107,7 @@ are not affected.
 .TP
 .B \-p
 Print to the standard output the name of the window device used for
-the 
+the
 .B sunview
 background.
 .TP
@@ -142,7 +142,7 @@ For multiple plane group frame buffers, only let windows be created
 in the 8 bit color plane group.
 This frees up the black and white
 overlay plane to have a separate desktop running on it.
-This option is usually used with the 
+This option is usually used with the
 .B \-toggle_enable
 option.
 See
@@ -151,10 +151,10 @@ below.
 .TP
 .B \-overlay_only
 For multiple plane group frame buffers, only let windows be created
-in the black and white overlay plane group. 
+in the black and white overlay plane group.
 This frees up the 8 bit
 color plane group to have a separate desktop running in it.
-This option is usually used with the 
+This option is usually used with the
 .B \-toggle_enable
 option.
 See
@@ -173,7 +173,7 @@ below.
 .ne 4
 .TP
 .BI \-b " red green blue"
-Specify values for the 
+Specify values for the
 .IR red ,
 .I green
 and
@@ -188,16 +188,16 @@ option as well.
 .ne 3
 .TP
 .BI \-d " display-device"
-Use 
+Use
 .I display-device
 as the output device, rather than
-.B /dev/fb 
+.B /dev/fb
 the default frame buffer device.
 .br
 .ne 5
 .TP
 .BI \-f " red green blue"
-Specify values for the 
+Specify values for the
 .IR red ,
 .I green
 and
@@ -217,27 +217,27 @@ rather than
 the default keyboard device.
 .TP
 .BI \-m " mouse-device"
-Use 
+Use
 .I mouse-device
 as the system pointing device (locator), rather than
 .BR /dev/mouse ,
 the default mouse device.
 .TP
 .B \-n
-Bypass startup processing by ignoring the 
+Bypass startup processing by ignoring the
 .B /usr/lib/.sunview
 and
 .B ~/.sunview
-(and 
+(and
 .BR ~/.suntools )
 files.
 .TP
 .BI \-s " startup-filename
-Read startup commands from 
+Read startup commands from
 .I startup-filename
-instead of 
+instead of
 .B /usr/lib/.sunview
-or 
+or
 .BR ~/.sunview ).
 .TP
 .BI \-background " raster-filename"
@@ -251,7 +251,7 @@ Small images are centered on the screen.
 .BI \-pattern
 .BR on \||
 .BR off \||
-.BR gray \|| 
+.BR gray \||
 .I iconedit-filename
 .br
 Use the indicated \*(lqpattern\*(rq to cover the background.
@@ -268,7 +268,7 @@ which contains an image that is to be replicated over the background.
 .SH USAGE
 .SS Windows
 .LP
-The SunView environment always has one window open, 
+The SunView environment always has one window open,
 referred to as the background, which covers the whole screen.
 A solid color or pattern is its only content.
 Each application is given its own window which lies on top of
@@ -339,7 +339,7 @@ then press and release the
 mouse button a second time.
 Stay-up menus are an option in your defaults database; see
 .B SunView Defaults
-below. 
+below.
 .LP
 With walking menus, any menu item can have an arrow pointing
 .RB ( \(rh )
@@ -366,10 +366,10 @@ labeled
 .BR Editors ,
 .BR Tools ,
 and
-.BR Services , 
+.BR Services ,
 along with items for
 .B Remote Login, Redisplay All, Lock Screen
-and 
+and
 .B Exit Sunview.
 These sub-menus contain the following items:
 .RS
@@ -383,7 +383,7 @@ Bring up a
 an tty-based terminal emulator that supports a shell.
 .TP
 .B Command Tool
-Bring up a 
+Bring up a
 .BR cmdtool (1),
 a scrollable window-based terminal emulator that supports a shell.
 .TP
@@ -464,7 +464,7 @@ There are two items on this submenu,
 Use this to eject cdrom or floppy media from the drive.
 .TP
 .B Printing
-There are two items on this submenu, 
+There are two items on this submenu,
 .B "Check Printer Queue"
 and
 .BR "Print Selected Text" .
@@ -480,7 +480,7 @@ Writes out a
 .B ~/.sunview
 file that
 .B sunview
-can then use when starting up again. 
+can then use when starting up again.
 An existing
 .B ~/.sunview
 file is saved as
@@ -490,7 +490,7 @@ file is saved as
 .B Redisplay All
 Redraw the entire screen.
 Use this to repair damage done by processes that wrote to the screen
-without consulting the SunView system. 
+without consulting the SunView system.
 .TP
 .B Lock Screen
 Completely covers the screen with a graphics display, and \*(lqlocks\*(rq
@@ -510,7 +510,7 @@ You return to the shell from which you started
 .RE
 .RE
 .LP
-You can specify your own SunView menu; see 
+You can specify your own SunView menu; see
 .B SunView Defaults
 below for details.
 .SS The Frame Menu
@@ -650,7 +650,7 @@ mouse button
 while the pointer is in the frame header or outer border.
 A bounding box is displayed, and one side or corner tracks the mouse.
 If the pointer is near a corner when you press the mouse button,
-the resize is 
+the resize is
 .BR Unconstrained ;
 if in the middle third of an edge, the resize is
 .BR Constrained .
@@ -674,7 +674,7 @@ mouse button
 while the pointer is on the frame header or outer border.
 .TP
 .B Back
-Hold the 
+Hold the
 .SM SHIFT
 key and click the
 .SM LEFT
@@ -706,7 +706,7 @@ key, press the
 .SM MIDDLE
 mouse button over the boundary
 between the two windows, and adjust
-the size of the (bounded) subwindow as with 
+the size of the (bounded) subwindow as with
 .BR Resize .
 .SS "Startup Processing:  The .sunview File"
 .LP
@@ -720,7 +720,7 @@ If there is a file called
 in your home directory, it is used instead.
 For compatibility with earlier releases, if there is no
 .B \&.sunview
-file in your home directory, but a 
+file in your home directory, but a
 .B \&.suntools
 file instead, the latter file is used.
 .LP
@@ -793,7 +793,7 @@ Anything else is the name of a file produced with
 .BR iconedit (1)
 which contains an image that is replicated all over the background.
 The default value is \*(lqon.\*(rq
-.LP 
+.LP
 After you have set the options you want in the \*(lqSunView\*(rq category,
 click on the
 .B Save
@@ -866,7 +866,7 @@ There are four reserved-word commands that can appear on the right side.
 .RS
 .TP 15
 .SB EXIT
-Exit 
+Exit
 .BR sunview
 (requires confirmation).
 .TP
@@ -936,7 +936,7 @@ Here is a menu file that demonstrates some of these features:
 \fB"Icon menu"\fP
 .SB MENU
 .RS 5
-.LP 
+.LP
 .B <images/textedit.icon>   	textedit
 .LP
 .B <images/dbxtool.icon>   	dbxtool
@@ -947,20 +947,20 @@ Here is a menu file that demonstrates some of these features:
 .RE
 .SS "Multiple Screens"
 .LP
-The 
+The
 .B sunview
 program runs on either a monochrome or color screen.
 Each screen on a machine with multiple screens may have a separate
 .B sunview
 running.
 The keyboard and mouse input devices can be shared between
-screens. 
-Using 
+screens.
+Using
 .BR adjacentscreens (1)
 you can set up the pointer to slide from one screen to another
 when you move it off the edge of a screen.
 .LP
-To set up an instance of 
+To set up an instance of
 .B sunview
 on two screens:
 .IP \(bu 4
@@ -969,12 +969,12 @@ Invoke
 on the first display as you normally would.
 This starts an instance of
 .B sunview
-on the default frame buffer 
+on the default frame buffer
 .RB ( /dev/fb ).
 .IP \(bu
-In a 
+In a
 .BR shelltool ,
-run: 
+run:
 .RS
 .IP
 .B "sunview \-d"
@@ -982,11 +982,11 @@ run:
 .B &
 .RE
 .IP
-This starts another device. 
+This starts another device.
 A typical choice might be
 .BR /dev/cgone .
 .IP \(bu
-In that same 
+In that same
 .BR shelltool ,
 run:
 .RS
@@ -1002,7 +1002,7 @@ the right or left edge of the respective screens.
 Machines that support multiple plane groups, such as the Sun-3/110
 system, can support independent
 .B sunview
-processes on each plane group. 
+processes on each plane group.
 They can share keyboard and
 mouse input in a manner similar to that for multiple screens.
 To set up two plane groups:
@@ -1015,13 +1015,13 @@ in the color plane group by running:
 .B "sunview \-8bit_color_only \-toggle_enable"
 .RE
 .IP
-This starts 
+This starts
 .B sunview
 on the default frame buffer named
 .BR /dev/fb ,
 but limits access to the color plane group.
 .IP \(bu
-In a 
+In a
 .BR shelltool ,
 run:
 .RS
@@ -1043,7 +1043,7 @@ Run:
 This sets up the pointer to switch between desktops as it
 crosses the right or left edge of the respective desktops.
 .LP
-Pre-3.2 applications cannot be run on the 
+Pre-3.2 applications cannot be run on the
 .B \-8bit_color_only
 desktop, because they do not write to the overlay plane.
 .LP
@@ -1190,9 +1190,9 @@ file in your home directory.
 .TP
 .B /dev/ttyp\fIx\fP
 .TP
-.B /dev/fb 
+.B /dev/fb
 .TP
-.B /dev/kbd 
+.B /dev/kbd
 .TP
 .B /dev/mouse
 .TP
@@ -1227,14 +1227,14 @@ file in your home directory.
 .SH BUGS
 .LP
 Console messages ignore window boundaries unless redirected to a
-console window. 
-This can disrupt the 
+console window.
+This can disrupt the
 .B sunview
 desktop display.
 The display can be restored using the
 .B Redisplay All
-item on the SunView menu. 
-To prevent this, use the 
+item on the SunView menu.
+To prevent this, use the
 .B Console
 item to start a console window.
 .LP
@@ -1254,7 +1254,7 @@ When running multiple desktops, only one console window can be used.
 .LP
 In
 .B Click-to-type
-mode, it is impossible to exit from 
+mode, it is impossible to exit from
 .B sunview
 by typing
 .SM CTRL-D

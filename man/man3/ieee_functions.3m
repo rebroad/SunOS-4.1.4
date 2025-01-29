@@ -165,13 +165,13 @@ It's intended to be used at the end of a program to indicate whether some
 .SM IEEE
 floating-point exceptions occurred that might have affected the result.
 .LP
-.B standard_arithmetic() 
+.B standard_arithmetic()
 and
 .B nonstandard_arithmetic()
 are meaningful on systems that provide an alternative faster mode of floating-point
 arithmetic that does not conform to the default
 .SM IEEE
-Standard.  
+Standard.
 Nonstandard modes vary among implementations; nonstandard mode may, for instance,
 result in setting subnormal results to zero or in treating subnormal operands as zero,
 or both, or something else.
@@ -220,12 +220,12 @@ is the operation specified in
 .SM ANSI/IEEE
 Std 754-1985; the result of
 .BI fmod( x , " y" )
-may differ from 
-.BR remainder(\|) 's 
+may differ from
+.BR remainder(\|) 's
 result by
 .RI \(+- y .
-The magnitude of 
-.BR remainder 's 
+The magnitude of
+.BR remainder 's
 result
 can not exceed half that of
 .IR y ;

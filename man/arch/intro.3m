@@ -9,7 +9,7 @@ intro \- introduction to mathematical library functions and constants
 .PP
 .B #include <math.h>
 .SH DESCRIPTION
-.IX  introduction  "mathematical library functions"  
+.IX  introduction  "mathematical library functions"
 .IX  "mathematical library functions, introduction to"
 .IX  "library functions" "introduction to mathematical"
 The include file
@@ -28,7 +28,7 @@ The link editor searches this library in response to the \*(lq\-lm\*(rq option.
 .B <sys/ieeefp.h>
 and
 .B <floatingpoint.h>
-define certain types and constants used for 
+define certain types and constants used for
 .I libm
 exception handling
 conforming to ANSI/IEEE Std 754-1985, the
@@ -56,7 +56,7 @@ A more extensive discussion is in the
 .SH "IEEE EXCEPTION HANDLING"
 The IEEE Standard
 specifies exception handling for
-.I "aint, ceil, floor, irint, remainder, rint," 
+.I "aint, ceil, floor, irint, remainder, rint,"
 and
 .I sqrt,
 and suggests appropriate exception handling for
@@ -67,12 +67,12 @@ but does not specify exception handling for the other
 .I libm
 functions.
 For these other unspecified functions the spirit of the IEEE Standard is generally
-followed in 
+followed in
 .I libm
 by handling invalid operand, singularity (division by zero),
 overflow, and underflow exceptions,
 as much as possible, in the same way they are handled for the fundamental floating-point
-operations such as addition and multiplication. 
+operations such as addition and multiplication.
 .PP
 These unspecified functions
 are usually not quite correctly rounded, may not observe the optional
@@ -80,18 +80,18 @@ rounding directions, and may not set the inexact exception correctly.
 .br
 .ne 8
 .SH "SYSTEM V EXCEPTION HANDLING"
-The 
-.I System V Interface Definition (SVID) 
+The
+.I System V Interface Definition (SVID)
 specifies exception handling
-for some 
-.I libm 
+for some
+.I libm
 functions:
 .I "j0, j1, jn, y0, y1, yn, exp, log, log10, pow, sqrt, hypot, lgamma, sinh, cosh, sin, cos, tan, asin, acos,"
 and
 .I atan2.
 See
 .I matherr(3M)
-for a discussion of the extent to which Sun 
+for a discussion of the extent to which Sun
 .I libm
 follows SVID when it is consistent with the IEEE Standard and with hardware
 efficiency.

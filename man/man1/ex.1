@@ -55,49 +55,49 @@ programs.
 .TP
 .B \-L
 List the names of all files saved as the result of an editor or system crash.
-.TP 
+.TP
 .B \-r
-Recover the indicated 
+Recover the indicated
 .IR filename s
 after a system crash.
-.TP 
+.TP
 .B \-R
 Read only.  Do not overwrite the original file.
-.TP 
+.TP
 .B \-v
 Start up in display editing state using
 .BR vi .
 You can achieve the same effect by simply typing the
 .B vi
 command itself.
-.TP 
+.TP
 .B \-V
 Verbose. Any non-tty input will be echoed on standard error.
 This may be useful when processing editor commands within shell scripts.
-.TP 
+.TP
 .B \-x
-Prompt for a key to be used in encrypting the file being edited. 
+Prompt for a key to be used in encrypting the file being edited.
 When used in conjunction with a pre-existing file,
 .I ex
 will make an educated guess to determine whether or not the input text file is already encrypted.
 .TP
 .B \-C
-Encryption option; the same as the 
+Encryption option; the same as the
 .B \-x
-option, except that all input text is assumed to have already been 
-encrypted. This guarantees decryption in the cases where the 
+option, except that all input text is assumed to have already been
+encrypted. This guarantees decryption in the cases where the
 .B \-x
 option incorrectly determines that the input file is not already encrypted (this is extremely rare, and will only occur in conjunction with the use of files containing non-ASCII text).
-.TP 
+.TP
 .BI \-t " tag"
 Edit the file containing the tag
 .IR tag .
 A tags database must first be created using the
-.BR ctags (1) 
+.BR ctags (1)
 command.
-.TP 
+.TP
 .BI +c " command"
-.TP 
+.TP
 .BI \-c " command"
 .PD
 Start the editing session by executing
@@ -105,7 +105,7 @@ Start the editing session by executing
 .SH ENVIRONMENT
 The editor recognizes the environment variable
 .SB EXINIT
-as a command (or list of commands separated by 
+as a command (or list of commands separated by
 .B |
 characters) to run when it starts up.  If this variable is
 undefined, the editor checks for startup commands in the file
@@ -113,8 +113,8 @@ undefined, the editor checks for startup commands in the file
 file, which you must own.  However, if there is a
 .B .exrc
 owned by you in the current directory, the editor takes its
-startup commands from this file 
-\(em overriding both the 
+startup commands from this file
+\(em overriding both the
 file in your home directory and the environment variable.
 .LP
 The environment variables
@@ -143,7 +143,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .SH FILES
@@ -162,7 +162,7 @@ preserve command
 describes capabilities of terminals
 .TP
 .B \&.exrc
-editor startup file for current directory 
+editor startup file for current directory
 .TP
 .B \s-1$HOME\s0/.exrc
 user's editor startup file if
@@ -186,7 +186,7 @@ preservation directory
 .BR sed (1V),
 .BR vi (1),
 .BR locale (5),
-.BR termcap (5), 
+.BR termcap (5),
 .BR environ (5V),
 .BR iso_8859_1 (7)
 .LP

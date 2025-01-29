@@ -103,7 +103,7 @@ do
 		see=0
 		# Add basic index entries from name lines.
 		# yank out parenthetical remarks
-		trailer="`echo $trailer | sed 's/(.*) //g'`" 
+		trailer="`echo $trailer | sed 's/(.*) //g'`"
 		echo \
 ".IX $base \"\" \"\\&\\fL$base\\fR($suffix) \\(em $trailer\"" >> $script
 		echo \
@@ -157,7 +157,7 @@ trailer="PRINT \"see \\&\\fL`echo $base | sed 's/_.*$//'`\\fR($suffix)\""
 			back=`echo $trailer | sed "s@ *$front *@@"`
 			# Add comma to end if rotated.
 			case "$back" in
-			'')	
+			'')
 			;;
 			*)	front="${front},"
 				back="$back "
@@ -182,14 +182,14 @@ trailer="PRINT \"see \\&\\fL`echo $base | sed 's/_.*$//'`\\fR($suffix)\""
 	getNAME -S FILES $1 | grep "." > Pix.tmp
 	count=`cat Pix.tmp | wc -l`
 	if test $count -gt 0
-	then 
+	then
 		echo "/^.SH FILES/a" >> $script
 		echo '.\" pix' >> $script
 		number=1
 		while test $number -le $count
 		do
 			line=`sed -n -e ${number}p -e "s/([\*][\*]/*/" Pix.tmp`
-			item=`echo $line | awk '{ print $1 }'` 
+			item=`echo $line | awk '{ print $1 }'`
 			clean=`echo "$item" \
 				| sed -e 's@[.\~/*()$]@@g' -e "s@^\.*@@"`
 			info=`echo "$line" \
@@ -215,14 +215,14 @@ trailer="PRINT \"see \\&\\fL`echo $base | sed 's/_.*$//'`\\fR($suffix)\""
 		| sed "/^\.TP/d" | deroff | sed 's/^ *//' > Pix.tmp
 	count=`cat Pix.tmp | wc -l`
 	if test $count -gt 0
-	then 
+	then
 		echo "/^.SH.*DIAGN/a" >> $script
 		echo '.\" pix' >> $script
 		number=1
 		while test $number -le $count
 		do
 			line=`sed -n -e ${number}p Pix.tmp`
-			item=`echo $line | awk '{ print $1 }'` 
+			item=`echo $line | awk '{ print $1 }'`
 			clean=`echo "$item" \
 				| sed -e 's@[.\~/*()$]@@g' -e "s@^\.*@@"`
 			info=`echo "$line" \

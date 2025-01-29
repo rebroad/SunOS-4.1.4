@@ -12,7 +12,7 @@ sigpending \- examine pending signals
 .LP
 .nf
 .ft B
-int sigpending(set) 
+int sigpending(set)
 sigset_t *set;
 .ft R
 .fi
@@ -22,7 +22,7 @@ sigset_t *set;
 .IX "signal" "examine pending signals"
 .LP
 .B sigpending(\|)
-stores the set of signals that are blocked from delivery and 
+stores the set of signals that are blocked from delivery and
 pending for the calling process in the space pointed to by
 .IR set .
 .SH RETURN VALUES

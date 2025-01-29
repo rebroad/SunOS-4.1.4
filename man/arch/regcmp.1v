@@ -9,11 +9,11 @@ regcmp \- regular expression compile
 ]
 .I files
 .SH DESCRIPTION
-.IP Note: 
-Optional Software (System V Option). 
-Refer to 
-.I Installing \s-2UNIX\s0 on the Sun Workstation  
-for information on how to install this command. 
+.IP Note:
+Optional Software (System V Option).
+Refer to
+.I Installing \s-2UNIX\s0 on the Sun Workstation
+for information on how to install this command.
 .LP
 .IR regcmp ,
 in most cases, precludes
@@ -21,7 +21,7 @@ the need
 for calling
 .IR regcmp (3X)
 from
-.B C 
+.B C
 programs.  This saves on both execution time and program size.
 The command
 .I regcmp
@@ -34,13 +34,13 @@ option is used, the output will be placed in
 .IB file .c\fR.\fP
 The format of entries in
 .I file
-is a name 
+is a name
 .RB ( C
 variable) followed by one or more blanks followed by
 a regular expression enclosed in double quotes.  The output of
 .I regcmp
 is
-.B C 
+.B C
 source code.  Compiled regular expressions are represented as
 .B "extern char"
 vectors.
@@ -48,11 +48,11 @@ vectors.
 files may thus be
 .I included
 into
-.B C 
+.B C
 programs, or
 .IB file .c
 files may be compiled and later loaded.  In the
-.B C 
+.B C
 program using
 .I regcmp
 output,
@@ -74,8 +74,8 @@ telno
 .br
 "([0\-9]{4})$2"
 .TP
-In the 
-.B C 
+In the
+.B C
 program that uses the \fIregcmp\fP output,
 .PP
 .RS

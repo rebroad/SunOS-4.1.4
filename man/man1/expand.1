@@ -30,19 +30,19 @@ expand, unexpand \- expand TAB characters to SPACE characters, and vice versa
 copies
 .IR filename s
 (or the standard input) to the standard
-output, with 
+output, with
 .SM TAB
 characters expanded to
-.SM SPACE 
+.SM SPACE
 characters.
 .SM BACKSPACE
 characters are preserved into the output and decrement
-the column count for 
+the column count for
 .SM TAB
 calculations.
 .B expand
 is useful for pre-processing character files (before sorting, looking at
-specific columns, etc.) that contain 
+specific columns, etc.) that contain
 .SM TAB
 characters.
 .LP
@@ -50,7 +50,7 @@ characters.
 copies
 .IR filename s
 (or the standard input) to the standard output,
-putting 
+putting
 .SM TAB
 characters back into the data.
 By default, only leading
@@ -58,9 +58,9 @@ By default, only leading
 and
 .SM TAB
 characters are converted to strings of
-tabs, but this can be overridden by the 
+tabs, but this can be overridden by the
 .B \-a
-option (see the 
+option (see the
 .SM OPTIONS
 section below).
 .SH OPTIONS
@@ -68,24 +68,24 @@ section below).
 .TP
 .I \-tabstop
 Specify as a single argument, sets
-.SM TAB 
-characters 
+.SM TAB
+characters
 .I tabstop
-.SM SPACE 
+.SM SPACE
 characters apart instead of the default 8.
 .TP
 .I \-tab1,\|tab2,.\|.\|.,\|tabn
-Set 
+Set
 .SM TAB
-characters at the columns specified by 
+characters at the columns specified by
 .I tab1\fP\fB.\|.\|.
 .SS unexpand
 .TP
 .B \-a
-Insert 
+Insert
 .SM TAB
 characters when replacing a run of
 two or more
 .SM SPACE
 characters would produce a
-smaller output file.  
+smaller output file.

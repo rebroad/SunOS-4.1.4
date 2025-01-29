@@ -22,23 +22,23 @@ char *domainname;
 .IX "gettext" "" "\fLgettext\fR \(em  retrieve a message string" ""
 .IX "textdomain" "" "\fLtextdomain\fR \(em get or set the current text domain" ""
 .B gettext(\|)
-returns a pointer to a null-terminated string (target string). 
+returns a pointer to a null-terminated string (target string).
 .I msgtag
-is a string 
+is a string
 used at run-time to select the target string from the current domain of the
 active pool of messages.
 The length and contents of strings returned by
 .B gettext(\|)
 are undetermined until called at run-time.
-The string returned by 
+The string returned by
 .B gettext(\|)
 cannot be modified by the caller, but may be overwritten by a subsequent
-call to 
+call to
 .BR gettext(\|) .
 The
 .SB LC_MESSAGES
 locale category setting determines the
-locale of strings that 
+locale of strings that
 .B gettext(\|)
 returns.
 .LP
@@ -47,43 +47,43 @@ locale for strings returned by
 .B gettext(\|)
 by invoking the
 .BR setlocale (3V)
-function with the correct category and the required 
+function with the correct category and the required
 locale.
-If 
+If
 .B setlocale(\|)
 is not called or is called with an invalid value,
 .B gettext(\|)
 defaults to the
 \fB"C"\fR
-locale. 
-The default name for the current domain is the 
+locale.
+The default name for the current domain is the
 empty string.
 .LP
 .B gettext(\|)
 first attempts to resolve the target string from the active domain and
 locale of the message pool.
 The current locale and domain are determined by the
-combination of both the 
+combination of both the
 .SB LC_MESSAGES
 category of locale and the current domain setting.
 .LP
-If the target string cannot be found by using the current locale and domain 
+If the target string cannot be found by using the current locale and domain
 then
 .I msgtag
-and current domain are applied to the 
+and current domain are applied to the
 implementation-defined default locale
 (this default locale could contain any language).
-If the default locale does not also contain the target string then the 
+If the default locale does not also contain the target string then the
 .I msgtag
 and current domain will be applied to the
-\fB"C"\fR 
+\fB"C"\fR
 locale of the message pool.
-If the target string still cannot be found then 
+If the target string still cannot be found then
 .B gettext(\|)
 will return
 .IR msgtag .
 .LP
-Any of the following conditions will result in a message not being 
+Any of the following conditions will result in a message not being
 found in the string archive:
 .RS
 .TP 3
@@ -135,7 +135,7 @@ returns
 .B textdomain(\|)
 returns a pointer to the name of the current domain.
 If the domain has not been set
-prior to this call, 
+prior to this call,
 .B textdomain(\|)
 returns a pointer to an
 empty string.
@@ -150,23 +150,23 @@ if:
 contains an invalid character.
 .TP
 \(bu
-.I domainname 
+.I domainname
 is longer than
 .SB LINE_MAX
 bytes in length.
 .TP
 \(bu
-If, at the time of the call to 
+If, at the time of the call to
 .BR textdomain(\|) ,
-the combination of current locale and 
+the combination of current locale and
 .I domainname
 creates a domain that
-does not exist at run-time. 
+does not exist at run-time.
 Note: in this case
-.B textdomain(\|) 
-may have been called prior to a successful 
+.B textdomain(\|)
+may have been called prior to a successful
 .BR setlocale (3V)
-call, but 
+call, but
 .B textdomain(\|)
 will always check against current locale setting.
 .RE
@@ -175,7 +175,7 @@ will always check against current locale setting.
 .LP
 The following produces
 `Hit Return\en'
-in a locale that is invalid or is valid and contains the same target string 
+in a locale that is invalid or is valid and contains the same target string
 as the key:
 .LP
 .RS

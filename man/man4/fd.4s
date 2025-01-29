@@ -27,7 +27,7 @@ Sun386i, Sun-3/80, and Desktop \s-1SPARC\s0systems only.
 .LP
 The
 .B fd
-driver provides an interface to floppy disks 
+driver provides an interface to floppy disks
 using the Intel 82072 disk
 controller on Sun386i,
 Sun-3/80 and Desktop \s-1SPARC\s0systems.
@@ -38,7 +38,7 @@ The bits of the minor device
 number are defined as
 .B rrruuppp
 where
-.BR r =reserved, 
+.BR r =reserved,
 .BR u =unit,
 and
 .BR p =partition.
@@ -169,8 +169,8 @@ raw file (same as
 A command such as read or write encountered a format-related  error condition.
 The value of
 .I %s
-is derived from the error number 
-given by the controller, indicating the nature of the error. 
+is derived from the error number
+given by the controller, indicating the nature of the error.
 The track number is relative to the beginning of the partition involved.
 .TP
 .B "fd drv %d, blk %d: %s"
@@ -179,19 +179,19 @@ I/O.
 The value of
 .I %s
 is derived from the error number returned by the
-controller and indicates the nature of the error. 
+controller and indicates the nature of the error.
 The block number is relative
 to the start of the partition involved.
 .TP
 .B "fd controller: %s"
 An error occurred in the controller.
-The value of 
+The value of
 .I %s
 is derived from the status returned by the controller
 and specifies the error encountered.
 .TP
 .B "fd(%d):%s please insert"
-I/O was attempted while the floppy drive door was not latched. 
+I/O was attempted while the floppy drive door was not latched.
 The value of
 .I %s
 indicates which disk was expected to be in the drive.

@@ -63,27 +63,27 @@ are assumed to be in decimal.
 The default base of any argument may be overridden;
 the C conventions for designating the base of a number are recognized.
 (A number that is usually interpreted as decimal will be interpreted
-as hexadecimal if it is preceded by 
-.B 0x 
-and as octal if it is preceded by 
+as hexadecimal if it is preceded by
+.B 0x
+and as octal if it is preceded by
 .BR 0 .
 Decimal override is designated by
-.BR 0d , 
-and binary by 
+.BR 0d ,
+and binary by
 .BR 0b .)
 .SS Expressions
 .LP
 Many commands accept several forms of an argument.
 Requests for table information accept a table entry number,
-a physical address, a virtual address, a symbol, a range, or an expression. 
-A range of slot numbers may be specified in the form 
+a physical address, a virtual address, a symbol, a range, or an expression.
+A range of slot numbers may be specified in the form
 .I a\-b
 where
-.IR a " and " b 
+.IR a " and " b
 are decimal numbers.  An expression consists of two operands
 and an operator.
 An operand may be an address, a symbol, or a number. The operator
-may be 
+may be
 .\" The following in-line font changes are necessary to get the double
 .\" quotes to print correctly in nroff. -jah
 \*(lq\fB+\fR\*(rq (plus sign),
@@ -91,29 +91,29 @@ may be
 \*(lq\fB*\fR\*(rq (multiplication symbol),
 \*(lq\fB/\fR\*(rq (division symbol),
 \*(lq\fB&\fR\*(rq (logical
-.SM AND\s0), 
-or 
+.SM AND\s0),
+or
 \*(lq\fB|\fR\*(rq (logical
 .SM OR\s0).
 An operand which is a number should be preceded by a radix prefix
-if it is not a decimal number 
+if it is not a decimal number
 .RB ( 0
-for octal, 
-.B 0x 
+for octal,
+.B 0x
 for hexidecimal,
-.B 0b 
+.B 0b
 for binary).
-The expression must be enclosed in 
+The expression must be enclosed in
 .RB ` (\|) '
 (parentheses).
 Other commands accept any of these argument forms
 that are meaningful.
 .LP
-Two abbreviated arguments to 
-.B crash 
-commands are used throughout.  Both accept data entered 
+Two abbreviated arguments to
+.B crash
+commands are used throughout.  Both accept data entered
 in several forms.  A
-.I table_entry 
+.I table_entry
 argument may be an address, symbol, range or expression that
 resolves to one of these.
 A
@@ -123,7 +123,7 @@ to one of those.
 .SS Commands
 .sp .5
 .HP
-.B ? 
+.B ?
 [
 .BI \-w " filename"
 ]
@@ -143,7 +143,7 @@ command.
 .BI ! command
 Escape to the shell to execute a command.
 .HP
-.B adv  
+.B adv
 [
 .B \-ep
 ]
@@ -152,7 +152,7 @@ Escape to the shell to execute a command.
 ]
 [
 .IR table_entry
-] .\|.\|. 
+] .\|.\|.
 .br
 Print the advertise table.
 .RS
@@ -187,40 +187,40 @@ command.
 .br
 Print the address space table.
 .HP
-.B base 
+.B base
 [
-.B \-w 
+.B \-w
 .I filename
-] 
+]
 .IR number " .\|.\|. "
 .br
-Print 
-.I number 
-in binary, octal, decimal, and hexadecimal.  
-A number in a radix other then decimal should be 
+Print
+.I number
+in binary, octal, decimal, and hexadecimal.
+A number in a radix other then decimal should be
 preceded by a prefix that indicates its radix as follows:
 .BR 0x ", hexidecimal;"
 .BR 0 ", octal; and"
 .BR 0b ", binary."
 .HP
-.B buffer 
+.B buffer
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
 .BI \- format
-] 
+]
 .I bufferslot
 .br
 .PD 0
 .HP
-.B buffer 
+.B buffer
 [
 .B \-p
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -229,36 +229,36 @@ preceded by a prefix that indicates its radix as follows:
 .I start_addr
 .br
 .PD
-Alias: 
+Alias:
 .BR b .
 .br
-Print the contents of a buffer in the designated format.  
-The following format designations are recognized: 
-.BR \-b ", byte;" 
-.BR \-c ", character;" 
-.BR \-d ", decimal;" 
-.BR \-x ", hexadecimal;" 
-.BR \-o ", octal;" 
-.BR \-r ", directory; and" 
+Print the contents of a buffer in the designated format.
+The following format designations are recognized:
+.BR \-b ", byte;"
+.BR \-c ", character;"
+.BR \-d ", decimal;"
+.BR \-x ", hexadecimal;"
+.BR \-o ", octal;"
+.BR \-r ", directory; and"
 .BR \-i ", inode."
-If no format is given, the previous format is used.  
-The default format at the beginning of a 
-.B crash 
+If no format is given, the previous format is used.
+The default format at the beginning of a
+.B crash
 session is hexadecimal.
 .HP
-.B bufhdr 
+.B bufhdr
 [
 .B \-fp
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
 .I table_entry
 ] .\|.\|.
 .br
-Alias: 
+Alias:
 .BR buf .
 .br
 Print system buffer headers.
@@ -270,13 +270,13 @@ Display the full structure.
 .RE
 .RE
 .TP
-.B callout 
+.B callout
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
-Alias: 
+Alias:
 .BR c .
 .br
 Print the callout table.
@@ -293,9 +293,9 @@ Print the callout table.
 .br
 Print the context table.
 .\" .TP
-.\" .B dballoc 
+.\" .B dballoc
 .\" [
-.\" .B \-w 
+.\" .B \-w
 .\" .I filename
 .\" ] [
 .\" .IR class " .\|.\|. "
@@ -304,9 +304,9 @@ Print the context table.
 .\" Print the dballoc table.  If a class is entered,
 .\" only data block allocation information for that class will be printed.
 .TP
-.B dbfree  
+.B dbfree
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 .\" [
@@ -318,24 +318,24 @@ only data block headers for the class specified will be printed.
 .\" .br
 .\" .ne 12
 .\".TP
-.\".B dblock 
+.\".B dblock
 .\"[
 .\".B \-e
 .\"] [
 .\".B \-c
 .\".IR class " .\|.\|. "
 .\"] [
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\".br
 .\".PD 0
 .TP
-.B dblock 
+.B dblock
 [
 .B \-ep
 ] [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -344,23 +344,23 @@ only data block headers for the class specified will be printed.
 .br
 .PD
 Print allocated streams data block headers.
-If the class option 
-.RB ( \-c ) 
+If the class option
+.RB ( \-c )
 is used, only data block headers for the class specified will be printed.
 .TP
-.B defproc 
+.B defproc
 [
 .B \-c
 ] [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
 .PD 0
 .TP
-.B defproc 
+.B defproc
 [
-.B \-w 
+.B \-w
 .I filename
 ] [
 .I slot
@@ -368,37 +368,37 @@ is used, only data block headers for the class specified will be printed.
 .br
 .PD
 Set the value of the process slot argument.
-The process slot argument may be set to the current slot number 
-.RB ( \-c ) 
+The process slot argument may be set to the current slot number
+.RB ( \-c )
 or the slot number may be specified.  If no argument
 is entered, the value of the previously set slot number is printed.
-At the start of a 
-.B crash 
+At the start of a
+.B crash
 session, the process slot is set to the current process.
 .\".HP
-.\".B dis 
+.\".B dis
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"] [
 .\".B \-a
-.\"] 
-.\".I start_addr 
+.\"]
+.\".I start_addr
 .\"[
 .\".I count
 .\"]
 .\".br
-.\"Disassemble from the start address for 
-.\".I count 
-.\"instructions. The default count is 1. The absolute option 
-.\".RB ( \-a ) 
+.\"Disassemble from the start address for
+.\".I count
+.\"instructions. The default count is 1. The absolute option
+.\".RB ( \-a )
 .\"specifies a non-symbolic disassembly.
 .HP
-.B ds 
+.B ds
 [
-.B \-w 
+.B \-w
 .I filename
-] 
+]
 .IR  virtual_address " .\|.\|. "
 .br
 Print the data symbol whose address is closest to, but not
@@ -409,53 +409,53 @@ greater than, the address entered.
 .B \-ep
 ]
 [
-.B \-w 
-.I filename 
+.B \-w
+.I filename
 ]
 [
 .I table_entry
 ] .\|.\|.
 .br
-Alias: 
+Alias:
 .BR f .
 .br
 Print the file table.
 .HP
-.B findaddr 
+.B findaddr
 [
-.B \-w 
+.B \-w
 .I filename
-] 
+]
 .I "table slot"
 .br
 Print the address of
 .I slot
 in
 .IR table .
-Only tables available to the 
-.B size 
-command are available to 
+Only tables available to the
+.B size
+command are available to
 .BR findaddr .
 .\".HP
-.\".B findslot 
+.\".B findslot
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
-.\"] 
+.\"]
 .\".IR virtual_address " .\|.\|. "
 .\".br
 .\"Print the table, entry slot number, and offset for the
-.\"address entered.  Only tables available to the 
-.\".B size 
+.\"address entered.  Only tables available to the
+.\".B size
 .\"command are available to
 .\".BR findslot .
 .\".HP
-.\".B fs 
+.\".B fs
 .\"[
 .\".B \-p
 .\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
@@ -464,12 +464,12 @@ command are available to
 .\".br
 .\"Print the file system information table.
 .HP
-.B gdp 
+.B gdp
 [
 .B \-efp
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -478,67 +478,67 @@ command are available to
 .br
 Print the gift descriptor protocol table.
 .HP
-.B help 
+.B help
 [
-.B \-w 
+.B \-w
 .I filename
-] 
+]
 .IR command " .\|.\|. "
 .br
 Print a description of the named command, including syntax and aliases.
 .HP
-.B inode 
+.B inode
 [
 .B \-f
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
 .IR table_entry
 ] .\|.\|.
 .br
-Alias: 
+Alias:
 .BR i .
 .br
 Print the inode table, including file system switch information.
 .HP
-.B kfp 
+.B kfp
 [
 .B \-r
 ] [
-.B \-s 
+.B \-s
 .I process
 ] [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
 .PD 0
 .HP
-.B kfp 
+.B kfp
 [
-.B \-s 
+.B \-s
 .I process
 ] [
-.B \-w 
+.B \-w
 .I filename
 ] [
 .I value
 ]
 .br
 .PD
-Print the frame pointer for the start of a kernel stack trace.  The 
-.B kfp 
-value can be set using the value argument or the reset option 
-.RB ( \-r ), 
-which sets the 
-.B kfp 
+Print the frame pointer for the start of a kernel stack trace.  The
+.B kfp
+value can be set using the value argument or the reset option
+.RB ( \-r ),
+which sets the
+.B kfp
 through the nvram.  If no argument
-is entered, the current value of the 
-.B kfp 
-is printed. 
+is entered, the current value of the
+.B kfp
+is printed.
 .RS
 .RS
 .TP 12
@@ -550,83 +550,83 @@ command.
 .RE
 .RE
 .\".HP
-.\".B lck 
+.\".B lck
 .\"[
 .\".B \-ep
 .\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
 .\".IR table_entry
 .\"] .\|.\|.
 .\".br
-.\"Alias: 
+.\"Alias:
 .\".BR l .
 .\".br
-.\"Print record locking information.  If the 
-.\".B \-e 
-.\"option is used or table address arguments are given, 
+.\"Print record locking information.  If the
+.\".B \-e
+.\"option is used or table address arguments are given,
 .\"the record lock list is printed.  If no argument is
-.\"entered, information on locks relative to inodes is printed.  
+.\"entered, information on locks relative to inodes is printed.
 .HP
-.B linkblk 
+.B linkblk
 [
 .B \-ep
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
 .IR table_entry
 ] .\|.\|.
 .br
-Print the 
-.B linkblk 
+Print the
+.B linkblk
 table.
 .\".HP
 .\".B major
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
 .\".IR entry " .\|.\|. "
 .\"]
 .\".br
-.\"Print the 
-.\".SM MAJOR 
+.\"Print the
+.\".SM MAJOR
 .\"table.
 .HP
-.B map 
+.B map
 [
-.B \-w 
+.B \-w
 .I filename
-] 
-.IR mapname " .\|.\|. " 
+]
+.IR mapname " .\|.\|. "
 .br
 Alias:
 .BR m .
 .br
-Print the map structure of 
+Print the map structure of
 .IR mapname .
 .HP
-.B mbfree 
+.B mbfree
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
 Print free streams message block headers.
 .HP
-.B mblock 
+.B mblock
 [
 .B \-ep
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -635,85 +635,85 @@ Print free streams message block headers.
 .br
 Print allocated streams message block headers.
 .\".HP
-.\".B mmu 
+.\".B mmu
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\".br
-.\"Alias: 
+.\"Alias:
 .\".BR regs .
 .\".br
 .\"Print memory management unit registers.
 .\"These registers are not available on a running system.
 .HP
-.B mode 
+.B mode
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
 .I mode
 ]
 .br
-Set address translation of arguments to virtual 
-.RB ( v ) 
-or physical 
-.RB ( p ) 
-mode.  If no mode argument is given, the current mode is 
-printed.  At the start of a 
-.B crash 
+Set address translation of arguments to virtual
+.RB ( v )
+or physical
+.RB ( p )
+mode.  If no mode argument is given, the current mode is
+printed.  At the start of a
+.B crash
 session, the mode is virtual.
 .HP
-.B mount 
+.B mount
 [
 .B \-p
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
 .IR table_entry
 ] .\|.\|.
 .br
-Alias: 
+Alias:
 .BR m .
 .br
 Print the mount table.
 .HP
-.B nm 
+.B nm
 [
-.B \-w 
+.B \-w
 .I filename
-] 
-.IR symbol " .\|.\|. " 
+]
+.IR symbol " .\|.\|. "
 .br
 Print value and type for the given symbol.
 .\".HP
-.\".B nvram 
+.\".B nvram
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
-.\"] 
+.\"]
 .\".I type
 .\".br
-.\"Print 
-.\".B nvram 
+.\"Print
+.\".B nvram
 .\"information of one of four types.
-.\".I type 
-.\"may be 
-.\".BR fwnvr , 
-.\".BR unxnvr , 
-.\".BR systate ", or" 
+.\".I type
+.\"may be
+.\".BR fwnvr ,
+.\".BR unxnvr ,
+.\".BR systate ", or"
 .\".BR errlog .
 .HP
-.B od 
+.B od
 [
 .B \-p
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -723,19 +723,19 @@ Print value and type for the given symbol.
 .BI \- mode
 ]
 [
-.B \-s 
+.B \-s
 .I process
-] 
-.I start_addr 
+]
+.I start_addr
 [
 .I count
 ]
 .br
-Alias: 
+Alias:
 .BR rd .
 .br
-Print 
-.I count 
+Print
+.I count
 values starting at the start address in one of the following
 formats:
 .RS
@@ -743,7 +743,7 @@ formats:
 .TP
 .PD 0
 .B \-c
-character 
+character
 .TP
 .B \-d
 decimal
@@ -769,7 +769,7 @@ and one of the following modes:
 .TP
 .PD 0
 .B \-l
-long 
+long
 .TP
 .B \-t
 short
@@ -780,18 +780,18 @@ byte
 .RE
 .RE
 .IP
-The default mode for character and 
+The default mode for character and
 .SM ASCII
 formats is byte;
 the default mode for decimal, hexadecimal, and octal formats is long.
-The format 
-.B \-h 
+The format
+.B \-h
 prints both hexadecimal and character
 representations of the addresses dumped;
 no mode needs to be specified.
 When format or mode is omitted, the previous value is used.
 At the start of a
-.B crash 
+.B crash
 session, the format is hexadecimal and the mode is long.
 If no count is entered, 1 is assumed.
 .HP
@@ -814,12 +814,12 @@ Alias:
 .br
 Print the page structures.
 .HP
-.B pcb 
+.B pcb
 .\"[
 .\".B \-u
 .\"]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -828,12 +828,12 @@ Print the page structures.
 .br
 .\".PD 0
 .\".HP
-.\".B pcb 
+.\".B pcb
 .\"[
 .\".B \-k
 .\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
@@ -841,64 +841,64 @@ Print the page structures.
 .\"]
 .\".br
 .\".HP
-.\".B pcb 
+.\".B pcb
 .\"[
 .\".B \-p
 .\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
-.\".B \-i 
+.\".B \-i
 .\".I start_addr
 .\"]
 .\".br
 .\".PD
 Print the process control block.  If no arguments are given,
-the active 
-.B pcb 
+the active
+.B pcb
 for the current process is printed.
-.\"The user option 
+.\"The user option
 .\".RB ( \-u )
-.\"prints the user 
-.\".B pcb 
-.\"and the kernel option 
-.\".RB ( \-k ) 
+.\"prints the user
+.\".B pcb
+.\"and the kernel option
+.\".RB ( \-k )
 .\"prints the kernel
-.\".B pcb 
-.\"associated with the process.  The interrupt option 
-.\".RB ( \-i ) 
-.\"prints the interrupt 
-.\".B pcb 
+.\".B pcb
+.\"associated with the process.  The interrupt option
+.\".RB ( \-i )
+.\"prints the interrupt
+.\".B pcb
 .\"located at the start address.
 .\" .br
 .\" .ne 13
 .\".HP
-.\".B pdt 
+.\".B pdt
 .\"[
 .\".B \-e
 .\"] [
-.\".B \-s 
+.\".B \-s
 .\".I process
 .\"] [
-.\".B \-w 
+.\".B \-w
 .\".I filename
-.\"] 
+.\"]
 .\".I section\ \ segment
 .\".br
 .\".PD 0
 .\".HP
-.\".B pdt 
+.\".B pdt
 .\"[
 .\".B \-ep
 .\"]
 .\"[
-.\".B \-s 
+.\".B \-s
 .\".I process
 .\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
@@ -908,27 +908,27 @@ for the current process is printed.
 .\"]\|]
 .\".br
 .\".PD
-.\"The page descriptor table of the designated memory 
-.\".IR  section " and " segment 
-.\"is printed.  Alternatively, the page descriptor 
-.\"table starting at the start address for 
+.\"The page descriptor table of the designated memory
+.\".IR  section " and " segment
+.\"is printed.  Alternatively, the page descriptor
+.\"table starting at the start address for
 .\".I count
 .\"entries is printed.  If no count is entered, 1 is assumed.
 .\".HP
-.\".B pfdat 
+.\".B pfdat
 .\"[
 .B \-ep
 .\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
 .\".IR table_entry
 .\"] .\|.\|.
 .\".br
-.\"Print the 
-.\".B pfdata 
+.\"Print the
+.\".B pfdata
 .\"table.
 .\".br
 .\".ne 12
@@ -944,7 +944,7 @@ for the current process is printed.
 \&.\|.\|.
 .br
 Print the page map entry table
-(not available on machines with a 
+(not available on machines with a
 .B sun3x
 kernel architecture).
 .HP
@@ -959,16 +959,16 @@ kernel architecture).
 ]
 .br
 Print the page map group table
-(not available on machines with a 
+(not available on machines with a
 .B sun3x
 kernel architecture).
 .HP
-.B proc 
+.B proc
 [
 .B \-fp
-] 
+]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -980,47 +980,47 @@ kernel architecture).
 .br
 .PD 0
 .HP
-.B proc 
+.B proc
 [
 .B \-fr
 ] [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
 .PD
-.\"Alias: 
+.\"Alias:
 .\".BR p .
 .\".br
 Print the process table.
 Process table information may be specified in two ways.
 First, any mixture of table entries and process
 .SM ID\s0s
-(\s-1PID\s0) 
-may be entered.  Each 
-.SM PID 
-must be preceded by a 
+(\s-1PID\s0)
+may be entered.  Each
+.SM PID
+must be preceded by a
 .RB  ` # '
 (pound sign).
-Alternatively, process table information 
+Alternatively, process table information
 for runnable processes may be specified with
-the runnable option 
+the runnable option
 .RB ( \-r ).
 .HP
-.B qrun 
+.B qrun
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
 Print the list of scheduled streams queues.
 .HP
-.B queue 
+.B queue
 [
 .B \-p
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -1031,20 +1031,20 @@ Print stream queues.
 .br
 .ne 6
 .TP
-.B quit 
-Alias: 
+.B quit
+Alias:
 .BR  q .
 .br
-Terminate the 
-.B crash 
+Terminate the
+.B crash
 session.
 .TP
-.B rcvd 
+.B rcvd
 [
 .B \-efp
-] 
+]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -1053,19 +1053,19 @@ session.
 .br
 Print the receive descriptor table.
 .HP
-.B redirect 
+.B redirect
 [
 .B \-c
 ] [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
 .PD 0
 .HP
-.B redirect 
+.B redirect
 [
-.B \-w 
+.B \-w
 .I filename
 ] [
 .I filename
@@ -1075,13 +1075,13 @@ Alias:
 .BR rd .
 .br
 .PD
-Used with a name, redirects output of a 
-.B crash 
+Used with a name, redirects output of a
+.B crash
 session to the named file. If no argument is given, the
 file name to which output is being redirected is printed.
-Alternatively, the close option 
-.RB ( \-c ) 
-closes the previously set 
+Alternatively, the close option
+.RB ( \-c )
+closes the previously set
 file and redirects output to the standard output.
 To pipe output from a single
 .B crash
@@ -1096,12 +1096,12 @@ This is not available when
 .B \-w
 is in effect.
 .\".HP
-.\".B region 
+.\".B region
 .\"[
 .\".B \-efp
 .\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
@@ -1110,28 +1110,28 @@ is in effect.
 .\".br
 .\"Print the region table.
 .\".HP
-.\".B sdt 
+.\".B sdt
 .\"[
 .\".B \-e
 .\"] [
-.\".B \-s 
+.\".B \-s
 .\".I process
 .\"] [
-.\".B \-w 
+.\".B \-w
 .\".I filename
-.\"] 
+.\"]
 .\".I section
 .\".br
 .\".PD 0
 .\".HP
-.\".B sdt 
+.\".B sdt
 .\"[
 .\".B \-ep
 .\"] [
-.\".B \-s 
+.\".B \-s
 .\".I process
 .\"] [
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\".I start_addr
@@ -1141,23 +1141,23 @@ is in effect.
 .\".br
 .\".PD
 .\"The segment descriptor table for the named memory section is printed.
-.\"Alternatively, the segment descriptor table starting at start address for 
+.\"Alternatively, the segment descriptor table starting at start address for
 .\".I count
 .\"entries is printed.  If no count is given, a count of 1 is assumed.
 .HP
-.B search 
+.B search
 [
 .B \-p
 ] [
-.B \-m 
+.B \-m
 .I mask
 ] [
-.B \-s 
+.B \-s
 .I process
 ] [
-.B \-w 
+.B \-w
 .I filename
-] 
+]
 .I pattern\ \ start_addr\ \ length
 .br
 Alias:
@@ -1165,10 +1165,10 @@ Alias:
 .br
 Print the words in memory that match
 .IR pattern ,
-beginning at the start address for 
+beginning at the start address for
 .I length
-words.  The mask is 
-.SM AND\s0ed 
+words.  The mask is
+.SM AND\s0ed
 (&) with each memory word and the result
 compared against the pattern.  The mask defaults to
 .BR 0xffffffff .
@@ -1217,27 +1217,27 @@ Print the segment table of process.
 .br
 Print the segment data of process.
 .HP
-.B size 
+.B size
 [
 .B \-x
 ] [
-.B \-w 
+.B \-w
 .I filename
 ] [
-.IR structure_name " .\|.\|. " 
+.IR structure_name " .\|.\|. "
 ]
 .br
-Print the size of the designated structure.  The 
-.B \-x 
+Print the size of the designated structure.  The
+.B \-x
 option prints the size in hexadecimal.  If no argument is
 given, a list of the structure names for which sizes are available is printed.
 .HP
-.B sndd 
+.B sndd
 [
 .B \-efp
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -1246,22 +1246,22 @@ given, a list of the structure names for which sizes are available is printed.
 .br
 Print the send descriptor table.
 .\".HP
-.\".B srams 
+.\".B srams
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\".br
-.\"Print the 
-.\".B sram 
+.\"Print the
+.\".B sram
 .\"values.
 .HP
-.B srmount 
+.B srmount
 [
 .B \-ep
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -1270,11 +1270,11 @@ Print the send descriptor table.
 .br
 Print the server mount table.
 .HP
-.B stack 
+.B stack
 [
 .B \-u
 ] [
-.B \-w 
+.B \-w
 .I filename
 ] [
 .I process
@@ -1282,11 +1282,11 @@ Print the server mount table.
 .br
 .PD 0
 .HP
-.B stack 
+.B stack
 [
 .B \-k
 ] [
-.B \-w 
+.B \-w
 .I filename
 ] [
 .I process
@@ -1294,48 +1294,48 @@ Print the server mount table.
 .br
 .PD 0
 .HP
-.B stack 
+.B stack
 [
 .B \-p
 ]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
-.B \-i 
+.B \-i
 .I start_addr
 ]
 .br
 .PD
-Alias: 
+Alias:
 .BR s .
 .br
-Dump stack.  The 
-.B \-u 
-option prints the user stack.  The 
-.B \-k 
+Dump stack.  The
+.B \-u
+option prints the user stack.  The
+.B \-k
 option prints the kernel stack.  The
-.B \-i 
+.B \-i
 option prints the interrupt stack starting at
-the start address.  If no arguments are entered, the kernel stack 
+the start address.  If no arguments are entered, the kernel stack
 for the current process is printed.
 The interrupt stack and the stack for the current process are not
 available on a running system.
 .HP
-.B status 
+.B status
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
 Print system statistics.
 .HP
-.B stream 
+.B stream
 [
 .B \-efp
-] 
+]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 [
@@ -1344,9 +1344,9 @@ Print system statistics.
 .br
 Print the streams table.
 .HP
-.B strstat 
+.B strstat
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 .br
@@ -1354,11 +1354,11 @@ Print streams statistics.
 .br
 .ne 12
 .HP
-.B trace 
+.B trace
 [
 .B \-r
 ] [
-.B \-w 
+.B \-w
 .I filename
 ] [
 .I process
@@ -1366,41 +1366,41 @@ Print streams statistics.
 .br
 .PD 0
 .HP
-.B trace 
+.B trace
 [
 .B \-p
 ]
 [
-.B \-w 
+.B \-w
 .I filename
-] 
+]
 .B \-i
 .I start_addr
 ]
 .br
 .PD
-Alias: 
+Alias:
 .BR t .
 .br
-Print stack trace.  The 
-.B kfp 
-value is used with the 
-.B \-r 
+Print stack trace.  The
+.B kfp
+value is used with the
+.B \-r
 option.  The interrupt option prints a trace of the interrupt
 stack beginning at the start address.
 The interrupt stack trace and the stack trace for the current
 process are not available on a running system.
 .HP
-.B ts 
+.B ts
 [
-.B \-w 
+.B \-w
 .I filename
-] 
+]
 .IR virtual_address " .\|.\|. "
 .br
 Print closest text symbol to the designated address.
 .\".HP
-.\".B tty 
+.\".B tty
 .\"[
 .\".B \-efp
 .\"]
@@ -1408,7 +1408,7 @@ Print closest text symbol to the designated address.
 .\".B \-w
 .\".I filename
 .\"] [
-.\".B \-t 
+.\".B \-t
 .\".I type
 .\"]
 .\"[
@@ -1420,9 +1420,9 @@ Print closest text symbol to the designated address.
 .\".B tty
 .\"[
 .\".B \-efp
-.\"] 
+.\"]
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\"[
@@ -1430,41 +1430,41 @@ Print closest text symbol to the designated address.
 .\"]
 .\".br
 .\".PD
-.\"Valid types: 
-.\".BR pp , 
+.\"Valid types:
+.\".BR pp ,
 .\".BR iu .
 .\".br
-.\"Print the tty table. 
+.\"Print the tty table.
 .\"If no arguments are given, the tty table for both tty types is printed.
-.\"If the 
-.\".B \-t 
+.\"If the
+.\".B \-t
 .\"option is used, the table for the single tty type specified is printed.
 .\"If no argument follows the type
 .\"option, all entries in the table are printed.
 .\"A single tty entry may be specified from the start address.
 .HP
-.B user 
+.B user
 [
 .B \-f
 ] [
-.B \-w 
+.B \-w
 .I filename
 ] [
 .I process
 ]
 .br
-Alias: 
+Alias:
 .BR u .
 .br
 Print the ublock for the designated process.
 .\".HP
-.\".B var 
+.\".B var
 .\"[
-.\".B \-w 
+.\".B \-w
 .\".I filename
 .\"]
 .\".br
-.\"Alias: 
+.\"Alias:
 .\".BR v .
 .\".br
 .\"Print the tunable system parameters.
@@ -1479,7 +1479,7 @@ Print the ublock for the designated process.
 .IR tbl_entry \|.\|.\|.
 ]
 .br
-Print the 
+Print the
 .B vfs
 table.
 .HP
@@ -1498,13 +1498,13 @@ Alias:
 .br
 Print the vnode table.
 .HP
-.B vtop 
+.B vtop
 [
-.B \-s 
+.B \-s
 .I process
-] 
+]
 [
-.B \-w 
+.B \-w
 .I filename
 ]
 .IR start_addr " .\|.\|. "
@@ -1515,7 +1515,7 @@ Print the physical address translation of the virtual start address.
 .SH FILES
 .PD 0
 .TP 25
-.B /dev/mem		
+.B /dev/mem
 system image of currently running system
 .TP
 .B /var/crash/\fImachine\fP/vmcore.\fIN\fP

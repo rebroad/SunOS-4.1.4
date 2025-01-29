@@ -1,4 +1,4 @@
-.\" @(#)addbib.1 1.1 94/10/31 SMI; 
+.\" @(#)addbib.1 1.1 94/10/31 SMI;
 .TH ADDBIB 1 "21 December 1987"
 .SH NAME
 addbib \- create or extend a bibliographic database
@@ -44,7 +44,7 @@ from the terminal, and sends output records to
 A null response (just
 .SM RETURN\s0)
 means to leave out that field.  A
-.RB ` \- ' 
+.RB ` \- '
 (minus sign)
 means to go back to the previous field.  A trailing
 backslash allows a field to be continued on the next line.  The
@@ -53,30 +53,30 @@ repeating
 prompt allows the user either to resume by
 typing
 .B y
-or 
-.SM RETURN\s0, 
+or
+.SM RETURN\s0,
 to quit the current session by typing
 .B n
 or
 .BR q ,
-or to edit 
+or to edit
 .I database
-with any system editor 
+with any system editor
 .RB ( vi (1),
 .BR ex (1),
 .BR ed (1)).
 .SH OPTIONS
-.TP 
+.TP
 .B \-a
 Suppress prompting for an abstract; asking for an
 abstract is the default.
-Abstracts are ended with a 
+Abstracts are ended with a
 .SM CTRL\s0\-D.
 .TP
 .BI \-p " promptfile"
 Use a new prompting skeleton, defined in
 .IR promptfile .
-This file should contain prompt strings, a 
+This file should contain prompt strings, a
 .SM TAB\s0,
 and the key-letters to be written to the
 .IR database .
@@ -90,7 +90,7 @@ since it gives you prompts in English,
 but if you edit the bibliography file later on,
 you will need to know this information.
 .RS
-.TP 
+.TP
 .B %A
 Author's name
 .TP
@@ -107,7 +107,7 @@ Date of publication
 Editor of book containing article referenced
 .TP
 .B %F
-Footnote number or label (supplied by  
+Footnote number or label (supplied by
 .BR refer )
 .TP
 .B %G
@@ -128,7 +128,7 @@ Keywords to use in locating reference
 .B %L
 Label field used by
 .B \-k
-option of 
+option of
 .B refer
 .TP
 .B %M

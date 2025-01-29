@@ -3,7 +3,7 @@
 .SH NAME
 filemerge \- window-based file comparison and merging program
 .SH SYNOPSIS
-.B filemerge 
+.B filemerge
 [
 .B \-a
 .I ancestor
@@ -20,7 +20,7 @@ filemerge \- window-based file comparison and merging program
 .I rightfile
 [
 .I outfile
-] 
+]
 ]
 ]
 .SH DESCRIPTION
@@ -44,7 +44,7 @@ is name of the file containing the merged version.  If
 .I outfile
 is a directory, then the output is placed in the file
 .IR outfile/leftfile .
-If 
+If
 .I outfile
 is omitted, the output file is named
 .B filemerge.\|out
@@ -78,14 +78,14 @@ in the directory
 The
 .B
 .SM SHIFT\*S\-Load
-command button, which is selected by holding the 
+command button, which is selected by holding the
 .SM SHIFT
 key while clicking on the
 .B Load
 button, reads in the next pair named in the list.
 If
 .I listfile
-is 
+is
 .BR \- ,
 then the list of files is read from the standard input.
 .TP
@@ -120,7 +120,7 @@ the right-hand version of the text to
 .IR outfile .
 The
 .B Next
-and 
+and
 .B Prev
 buttons select the next or previous difference, respectively.
 .SS Property Sheet
@@ -137,7 +137,7 @@ while the mouse is over any part of filemerge.
 There are pop-up menus associated with several of the control panel
 items, and a menu associated with the editing subwindow.  The former
 provide to select any command function obtained with a modified
-mouse-button (such as 
+mouse-button (such as
 .B
 .SM SHIFT\*S\-Next\c
 ); the editing subwindow's menu has items that
@@ -153,34 +153,34 @@ on top of it.
 Make the next difference current.  The
 subwindow scrolls, if necessary, to display it.
 .IP \fB
-\s-1SHIFT-\fBNext\fP 
+\s-1SHIFT-\fBNext\fP
 12
-Make the first difference current.  (Also a menu item from the 
+Make the first difference current.  (Also a menu item from the
 .B Next
 menu.)
 .IP \fBPrev\fP
 Make the previous difference current.
 .IP \fB
-\s-1SHIFT\s0-Prev\fR 
+\s-1SHIFT\s0-Prev\fR
 12
 Make the last difference current.
-(Also a menu item from the 
+(Also a menu item from the
 .B Prev
 menu.)
 .IP \fBRight\fP
-Apply right-hand version of the current difference to 
+Apply right-hand version of the current difference to
 .IR outfile .
 If
 \fBautoadvance\fP
 is in effect, advance to the next difference.
 .IP \fB
-\s-1SHIFT\s0-Right\fP 
+\s-1SHIFT\s0-Right\fP
 12
 Apply the right-hand version and advance
 to the next difference, unless
 .B autoadvance
 is in effect.
-(Also a menu item from the 
+(Also a menu item from the
 .B Right
 menu.)
 .IP \fB\s-1CTRL\s0-Right\fP
@@ -196,7 +196,7 @@ or
 operation.  You can undo
 up to 100 stacked operations.  You can't undo an undo.
 .IP \fB
-\s-1SHIFT\s0-Undo\fP 
+\s-1SHIFT\s0-Undo\fP
 12
 Undo all the operations since the last
 \fBLoad\fP,
@@ -219,13 +219,13 @@ Load the files whose names appear by the prompts
 and
 \fBFile2:\fP.
 .IP \fB
-\s-1SHIFT\s0-Load\fP 
+\s-1SHIFT\s0-Load\fP
 12
 When the
 .B \-l
 option is used, load the files from the directories shown in
 .B File1
-and 
+and
 .B File2
 corresponding to the next name in the list (taken from the
 .I listfile
@@ -236,14 +236,14 @@ Save
 and close the tool.  The name used to save the
 file appears in the namestripe, in the same fashion as textedit.
 .IP \fB
-\s-1SHIFT\s0-Done\fP 
+\s-1SHIFT\s0-Done\fP
 12
 Save without closing.  You can also save the merged version using
 the
 \fBSave\fP
 item in the editing subwindow's menu.
 .IP \fBQuit\fP
-Exit the tool.  You must explictly save your merged 
+Exit the tool.  You must explictly save your merged
 .I outfile,
 either with the
 \fBDone\fP
@@ -290,7 +290,7 @@ number of columns in the left (and also right) subwindow
 file storing property sheet information
 .PD
 .SH SEE ALSO
-.IR diff (1), 
+.IR diff (1),
 .IR sdiff (1),
 .IR textedit (1)
 .SH BUGS

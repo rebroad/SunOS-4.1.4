@@ -39,10 +39,10 @@ Refer to
 for a discussion of how to set up the
 database for a given printer.
 .\" Sun386i
-On Sun386i systems, refer to 
+On Sun386i systems, refer to
 .BR snap (1)
 for information on setting up printers with the system
-and network administration program. 
+and network administration program.
 .LP
 Each entry in the
 .B printcap
@@ -55,7 +55,7 @@ gives the names which are known for the
 printer, separated by
 .RB ` | '
 characters.
-The first name is conventionally a number. 
+The first name is conventionally a number.
 The second name given is the most common abbreviation
 for the printer, and the last name given should
 be a long name fully identifying the printer.
@@ -98,7 +98,7 @@ The following example is a numeric
 entry stating that this printer should
 run at 1200 baud:
 .IP
-.B 	\ :br#1200:\ 
+.B 	\ :br#1200:\
 .TP
 .I String
 Capabilities that give a sequence which can
@@ -118,7 +118,7 @@ sign and then a string ending at the next following
 .RB ` : '.
 For example,
 .IP
-.B 	\ \ :rp=spinwriter:\ 
+.B 	\ \ :rp=spinwriter:\
 .IP
 is a sample entry stating that the remote printer
 is named
@@ -127,53 +127,53 @@ is named
 .LP
 On Sun386i systems,
 .BR lpr (1)
-and related printing commands use the 
+and related printing commands use the
 Network Information Service
 (\s-1NIS\s0)
-to obtain the 
+to obtain the
 .B printcap
 entry for a named printer if the entry does not exist in the local
 .B /etc/printcap
 file.
 For example, when a user issues the command:
 .IP
-.B 	\ \ lpr -Pnewprinter foo\ 
+.B 	\ \ lpr -Pnewprinter foo\
 .LP
-.B lpr 
-searches 
+.B lpr
+searches
 .B /etc/printcap
 on the local system for an entry for
 .BR newprinter .
-If no local entry for 
+If no local entry for
 .B newprinter
-exists, then 
-.B lpr 
-searches the 
+exists, then
+.B lpr
+searches the
 .SM NIS
 map called
 .BR printcap .
-The search is invisible to the user. 
+The search is invisible to the user.
 .LP
 .B lpr
-creates the spooling directory for the printer automatically if 
+creates the spooling directory for the printer automatically if
 no spooling directory exists.
 .LP
-System administrators can make a printer available to the 
-entire 
+System administrators can make a printer available to the
+entire
 .SM NIS
 domain by placing an entry
-for that printer in the 
+for that printer in the
 .SM NIS
-.B printcap 
+.B printcap
 map, typically using
 .BR snap .
-Otherwise, the system administrator must edit the 
+Otherwise, the system administrator must edit the
 .B /etc/printcap
-file on the 
+file on the
 .SM NIS
-master and then rebuild the 
+master and then rebuild the
 .SM NIS
-map. 
+map.
 .SH CAPABILITIES
 .LP
 .\" === troff version ====
@@ -222,7 +222,7 @@ sd	str	``/var/spool/lpd''	spool directory
 sf	bool	false	suppress form feeds
 sh	bool	false	suppress printing of burst page header
 st	str	``status''	status file name
-tc	str	\s-1NULL\s0	name of similar printer; must be last	 
+tc	str	\s-1NULL\s0	name of similar printer; must be last
 tf	str	\s-1NULL\s0	troff data filter (C/A/T phototypesetter)
 tr	str	\s-1NULL\s0	trailer string to print when queue empties
 vf	str	\s-1NULL\s0	raster image filter
@@ -233,64 +233,64 @@ xs	num	0	like `xc' but set bits
 .\" === end troff version ====
 .\" === nroff version ====
 .if t .ig IG
-.ta +5n +5n +19n +25n 
+.ta +5n +5n +19n +25n
 \fIName	Type	Default	Description\fP
 .sp .5
 af	str	\s-1NULL\s0	name of accounting file
-br	num	none	if lp is a tty, set the baud 
+br	num	none	if lp is a tty, set the baud
 			rate (ioctl call)
 cf	str	\s-1NULL\s0	cifplot data filter
 df	str	\s-1NULL\s0	TeX data filter (\s-1DVI\s0 format)
 du	str	0	User \s-1ID\s0 of user `daemon'.
-fc	num	0	if lp is a tty, clear 
+fc	num	0	if lp is a tty, clear
 			flag bits
-ff	str	``\ef''	string to send for a 
+ff	str	``\ef''	string to send for a
 			form feed
-fo	bool	false	print a form feed when 
+fo	bool	false	print a form feed when
 			device is opened
 fs	num	0	like `fc' but set bits
-gf	str	\s-1NULL\s0	graph data filter 
+gf	str	\s-1NULL\s0	graph data filter
 			(plot(3X) format)
-hl	bool	false	print the burst header 
+hl	bool	false	print the burst header
 			page last
-ic	bool	false	driver supports (non 
-			standard) ioctl to indent 
+ic	bool	false	driver supports (non
+			standard) ioctl to indent
 			printout
 if	str	\s-1NULL\s0	name of input/
-			communication filter 
+			communication filter
 			(created per job)
 lf	str	``/dev/console''	error logging file name
 lo	str	``lock''	name of lock file
-lp	str	``/dev/lp''	device name to open 
+lp	str	``/dev/lp''	device name to open
 			for output
 mc	num	0	maximum number of copies
-ms	str	\s-1NULL\s0	list of terminal modes to 
+ms	str	\s-1NULL\s0	list of terminal modes to
 			set or clear
-mx	num	1000	maximum file size (in 
-			\s-1BUFSIZ\s0 blocks), 
+mx	num	1000	maximum file size (in
+			\s-1BUFSIZ\s0 blocks),
 			zero = unlimited
-nd	str	\s-1NULL\s0	next directory for list 
+nd	str	\s-1NULL\s0	next directory for list
 			of queues (unimplemented)
-nf	str	\s-1NULL\s0	ditroff data filter 
+nf	str	\s-1NULL\s0	ditroff data filter
 			(device independent troff)
-of	str	\s-1NULL\s0	name of output/banner 
+of	str	\s-1NULL\s0	name of output/banner
 			filter (created once)
-pc	num	200	price per foot or page in 
+pc	num	200	price per foot or page in
 			hundredths of cents
 pl	num	66	page length (in lines)
 pw	num	132	page width (in characters)
-px	num	0	page width in pixels 
+px	num	0	page width in pixels
 			(horizontal)
-py	num	0	page length in pixels 
+py	num	0	page length in pixels
 			(vertical)
-rf	str	\s-1NULL\s0	filter for printing \s-1FORTRAN\s0 
+rf	str	\s-1NULL\s0	filter for printing \s-1FORTRAN\s0
 			style text files
-rg	str	\s-1NULL\s0	restricted group. Only 
+rg	str	\s-1NULL\s0	restricted group. Only
 			members of group allowed access
-rm	str	\s-1NULL\s0	machine name for remote 
+rm	str	\s-1NULL\s0	machine name for remote
 			printer
 rp	str	``lp''	remote printer name argument
-rs	bool	false	restrict remote users to 
+rs	bool	false	restrict remote users to
 			those with local accounts
 rw	bool	false	open printer device read
 			/write instead of write-only
@@ -298,17 +298,17 @@ sb	bool	false	short banner (one line only)
 sc	bool	false	suppress multiple copies
 sd	str	``/var/spool/lpd''	spool directory
 sf	bool	false	suppress form feeds
-sh	bool	false	suppress printing of burst 
+sh	bool	false	suppress printing of burst
 			page header
 st	str	``status''	status file name
-tc	str	\s-1NULL\s0	name of similar printer; 
-			must be last	 
-tf	str	\s-1NULL\s0	troff data filter (C/A/T 
+tc	str	\s-1NULL\s0	name of similar printer;
+			must be last
+tf	str	\s-1NULL\s0	troff data filter (C/A/T
 			phototypesetter)
-tr	str	\s-1NULL\s0	trailer string to print 
+tr	str	\s-1NULL\s0	trailer string to print
 			when queue empties
 vf	str	\s-1NULL\s0	raster image filter
-xc	num	0	if lp is a tty, clear 
+xc	num	0	if lp is a tty, clear
 			local mode bits
 xs	num	0	like `xc' but set bits
 .fi
@@ -399,7 +399,7 @@ with the
 field.  This permits modes not supported by the older
 terminal interface described in
 .BR ttcompat (4M)
-to be set or cleared. 
+to be set or cleared.
 Thus, to set the terminal port to which the
 printer is attached to even parity,
 .SM TAB
@@ -417,14 +417,14 @@ flow control enabled, do:
 .RE
 .\"Sun386i
 .LP
-On Sun386i systems, the 
+On Sun386i systems, the
 .B tc
 field, as in the
 .BR termcap (5)
 file, must appear last in the list of capabilities.
 It is recommended that
 each type of printer have a general entry describing common capabilities;
-then an individual printer can be defined with 
+then an individual printer can be defined with
 its particular capabilities plus a
 .B tc
 field that points to the general entry for that type of printer.
@@ -453,6 +453,6 @@ field that points to the general entry for that type of printer.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

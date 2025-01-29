@@ -32,7 +32,7 @@ tektool \- SunView Tektronix 4014 terminal-emulator window
 .SH AVAILABILITY
 .LP
 This command is available with the
-.TX SVBG 
+.TX SVBG
 software installation option.  Refer to
 .TX INSTALL
 for information on how to install optional software.
@@ -101,16 +101,16 @@ Specifies the Tektronix 4014 strap options with the following modifiers:
 .TP 4
 l
 Received
-.SM LINEFEED 
-characters also generate 
-.SM RETURN 
+.SM LINEFEED
+characters also generate
+.SM RETURN
 characters.
 .TP
 c
-Received 
-.SM RETURN 
-characters also generate 
-.SM LINEFEED 
+Received
+.SM RETURN
+characters also generate
+.SM LINEFEED
 characters.
 .TP
 d
@@ -124,19 +124,19 @@ e
 Echo keyboard input.
 .TP
 g
-Graphic input mode 
+Graphic input mode
 (\s-1GIN\s0) terminator
 specification. If this strap is followed by a
 .BR c ,
 .SM GIN
-mode data is terminated by a 
-.SM RETURN 
+mode data is terminated by a
+.SM RETURN
 character.
 If it is followed by a
 .BR e ,
 .SM GIN
 mode data is terminated by a
-.SM RETURN 
+.SM RETURN
 character followed by an
 .SM EOT
 character.  If this strap is not present, no
@@ -149,7 +149,7 @@ Page full control specification.
 If this strap is followed by a
 .BR 1 ,
 .B tektool
-will stop accepting tty input when a 
+will stop accepting tty input when a
 .SM LINEFEED
 character is done past the last line in margin 1.
 This is the 4014 page full condition.
@@ -157,8 +157,8 @@ The page full condition it released by a
 .SB PAGE
 or a
 .SB RELEASE
-or any 
-.SM ASCII 
+or any
+.SM ASCII
 keyboard input.
 If this strap is followed by a
 .BR 2 ,

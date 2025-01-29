@@ -16,7 +16,7 @@ pr \- prepare file(s) for printing, perhaps in multiple columns
 .BI \-l n
 ] [
 .BI \-s c
-] 
+]
 .if n .ti +0.5i
 [
 .BI \-w n
@@ -36,7 +36,7 @@ pr \- prepare file(s) for printing, perhaps in multiple columns
 ]
 .if n .ti +0.5i
 [
-.B \-h 
+.B \-h
 .I string
 ]
 [
@@ -49,14 +49,14 @@ pr \- prepare file(s) for printing, perhaps in multiple columns
 .if n .ti +.5i
 [
 .BI \-o n
-] 
+]
 [
 .BI \-s c
 ]
 [
 .BI \-w n
 ]
-.if t .ti +0.5i 
+.if t .ti +0.5i
 [
 .I filename
 ] .\|.\|.
@@ -82,8 +82,8 @@ into pages headed by a date, the name of the file, and the page number.
 .B pr
 prints its standard input if there are no
 .I filename
-arguments.  
-.SM FORMFEED 
+arguments.
+.SM FORMFEED
 characters in the input files cause page breaks in
 the output, as expected.
 .LP
@@ -108,13 +108,13 @@ but may be reset between
 .IR filename s:
 .TP
 .BI \-f
-Use 
+Use
 .SM FORMFEED
 characters instead of
 .SM NEWLINE
 characters to separate pages.
-A 
-.SM FORMFEED 
+A
+.SM FORMFEED
 is assumed to use up two blank lines at the top of a page.
 Thus this option does not affect the effective page length.
 .TP
@@ -181,8 +181,8 @@ output.  For example:
 .nf
 .ta +.75i; +.75i; +.75;
 .ft B
-Print	of	in	
-the	one	three	
+Print	of	in
+the	one	three
 lines	file	columns.
 .fi
 .in -.5i
@@ -229,11 +229,11 @@ options.
 .LP
 The
 .B \-f
-option does not assume that 
+option does not assume that
 .SM FORMFEED
 uses up two blank lines; blank
-lines will be printed after the 
-.SM FORMFEED 
+lines will be printed after the
+.SM FORMFEED
 if necessary.
 If the standard output is a terminal,
 .B \-f
@@ -268,7 +268,7 @@ Pause before beginning each page if the
 output is directed to a terminal
 .RB ( pr
 will ring the bell at the terminal and
-wait for a 
+wait for a
 .SM RETURN\s0).
 .TP
 .B \-r
@@ -290,7 +290,7 @@ settings
 at every eighth position are assumed.
 .SM TAB
 characters in the input are expanded
-into the appropriate number of 
+into the appropriate number of
 .SM SPACE
 characters.
 If

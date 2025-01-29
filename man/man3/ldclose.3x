@@ -1,7 +1,7 @@
 .\" @(#)ldclose.3x 1.1 94/10/31 SMI; from SVID
 .TH LDCLOSE 3X "19 February 1988"
 .SH NAME
-ldclose, ldaclose \- close a COFF file 
+ldclose, ldaclose \- close a COFF file
 .SH SYNOPSIS
 .ft B
 .nf
@@ -72,13 +72,13 @@ returns
 .B ldaclose(\|)
 closes the file and frees the memory allocated to the
 .BR \s-1LDFILE\s+1 " structure"
-associated with 
+associated with
 .I ldptr
-regardless of the value of 
+regardless of the value of
 .BI \s-1TYPE\s+1 (ldptr).
 .B ldaclose(\|)
 .RB "always returns " \s-1SUCCESS\s+1 .
-The function is often used in conjunction with 
+The function is often used in conjunction with
 .IR ldaopen .
 .LP
 The program must be loaded with the object file access routine library

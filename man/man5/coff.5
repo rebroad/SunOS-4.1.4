@@ -79,7 +79,7 @@ option of
 or if they were removed by
 .BR strip (1).
 Also note that
-the relocation information will be absent after linking unless the 
+the relocation information will be absent after linking unless the
 .B \-r
 option of
 .BR ld (1)
@@ -121,7 +121,7 @@ if other processes are executing the same
 .B a.out
 file, the processes will share a single text segment.
 .LP
-The data segment starts at the next 4K boundary past the last 
+The data segment starts at the next 4K boundary past the last
 text address.  The first data address is determined by the following:
 If an
 .B a.out
@@ -154,11 +154,11 @@ For relocatable files the value of a word in the text or data portions that is n
 a reference to an undefined external symbol
 is exactly the value that will appear in memory
 when the file is executed.
-If a word in the text 
+If a word in the text
 involves a reference to an undefined external symbol,
 there will be a relocation entry for the word,
 the storage class of the symbol-table entry for
-the symbol will be marked as an \*(lqexternal symbol\*(rq, 
+the symbol will be marked as an \*(lqexternal symbol\*(rq,
 and the value and section number of the symbol-table entry will be
 undefined.
 When the file is processed by the
@@ -264,7 +264,7 @@ struct reloc
 #define	R_DIR16	01
 #define	R_REL16	02
 #define	R_IND16	03\}
-.fi 
+.fi
 .ft
 .DT
 .lg
@@ -278,7 +278,7 @@ If there is no relocation information,
 .B s_relptr
 is 0.
 .SS Line Number
-The 
+The
 .BR cc (1V)
 command generates an entry in the object file for
 each C source line on which a breakpoint is possible (when
@@ -343,8 +343,8 @@ physical address	line
 .RE
 .DT
 .SS Symbol Table
-The format of each symbol in the symbol table is described by the 
-syment structure, shown below. This structure is compatible with 
+The format of each symbol in the symbol table is described by the
+syment structure, shown below. This structure is compatible with
 System V
 .SM COFF,
 but has an added
@@ -367,28 +367,28 @@ structure which is needed by
 .ds H2 xxxxunsignedxshortxx*_n_nptr[2];xx
 struct syment
 {
-    union\h'|\w'\*(H2'u'/\(** all ways to get a symbol name \(**/
-    {
-        char\h'|\w'\*(H1'u'_n_name[\s-1SYMNMLEN\s+1]; /\(** name of symbol \(**/
-        struct
-        {
-            long\h'|\w'\*(H1'u'_n_zeroes;\h'|\w'\*(H2'u'/\(** == 0L if in string table \(**/
-            long\h'|\w'\*(H1'u'_n_offset;\h'|\w'\*(H2'u'/\(** location in string table \(**/
-        } _n_n;
-        char\h'|\w'\*(H1'u'\(**_n_nptr[2];\h'|\w'\*(H2'u'/\(** allows overlaying \(**/
-        struct
-        {
-            char\h'|\w'\*(H1'u'_n_leading_zero;\h'|\w'\*(H2'u'/\(** null char \(**/
-            char\h'|\w'\*(H1'u'_n_dbx_type;\h'|\w'\*(H2'u'/\(** stab type \(**/
-            short\h'|\w'\*(H1'u'_n_dbx_desc;\h'|\w'\*(H2'u'/\(** value of desc field \(**/
-            long\h'|\w'\*(H1'u'_n_stab_ptr;\h'|\w'\*(H2'u'/\(** table ptr \(**/
-        } _n_dbx;
-    } _n;
-    long\h'|\w'\*(H1'u'n_value;\h'|\w'\*(H2'u'/\(** value of symbol \(**/
-    short\h'|\w'\*(H1'u'n_scnum;\h'|\w'\*(H2'u'/\(** section number \(**/
-    unsigned short\h'|\w'\*(H1'u'n_type;\h'|\w'\*(H2'u'/\(** type and derived type \(**/
-    char\h'|\w'\*(H1'u'n_sclass;\h'|\w'\*(H2'u'/\(** storage class \(**/
-    char\h'|\w'\*(H1'u'n_numaux;\h'|\w'\*(H2'u'/\(** number of aux entries \(**/
+	union\h'|\w'\*(H2'u'/\(** all ways to get a symbol name \(**/
+	{
+		char\h'|\w'\*(H1'u'_n_name[\s-1SYMNMLEN\s+1]; /\(** name of symbol \(**/
+		struct
+		{
+			long\h'|\w'\*(H1'u'_n_zeroes;\h'|\w'\*(H2'u'/\(** == 0L if in string table \(**/
+			long\h'|\w'\*(H1'u'_n_offset;\h'|\w'\*(H2'u'/\(** location in string table \(**/
+		} _n_n;
+		char\h'|\w'\*(H1'u'\(**_n_nptr[2];\h'|\w'\*(H2'u'/\(** allows overlaying \(**/
+		struct
+		{
+			char\h'|\w'\*(H1'u'_n_leading_zero;\h'|\w'\*(H2'u'/\(** null char \(**/
+			char\h'|\w'\*(H1'u'_n_dbx_type;\h'|\w'\*(H2'u'/\(** stab type \(**/
+			short\h'|\w'\*(H1'u'_n_dbx_desc;\h'|\w'\*(H2'u'/\(** value of desc field \(**/
+			long\h'|\w'\*(H1'u'_n_stab_ptr;\h'|\w'\*(H2'u'/\(** table ptr \(**/
+		} _n_dbx;
+	} _n;
+	long\h'|\w'\*(H1'u'n_value;\h'|\w'\*(H2'u'/\(** value of symbol \(**/
+	short\h'|\w'\*(H1'u'n_scnum;\h'|\w'\*(H2'u'/\(** section number \(**/
+	unsigned short\h'|\w'\*(H1'u'n_type;\h'|\w'\*(H2'u'/\(** type and derived type \(**/
+	char\h'|\w'\*(H1'u'n_sclass;\h'|\w'\*(H2'u'/\(** storage class \(**/
+	char\h'|\w'\*(H1'u'n_numaux;\h'|\w'\*(H2'u'/\(** number of aux entries \(**/
 };
 .sp
 #define  n_name	_n._n_name
@@ -445,9 +445,9 @@ union auxent {
 	} x_file;
 
 	struct {
-		long	    x_scnlen;	  
-		unsigned short  x_nreloc;  
-		unsigned short  x_nlinno;  
+		long	    x_scnlen;
+		unsigned short  x_nreloc;
+		unsigned short  x_nlinno;
 	} x_scn;
 
 	struct {
@@ -479,7 +479,7 @@ The string table (if one exists) begins at
 bytes from the beginning of the file.
 .SH SEE ALSO
 .BR as (1),
-.BR cc (1V), 
-.BR ld (1), 
+.BR cc (1V),
+.BR ld (1),
 .BR brk( 2),
 .BR ldfcn (3)

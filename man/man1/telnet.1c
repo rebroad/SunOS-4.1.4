@@ -583,8 +583,8 @@ The initial value of this toggle is
 .ne 6
 .TP
 .I crmod
-Toggle 
-.SM RETURN 
+Toggle
+.SM RETURN
 mode.
 When this mode is enabled, most
 .SM RETURN

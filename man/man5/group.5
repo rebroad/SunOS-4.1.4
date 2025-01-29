@@ -53,13 +53,13 @@ to group names.
 A group entry beginning with a
 .RB ` + '
 (plus sign), means to incorporate an entry
-or entries from the 
+or entries from the
 Network Information Service
 (\s-1NIS\s0)
 A
 .RB ` + '
 on a line by itself means to insert the entire contents
-of the 
+of the
 .SM NIS
 group file at that point in the file.  An
 entry of the form:
@@ -73,7 +73,7 @@ entry has a non-empty
 or
 .I user-list
 field, the contents of that field override
-the corresponding field from the 
+the corresponding field from the
 .SM NIS
 service.
 The
@@ -85,7 +85,7 @@ An entry of the form:
 indicates that the group is disallowed.
 All subsequent entries for the indicated
 .IR groupname ,
-whether originating from the 
+whether originating from the
 .SM NIS
 service,
 or the local
@@ -115,7 +115,7 @@ devices	13	Privilege to modify printer, terminal, or modem configurations.
 .LP
 On all Sun systems, Sun\s-1OS\s0 uses group
 .SM ID
-0 as privilege to run 
+0 as privilege to run
 .BR su (1V).
 .SH EXAMPLE
 .LP
@@ -166,11 +166,11 @@ and
 .BR steve ,
 and the password and group
 .SM ID
-of the 
+of the
 .SM NIS
 entry for the group
 .BR myproject .
-All groups listed in the 
+All groups listed in the
 .SM NIS
 service are pulled in and placed after the entry for
 .BR myproject .
@@ -199,7 +199,7 @@ service are pulled in and placed after the entry for
 SunOS releases prior to SunOS 4.0, permitted a user to belong to no more
 then eight groups at a time.
 A user who belongs to more than eight
-groups may have trouble using the 
+groups may have trouble using the
 .SM RPC
 service (and therefore
 .SM NFS\s0)
@@ -212,7 +212,7 @@ complains of an "Authentication Error".
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 .SH BUGS

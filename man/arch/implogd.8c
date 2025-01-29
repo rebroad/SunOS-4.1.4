@@ -35,7 +35,7 @@ struct sockstamp {
 };
 .fi
 .PP
-followed, possibly, by the message received from the 
+followed, possibly, by the message received from the
 .SM IMP.
 Each time the logging process is started up it
 places a time stamp entry in the file (a header with

@@ -50,7 +50,7 @@ bytes of data from the object referenced by the descriptor
 into the buffer pointed to by
 .IR buf .
 .B readv(\|)
-performs the same action as 
+performs the same action as
 .BR read(\|) ,
 but scatters the input data into the
 .I iovcnt

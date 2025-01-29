@@ -31,13 +31,13 @@ for i in 1 2 3 4 5 6 7 8 ; do
 # in Prepfile
 
 	for j in `cat ../tmp/files.print.$i` ; do
-		/usr/5bin/echo "\n*** $j ***" >> ../tmp/badpaths.$i 
+		/usr/5bin/echo "\n*** $j ***" >> ../tmp/badpaths.$i
 		grep / $j | \
 		tr ' ' '\012' | \
 		grep '^/' | \
 		sed -e 's/[^a-zA-Z0-9]*$//' -e 's/\\fI.*//' | \
 		sort -u | \
-		comm -23 - ../tmp/hier >> ../tmp/badpaths.$i 
+		comm -23 - ../tmp/hier >> ../tmp/badpaths.$i
 # ../bin/hier is a dependency
 	done
 	cd ..

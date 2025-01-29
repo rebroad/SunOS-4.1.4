@@ -4,14 +4,14 @@
 fstab \- static information about filesystems
 .SH SYNOPSIS
 .B #include <mntent.h>
-.\".SH NOTE    
+.\".SH NOTE
 .\"This file is obsolete and exists only for compatability.
 .\"New programs should use
 .\".IR mntent (5)
-.\"instead.     
+.\"instead.
 .\"The routines for accessing
 .\".I /etc/fstab
-.\"are now in   
+.\"are now in
 .\".IR getmntent (3).
 .SH DESCRIPTION
 .IX  "fstab file"  ""  "\fLfstab\fP \(em fileystem static information"
@@ -55,15 +55,15 @@ struct mntent {
 Fields are separated by white space;
 a `#' as the first non-white character indicates a comment.
 .LP
-The 
+The
 .I mnt_dir
 fields is the full path name of the directory to be mounted on.
 .LP
 The
 .I mnt_type
-field determines how the 
+field determines how the
 .I mnt_fsname
-and 
+and
 .I mnt_opts
 fields will be interpreted.
 Here is a list of the filesystem types currently supported,
@@ -74,9 +74,9 @@ and the way each of them interprets these fields:
 \fImnt_fsname\fR	Must be a block special device.
 .\".br
 .\"\fImnt_opts\fR	valid options are:
-.\".BI ro , 
-.\".BI rw , 
-.\".BI quota , 
+.\".BI ro ,
+.\".BI rw ,
+.\".BI quota ,
 .\"and
 .\".BI noquota .
 .TP 10
@@ -84,11 +84,11 @@ and the way each of them interprets these fields:
 \fImnt_fsname\fR	the path on the server of the directory to be served.
 .\".br
 .\"\fImnt_opts\fR	valid options are:
-.\".BI ro , 
-.\".BI rw , 
-.\".BI quota , 
-.\".BI noquota , 
-.\".BI hard , 
+.\".BI ro ,
+.\".BI rw ,
+.\".BI quota ,
+.\".BI noquota ,
+.\".BI hard ,
 .\"and
 .\".BI soft .
 .TP 10
@@ -104,17 +104,17 @@ is specified as
 then the entry is ignored.
 This is useful to show disk partitions not currently used.
 .LP
-The 
+The
 .I mnt_opts
 field contains a list of comma-separated option words.  Some
 .I mnt_opts
 are valid for all filesystem types, while others apply to a
 specific type only:
 .sp .5
-.IP 
+.IP
 .I mnt_opts
-valid on 
-.I all 
+valid on
+.I all
 file systems (the default is
 .BR rw,suid ):
 .RS
@@ -129,7 +129,7 @@ set-uid execution not allowed.
 .RE
 .sp .5
 .IP
-.I mnt_opts 
+.I mnt_opts
 specific to
 .B 4.2
 file systems (the default is
@@ -143,16 +143,16 @@ usage limits not enforced.
 .sp .5
 .IP
 .I mnt_opts
-specific to 
+specific to
 .B nfs
 (NFS) file systems (the defaults are:
 .sp .5
 .B \0\0\0\0\0fg,retry=1,timeo=7,retrans=4,port=NFS_PORT,hard\fR
 .sp .5
-with defaults for 
-.I rsize 
-and 
-.I wsize 
+with defaults for
+.I rsize
+and
+.I wsize
 set by the kernel):
 .RS
 .IP \fBbg\fR 1i
@@ -160,25 +160,25 @@ if the first attempt fails, retry in the background.
 .IP \fBfg\fR
 retry in foreground.
 .IP \fBretry=\fIn\fR
-set number of failure retries to 
+set number of failure retries to
 .I n.
 .IP \fBrsize=\fIn\fR
-set read buffer size to 
-.I n 
+set read buffer size to
+.I n
 bytes.
 .IP \fBwsize=\fIn\fR
-set write buffer size to 
-.I 
+set write buffer size to
+.I
 n bytes.
 .IP \fBtimeo=\fIn\fR
-set NFS timeout to 
-.I n 
+set NFS timeout to
+.I n
 tenths of a second.
 .IP \fBretrans=\fIn\fR
-set number of NFS retransmissions to 
+set number of NFS retransmissions to
 .I n.
 .IP \fBport=\fIn\fR
-set server IP port number to 
+set server IP port number to
 .I n.
 .IP \fBsoft\fR
 return error if server doesn't respond.
@@ -188,22 +188,22 @@ retry request until server responds.
 .IP
 The
 .B bg
-option causes 
+option causes
 .I mount
 to run in the background if the server's
 .IR mountd (8)
-does not respond.  
-.I mount 
+does not respond.
+.I mount
 attempts each request
 .BI retry= n
 times before giving up.  Once the filesystem is mounted,
-each 
-.B nfs 
+each
+.B nfs
 request made in the kernel waits
 .BI timeo= n
 tenths of a second for a response.  If no response arrives, the
-time-out is multiplied by 
-.B 2 
+time-out is multiplied by
+.B 2
 and the request is retransmitted.  When
 .BI retrans= n
 retransmissions have been sent with no reply a
@@ -235,15 +235,15 @@ is used by the consistency checking program
 to allow overlapped checking of filesystems during a reboot.
 All filesystems with
 .I mnt_passno
-of 
-.B 1 
+of
+.B 1
 are checked first simultaneously, then all filesystems with
 .I mnt_passno
-of 
-.BR 2 , 
+of
+.BR 2 ,
 and so on.  It is usual to make the
 .I mnt_passno
-of the root filesystem have the value 
+of the root filesystem have the value
 .BR 1 ,
 and then check one filesystem on each available disk drive
 in each subsequent pass, until all filesystem partitions are checked.
@@ -260,8 +260,8 @@ is important because
 and
 .I umount
 process the file sequentially;
-filesystems must appear 
-.I after 
+filesystems must appear
+.I after
 filesystems they are mounted within.
 .SH FILES
 /etc/fstab

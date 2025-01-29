@@ -59,7 +59,7 @@ Used for encoding
 .SM RPC
 reply messages.
 It encodes the status of the
-.SM RPC 
+.SM RPC
 call in the
 .SM XDR
 language format and in the case of success, it encodes the call results
@@ -69,9 +69,9 @@ wish to generate
 .SM RPC\s0-style
 messages without using the
 .SM RPC
-package. This routine returns 
+package. This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -88,7 +88,7 @@ struct authunix_parms *aup;
 .IP
 Used for describing
 .SM UNIX
-credentials. 
+credentials.
 It encludes machine name, user
 .SM ID\s0,
 group
@@ -99,9 +99,9 @@ This routine is useful for users
 who wish to generate these credentials without using the
 .SM RPC
 authentication package.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -160,9 +160,9 @@ This routine is useful for users who wish to generate
 messages without using the
 .SM RPC
 package.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -185,9 +185,9 @@ This routine is useful for users who wish to generate
 messages without using the
 .SM RPC
 package.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -217,9 +217,9 @@ This routine is useful for users who wish to generate
 messages without using the
 .SM RPC
 package.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -240,7 +240,7 @@ reply messages.
 It encodes the
 .SM RPC
 reply message in the
-.SM XDR 
+.SM XDR
 language format.
 This reply could be an acceptance, rejection, or
 .SM NULL\s0.
@@ -249,9 +249,9 @@ This routine is useful for users who wish to generate
 style messages without using the
 .SM RPC
 package.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .SH SEE ALSO

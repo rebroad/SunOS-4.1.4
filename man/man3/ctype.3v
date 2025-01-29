@@ -16,7 +16,7 @@ character-coded integer values according to the rules of the coded character
 set defined by the character type information in the program's locale
 (category
 .BR \s-1LC_CTYPE\s0 ).
-On program startup the 
+On program startup the
 .SB LC_CTYPE
 category of locale is equivalent to the
 \fB"C"\fP
@@ -25,7 +25,7 @@ locale.
 In the
 \fB"C"\fR
 locale, or in a locale where the character type information is not defined,
-characters are classified according to the rules of the 
+characters are classified according to the rules of the
 .SM US-ASCII
 7-bit coded character set.
 The control characters are those below 040 (and the single byte 0177)
@@ -141,14 +141,14 @@ with the correct value so that
 is guaranteed to be an
 .SM ASCII
 character in the range 0 through 0x7f.
-Will not perform mapping from a non-\s-1ASCII\s0 
+Will not perform mapping from a non-\s-1ASCII\s0
 coded character set into
 .SM ASCII\s0.
 .SS Character Conversion Functions
 .LP
 These functions perform simple conversions on single characters.
 They replace the previous macro definitions
-which did not extend to support variant settings of the 
+which did not extend to support variant settings of the
 .SB LC_CTYPE
 locale category.
 .IX  "character conversion"  toupper()  ""  \fLtoupper()\fP
@@ -158,12 +158,12 @@ locale category.
 .BI toupper( c )
 Converts
 .I c
-to its upper-case equivalent.  
-This function works correctly for all coded character sets 
-and all characters within such sets selected by a valid setting of 
-the 
+to its upper-case equivalent.
+This function works correctly for all coded character sets
+and all characters within such sets selected by a valid setting of
+the
 .SB LC_CTYPE
-locale category. 
+locale category.
 .IX  "character conversion"  tolower()  ""  \fLtolower()\fP
 .IX  "tolower() macro"  ""  "\fLtolower()\fP \(em convert character to lower-case"
 .IX  "convert character" "to lower-case \(em \fLtolower()\fP"
@@ -173,17 +173,17 @@ locale category.
 .BI tolower( c )
 Converts
 .I c
-to its lower-case equivalent.  
-This function works correctly for all coded character sets 
-and all characters within such sets selected by a valid setting of 
-the 
+to its lower-case equivalent.
+This function works correctly for all coded character sets
+and all characters within such sets selected by a valid setting of
+the
 .SB LC_CTYPE
-locale category. 
+locale category.
 .LP
 If the argument to any of these macros is not in the
 domain of the function, the result is undefined.
 .SH SYSTEM V DESCRIPTION
-.SS Character Conversion Macros 
+.SS Character Conversion Macros
 .LP
 The macros
 .B _toupper(\|)
@@ -193,8 +193,8 @@ are faster than the equivalent functions
 .RB ( toupper(\|)
 and
 .BR tolower(\|) )
-but only work properly on a restricted range of characters, and will not 
-work on a 
+but only work properly on a restricted range of characters, and will not
+work on a
 .SB LC_CTYPE
 category other than the default
 \fB"C"\fP
@@ -209,7 +209,7 @@ These macros perform simple conversions on single characters.
 converts
 .I c
 to its upper-case equivalent.
-Note: 
+Note:
 This
 .I only
 works where
@@ -225,7 +225,7 @@ using
 converts
 .I c
 to its lower-case equivalent.
-Note: 
+Note:
 This
 .I only
 works where

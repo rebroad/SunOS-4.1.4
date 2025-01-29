@@ -215,7 +215,7 @@ before each use (do not use the address of
 .SM THREADNULL
 for the sender).
 Alternatively, use the
-.SM 
+.SM
 .B MSG_RECVALL(\|)
 macro.
 This macro has the same parameters as
@@ -223,7 +223,7 @@ This macro has the same parameters as
 but ensures that the sender
 is properly initialized to
 allow receipt from any sender.
-.SM 
+.SM
 .B MSG_RECVALL(\|)
 returns the result from
 .BR msg_recv .

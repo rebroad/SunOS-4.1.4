@@ -100,7 +100,7 @@ kernel ignores the state of carrier detect when opening the serial port.
 Alternately, if this field is set to any value other than
 .BR local ,
 this flag disables the software carrier mode in the
-kernel, 
+kernel,
 so the state of the carrier detect is not ignored.
 This usually applies to modems.
 See
@@ -158,22 +158,22 @@ respectively.
 The fifth and sixth lines are
 examples of network pseudo-ttys,
 .B ttyp0
-and 
-.B ttyp1 
+and
+.B ttyp1
 for which
 .B getty
 should  not be enabled.
 The seventh line shows a terminal emulator and
-window-system startup entry. 
+window-system startup entry.
 The last two lines instruct
 .BR getty,
 using the
 .B \-n
 argument, to run the
 .BR logintool (8)
-graphic login interface, and the 
+graphic login interface, and the
 .B \-s
-argument instructing  
+argument instructing
 .B logintool
 to start
 .BR screenblank (1)

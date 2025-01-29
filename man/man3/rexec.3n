@@ -21,7 +21,7 @@ rexec \- return stream to a remote command
 looks up the host
 .I *ahost
 using
-.B gethostbyname(\|) 
+.B gethostbyname(\|)
 (see
 .BR gethostent (3N)),
 returning \-1 if the host does not exist.

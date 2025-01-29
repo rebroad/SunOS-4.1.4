@@ -18,10 +18,10 @@ has two uses.
 Called without an argument, it sends
 a string to standard output which is the compiler floating-point option
 corresponding to the type of floating-point hardware
-that would be used by a program compiled with 
+that would be used by a program compiled with
 .BR \-fswitch .
 Exit status is undefined.
-This usage is intended for interactively determining available 
+This usage is intended for interactively determining available
 floating-point hardware.  On systems without floating-point hardware,
 the result would be
 .RS
@@ -34,10 +34,10 @@ soft
 .fi
 .RE
 .LP
-corresponding to the compiler option 
+corresponding to the compiler option
 .BR \-fsoft .
 .LP
-Called with an argument which is one of the compiler floating-point options 
+Called with an argument which is one of the compiler floating-point options
 .BR \-ffpa ,
 .BR \-f68881 ,
 .\".BR \-fsky ,
@@ -46,7 +46,7 @@ or
 .BR \-fswitch ,
 it produces no output but returns
 exit status 0 (true) if a program compiled with that option could execute
-on this machine, and status 1 (false) otherwise.  
+on this machine, and status 1 (false) otherwise.
 Thus
 .B "foption \-fsoft"
 and
@@ -62,8 +62,8 @@ code generation options.
 .SH OPTIONS
 .TP 6
 .BI \-f type
-Return exit status 0 if a program compiled 
-.BI \-f type 
+Return exit status 0 if a program compiled
+.BI \-f type
 could execute on this machine.
 .SH "SEE ALSO"
 .BR cc (1V),

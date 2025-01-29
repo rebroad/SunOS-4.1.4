@@ -47,13 +47,13 @@ The login name in an entry does not begin with a lower-case letter.
 The login name in an entry has more than 8 characters.
 .TP
 .B "Invalid UID"
-The user 
+The user
 .SM ID
 field in an entry is not numeric or is greater than
 65535.
 .TP
 .B "Invalid GID"
-The group 
+The group
 .SM ID
 field in an entry is not numeric or is greater than
 65535.
@@ -70,7 +70,7 @@ The login shell field in an entry refers to a program or shell script that
 does not exist.
 .TP
 .B "No netgroup name"
-The entry is a 
+The entry is a
 Network Information Service
 (\s-1NIS\s0)
 entry referring to a netgroup, but no
@@ -94,6 +94,6 @@ entry does not begin with a lower-case letter.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

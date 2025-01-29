@@ -16,9 +16,9 @@ resides in the
 .B /etc
 directory, and contains
 .BR automount (8)
-map entries for 
+map entries for
 .BR volumes .
-On Sun386i systems, this file is used to build the 
+On Sun386i systems, this file is used to build the
 .B auto.vol
 Network Information Service
 (\s-1NIS\s0)
@@ -26,7 +26,7 @@ map used by
 .BR automount (8)
 at system startup.
 .B automouunt
-reads the 
+reads the
 .B auto.master
 .SM NIS
 map, which contains an entry for
@@ -36,7 +36,7 @@ and
 .LP
 References to
 .BI /vol/ volume_name
-are translated by the automount daemon using the 
+are translated by the automount daemon using the
 .B auto.vol
 map,
 and the directory specified in the map entry is mounted.
@@ -54,7 +54,7 @@ referenced through
 This is advantageous because location-transparency
 (that is, which host the volume is on) and replication of read-only
 volumes can be provided using the automount mechanism.
-The format of the entry is described in 
+The format of the entry is described in
 .BR automount (8).
 An example entry is:
 .IP
@@ -74,7 +74,7 @@ for example,
 the network or system administrator simply edits the map entry for
 the archive volume and changes the hostname to
 .B system2
-and then rebuilds the 
+and then rebuilds the
 .SM NIS
 maps.
 .IP
@@ -82,7 +82,7 @@ maps.
 archive		system2:/export/archive
 .ft R
 .LP
-Users and programs can continue to refer to the archive volume using 
+Users and programs can continue to refer to the archive volume using
 .BR /vol/archive ,
 unaware that the volume was moved to another system.
 .SH FILES
@@ -97,6 +97,6 @@ unaware that the volume was moved to another system.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

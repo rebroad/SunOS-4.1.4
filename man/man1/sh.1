@@ -9,7 +9,7 @@ sh \- shell, the standard UNIX system command interpreter and command-level lang
 [
 .\".B \-acefhiknrstuvx
 .B \-acefhiknstuvx
-] [ 
+] [
 .I arguments
 ]
 .IX  "sh command"  ""  "\fLsh\fP command, Bourne shell"  ""  PAGE START
@@ -17,16 +17,16 @@ sh \- shell, the standard UNIX system command interpreter and command-level lang
 .SH DESCRIPTION
 .LP
 .BR sh ,
-the Bourne shell, is the standard 
+the Bourne shell, is the standard
 .SM UNIX\s0-system
-command interpreter.  It executes commands read from a terminal or a 
+command interpreter.  It executes commands read from a terminal or a
 file.
 .SS Definitions
 A
 .I blank
-is a 
+is a
 .SM TAB
-or a 
+or a
 .SM SPACE
 character.
 A
@@ -61,8 +61,8 @@ Thereafter, commands are read as described below, which
 is also the case when the shell is invoked as
 .BR sh .
 .SH OPTIONS
-The options below are interpreted by the shell on invocation only; 
-unless the 
+The options below are interpreted by the shell on invocation only;
+unless the
 .B \-c
 or
 .B \-s
@@ -97,7 +97,7 @@ If the
 option is present or if no arguments remain
 commands are read from the standard input.
 Any remaining arguments specify the positional parameters.
-Shell output (except for 
+Shell output (except for
 .BR "Special Commands" )
 is written to file descriptor 2.
 .TP
@@ -114,7 +114,7 @@ command, under
 .BR "Special Commands" ,
 below.
 .SH USAGE
-Refer to 
+Refer to
 .TX DMBG
 for more information about using the shell as a programming
 language.
@@ -210,8 +210,8 @@ command) returns a zero exit status.  With
 .BR |\|| ,
 .I list
 is executed only if the preceding pipeline (or
-command) returns a nonzero exit status.  
-An arbitrary number of 
+command) returns a nonzero exit status.
+An arbitrary number of
 .SM NEWLINE
 characters may appear in a
 .IR list ,
@@ -222,8 +222,8 @@ A
 .I command
 is either a
 .I simple command
-or one of the following 
-constructions.  Unless otherwise stated, the value returned by a 
+or one of the following
+constructions.  Unless otherwise stated, the value returned by a
 command is that of the last
 .I simple command
 executed in the construction.
@@ -262,8 +262,8 @@ that is set (see
 below).
 Execution ends when there are no more words in the list.
 .HP
-.BI case " word " in 
-.RI \*(OK pattern \*(OK 
+.BI case " word " in
+.RI \*(OK pattern \*(OK
 .B |
 .IR pattern "\*(CK .\|.\|. "
 .B )
@@ -281,7 +281,7 @@ associated with the first
 that matches
 .IR word .
 The form of the patterns is the same as that used for
-filename generation (see 
+filename generation (see
 .BR "Filename Generation" )
 except that a slash, a leading dot, or a dot immediately
 following a slash need not be matched explicitly.
@@ -306,7 +306,7 @@ following the first
 .IX  "Bourne shell commands"  "then command"  ""  "\fLthen\fP command"
 is executed.  Otherwise, the
 .I list
-following 
+following
 .B elif
 .IX  "elif command"  ""  "\fLelif\fP command"
 .IX  "Bourne shell commands"  "elif command"  ""  "\fLelif\fP command"
@@ -390,7 +390,7 @@ are only recognized as the first word of a command and when not quoted:
 .SS Comments
 A word beginning with
 .B #
-and all the following characters up to a 
+and all the following characters up to a
 .SM NEWLINE
 are ignored.
 .SS Command Substitution
@@ -448,7 +448,7 @@ are left intact when the command string is read.
 .SS Parameter Substitution
 The character
 .B $
-is used to introduce substitutable 
+is used to introduce substitutable
 .IR parameters .
 There are two types of parameters,
 positional and keyword.
@@ -501,7 +501,7 @@ is invoked.
 If the colon
 .RB ( : )
 is omitted from the following expressions, the
-shell only checks whether 
+shell only checks whether
 .I parameter
 is set or not.
 .TP
@@ -619,9 +619,9 @@ command.
 .IX  "Bourne shell variables"  "MAIL variable"  ""  "\fLMAIL\fP variable"
 If this parameter is set to the name of a mail file
 .I and
-the 
+the
 .SB MAILPATH
-parameter is not set, the shell informs the user of the arrival of mail 
+parameter is not set, the shell informs the user of the arrival of mail
 in the specified file.
 .br
 .ne 12
@@ -629,7 +629,7 @@ in the specified file.
 .SB MAILCHECK
 .IX  "MAILCHECK variable"  ""  "\fLMAILCHECK\fP variable \(em \fLsh\fP"
 .IX  "Bourne shell variables"  "MAILCHECK variable"  ""  "\fLMAILCHECK\fP variable"
-This parameter specifies how often 
+This parameter specifies how often
 (in seconds) the shell
 will check for the arrival of mail in the files specified by the
 .SB MAILPATH
@@ -642,14 +642,14 @@ If set to 0, the shell will check before each primary prompt.
 .SB MAILPATH
 .IX  "MAILPATH variable"  ""  "\fLMAILPATH\fP variable \(em \fLsh\fP"
 .IX  "Bourne shell variables"  "MAILPATH variable"  ""  "\fLMAILPATH\fP variable"
-A colon 
+A colon
 .RB ( : )
 separated list of filenames.
 If this parameter is set, the shell informs the user of the arrival of mail
-in any of the specified files. 
-Each filename can be followed by 
+in any of the specified files.
+Each filename can be followed by
 .B %
-and a message that will be printed when the 
+and a message that will be printed when the
 modification time changes.
 The default message is
 .RB ` "you have mail" '.
@@ -791,7 +791,7 @@ or to an
 If any character of
 .I word
 is quoted,
-(see 
+(see
 .BR Quoting ,
 later),
 no additional processing is done to the shell input.
@@ -828,7 +828,7 @@ the standard input.
 Use the file associated with file descriptor
 .I digit
 as standard input.
-Similarly for the standard output using 
+Similarly for the standard output using
 .BI >& digit\fR.
 .TP
 .B <&\-
@@ -846,7 +846,7 @@ For example:
 \&.\|.\|. \|2>&1
 .RE
 .LP
-associates file descriptor 2 with the file currently associated with 
+associates file descriptor 2 with the file currently associated with
 file descriptor 1.
 .LP
 The order in which redirections are specified is significant.
@@ -857,14 +857,14 @@ For example:
 \&.\|.\|. \|1>\fIxxx\fP 2>&1
 .RE
 .LP
-first associates file descriptor 1 with file 
+first associates file descriptor 1 with file
 .IR xxx .
 It associates file descriptor 2 with the file associated with file
 descriptor 1 (namely, file
 .IR xxx ).
-If the order of redirections were reversed, file descriptor 2 would be associated 
-with the terminal (assuming file descriptor 1 had been) and file descriptor 
-1 would be associated with file 
+If the order of redirections were reversed, file descriptor 2 would be associated
+with the terminal (assuming file descriptor 1 had been) and file descriptor
+1 would be associated with file
 .IR xxx .
 .LP
 Using the terminology introduced on the first page, under
@@ -945,7 +945,7 @@ A pair of characters separated by
 .RB ` \- '
 matches any
 character lexically between the pair, inclusive.
-If the first character following the opening 
+If the first character following the opening
 .B \*(OK
 is a
 .B !
@@ -958,9 +958,9 @@ and cause termination of a word unless quoted:
 .RS
 .LP
 .B ";  &  (  )  |  ^  <  >  "
-.SM NEWLINE\S*\ \ 
-.SM SPACE\S*\ \ 
-.SM TAB\S*\ \ 
+.SM NEWLINE\S*\ \
+.SM SPACE\S*\ \
+.SM TAB\S*\ \
 .RE
 .LP
 A character may be
@@ -1017,7 +1017,7 @@ quotes the characters
 \fB"\fP,
 and
 .BR $ .
-The pair 
+The pair
 .BR \e \s-1NEWLINE\s0
 is removed before parameter and command substitution.
 If a backslash precedes characters other than
@@ -1033,7 +1033,7 @@ When used interactively,
 the shell prompts with the value of
 .B \s-1PS\s01
 before reading a command.
-If at any time a 
+If at any time a
 .SM RETURN
 is typed and further input is needed
 to complete a command, the secondary prompt
@@ -1057,10 +1057,10 @@ none of these affects the environment
 unless the
 .B export
 command is used to bind the shell's
-parameter to the environment (see also 
+parameter to the environment (see also
 .RB ` "set \-a" ').
 A parameter may be removed from the environment
-with the 
+with the
 .B unset
 command.
 The environment seen by any executed command is thus composed
@@ -1130,12 +1130,12 @@ is handled asynchronously.
 .SS Execution
 Each time a command is executed, the above substitutions are
 carried out.
-If the command name matches one of the 
+If the command name matches one of the
 .B "Special Commands"
 listed below, it is executed in the shell process.
 If the command name does not match a
 .BR "Special Command" ,
-but matches the name of a defined function, the function is executed 
+but matches the name of a defined function, the function is executed
 in the shell process
 (note how this differs from the execution of shell procedures).
 The positional parameters
@@ -1169,7 +1169,7 @@ Directories are searched in order.  The
 current directory is specified by a null path name,
 which can appear immediately after the equal sign
 .RB ( \s-1PATH\s0=: \|.\|.\|.\|),
-between the colon delimiters 
+between the colon delimiters
 .RB (\|.\|.\|. \|:\|:\| \|.\|.\|.\|)
 anywhere else in the path list,
 or at the end of the path list
@@ -1177,7 +1177,7 @@ or at the end of the path list
 If the command name contains a
 .B /
 the search path is not used.
-Otherwise, each directory in the path is searched for an executable 
+Otherwise, each directory in the path is searched for an executable
 file.  If the file has execute permission but is not an
 binary executable (see
 .BR a.out (5)
@@ -1194,7 +1194,7 @@ shell
 (to help avoid unnecessary
 .BR exec s
 later).
-If the command was found in a relative directory, its location must be 
+If the command was found in a relative directory, its location must be
 re-determined whenever the current directory changes.
 The shell forgets all remembered locations whenever the
 .SB PATH
@@ -1266,7 +1266,7 @@ is the default
 The shell parameter
 .SB CDPATH
 defines the search path for
-the directory containing 
+the directory containing
 .IR argument .
 Alternative directory names are separated by
 a colon
@@ -1277,7 +1277,7 @@ The default path is
 Note: the current directory is specified by a null path name,
 which can appear immediately after the equal sign
 or between the colon delimiters anywhere else in the path list.
-If 
+If
 .I argument
 begins with a
 .B /
@@ -1296,7 +1296,7 @@ searched for
 .IX  "echo command"  ""  "\fLecho\fP command"
 .IX  "Bourne shell commands"  "echo command"  ""  "\fLecho\fP command"
 Echo arguments. See
-.BR echo (1V) 
+.BR echo (1V)
 for usage and description.
 .br
 .ne 3
@@ -1359,12 +1359,12 @@ for usage and description.
 .BR hash " \*(OK " \-r " \*(CK \*(OK \fIname\fP .\|.\|. \*(CK"
 .IX  "hash command"  ""  "\fLhash\fP command"
 .IX  "Bourne shell commands"  "hash command"  ""  "\fLhash\fP command"
-For each 
+For each
 .IR name ,
-the location in the search path of the command specified by 
+the location in the search path of the command specified by
 .I name
 is determined and remembered by the shell.
-The 
+The
 .B \-r
 option causes the shell to forget all remembered locations.
 If no arguments are given, information about remembered commands is
@@ -1468,7 +1468,7 @@ names is printed.
 Exit a function with the return value specified by
 .IR n .
 If
-.I n 
+.I n
 is omitted, the return status is that of the last command executed.
 .br
 .ne 26
@@ -1489,7 +1489,7 @@ exits with a nonzero exit status.
 Disable filename generation.
 .TP
 .B \-h
-Locate and remember function commands as functions are defined 
+Locate and remember function commands as functions are defined
 (function commands are normally located when the function is executed).
 .TP
 .B \-k
@@ -1539,7 +1539,7 @@ of all names are printed.
 .IX  "Bourne shell commands"  "shift command"  ""  "\fLshift\fP command"
 The positional parameters are shifted to the left, from position
 .IR n +1
-to position 1, and so on.  Previous values for 
+to position 1, and so on.  Previous values for
 .B $1
 through
 .BI $ n
@@ -1611,7 +1611,7 @@ indicate how it would be interpreted if used as a command name.
 .br
 .ne 9
 .TP
-.BR umask " \*(OK \fIooo\fP \*(CK"	
+.BR umask " \*(OK \fIooo\fP \*(CK"
 .IX  "umask command"  ""  "\fLumask\fP command"
 .IX  "Bourne shell commands"  "umask command"  ""  "\fLumask\fP command"
 The user file-creation mode mask is set to
@@ -1648,10 +1648,10 @@ is omitted.
 .BR unset " \*(OK \fIname\fP .\|.\|. \*(CK"
 .IX  "unset command"  ""  "\fLunset\fP command"
 .IX  "Bourne shell commands"  "unset command"  ""  "\fLunset\fP command"
-For each 
-.IR name , 
+For each
+.IR name ,
 remove the corresponding variable or function.
-The variables 
+The variables
 .BR \s-1PATH\s0 ,
 .BR \s-1PS\s01,
 .BR \s-1PS\s02,
@@ -1710,7 +1710,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .SH FILES

@@ -26,21 +26,21 @@ hostconfig \- configure a system's host parameters
 ]
 .SH DESCRIPTION
 .LP
-The 
+The
 .B hostconfig
 program uses a network protocol to acquire a machine's ``host parameters''
 and then sets these parameters on the system.
 The program selects which protocol to use based on the argument to the
-required 
+required
 .B \-p
-flag. 
+flag.
 Different protocols may set different host parameters.
 Currently, two protocols are defined but only one protocol is supported.
 .SH OPTIONS
 .TP 15
 .B \-p bootparams
 Use the ``whoami'' call of the Sun RPC ``bootparams'' protocol.
-This sets the system's 
+This sets the system's
 .IR hostname ,
 .IR domainname ,
 and
@@ -57,7 +57,7 @@ Enable ``debug'' output.
 Enable verbose output.
 .TP
 .B \-n
-Run the network protocol, but do not set the acquired parameters into the 
+Run the network protocol, but do not set the acquired parameters into the
 system.
 .TP
 .BI \-i " interface"

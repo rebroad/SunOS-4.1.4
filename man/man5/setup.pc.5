@@ -14,37 +14,37 @@ release or earlier.  Not a SunOS 4.1 release feature.
 .LP
 The
 .B setup.pc
-file in your home 
+file in your home
 .SM PC
 directory,
 .BR ~/pc ,
-is the master configuration file for 
+is the master configuration file for
 .SM DOS\s0.
 Changes to the file take effect for all new
-.SM DOS 
+.SM DOS
 windows you start.
 The definitions made in
 .B setup.pc
 and
 .SB AUTOEXEC.BAT
 serve to define your system to
-.SM DOS\s0. 
+.SM DOS\s0.
 Among other things, the
 .B setup.pc
 file defines:
 .LP
 .RS
-\(bu\0\0The printers or devices to which you assign 
-.SM DOS\s0 printer names (\s-1LPT1\s0, 
-.SM LPT2\s0, 
+\(bu\0\0The printers or devices to which you assign
+.SM DOS\s0 printer names (\s-1LPT1\s0,
+.SM LPT2\s0,
 .SM LPT3\s0)
 .LP
-\(bu\0\0The devices or boards that are tied to the 
+\(bu\0\0The devices or boards that are tied to the
 .SM DOS\s0
-communications devices (\s-1COM1\s0, 
+communications devices (\s-1COM1\s0,
 .SM COM2\s0)
 .LP
-\(bu\0\0The name of a special 
+\(bu\0\0The name of a special
 .SM DOS\s0
 quick-start file that you may have set up
 .LP
@@ -71,17 +71,17 @@ is \*(lqA\*(rq.
 .TP
 .I "SunOS Device or Command"
 The name of the device as the SunOS
-system knows it. 
-This can also be a symbolic link to the real device name. 
+system knows it.
+This can also be a symbolic link to the real device name.
 For example,
 .B /etc/dos/defaults/diskette_a
 is a symbolic link to
 .BR /dev/rfd0c .
 For emulated
 .SM DOS
-printers (\s-1LPT1\s0, 
+printers (\s-1LPT1\s0,
 .SM LPT2\s0,
-or 
+or
 .SM LPT3\s0),
 specify a command or command pipeline.
 .SH EXAMPLES
@@ -135,7 +135,7 @@ comment out the
 .SM COM1
 line and uncomment the
 .SM COM2
-line. 
+line.
 (\s-1DOS\s0
 Windows directs the output of either
 .SM COM1
@@ -145,7 +145,7 @@ to the built-in port, but uses different interrupt levels so that
 .SM COM2
 \*(lqappears\*(rq to
 .SM DOS
-to be a second serial port.) 
+to be a second serial port.)
 You can also add a real second serial port by
 installing an
 .SM AT
@@ -163,13 +163,13 @@ printer names can be assigned to SunOS printers, other devices, or files.
 .B \s-1SAVE\s0
 The \*(lqquick-start\*(rq file
 .SM DOS
-reads at startup for faster loading. 
+reads at startup for faster loading.
 .TP
 .B \s-1CMDTOOL\s0
 Used to list the SunOS commands that must run in a separate Commands window
 when started from
-.SM DOS. 
-The following SunOS commands automatically run in a Commands 
+.SM DOS.
+The following SunOS commands automatically run in a Commands
 window when you run them from DOS:
 .RS 1.0i
 .ft B
@@ -181,11 +181,11 @@ mail\ \ \ man\ \ \ more\ \ \ passwd\ \ \ rlogin\ \ \ stty\ \ \ vi
 .RE
 .TP
 \&
-If there are other SunOS commands or applications you want to run 
+If there are other SunOS commands or applications you want to run
 from
 .SM DOS\s0,
 and these commands require keyboard entry or Commands window display,
-list them here. 
+list them here.
 If you add entries to this line, separate them with a
 .SM SPACE
 character, and be sure to remove the
@@ -198,10 +198,10 @@ Specifies a list of \*(lqtext-only\*(rq
 programs.
 Such programs do not require a
 .SM PC
-window because they do not 
+window because they do not
 print at specific screen positions;
-they can print text in a current 
-Commands window if that is where you are working at the time. 
+they can print text in a current
+Commands window if that is where you are working at the time.
 An example is a C compiler or a linker that runs from the
 .SM DOS
 command line.
@@ -226,10 +226,10 @@ You can create task-specific
 .SM DOS
 environments by setting up additional
 .B setup.pc
-files to attach different printers, drive C files, and 
+files to attach different printers, drive C files, and
 other real and emulated devices.
 .LP
-If you are installing a board that duplicates a function normally 
+If you are installing a board that duplicates a function normally
 enabled in the
 .B setup.pc
 file, you should disable the corresponding

@@ -102,8 +102,8 @@ marks at the current position on the tape.
 .B fsf
 Forward space over
 .I count
-.SM EOF 
-marks. 
+.SM EOF
+marks.
 The tape is positioned on the first block of the file.
 .TP
 .B fsr
@@ -114,12 +114,12 @@ records.
 .B bsf
 Back space over
 .I count
-.SM EOF 
+.SM EOF
 marks.
 The tape is positioned on the
 beginning-of-tape
-side of the 
-.SM EOF 
+side of the
+.SM EOF
 mark.
 .TP
 .B bsr
@@ -133,12 +133,12 @@ Back space
 files.  The tape is positioned on the first block of the file.
 This is equivalent to
 .I count+1
-.BR bsf 's 
-followed by one 
+.BR bsf 's
+followed by one
 .BR fsf .
 .TP
 .B asf
-Absolute space to 
+Absolute space to
 .I count
 file number.  This is equivalent to a
 .B rewind
@@ -158,7 +158,7 @@ This is useful for appending files onto previously written tapes.
 Rewind the tape.
 .TP
 .BR offline , " rewoffl"
-Rewind the tape and, if appropriate, take the drive unit 
+Rewind the tape and, if appropriate, take the drive unit
 off-line by unloading the tape.
 .TP
 .B status
@@ -182,15 +182,15 @@ magnetic tape interface
 .B /dev/rar*
 Archive cartridge tape interface
 .TP
-.B /dev/rst* 
+.B /dev/rst*
 .SM SCSI
 tape interface
 .PD
 .SH "SEE ALSO"
-.BR ar (4S), 
-.BR mtio (4), 
-.BR st (4S), 
-.BR tm (4S), 
+.BR ar (4S),
+.BR mtio (4),
+.BR st (4S),
+.BR tm (4S),
 .BR xt (4S)
 .BR environ (5V)
 .SH BUGS
@@ -203,9 +203,9 @@ Refer to the corresponding device manual page.
 
 .SH WARNINGS
 .LP
-The 
-.B bsf 
-option for 
-.SM SCSI 
+The
+.B bsf
+option for
+.SM SCSI
 tape in SunOS 4.0.3 is incompatible
 with this release and releases prior to 4.0.3.

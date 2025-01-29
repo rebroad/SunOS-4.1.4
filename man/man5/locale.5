@@ -1,7 +1,7 @@
 .\" @(#)locale.5 1.1 94/10/31 SMI; from S5R3
 .TH LOCALE 5 "2 February 1990"
 .SH NAME
-locale \- locale database 
+locale \- locale database
 .SH SYNOPSIS
 .BI /usr/share/lib/locale/ category/locale
 .LP
@@ -12,22 +12,22 @@ locale \- locale database
 The
 .I category
 directory contains information relating to one category
-of the complete list of categories that comprise a full locale for 
+of the complete list of categories that comprise a full locale for
 all systems sharing this directory.
 .I locale
-is either a file or a directory that contains information relating to the 
+is either a file or a directory that contains information relating to the
 relevant category indicated by its parent directory
 .IR category .
-.I locale 
+.I locale
 is the name that is given to describe the style of operation required by an
 application in a particular language, territory or code-set.
 .LP
-At runtime these directories will be accessed if the application has made a 
+At runtime these directories will be accessed if the application has made a
 valid call to:
 .IP
 \fBsetlocale(\fP\fIcategory,\|locale\fP\fB)\fP
 .LP
-where 
+where
 .I category
 can be any one of the following settings:
 .TP 15
@@ -68,11 +68,11 @@ Affects the behavior of the time functions defined in
 Message presentation style.
 Affects the behavior of the string access functions defined in
 .BR catgets (3C)
-and 
+and
 .BR gettext (3).
 .TP
 .SB NLSPATH
-Contains a sequence of pseudo-pathnames which 
+Contains a sequence of pseudo-pathnames which
 .BR catopen (3C)
 uses when attempting to locate message catalogs.
 Each pseudo-pathname
@@ -81,19 +81,19 @@ substitution fields, a filename
 and an optional filename suffix.
 .LP
 Substitution fields consist of a
-.B % 
+.B %
 symbol, followed by a single-letter keyword.
 The following keywords are currently defined:
 .RS
 .TP 6
 .B %N
-The value of the 
-.I name 
+The value of the
+.I name
 parameter passed to
 .BR catopen (3C).
 .TP 6
 .B %L
-The value of the 
+The value of the
 .SB LANG
 environment variable.
 .TP 6
@@ -104,18 +104,18 @@ character.
 .RE
 .LP
 A null string is sustituted if the specified value is not defined.
-Pathnames defined in 
+Pathnames defined in
 .SB NLSPATH
-are separated by colons 
+are separated by colons
 .RB ( : ).
 A leading or two adjacent colons indicate the current directory.
 For example:
-.IP 
+.IP
 .ft B
 \s-1NLSPATH\s0=":%N.cat:/nlslib/%L/%N.cat"
 .ft R
 .LP
-Indicates to 
+Indicates to
 .BR catopen (3C)
 that it should look for the requested message catalog in
 .I name, name.cat
@@ -127,7 +127,7 @@ and
 .SB LANG
 environment variables do not commute to real directories or files but
 instead relate to a locale that is a assumed to be valid
-for all of the above categories. 
+for all of the above categories.
 .SH SEE ALSO
 .BR catgets (3C),
 .BR catopen (3C),

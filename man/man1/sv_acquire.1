@@ -1,7 +1,7 @@
 .\" %\&Z%%\&M% %\&I% %\&E% SMI; new for 4.1
 .TH SV_ACQUIRE 1 "25 January 1990"
 .SH NAME
-sv_acquire, sv_release \- change owner, group, permissions of window devices  
+sv_acquire, sv_release \- change owner, group, permissions of window devices
 .SH SYNOPSIS
 .LP
 .B sv_acquire
@@ -18,15 +18,15 @@ sv_acquire, sv_release \- change owner, group, permissions of window devices
 .IX "sv_acquire" "" "\fLsv_acquire\fP \(em change owner, group, mode of window devices"
 .IX "sv_release" "" "\fLsv_release\fP \(em return owner, group, mode of window devices to default"
 .LP
-.B sv_acquire 
+.B sv_acquire
 changes the owner, group and permissions of window system
 devices to the user
 .SM ID\s0,
 group
 .SM ID\s0,
-and the permissions specified in 
-.B /etc/svdtab 
-(see 
+and the permissions specified in
+.B /etc/svdtab
+(see
 .BR svdtab (5)),
 if there is an entry in that file.
 If no entry exists in
@@ -42,54 +42,54 @@ The permissions are set as specified in
 .BR /etc/svdtab .
 .LP
 .I startwin
-indicates the first 
+indicates the first
 .B win
-to change, 
+to change,
 .I nwins
-indicates the number of windows to change, 
+indicates the number of windows to change,
 .I nbackgound
-indicates the number of 
-.B win 
+indicates the number of
+.B win
 devices to change in the backgound.
 .LP
-This is a setuid root program spawned by 
+This is a setuid root program spawned by
 the window system
-(for example, 
+(for example,
 .BR sunview (1)).
-.B sv_acquire 
-exits if 
-the user does not own console devices listed in 
-.B /etc/fbtab 
-(see 
+.B sv_acquire
+exits if
+the user does not own console devices listed in
+.B /etc/fbtab
+(see
 .BR fbtab (5)).
-.B sv_acquire 
-exits with 0 on success and \-1 on failure.  
+.B sv_acquire
+exits with 0 on success and \-1 on failure.
 .SH EXAMPLES
 .LP
 In the following example,
-.B sv_acquire 
+.B sv_acquire
 sets the user
 .SM ID
 and the group
 .SM ID
 of
-.B /dev/win0 
+.B /dev/win0
 through
-.B /dev/win15 
-in the foreground and spawns a background process to set 
+.B /dev/win15
+in the foreground and spawns a background process to set
 .B /dev/win16
-through 
-.B /dev/win256 
-and exit with error status. 
+through
+.B /dev/win256
+and exit with error status.
 .RS
 .B 	sv_acquire 0 256 240
 .RE
 .LP
-The purpose of spawning a background process is to allow the caller 
+The purpose of spawning a background process is to allow the caller
 to avoid waiting for all
-.B win 
+.B win
 devices to be changed.
-Note: a diskless 3/50 sets approximately 16 wins 
+Note: a diskless 3/50 sets approximately 16 wins
 per second.
 .SH "SEE ALSO"
 .BR sunview (1),

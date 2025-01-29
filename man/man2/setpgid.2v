@@ -22,7 +22,7 @@ pid_t pid, pgid;
 .IX process "set process group ID for job control"
 .IX set "process group ID for job control"
 .LP
-.B setpgid(\|) 
+.B setpgid(\|)
 is used to either join an existing process group
 or create a new process group within the session of the calling
 process
@@ -66,8 +66,8 @@ to indicate the error.
 .SH ERRORS
 .TP 15
 .SM EACCES
-The value of 
-.I pid 
+The value of
+.I pid
 matches the process
 .SM ID
 of a child process of the calling process and the child
@@ -76,8 +76,8 @@ process has successfully executed one of the
 functions.
 .TP
 .SM EINVAL
-The value of 
-.I pgid 
+The value of
+.I pgid
 is less than zero or is greater than
 .SM MAXPID\s0,
 the maximum process
@@ -86,30 +86,30 @@ as defined in
 .BR <sys/param.h> .
 .TP
 .SM EPERM
-The process indicated by 
-.I pid 
+The process indicated by
+.I pid
 is a session leader.
-The value of 
-.I pid 
+The value of
+.I pid
 is valid but matches the process
 .SM ID
 of a child process of the calling process and the child process is
 not in the same session as the calling process.
-The value of 
+The value of
 .I pgid
 does not match the process
 .SM ID
-of the process indicated by 
-.I pid 
+of the process indicated by
+.I pid
 and there is no process with a process group
 .SM ID
-that matches the value of 
-.I pgid 
+that matches the value of
+.I pgid
 in the same session as the
 calling process.
 .TP
 .SM ESRCH
-.I pid 
+.I pid
 does not match the
 .SM PID
 of the calling process or the

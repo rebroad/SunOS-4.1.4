@@ -109,7 +109,7 @@ using
 and report all hosts that respond.
 .TP
 .B \-d
-Delete registration for the 
+Delete registration for the
 .SM RPC
 service of the specified
 .I program
@@ -138,7 +138,7 @@ to exist; if it does exist,
 attempts to obtain this information by calling
 an extremely high version
 number instead) and attempts to call each registered version.
-Note: the version number is required for 
+Note: the version number is required for
 .B \-b
 and
 .B \-d
@@ -158,14 +158,14 @@ use:
 .IP
 .B example% rpcinfo \-p klaxon
 .LP
-To show all machines on the local net that are running the 
+To show all machines on the local net that are running the
 Network Information Service
 (\s-1NIS\s0)
 use:
 .IP
 .B "example% rpcinfo \-b ypserv 'version' | uniq"
 .LP
-where 'version' is the current 
+where 'version' is the current
 .SM NIS
 version obtained from the results of the
 .B \-p
@@ -199,6 +199,6 @@ server on hosts running such releases.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

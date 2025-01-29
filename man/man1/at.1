@@ -31,7 +31,7 @@ at, batch \- execute a command or script at a specified time
 ]
 .LP
 .B batch
-.RB [ " \-csm " ] 
+.RB [ " \-csm " ]
 .RI [ " script " ]
 .SH DESCRIPTION
 .IX  at  ""  "\fLat\fP \(em do job at specified time"
@@ -49,8 +49,8 @@ while jobs queued with
 will execute as soon as the
 system load level permits.
 .I script
-is the name of a file to be used as command input for the 
-Bourne shell, 
+is the name of a file to be used as command input for the
+Bourne shell,
 .BR sh (1),
 the C shell,
 .BR csh (1),
@@ -184,7 +184,7 @@ or
 .IR increment .
 .LP
 .B batch
-is similar to  
+is similar to
 .RB ` "at now" ',
 but does not, for example, go into the same queue
 or respond with the error message
@@ -192,14 +192,14 @@ or respond with the error message
 .SH OPTIONS
 .TP 10
 .B \-c
-C shell.  
-.BR csh 
+C shell.
+.BR csh
 is used to execute
 .I script.
 .TP
 .B \-s
 Standard (Bourne) shell.
-.BR sh 
+.BR sh
 is used to execute the job.
 By default,
 the
@@ -319,10 +319,10 @@ to the following within the shell file:
 main cron directory
 .TP
 .B /var/spool/cron/at.allow
-list of allowed users 
+list of allowed users
 .TP
 .B /var/spool/cron/at.deny
-list of denied users 
+list of denied users
 .TP
 .B /var/spool/cron/atjobs
 spool area
@@ -345,7 +345,7 @@ If the system crashes, mail stating that
 the job was not completed is not sent to the user.
 .LP
 Shell interpreter specifiers (such as,
-.BR !/bin/csh ) 
+.BR !/bin/csh )
 in the beginning of
 .I script
 are ignored.

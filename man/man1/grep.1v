@@ -9,7 +9,7 @@ grep, egrep, fgrep \- search a file for a string or regular expression
 ] [
 .BI \-e " expression"
 ] [
-.IR filename ".\|.\|. ]" 
+.IR filename ".\|.\|. ]"
 .LP
 .B egrep
 [
@@ -18,12 +18,12 @@ grep, egrep, fgrep \- search a file for a string or regular expression
 .BI \-e " expression"
 ] [
 .BI \-f " filename"
-] 
+]
 .if n .ti +0.5i
 [
 .I expression
 ] [
-.IR filename ".\|.\|. ]" 
+.IR filename ".\|.\|. ]"
 .LP
 .B fgrep
 [
@@ -32,7 +32,7 @@ grep, egrep, fgrep \- search a file for a string or regular expression
 .BI \-e " string"
 ] [
 .BI \-f " filename"
-] 
+]
 .if n .ti +0.5i
 [
 .I string
@@ -44,10 +44,10 @@ grep, egrep, fgrep \- search a file for a string or regular expression
 .B \-bchilnsvw
 ] [
 .BI \-e " expression"
-] 
+]
 .if n .ti +0.5i
 [
-.IR filename ".\|.\|. ]" 
+.IR filename ".\|.\|. ]"
 .SH AVAILABILITY
 The System V version of this command is available with the
 .I System V
@@ -176,7 +176,7 @@ begins with a
 .RB ` \- '.
 .TP
 .BI \-e " string"
-For 
+For
 .B fgrep
 the argument is a literal character
 .IR string .
@@ -216,14 +216,14 @@ one of the special characters discussed below)
 is a one-character regular expression that matches that character.
 .TP
 .BI \e c
-A backslash 
+A backslash
 .RB ( \e )
 followed by any special character is a
 one-character regular expression that matches the special character itself.
 The special characters are:
 .RS
 .RS
-.TP 
+.TP
 \(bu
 .RB ` . ',
 .RB ` * ',
@@ -243,7 +243,7 @@ when they appear within square brackets
 of an
 .I entire
 regular expression,
-or when it immediately follows the left of a 
+or when it immediately follows the left of a
 pair of square brackets (\fB[\|]\fP).
 .TP
 \(bu
@@ -266,7 +266,7 @@ or
 represents a special operator in the regular expression; see below.
 .TP
 .B \s+4.\s0
-A 
+A
 .RB ` . '
 (period) is a one-character regular expression
 that matches any character except
@@ -278,7 +278,7 @@ one-character regular expression that matches
 .I "any one"
 character in that string.
 If, however, the first character of the
-string is a 
+string is a
 .RB  ` \s+2^\s0 '
 (a circumflex or caret),
 the one-character regular expression matches any character
@@ -291,7 +291,7 @@ has this special meaning
 .I only
 if it
 occurs first in the string.
-The 
+The
 .RB ` \- '
 (minus)
 may be used to indicate a range of consecutive
@@ -308,15 +308,15 @@ an initial
 .RB ` \s+2^\s0 ',
 if any)
 or last in the string.
-The 
-.RB ` ] ' 
+The
+.RB ` ] '
 (right square bracket) does not terminate such a string when it
 is the first character within it (after an initial
 .RB ` \s+2^\s0\| ',
 if any);
 that is,
 .B [\|]a\-f]
-matches either 
+matches either
 .RB ` ] '
 (a right square bracket )
 or one of the letters
@@ -336,7 +336,7 @@ within such a string of characters.
 The following rules may be used to construct regular expressions:
 .TP
 .B *
-A one-character regular expression followed by 
+A one-character regular expression followed by
 .RB ` * '
 (an asterisk) is a
 regular expression that matches
@@ -458,7 +458,7 @@ constrains that regular expression to match an
 segment of a line.
 .TP
 .B $
-A currency symbol 
+A currency symbol
 .RB ( $ )
 at the end of an entire regular expression
 constrains that regular expression to match a
@@ -494,7 +494,7 @@ with the addition of:
 A regular expression (not just a one-character
 regular expression) followed by
 .RB ` * '
-(an asterisk) 
+(an asterisk)
 is a regular expression that matches
 .I zero
 or more occurrences of the
@@ -503,9 +503,9 @@ If there is any choice,
 the longest leftmost string that permits a match is chosen.
 .TP
 .B +
-A regular expression followed by 
+A regular expression followed by
 .RB ` + '
-(a plus sign) 
+(a plus sign)
 is a
 regular expression that matches
 .I one
@@ -515,9 +515,9 @@ If there is any choice,
 the longest leftmost string that permits a match is chosen.
 .TP
 .B ?
-A regular expression followed by 
-.RB ` ? ' 
-(a question mark) 
+A regular expression followed by
+.RB ` ? '
+(a question mark)
 is a
 regular expression that matches
 .I zero
@@ -528,7 +528,7 @@ If there is any choice,
 the longest leftmost string that permits a match is chosen.
 .TP
 .B |
-Alternation: two regular expressions separated by 
+Alternation: two regular expressions separated by
 .RB ` | '
 or
 .SM NEWLINE\s0

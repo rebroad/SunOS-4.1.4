@@ -4,8 +4,8 @@
 load, loadc \- load Application SunOS or Developer's Toolkit clusters
 .SH SYNOPSIS
 .B load
-[ 
-.IR filename " .\|.\|.]" 
+[
+.IR filename " .\|.\|.]"
 .LP
 .B loadc
 [
@@ -20,8 +20,8 @@ load, loadc \- load Application SunOS or Developer's Toolkit clusters
 Available only on Sun 386i systems running a SunOS 4.0.\fIx\fR
 release or earlier.  Not a SunOS 4.1 release feature.
 .SH DESCRIPTION
-.IX "load command" "" "\fLload\fR command"  
-.IX "loadc command" "" "\fLloadc\fR command"  
+.IX "load command" "" "\fLload\fR command"
+.IX "loadc command" "" "\fLloadc\fR command"
 .LP
 .B load
 loads the optional clusters in the Application SunOS or the Developer's
@@ -33,7 +33,7 @@ loads the optional clusters in the Application SunOS or
 the Developers Toolkit specified in the cluster arguments.
 Specify the special cluster name
 .B appl
-with 
+with
 .B loadc
 to load all the Application SunOS clusters.  Likewise, specify
 .B devel
@@ -42,7 +42,7 @@ to
 to load all the Developer's Toolkit clusters.
 .LP
 .B load
-and 
+and
 .B loadc
 require the user to specify the distribution medium, either
 3.5-inch diskette or quarter-inch tape, and insert the diskette or tape.
@@ -52,12 +52,12 @@ is negative, no software will be loaded.
 .LP
 Without arguments,
 .B load
-and 
+and
 .B loadc
 display a summary of the clusters in the Application SunOS and
 Developer's Toolkit, including the load state and size of each cluster.
 .SH EXAMPLES
-To load the cluster that contains the 
+To load the cluster that contains the
 .BR spell (1)
 command:
 .LP
@@ -76,8 +76,8 @@ example%
 .fi
 .RE
 .LP
-To load the 
-.B spellcheck 
+To load the
+.B spellcheck
 cluster:
 .LP
 .RS
@@ -177,7 +177,7 @@ SunOS or Developers Toolkit.
 .TP
 .BI "The cluster " cluster " is already loaded, overwrite? (y/n):"
 The specified cluster appears to have been loaded already.
-Type 
+Type
 .B y
 followed by
 .SM RETURN
@@ -200,6 +200,6 @@ are mounted across the network
 and can not be loaded or unloaded.
 .TP
 .BI "The " tape / diskette " drive is currently in use."
-You are trying to load a cluster from tape (or diskette) 
+You are trying to load a cluster from tape (or diskette)
 and another process currently
 has control of the tape (or diskette) drive.

@@ -53,7 +53,7 @@ and the pathname to which
 points becomes the second argument.
 Otherwise, the pathname to which
 .I path
-points becomes the first argument. 
+points becomes the first argument.
 The original arguments are shifted over to
 become the subsequent arguments.
 The zeroth argument, normally the pathname to which
@@ -149,7 +149,7 @@ to the owner or group of the executed file if the file has the
 \(lqset-user-\s-1ID\s0\(rq or \(lqset-group-\s-1ID\s0\(rq modes.  The
 .I real
 .SM UID
-and 
+and
 .SM GID
 are not affected.
 The effective user
@@ -263,7 +263,7 @@ resource usages	\fBgetrusage\fP(2)
 interval timers	\fBgetitimer\fP(2)
 resource limits	\fBgetrlimit\fP(2)
 file mode mask	\fBumask\fP(2)
-process signal mask	\fBsigvec\fP(2), \fBsigprocmask\fP(2V), 
+process signal mask	\fBsigvec\fP(2), \fBsigprocmask\fP(2V),
 	\fBsigsetmask\fP(2)
 pending signals	\fBsigpending\fP(2)
 \fBtms_utime\fP, \fBtms_stime\fP,

@@ -37,7 +37,7 @@ is a front end to
 .BR setup_exec (8),
 and makes assumptions about the architecture,
 the kernel, and application executables paths
-based on the system it's running on.  
+based on the system it's running on.
 However,
 .B load_package
 undoes the modifications to
@@ -55,7 +55,7 @@ Sun-4 system's
 .B .\|.\|./suninstall/script
 directory.
 .LP
-If you are running 
+If you are running
 .B load_package
 on the same system that the
 additional packages will be used on and the standard
@@ -64,11 +64,11 @@ additional packages will be used on and the standard
 and
 .I kvmpath
 .RB ( /export/exec/kvm/kernel_arch )
-are used, no 
+are used, no
 .B load_package
 options need to be specified.
 .LP
-If you are running 
+If you are running
 .B load_package
 on a server to add packages for
 a client and the standard
@@ -107,7 +107,7 @@ if not specified.
 .TP
 .BI \-k " kvmpath"
 Specify the full path name of the kernel architecture executables
-directory. 
+directory.
 This is usually
 .BR /export/exec/kvm/kernel_arch .
 Defaults to
@@ -137,7 +137,7 @@ example% load_package \-a sun4c
 .B /etc/exports.load-package
 used to keep a copy of the exports file
 .TP
-.B /etc/xtab.load-package	
+.B /etc/xtab.load-package
 used to re-export all files when done
 .PD
 .br
@@ -149,7 +149,7 @@ used to re-export all files when done
 .TX INSTALL
 .SH DIAGNOSTICS
 .HP 12
-.B \s-1USAGE\s0: load_package [\-a kernel_arch] 
+.B \s-1USAGE\s0: load_package [\-a kernel_arch]
 .B [\-e full exec pathname]
 .B [\-k full kvm pathname]
 .br

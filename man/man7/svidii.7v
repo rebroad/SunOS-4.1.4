@@ -1,7 +1,7 @@
 .\" @(#)svidii.7v 1.1 94/10/31 SMI;
 .TH SVIDII 7V "30 September 1989"
 .SH NAME
-svidii \- overview of the System V environment 
+svidii \- overview of the System V environment
 .SH SYNOPSIS
 .B "/usr/5bin/lint \-n \-lsvidii"
 .I sys5_src.c
@@ -19,34 +19,34 @@ for information on how to install optional software.
 .LP
 .SM SVID II
 is a set of functions and header files.  The SunOS Release 4.1
-implementation of 
+implementation of
 .SM SVID II
 is a superset \(em it includes all of the
 functionality described in the
 .SM SVID
 issue 2 documents as well as most of the
-SunOS functionality.  See the 
+SunOS functionality.  See the
 .BR sunos (7)
 man page for a description of
 SunOS functionality.
 .LP
-All man pages that are associated with 
+All man pages that are associated with
 .SM SVID II
 are marked by a \*(lqV\*(rq
-after the section number.  Not all \*(lqV\*(rq pages are 
+after the section number.  Not all \*(lqV\*(rq pages are
 .SM SVID II\s0,
 however.
 Some \*(lqV\*(rq pages may be part of other System V based environments such as
 X/Open.
 .LP
-If a user desires to work in a 
+If a user desires to work in a
 .SM SVID II
 environment, the user
-should set the path variable to include 
+should set the path variable to include
 .B /usr/xpg2bin
-and 
+and
 .B /usr/5bin
-before anything else. 
+before anything else.
 The typical path is:
 .LP
 .RS
@@ -56,19 +56,19 @@ set path=( /usr/xpg2bin /usr/5bin /bin /usr/bin /usr/ucb )
 .RE
 .LP
 As a portability aid, Sun is providing two lint libraries
-that consist exclusively of 
+that consist exclusively of
 .SM SVID II
 functions as defined in the
 .SM SVID
 issue 2.  Users may lint
-their code with the 
+their code with the
 .B "\-n \-lsvidii"
 options to catch all features that are not found in
 .SM SVID
 issue 2, all volumes.
 Using lint with the
 .B "\-n \-lsvidii-3"
-options is just like 
+options is just like
 .B "\-n \-lsvidii"
 except that it does not include volume 3 (which contains new directory
 reading routines and new signal functions that appeared in System V

@@ -15,7 +15,7 @@ for information on how to install optional software.
 .SH DESCRIPTION
 .IX "rfudaemon RFS" "" "\fLrfudaemon\fP \(em \s-1RFS\s0 daemon" ""
 .IX RFS "daemon" "\s-1RFS\s0" "daemon"
-.IX daemon "RFS" "daemon" "\s-1RFS\s0" 
+.IX daemon "RFS" "daemon" "\s-1RFS\s0"
 The
 .SM RFS
 daemon,
@@ -35,17 +35,17 @@ are as follows:
 A link to a remote resource has been cut.
 .B rfudaemon
 executes
-.BR rfuadmin , 
+.BR rfuadmin ,
 with two arguments:
 .B disconnect
 and the name of the disconnected resource.
-.TP 
+.TP
 .B fumount
 A remote server machine has forced an unmount of a resource
 a local machine has mounted.
 .B rfudaemon
 executes
-.BR rfuadmin , 
+.BR rfuadmin ,
 with two arguments:
 .B fumount
 and the name of the disconnected resource.
@@ -53,26 +53,26 @@ and the name of the disconnected resource.
 .B getumsg
 A remote user-level program has sent a message
 to the local
-.BR rfudaemon .  
+.BR rfudaemon .
 Currently the only message sent is
-.BR fuwarn , 
+.BR fuwarn ,
 which notifies
-.B rfuadmin 
-that a resource is about to be unmounted.  
+.B rfuadmin
+that a resource is about to be unmounted.
 .B rfudaemon
 sends
-.B rfuadmin 
+.B rfuadmin
 the
-.BR fuwarn , 
+.BR fuwarn ,
 the resource name, and the number of seconds in
 which the forced unmount will occur.
-.TP 
+.TP
 .B lastumsg
 The local machine wants to stop the
-.B rfudaemon 
+.B rfudaemon
 .RB ( rfstop (8)).
 This causes
-.B rfudaemon 
+.B rfudaemon
 to exit.
 .PD
 .SH "SEE ALSO"

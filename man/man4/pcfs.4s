@@ -24,7 +24,7 @@ That is, users can create, delete, read, write files on an
 formatted disk.
 They can also create/delete directories and list files in a directory.
 .LP
-.SM PCFS 
+.SM PCFS
 filesystems are mounted either with the command:
 .IP
 .B "mount \-t pcfs " \fIdevice-special\fP \fIdirectory-name\fP
@@ -45,18 +45,18 @@ File and directories created through
 have to comply with the
 .SM MS-DOS
 file name convention, which is of the form
-\fIfilename\fP[.\fIext\fP], where 
+\fIfilename\fP[.\fIext\fP], where
 .I filename
 consists of one through eight
-upper-case characters, while the optional 
+upper-case characters, while the optional
 .I ext
 consists of one through
 three upper-case characters.
 .SM PCFS
 converts all the lower-case characters in a file name to upper-case, and
-chops off any extra characters in 
+chops off any extra characters in
 .I filename
-or 
+or
 .IR ext .
 When displaying file names,
 .SM PCFS
@@ -164,7 +164,7 @@ if the floppy in the
 .B fd0
 drive is not in
 .SM MS-DOS
-format. 
+format.
 For example,
 if you try to mount a
 .B ufs

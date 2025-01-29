@@ -24,11 +24,11 @@ infocmp \- compare or print out terminfo descriptions
 .B /usr/5bin/infocmp
 .I arguments
 .LP
-Note: 
+Note:
 .I arguments
-to 
+to
 .B /usr/5bin/infocmp
-are the same as those for 
+are the same as those for
 .BR infocmp ,
 above.
 .SH AVAILABILITY

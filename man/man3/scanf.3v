@@ -245,7 +245,7 @@ Using this convention,
 .I first
 must be lexically less than or equal to
 .IR last ,
-or else the dash will stand for itself. 
+or else the dash will stand for itself.
 The dash will also stand for
 itself whenever it is the first or the last character in the scanset.
 To include the right square bracket as an element of the scanset,
@@ -332,22 +332,22 @@ the number of successfully matched items is returned.
 .br
 .ne 7
 .LP
-Conversions can be applied to the 
+Conversions can be applied to the
 .IR n th
 argument in the argument list, rather than the next unused argument.
 In this
-case, the conversion character 
+case, the conversion character
 .B %
 (see below) is replaced by the sequence
 .BR % digit\c
 .BR $ ,
-where 
+where
 .I digit
-is a decimal integer 
+is a decimal integer
 .I n
 in the range [1,9],
 giving the position of the argument in the argument list.
-This feature provides for the definition of format strings that 
+This feature provides for the definition of format strings that
 select arguments in an order appropriate to specific languages.
 .LP
 The format string
@@ -359,15 +359,15 @@ or
 although the two forms cannot be mixed within a single
 format string.
 .LP
-All forms of the 
+All forms of the
 .B scanf(\|)
-functions allow for the detection of a language dependent radix character in 
-the input string. The radix character is defined by the program's 
+functions allow for the detection of a language dependent radix character in
+the input string. The radix character is defined by the program's
 locale (category
 .BR \s-1LC_NUMERIC\s0 ).
 In the
 \fB"C"\fP
-locale, or in a locale where the radix character is not defined, 
+locale, or in a locale where the radix character is not defined,
 the radix character defaults to
 .RB ` . '.
 .SH SYSTEM V DESCRIPTION

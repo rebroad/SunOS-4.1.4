@@ -6,16 +6,16 @@ chmod \- change the permissions mode of a file
 .B chmod
 [
 .B \-fR
-] 
-.I mode 
+]
+.I mode
 .I filename
 \&.\|.\|.
 .SH SYNOPSIS
 .B /usr/5bin/chmod
 [
 .B \-fR
-] 
-.I mode 
+]
+.I mode
 .I filename
 \&.\|.\|.
 .SH AVAILABILITY
@@ -39,13 +39,13 @@ Only the owner of a file (or the super-user) may change its mode.
 .LP
 The mode of each named file is changed according to
 .IR mode ,
-which may be absolute or symbolic, as follows.  
+which may be absolute or symbolic, as follows.
 .SS Absolute Modes
 .LP
 An absolute
 .I mode
-is an octal number constructed from the 
-.SM OR 
+is an octal number constructed from the
+.SM OR
 of the following modes:
 .TP 8
 .PD 0
@@ -112,7 +112,7 @@ has the form:
 ] .\|.\|.
 .LP
 .I who
-is a combination of: 
+is a combination of:
 .RS
 .TP 8
 .PD 0
@@ -140,8 +140,8 @@ but the setting of the file creation mask (see
 in
 .BR sh (1)
 or
-.BR csh (1) 
-for more information) is taken into account.  When 
+.BR csh (1)
+for more information) is taken into account.  When
 .I who
 is omitted,
 .B chmod
@@ -192,7 +192,7 @@ This is only useful with
 .B u
 or
 .BR g .
-Also, the set group 
+Also, the set group
 .SM ID
 bit of a directory may only be
 modified with
@@ -221,7 +221,7 @@ is only useful with
 to take away all permissions.
 .LP
 Multiple symbolic modes, separated by commas, may be given.
-Operations are performed in the order specified.  
+Operations are performed in the order specified.
 .SH SYSTEM V DESCRIPTION
 .LP
 If

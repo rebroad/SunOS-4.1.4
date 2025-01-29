@@ -58,7 +58,7 @@ of source file
 was false.
 .SH SYSTEM V DIAGNOSTICS
 .TP
-.BI "Assertion failed: " expression ", file" " f" ", line " n 
+.BI "Assertion failed: " expression ", file" " f" ", line " n
 The
 .I expression
 passed to the

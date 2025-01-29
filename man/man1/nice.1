@@ -57,9 +57,9 @@ The examples use the
 option to
 .BR ps (1)
 because it shows both the nice value and the kernel scheduling priority.
-Notice the 
+Notice the
 .SB NI
-and 
+and
 .SB PRI
 columns.  In the first
 example, the user doesn't use
@@ -86,7 +86,7 @@ example%  \fBnice ps \-l\fR
 because the default nice value is 10.
 .LP
 In the third example, the user asks that the nice value be incremented by 20,
-but it's shown as 19 under 
+but it's shown as 19 under
 .BR \s-1NI\s0 ,
 because that's the upper limit of niceness.
 .LP
@@ -111,7 +111,7 @@ example%  nice \-20 ps \-l
       19442 16609 16606 37  72 19 120  328          R N  p2  0:00 ps \-l
       .\|.\|.
 .br
-.ne 5  
+.ne 5
 example%  nice \-\-20 ps \-l
 nice: setpriority: Permission denied
 example%

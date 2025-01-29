@@ -13,13 +13,13 @@ rlogin \- remote login
 ]
 [
 .B \-8
-] 
+]
 [
 .BI \-e c
 ] [
 .B \-l
 .I username
-]         
+]
 .\"[
 .\".B \-7
 .\"]
@@ -42,8 +42,8 @@ establishes a remote login session from
 your terminal to the remote machine named
 .IR hostname .
 .LP
-Hostnames are listed in the 
-.I hosts 
+Hostnames are listed in the
+.I hosts
 database,
 which may be contained in the
 .B /etc/hosts
@@ -65,9 +65,9 @@ Each remote machine may have a file named
 containing a list of trusted hostnames
 with which it shares usernames.
 Users with the same username on both the local
-and remote machine may 
+and remote machine may
 .nh
-.B rlogin 
+.B rlogin
 .hy
 from the
 machines listed in the remote machine's
@@ -81,7 +81,7 @@ Each line in this file contains two names: a
 .I hostname
 and a
 .I username
-separated by a 
+separated by a
 .SM SPACE\s0.
 An entry in a remote user's
 .B \&.rhosts
@@ -91,15 +91,15 @@ who is logged into
 .I hostname
 to rlogin to the remote machine as the remote user
 without supplying a password.
-If the name of the local host is not found in the 
+If the name of the local host is not found in the
 .B /etc/hosts.equiv
 file on the remote machine,
 and the local username and hostname are not found in
 the remote user's .rhosts file, then
 the remote machine will prompt for a password.
-Hostnames listed in 
+Hostnames listed in
 .B /etc/hosts.equiv
-and 
+and
 .B \&.rhosts
 files must be the official hostnames listed in the hosts database;
 nicknames may not be used in either of these files.
@@ -163,11 +163,11 @@ see
 Allow the
 .B rlogin
 session to be run in \*(lqlitout\*(rq mode.
-.TP 
+.TP
 .B \-8
 Pass eight-bit data across the net instead of seven-bit data.
 .\"This is the default.
-.TP 
+.TP
 .BI \-e c
 Specify a different escape character,
 .IR c ,
@@ -175,7 +175,7 @@ for the line used to disconnect from the remote host.
 .\".TP
 .\" .BR \-7 5
 .\"Pass seven-bit data across the net instead of eight-bit data.
-.TP 
+.TP
 .BI \-l " username"
 Specify a different
 .I username
@@ -192,7 +192,7 @@ for the
 .I hostname
 version of the command
 .TP
-.B /etc/hosts.equiv	
+.B /etc/hosts.equiv
 list of trusted hostnames
 with shared usernames
 .TP
@@ -217,6 +217,6 @@ More of the environment should be propagated.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

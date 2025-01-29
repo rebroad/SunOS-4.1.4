@@ -60,8 +60,8 @@ for information on how to install optional software.
 .IX "ustar process" "" "\fLustar\fP \(em process tape archives" ""
 .IX tape "process tape archives"
 .IX archive "process tape archives"
-.IX read "archive files" 
-.IX write "archive files" 
+.IX read "archive files"
+.IX write "archive files"
 .LP
 .B ustar
 reads and writes archive files which conform to the
@@ -85,10 +85,10 @@ instead of after the last file.
 .TP
 .B \-r
 Write names files to the end of the archive.
-.TP 
+.TP
 .B \-t
 List the names of all of the files in the archive.
-.TP 
+.TP
 .B \-u
 Add named files
 to the archive if they are not already there, or if
@@ -96,7 +96,7 @@ they have been modified since last written into the archive.
 This implies the
 .B \-r
 option.
-.TP 
+.TP
 .B \-x
 Extracts named files from the archive.
 If a named file matches a directory whose contents had been written onto
@@ -105,14 +105,14 @@ If a named file in the archive does not exist on the system, the file is
 create with the same mode as the one in the archive, except that the
 set-user-id and get-group-id modes are not set unless the user has
 appropriate privileges.
-.TP 
+.TP
 .B \-b
 Use the next argument on the command line as the blocking factor for
 tape records.
 The default is 1; the maximum is 20.
 This option should only be used with raw magnetic tape archives.
 Normally, the block size is determined automatically when reading tapes.
-.TP 
+.TP
 .B \-f
 Use the next argument on the command line as the name of the archive
 instead of the default, which is usually a tape drive.
@@ -125,9 +125,9 @@ is appropriate for the options given.
 Thus,
 .B ustar
 can be used as the head or tail of a pipeline.
-.TP 
+.TP
 .B \-l
-Report if 
+Report if
 .B ustar
 cannot resolve all of the links to the files being
 archived.
@@ -141,21 +141,21 @@ This modifier is only valid with the
 and
 .BR \-u
 options.
-.TP 
+.TP
 .B \-m
 Do not restore the modification times.
 The modification time of the file will be the time of extraction.
 This modifier is invalid with the
 .B \-t
 option.
-.TP 
+.TP
 .B \-o
 Extracted files take on the user and group identifier of the user
 running the program rather than those on the archive.
 This modifier is only valid with the
 .B \-x
 option.
-.TP 
+.TP
 .B \-v
 Verbose.
 Print the name of each file it processes,
@@ -165,7 +165,7 @@ With the
 option,
 .B \-v
 gives more information about the archive entries than just the name.
-.TP 
+.TP
 .B \-w
 Print the action to be taken,
 followed by the name of the file, and then
@@ -180,10 +180,10 @@ This modifier is invalid with the
 option.
 .SH FILES
 .PD 0
-.TP 20 
+.TP 20
 .B /dev/tty
 used to prompt the user for information when the
-.B \-i 
+.B \-i
 or
 .B \-y
 options are specified
@@ -197,16 +197,16 @@ options are specified
 .BR cpio (5),
 .BR tar (5)
 .\".SH COPYRIGHT
-.\"Copyright (c) 1989 Mark H. Colburn.  
+.\"Copyright (c) 1989 Mark H. Colburn.
 .\".br
 .\"All rights reserved.
 .\".LP
 .\"Redistribution and use in source and binary forms are permitted
-.\"provided that the above copyright notice is duplicated in all such 
-.\"forms and that any documentation, advertising materials, and other 
-.\"materials related to such distribution and use acknowledge that the 
-.\"software was developed by Mark H. Colburn and sponsored by The 
-.\"USENIX Association. 
+.\"provided that the above copyright notice is duplicated in all such
+.\"forms and that any documentation, advertising materials, and other
+.\"materials related to such distribution and use acknowledge that the
+.\"software was developed by Mark H. Colburn and sponsored by The
+.\"USENIX Association.
 .\".LP
 .\"THE SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
 .\"IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED

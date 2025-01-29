@@ -31,7 +31,7 @@ by a specific error,
 on the current or next function to
 be executed.
 .LP
-This function also enables a transport user to 
+This function also enables a transport user to
 .BR poll (2)
 a transport endpoint
 periodically for asynchronous events.
@@ -52,19 +52,19 @@ Connection indication received
 Connect confirmation received
 .TP
 .SB T_DATA\s0
-Normal data received		
+Normal data received
 .TP
 .SB T_EXDATA\s0
-Expedited data received	
+Expedited data received
 .TP
 .SB T_DISCONNECT\s0
 Disconnect received
 .TP
 .SB T_ERROR\s0
-Fatal error indication	
+Fatal error indication
 .TP
 .SB T_UDERR\s0
-Datagram error indication	
+Datagram error indication
 .TP
 .SB T_ORDREL\s0
 Orderly release indication
@@ -81,8 +81,8 @@ the error.
 The specified file descriptor does not refer to a transport endpoint.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .LP

@@ -34,8 +34,8 @@ address in the following format:
 Each field given above is a hex
 .SM ASCII
 representation.
-The 
-.SB AF_INET 
+The
+.SB AF_INET
 field is the address family which always has the value
 .BR 0002 .
 .I portnum
@@ -44,10 +44,10 @@ is the two-byte
 port number; if not specified on the command line
 it defaults to
 .BR 1450 .
-.I \s-1IP\s0-address 
+.I \s-1IP\s0-address
 is the
 .SM IP
-address of the 
+address of the
 .I hostname
 given on the command line followed by 16 trailing zeroes.
 .PP
@@ -57,22 +57,22 @@ network address field for the address of an
 name server in the
 .BR rfmaster (5)
 file.
-It may also be used as input to the 
+It may also be used as input to the
 .B nlsadmin (8)
-command to initialize the addresses on which the 
-.B listener 
+command to initialize the addresses on which the
+.B listener
 program listens for service requests.
 .SH EXAMPLES
 .LP
 The output of
 .IP
-.B example%  hostrfs wopr  
+.B example%  hostrfs wopr
 .LP
 is
 .IP
 .BR \e00021450819035090000000000000000
 .LP
-The output of the command can be used to initialize the network address 
+The output of the command can be used to initialize the network address
 on which the
 .SM RFS
 .B listener

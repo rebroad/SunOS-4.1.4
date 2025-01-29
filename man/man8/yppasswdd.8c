@@ -50,8 +50,8 @@ is the password file that provides the basis for the
 .I passwd.byname
 and
 .I passwd.byuid
-maps. 
-This should not be confused with the servers 
+maps.
+This should not be confused with the servers
 .I /etc/passwd
 file which controls access to the server.
 In particular this file should not contain an entry for the super user.
@@ -70,7 +70,7 @@ will only be changed if the password presented by
 .BR yppasswd (1)
 matches the encrypted password of that entry.
 .LP
-If the 
+If the
 .B \-noshell
 .B \-nogecos
 or
@@ -97,20 +97,20 @@ Any arguments following the flag will be passed to
 .LP
 This server is not run by default, nor can it be started up from
 .BR inetd (8C).
-If it is desired to enable remote password updating for the 
+If it is desired to enable remote password updating for the
 Network Information Service
 (\s-1NIS\s0),
 then an entry for
 .B yppasswdd
 should be put in the
 .B /etc/rc
-file of the host serving as the master for the 
+file of the host serving as the master for the
 .SM NIS
 .B passwd
 file.
 .SH EXAMPLE
 .LP
-If the 
+If the
 .SM NIS
 password file is stored as
 .BR /var/yp/passwd ,
@@ -142,14 +142,14 @@ the server should be invoked as
 .BR ypmake (8)
 .SH NOTES
 .LP
-The password file specified to 
+The password file specified to
 .I rpc.yppasswdd
 may not be a link.
 .LP
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.  The name Yellow Pages is a registered
 trademark in the United Kingdom of British Telecommunications plc,

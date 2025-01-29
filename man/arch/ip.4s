@@ -20,14 +20,14 @@ disk ip3 at ipc1 drive1
 .IX  "SMD disk controller"  "Interphase 2180"  ""  "\fLip\fP \(em Interphase 2180"  PAGE START
 .IX  "disk driver"  "Interphase"  ""  "\fLip\fP \(em Interphase"  PAGE START
 Special files \fIip*\fP refer to disk devices controlled by an
-Interphase SMD 2180 disk controller. 
-.LP 
+Interphase SMD 2180 disk controller.
+.LP
 The standard \fIip\fP device names begin with the letters ``ip'',
 followed by the drive unit number, followed by a letter from the series
-a \- h to name one of the eight partitions on the drive. 
+a \- h to name one of the eight partitions on the drive.
 For example, \fI/dev/ip1c\fP refers to partition c on the second drive
-controlled by the Interphase controller. 
-.LP 
+controlled by the Interphase controller.
+.LP
 The device names provide the binding into the minor device numbers for
 the driver software.  Files with minor device
 numbers 0 through 7 refer to the eight partitions (a \- h) of unit 0;
@@ -91,10 +91,10 @@ This indicates a bad label.
 \fBip\fIn\fR\|: unit not online
 .TP
 ip\fIn\|c\fR\|: \fIcmd\fP \fIhow\fP \fI(msg)\fP blk \fIn\fR
-A command such as read, write, or format encountered a error condition 
-(how): either it \fIfailed\fP, the unit was \fIrestored\fP, or an 
-operation was \fIretry\fP'ed.  The \fImsg\fP is derived from the error 
-number given by the controller, indicating a condition such as 
+A command such as read, write, or format encountered a error condition
+(how): either it \fIfailed\fP, the unit was \fIrestored\fP, or an
+operation was \fIretry\fP'ed.  The \fImsg\fP is derived from the error
+number given by the controller, indicating a condition such as
 "drive not ready", "sector not found" or "disk write protected".
 .SH BUGS
 In raw I/O

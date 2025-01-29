@@ -29,14 +29,14 @@ for i in 1 2 3 4 5 6 7 8 ; do
 	cd man$i
 
 	for j in `cat ../tmp/files.print.$i` ; do
-		awk '/^\.SH.*NAME/,/^\.SH [^N]/ { 
+		awk '/^\.SH.*NAME/,/^\.SH [^N]/ {
 			if ($1 !~ /^\.SH/) {
 				print $0;
 				k++
-			} 
+			}
 		}
 		END { if (k > 3) {print "line breaks"}
-			}' $j | egrep '\\[fsnc|^]|^\.|line breaks|bad dash' >> ../tmp/badnames.$i 
+			}' $j | egrep '\\[fsnc|^]|^\.|line breaks|bad dash' >> ../tmp/badnames.$i
 	done
 	cd ..
 done

@@ -1,4 +1,4 @@
-.\" @(#)devinfo.8s 1.1 94/10/31 SMI; 
+.\" @(#)devinfo.8s 1.1 94/10/31 SMI;
 .TH DEVINFO 8S "17 April 1991"
 .SH NAME
 devinfo \- print out system device information
@@ -21,7 +21,7 @@ for the \s-1SPARC\s0system 600MP series only.
 displays the devices that the system knows about.
 The output will state the name of the device,
 its unit number, and whether a system device driver has claimed it.
-Since the internal system representation of this information is an 
+Since the internal system representation of this information is an
 .IR n \-ary
 tree, indentation is used to denote a parent-child
 relationship, and devices reported at the same indentation level are
@@ -29,7 +29,7 @@ considered sibling devices.
 .SH OPTIONS
 .TP
 .B \-f
-With the 
+With the
 .B \-p
 option, use the argument
 .I promdevice
@@ -37,7 +37,7 @@ as the monitor \s-1PROM\s0 device, instead of the default
 .IR /dev/openprom .
 .TP
 .B \-p
-Report the 
+Report the
 .I monitor's
 view of the attached devices, instead of the kernel's view.
 .TP

@@ -3,19 +3,19 @@
 .SH NAME
 add_client \- create a diskless network bootable NFS client on a server
 .SH SYNOPSIS
-.B /usr/etc/install/add_client 
+.B /usr/etc/install/add_client
 .RB [ \-inpv ]
 [
-.B \-a 
+.B \-a
 .I kernel-arch
 ]
 .if n .ti +5n
 [
-.B \-e 
+.B \-e
 .I exec-path
 ]
 [
-.B \-f 
+.B \-f
 .I share-path
 ]
 [
@@ -33,12 +33,12 @@ add_client \- create a diskless network bootable NFS client on a server
 .I mail-path
 ]
 [
-.B \-r 
+.B \-r
 .I root-path
 ]
 .if n .ti +5n
 [
-.B \-s 
+.B \-s
 .I swap-path
 ]
 [
@@ -47,30 +47,30 @@ add_client \- create a diskless network bootable NFS client on a server
 ]
 .if t .ti +.5i
 [
-.B \-y 
+.B \-y
 .I yptype
 ]
 .if n .ti +5n
 [
-.B \-z 
+.B \-z
 .I swapsize
 ]
 .IR client \|.\|.\|.
 .br
-.B /usr/etc/install/add_client 
+.B /usr/etc/install/add_client
 .RB \-i \||\| \-p
 .RB [ \-nv ]
 [
-.B \-a 
+.B \-a
 .I kernel-arch
 ]
 .if n .ti +5n
 [
-.B \-e 
+.B \-e
 .I exec-path
 ]
 [
-.B \-f 
+.B \-f
 .I share-path
 ]
 .if t .ti +.5i
@@ -88,12 +88,12 @@ add_client \- create a diskless network bootable NFS client on a server
 .I mail-path
 ]
 [
-.B \-r 
+.B \-r
 .I root-path
 ]
 .if n .ti +5n
 [
-.B \-s 
+.B \-s
 .I swap-path
 ]
 .if t .ti +.5i
@@ -102,12 +102,12 @@ add_client \- create a diskless network bootable NFS client on a server
 .I term-type
 ]
 [
-.B \-y 
+.B \-y
 .I yptype
 ]
 .if n .ti +5n
 [
-.B \-z 
+.B \-z
 .I swapsize
 ]
 [
@@ -122,7 +122,7 @@ adds an
 client to a server.
 It can only be run by the super-user.
 .LP
-A default standard layout is used to set up the 
+A default standard layout is used to set up the
 client's environment, but most
 pathnames can be overridden with the appropriate option,
 or menu field change.
@@ -130,7 +130,7 @@ or menu field change.
 Before you can add a client, you must first make sure that the Internet
 and Ethernet addresses for
 .I client
-are listed in the 
+are listed in the
 Network Information Service
 (\s-1NIS\s0)
 hosts database (if the server is running the
@@ -148,7 +148,7 @@ it aborts the operation.
 If there is no client entry in the
 .B /etc/ethers
 database,
-.B add_client 
+.B add_client
 issues a warning to update this file while adding the client.
 .LP
 The default root and swap partitions are
@@ -166,7 +166,7 @@ service
 (if used).
 .LP
 If the server is not running as an
-.SM NIS 
+.SM NIS
 master,
 .BR add_client
 issues a warning to indicate that
@@ -189,7 +189,7 @@ for details on exporting file systems.
 .LP
 If the
 .B \-i
-or 
+or
 .B \-p
 option is not specified,
 at least one
@@ -206,17 +206,17 @@ Bring up a full-screen menu interface to
 .TP
 .B \-n
 Print the working parameters and exit without doing anything.
-This is used to verify what parameters 
+This is used to verify what parameters
 .B add_client
 will use before actually doing anything.
 .TP
 .B \-p
 Display a short version of all client information,
-If 
+If
 .IR client s
 are specified on the command line,
 only display information for those clients.
-When combined with the 
+When combined with the
 .B \-v
 option, a long version of client information is displayed.
 .TP
@@ -225,10 +225,10 @@ Verbose.
 Report information about the client as steps are performed.
 .TP
 .BI \-a " kernel-arch"
-Specify the client kernel architecture (for instance, 
+Specify the client kernel architecture (for instance,
 .BR sun3 ,
 .BR sun4 ,
-.BR sun4c .\|.\|.). 
+.BR sun4c .\|.\|.).
 .B add_client
 prompts for the kernel architecture when unable to determine
 the correct value.
@@ -240,7 +240,7 @@ executables for the architecture specified by
 The client mounts
 .BI /export/exec/ arch . rel
 as
-.BR /usr . 
+.BR /usr .
 See
 .SM WARNINGS\s0.
 .TP
@@ -249,7 +249,7 @@ Set the pathname of the share directory, which is normally a link to
 .BR /usr/share .
 .TP
 .BI \-h " home-path"
-Set the pathname of the directory for the client's home.  
+Set the pathname of the directory for the client's home.
 The default is
 .BI /home/ server-name\fR.
 .TP
@@ -260,19 +260,19 @@ See
 .SM WARNINGS\s0.
 .TP
 .BI \-m " mail-path"
-Set the pathname of the client's mail directory.  
+Set the pathname of the client's mail directory.
 The default is
 .BR /var/spool/mail .
 .TP
 .BI \-r " root-path"
-Set the pathname of parent directory for client root directories; 
+Set the pathname of parent directory for client root directories;
 .IB root / client
 is the pathname of the client's root directory.
 The default is
 .BI /export/root/ client-name\fR.
 .TP
 .BI \-s " swap-path"
-Set the pathname of parent directory for client swap files;  
+Set the pathname of parent directory for client swap files;
 .IB swap / client
 is the pathname of the client's swap file.
 The default is
@@ -284,7 +284,7 @@ Set the terminal type of the client's console.
 .ne 5
 .TP
 .BI \-y " yptype"
-Indicate the type of 
+Indicate the type of
 .SM NIS
 server or if client is to be an
 .SM NIS
@@ -302,7 +302,7 @@ service being disabled on the client.  The default is
 .BI \-z " swapsize"
 Reserve
 .I swapsize
-bytes for the client's swap file. 
+bytes for the client's swap file.
 .BR swapsize
 can be flagged as kilobytes, blocks, or
 megabytes, with the
@@ -351,7 +351,7 @@ You must be root to use
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 .SH WARNINGS

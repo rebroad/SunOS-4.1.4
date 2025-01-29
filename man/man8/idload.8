@@ -39,7 +39,7 @@ It takes your
 .B /etc/passwd
 and
 .B /etc/group
-files and produces translation tables for user and group 
+files and produces translation tables for user and group
 .SM ID\s0s
 from remote machines, according to the rules set down in the
 .I u_rules
@@ -88,7 +88,7 @@ is done of a remote resource (see
 .BR mount (8)).
 .LP
 If any of the following are true, an error message
-will be sent to standard error. 
+will be sent to standard error.
 .RS
 .TP 3
 \(bu
@@ -206,13 +206,13 @@ Each of these instruction types is described below.
 .LP
 The line
 .IP
-.BI default " local " "| transparent" 
+.BI default " local " "| transparent"
 .LP
 defines the mode of mapping for remote users that are not
 specifically mapped in instructions in other lines.
 .B transparent
 means that all remote
-user and group 
+user and group
 .SM ID\s0s
 will have the same numeric value locally unless they
 appear in the
@@ -256,15 +256,15 @@ The line
 .LP
 defines the local
 .SM ID\s0s
-and names that remote 
+and names that remote
 .SM ID\s0s
 and names will be mapped into.
 .I remote
-is either a remote 
+is either a remote
 .SM ID
 number or remote name;
 .I local
-is either a local 
+is either a local
 .SM ID
 number or local name.
 Placing a colon between a
@@ -298,7 +298,7 @@ Note:
 will always output warning messages for
 .RB ` "map all" ',
 since password files always contain multiple administrative
-user names with the same 
+user names with the same
 .SM ID
 number.
 The first mapping attempt on the

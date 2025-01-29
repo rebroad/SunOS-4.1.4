@@ -57,7 +57,7 @@ and sets
 to indicate the error.
 .SH ERRORS
 .LP
-If any of the following conditions occur, 
+If any of the following conditions occur,
 .B setsid(\|)
 returns \-1 and sets
 .B errno

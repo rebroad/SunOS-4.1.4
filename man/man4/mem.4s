@@ -106,20 +106,20 @@ address space extends from 0 to 4 gigabytes.  The
 24-bit address space
 overlaps the top 16 megabytes of the 32-bit address space.
 .SS "Desktop SPARCsystems"
-The 
+The
 .B sbus
 is represented by a series of entries each of which is an image
-of a single 
-.B sbus 
+of a single
+.B sbus
 slot.
-The entries are named 
+The entries are named
 .BI sbus n\fR,
-where 
+where
 .I n
 is the slot number
 in hexadecimal.
-The number of 
-.B sbus 
+The number of
+.B sbus
 slots and the address range within each slot may vary
 between implementations.
 .SS "SPARCsystem 600MP Series"

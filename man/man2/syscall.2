@@ -30,7 +30,7 @@ Symbolic constants for system calls can be found in the header file
 .BR <sys/syscall.h> .
 .\".LP
 .\" Sun386i systems
-.\"On Sun-3 systems, the value of register d0 after 
+.\"On Sun-3 systems, the value of register d0 after
 .\"the system call is returned.
 .\"On Sun-4 systems, the value of register %o0 is returned.
 .\"On Sun386i systems, the value of register %eax is returned.
@@ -57,6 +57,6 @@ which bypasses these wrappers.
 For these reasons, using
 .B syscall(\|)
 is not recommended.
-.\"in register d1 
+.\"in register d1
 .\"on Sun-3 systems, in register %o1 on Sun-4 systems, or
 .\"in register %edx on Sun386i systems.

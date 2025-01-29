@@ -54,7 +54,7 @@ device ie0 at obmem ? csr 0xD0000000 irq 21 priority 3
 The
 .B ie
 interface provides access to a 10 Mb/s Ethernet network
-through a controller using the Intel 82586 
+through a controller using the Intel 82586
 .SM LAN
 Coprocessor chip.
 For a general description of network interfaces see
@@ -76,7 +76,7 @@ and
 .B ie3
 specify
 SunNet Ethernet/VME Controllers,
-also known as a 
+also known as a
 Sun-3/E Ethernet expansion boards.
 .SH SEE ALSO
 .BR if (4N),

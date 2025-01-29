@@ -120,13 +120,13 @@ uux a!cut \-f1 b!/usr/file \\(c!/usr/file\\)
 .LP
 gets
 .B /usr/file
-from system 
+from system
 .B b
-and sends it to system 
+and sends it to system
 .BR a ,
 performs a
 .B cut
-command on that file and sends the result of the 
+command on that file and sends the result of the
 .B cut
 command to system
 .BR c .
@@ -209,7 +209,7 @@ is the highest grade, and
 .B z
 is the lowest grade.
 Lower grades will transmit the job
-earlier during a particular conversation. 
+earlier during a particular conversation.
 The default
 .I grade
 is

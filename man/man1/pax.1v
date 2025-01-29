@@ -1,7 +1,7 @@
 .\" @(#)pax.1v 1.1 94/10/31 SMI; new for 4.1
 .TH PAX 1V "6 September 1989"
 .SH NAME
-pax \- portable archive exchange 
+pax \- portable archive exchange
 .SH SYNOPSIS
 .B /usr/5bin/pax
 [
@@ -15,7 +15,7 @@ pax \- portable archive exchange
 ]
 [
 .BI \-t " device"
-] 
+]
 [
 .IR pattern \|.\|.\|.
 ]
@@ -30,31 +30,31 @@ pax \- portable archive exchange
 ]
 [
 .BI \-s " replstr"
-] 
+]
 [
 .BI \-t " device"
-] 
+]
 [
-.IR pattern \|.\|.\|. 
+.IR pattern \|.\|.\|.
 ]
 .br
 .B /usr/5bin/pax
 .B \-w
 [
 .B \-adimuvy
-] 
+]
 [
 .BI \-b " blocking"
 ]
 [
 .BI \-f " archive"
-] 
+]
 [
 .BI \-s " replstr"
-] 
+]
 [
 .BI \-t " device"
-] 
+]
 [
 .BI \-x " format"
 ]
@@ -67,10 +67,10 @@ pax \- portable archive exchange
 .B \-rw
 [
 .B \-ilmopuvy
-] 
+]
 [
 .BI \-s " replstr"
-] 
+]
 [
 .IR pathname \|.\|.\|.
 ]
@@ -90,27 +90,27 @@ for information on how to install optional software.
 .IX read "archive files"
 .IX write "archive files"
 .LP
-.B pax 
-reads and writes archive files which conform to the 
-.B "Archive/Interchange File Format" 
-specified in 
-.I "IEEE Std. 1003.1-1988" 
+.B pax
+reads and writes archive files which conform to the
+.B "Archive/Interchange File Format"
+specified in
+.I "IEEE Std. 1003.1-1988"
 (\s-1POSIX.1\s0).
 .B pax
 can also read, but not write, a number of other file formats
-in addition to those specified in the 
+in addition to those specified in the
 .B "Archive/Interchange File Format"
 description.
-Support for these traditional file formats, such as V7 
+Support for these traditional file formats, such as V7
 .BR tar (1)
-and System V binary 
+and System V binary
 .BR cpio (1)
 format archives,
 is provided for backward compatibility and to maximize portability.
 .LP
-.B pax 
-will also support traditional 
-.B cpio 
+.B pax
+will also support traditional
+.B cpio
 and System V
 .B tar
 interfaces if invoked with the name
@@ -118,16 +118,16 @@ interfaces if invoked with the name
 or
 .B tar
 respectively.
-See the 
-.BR paxcpio (1V) 
-or 
+See the
+.BR paxcpio (1V)
+or
 .BR ustar (1V)
 manual pages for more details.
 .LP
 .I directory
 specifies the destination directory pathname for copies when both the
 .B \-r
-and 
+and
 .B \-w
 options are specified.
 The directory must exist and be writable before the copy or and error
@@ -136,36 +136,36 @@ results.
 .I pathname
 is a file whose contents are used instead of the files
 named on the standard input.
-When a directory is named, all of its files and (recursively) 
+When a directory is named, all of its files and (recursively)
 subdirectories are copied as well.
 .LP
 A
 .I pattern
 is given in the standard shell pattern matching notation.
-The default if no 
-.I pattern 
+The default if no
+.I pattern
 is  specified is
 .RB ` * ',
 which selects all files.
 .LP
 Combinations of the
-.B \-r 
-and 
+.B \-r
+and
 .B \-w
-command line arguments specify whether 
-.B pax 
+command line arguments specify whether
+.B pax
 will read, write or list the contents of the specified archive,
 or move the specified files to another directory.
 .LP
 If neither the
 .B \-r
 or
-.B \-w 
+.B \-w
 options are given,
 .B pax
 will list the contents of the specified archive.
-In this mode, 
-.B pax 
+In this mode,
+.B pax
 lists normal files one per line, hard link pathnames as
 .LP
 .RS
@@ -178,16 +178,16 @@ and symbolic link pathnames (if supported by the implementation) as
 .IB pathname " \-> " linkname
 .RE
 .LP
-where 
+where
 .I pathname
 is the name of the file being extracted, and
 .I linkname
 is the name of a file which appeared earlier in the archive.
 .LP
-If the 
+If the
 .B \-v
-option is specified, then 
-.B pax 
+option is specified, then
+.B pax
 list normal pathnames in the same format used by
 .BR ls (1V)
 with the
@@ -205,12 +205,12 @@ and symbolic links (if supported) are shown as
 .IB "<ls \-l listing>" " \-> " linkname
 .RE
 .LP
-.B pax 
+.B pax
 is capable of reading and writing archives which
 span multiple physical volumes.
 Upon detecting an end of medium on an archive which
 is not yet completed,
-.B pax 
+.B pax
 will prompt the user for the next volume of the archive
 and will allow the user to specify the location of the next volume.
 .LP
@@ -222,7 +222,7 @@ The format is one pathname per line.
 Otherwise, the standard input is the archive file,
 which is formatted according to one of the specifications in
 .B "Archive/Interchange File format"
-in 
+in
 .SM POSIX.1\s0,
 or some other implementation-defined format.
 .LP
@@ -231,27 +231,27 @@ The user
 and group
 .SM ID
 of the process, together with the appropriate
-privileges, affect the ability of 
+privileges, affect the ability of
 .B pax
 to restore ownership and permissions attributes of the archived files.
-See 
+See
 .I "format-reading utility"
 in
 .B "Archive/Interchange File Format"
-in 
+in
 .SM POSIX.1\s0.
 .SH OPTIONS
 .TP
 .B \-w
-Write the files and directories specified by 
+Write the files and directories specified by
 .I pathname
-to the standard output together with the pathname and status 
+to the standard output together with the pathname and status
 information prescribed by the archive format used.
 .I pathname
-refers to the files and (recursively) subdirectories of that 
+refers to the files and (recursively) subdirectories of that
 directory.
 If
-.I pathname 
+.I pathname
 is not specified, then the standard input is read to get a
 list of pathnames to copy, one pathname per line.
 In this case, only those pathnames appearing on the standard input are
@@ -269,19 +269,19 @@ invoking process, and the permissions and modification times will be the
 sames as those in the archive.
 .IP
 The supported archive formats are automatically detected on input.
-The default output format is 
+The default output format is
 .BR ustar ,
-but may be overridden by the 
+but may be overridden by the
 .BI \-x " format"
 option described below.
 .TP
 .B \-rw
 Read the files and directories named in
 .I pathname
-and copy them to the destination 
+and copy them to the destination
 .IR directory .
 A directory
-.I pathname 
+.I pathname
 refers to the files and (recursively) subdirectories of that
 directory.
 If
@@ -305,10 +305,10 @@ Complement the match sense of
 .IR pattern .
 .TP
 .B \-d
-Intermediate directories not explicitly listed in the archive are not 
+Intermediate directories not explicitly listed in the archive are not
 created.
 This option is ignored unless
-the 
+the
 .B \-r
 option is specified.
 .TP
@@ -320,8 +320,8 @@ option (described below)
 are performed before requesting the new file name from the user.
 A file is skipped if an empty line is entered and
 .B pax
-exits with an exit status of 0 if an 
-.SM EOF 
+exits with an exit status of 0 if an
+.SM EOF
 is encountered.
 .TP
 .B \-l
@@ -331,11 +331,11 @@ Link files rather than copy when possible.
 File modification times are not retained.
 .TP
 .B \-n
-When 
+When
 .B \-r
 is specified, but
 .B \-w
-is not, the 
+is not, the
 .I pattern
 arguments are treated as ordinary file names.
 Only the first occurrence of each of these files in the input archive
@@ -348,7 +348,7 @@ If one or more files in the list is not found,
 .B pax
 writes a diagnostic to standard error for each of the files and exits with
 a non-zero exit status.
-The file names are compared before any of the 
+The file names are compared before any of the
 .BR \-i ,
 .BR \-s ,
 or
@@ -367,14 +367,14 @@ Preserve the access time of the input files after they have been copied.
 Copy each file only if it is newer than a pre-existing
 file with the same name.
 This implies the
-.B \-a 
+.B \-a
 option.
 .TP
 .B \-v
 List file names as they are encountered.
 Produces a verbose table of contents listing
 on the standard output when both the
-.B \-r 
+.B \-r
 and
 .B \-w
 options are omitted,
@@ -385,7 +385,7 @@ encountered in the archive.
 .TP
 .B \-y
 Interactively prompt for the disposition of each file.
-Substitutions specified by 
+Substitutions specified by
 .B \-s
 options (described above)
 are performed before prompting the user for disposition.
@@ -394,11 +394,11 @@ exits after receiving an
 .SM EOF
 or an input line starting with the character
 .BR q .
-Files are ignored if an input line starting with anything other than 
+Files are ignored if an input line starting with anything other than
 .B y
 is specified.
-This option cannot be used in conjunction with the 
-.B \-i 
+This option cannot be used in conjunction with the
+.B \-i
 option.
 .br
 .ne 5
@@ -407,23 +407,23 @@ option.
 Block the output at
 .I blocking
 bytes per write to the archive file.
-A 
+A
 .B k
-suffix multiplies 
-.I blocking 
+suffix multiplies
+.I blocking
 by 1024, a
-.B b 
-suffix multiplies 
-.I blocking 
-by 512 and a 
+.B b
+suffix multiplies
+.I blocking
+by 512 and a
 .B m
-suffix multiplies 
-.I blocking 
+suffix multiplies
+.I blocking
 by 1048576 (1 megabyte).
 If not specified,
-.I blocking 
+.I blocking
 is automatically determined on input and is ignored if
-the 
+the
 .B \-rw
 option is specified.
 .TP
@@ -432,14 +432,14 @@ Specify the pathname of the input or output archive,
 overriding the default of the standard input for the
 .B \-r
 option or the standard output for the
-.B \-w 
+.B \-w
 option.
 .br
 .ne 5
 .TP
 .BI \-s " replstr"
 File names are modified according to the substitution
-expression using the syntax of 
+expression using the syntax of
 .BR ed (1)
 as shown:
 .RS
@@ -454,17 +454,17 @@ Any non-null
 character may be used as a delimiter (a
 .RB ` / '
 is used here as an example).
-Multiple 
+Multiple
 .B \-s
 expressions may be specified;
 the expressions are applied in the order specified,
 terminating with the first successful substitution.
 The optional trailing
 .B g
-replaces the 
-.I old 
+replaces the
+.I old
 expression each time it occurs in the source string.
-The optional trailing 
+The optional trailing
 .B p
 lists successful mappings on the standard error.
 Files that substitute to an empty string are ignored both on input and
@@ -484,29 +484,29 @@ Specifies the output archive
 .IR format .
 The input format, which must be one of the following, is automatically
 determined when the
-.B \-r 
+.B \-r
 option is used.
 The supported formats are:
 .RS
 .TP
 .I cpio
-The extended 
+The extended
 .I CPIO
 interchange format specified in
-.B "Extended CPIO Format" in 
+.B "Extended CPIO Format" in
 .I POSIX.1\s0.
 .TP
 .I tar
-The extended 
+The extended
 .I TAR
 interchange format specified in
-.B "Extended TAR Format" in 
+.B "Extended TAR Format" in
 .I POSIX.1\s0.
 This is the default archive format.
 .RE
 .LP
-Only the last of multiple 
-.B \-f 
+Only the last of multiple
+.B \-f
 or
 .B \-t
 options take effect.
@@ -521,7 +521,7 @@ The options
 .BR \-t ,
 .BR \-u ,
 and
-.BR \-y 
+.BR \-y
 are provided for functional compatibility with the historical
 .I cpio
 and
@@ -556,9 +556,9 @@ pax \-rw . \fInewdir\fP
 .ft R
 .RE
 .LP
-copies the contents of 
-.I olddir 
-to 
+copies the contents of
+.I olddir
+to
 .IR newdir .
 .br
 .ne 8
@@ -571,9 +571,9 @@ pax \-r \-s ',\|//*usr//*,\|,' \-f pax.out
 .ft R
 .RE
 .LP
-reads the archive 
+reads the archive
 .B pax.out
-with all files rooted in 
+with all files rooted in
 .B /usr
 in the archive extracted
 relative to the current directory.
@@ -582,7 +582,7 @@ relative to the current directory.
 .TP 20
 .B /dev/tty
 used to prompt the user for information when the
-.B \-i 
+.B \-i
 or
 .B \-y
 options are specified
@@ -598,22 +598,22 @@ options are specified
 .BR cpio (5),
 .BR tar (5)
 .LP
-.I "IEEE Std. 1003.1-1988" 
+.I "IEEE Std. 1003.1-1988"
 .SH DIAGNOSTICS
 .LP
 .B pax
-will terminate immediately, without processing any 
+will terminate immediately, without processing any
 additional files on the command line or in the archive.
 .SH "EXIT CODES"
 .LP
-.B pax 
+.B pax
 exits with one of the following values:
 .TP
 0
 All files in the archive were processed successfully.
 .TP
 >0
-.B pax 
+.B pax
 aborted due to errors encountered during operation.
 .SH BUGS
 .LP
@@ -631,7 +631,7 @@ and
 .BR tar (1).
 .LP
 The archive formats described in
-.B "Archive/Interchange File Format" 
+.B "Archive/Interchange File Format"
 have certain restrictions that have
 been carried over from historical usage.
 For example, there are restrictions on the
@@ -645,16 +645,16 @@ format archives, link counts are listed as zero since the
 .B ustar
 archive format does not keep link count information.
 .\".SH COPYRIGHT
-.\"Copyright (c) 1989 Mark H. Colburn.  
+.\"Copyright (c) 1989 Mark H. Colburn.
 .\".br
 .\"All rights reserved.
 .\".PP
 .\"Redistribution and use in source and binary forms are permitted
-.\"provided that the above copyright notice is duplicated in all such 
-.\"forms and that any documentation, advertising materials, and other 
-.\"materials related to such distribution and use acknowledge that the 
-.\"software was developed by Mark H. Colburn and sponsored by The 
-.\"USENIX Association. 
+.\"provided that the above copyright notice is duplicated in all such
+.\"forms and that any documentation, advertising materials, and other
+.\"materials related to such distribution and use acknowledge that the
+.\"software was developed by Mark H. Colburn and sponsored by The
+.\"USENIX Association.
 .\".PP
 .\"THE SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
 .\"IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED

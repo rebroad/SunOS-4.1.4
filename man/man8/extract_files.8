@@ -1,4 +1,4 @@
-.\" @(#)extract_files.8 1.1 94/10/31 SMI 
+.\" @(#)extract_files.8 1.1 94/10/31 SMI
 .TH EXTRACT_FILES 8 "7 October 1990"
 .SH NAME
 extract_files, list_files \- extract/list files from a release media
@@ -17,7 +17,7 @@ extract_files, list_files \- extract/list files from a release media
 ]
 .LP
 .B /usr/etc/install/list_files
-.I devname 
+.I devname
 .I category
 [
 .BI \-a " arch"
@@ -26,21 +26,21 @@ extract_files, list_files \- extract/list files from a release media
 .BI \-r " release"
 ]
 .SH DESCRIPTION
-Given the name of a 
+Given the name of a
 .IR category ,
 and optionally, a file (or a list of files) and/or a kernel architecture type,
 .B extract_files
-extracts all files contained in 
+extracts all files contained in
 .I category
-from 
+from
 .IR devname ,
-or optionally extracts selected file(s) from 
+or optionally extracts selected file(s) from
 .I files
-in 
+in
 .I category
-from 
+from
 .IR devname .
-Note: 
+Note:
 .B extract_files
 does not pre-compute the disk size that needs to hold the
 extracted data.
@@ -63,7 +63,7 @@ Users normally do not need to specify these values, they
 default to the current running system.
 .LP
 .I devname
-is the media name on which files are kept. 
+is the media name on which files are kept.
 Examples are
 .BR st ,
 .BR sr ,
@@ -93,7 +93,7 @@ Defaults to the current system's software release.
 Specify a file or a list of file to extract.
 .SH EXAMPLES
 .LP
-The following examples show some common uses of 
+The following examples show some common uses of
 .B extract_files
 and
 .BR list_files.
@@ -104,7 +104,7 @@ example# cd /usr
 example# /usr/etc/install/extract_files st0 Text \-f ./bin/addbib ./bin/eqn
 .fi
 .LP
-Extracts from tape device   
+Extracts from tape device
 .B st0
 the files
 .B ./bin/addbib
@@ -123,7 +123,7 @@ Extracts from tape device
 .B st0
 the file
 .B ./bin/checkeq
-from the category 
+from the category
 .BR Text .
 .IP
 .ft B
@@ -132,12 +132,12 @@ example# /usr/etc/install/list_files sr0 Text \-a sun4c
 .fi
 .LP
 Lists all files in category
-.B Text 
-of 
+.B Text
+of
 .B sun4c
 kernel architecture type from
 .SM CD
-device 
+device
 .BR sr0 .
 .IP
 .ft B

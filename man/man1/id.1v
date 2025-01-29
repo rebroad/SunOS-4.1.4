@@ -21,7 +21,7 @@ for information on how to install optional software.
 displays your user and group
 .SM ID\s0,
 and your username.
-If your real and effective 
+If your real and effective
 .SM ID\s0s
 do not match, both are printed.
 .SH SEE ALSO

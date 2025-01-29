@@ -33,7 +33,7 @@ slots.
 .SH DESCRIPTION
 .IX "taac device" "" "\fLtaac\fP device"
 .LP
-The 
+The
 .B taac
 interface supports the optional
 .SM TAAC-1
@@ -52,7 +52,7 @@ must be reconfigured to work in this package.
 See
 .I "Configuration Procedures fro the \s-1TAAC-1\s0 Application Accelerator Board Set."
 .LP
-Programs can be downloaded for execution on the 
+Programs can be downloaded for execution on the
 .SM TAAC-1
 directly, they can be executed by the host processor, or
 the host processor and the
@@ -81,7 +81,7 @@ registers and memory by using
 .\".TP
 .\".B /usr/lib/taac1
 .\".PD
-.SH SEE ALSO 
+.SH SEE ALSO
 .BR mmap (2)
 .LP
 .I "TAAC-1 Application Accelerator: User Guide"

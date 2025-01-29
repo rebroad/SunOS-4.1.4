@@ -33,7 +33,7 @@ The
 .SB XDR
 data structure is defined in the
 .SM RPC/XDR
-Library Definitions of the 
+Library Definitions of the
 .TX NETP .
 .br
 .ne 10
@@ -61,7 +61,7 @@ The parameter
 .I arrp
 is the address of the pointer to the array, while
 .I sizep
-is the address of the element count of the array. 
+is the address of the element count of the array.
 This value is used
 by the filter while encoding and is set by it while decoding;
 the routine fails if the element count exceeds
@@ -77,9 +77,9 @@ is an
 filter that translates between
 the array elements' C form, and their external
 representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -102,26 +102,26 @@ The parameter
 .I arrp
 is the address of the array of bytes.
 While decoding if
-.I *arrp 
+.I *arrp
 is
 .SM NULL\s0,
 then the necessary storage is allocated to hold the array.
 This storage can be freed by using
-.B xdr_free(\|) 
+.B xdr_free(\|)
 (see
 .BR xdr_simple (3N)).
-.I sizep 
+.I sizep
 is the pointer to the actual length specifier for the array.
-This value is 
+This value is
 used by the filter while encoding and is set by it when decoding.
 .I maxsize
 is the maximum length of the array.
-The routine fails if the actual length of the array is 
+The routine fails if the actual length of the array is
 greater than
 .I maxsize
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -144,9 +144,9 @@ The parameter
 is the address of the opaque object, and
 .I cnt
 is its size in bytes.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -174,7 +174,7 @@ Thus,
 .B xdr_pointer(\|)
 can represent
 recursive data structures, such as binary trees or
-linked lists. 
+linked lists.
 The parameter
 .I objpp
 is the address of the pointer;
@@ -189,9 +189,9 @@ is an
 .SM XDR
 procedure that filters the structure
 between its C form and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -223,13 +223,13 @@ is an
 .SM XDR
 procedure that filters the structure
 between its C form and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .IP
-Warning: 
+Warning:
 This routine does not understand
 .SM NULL
 pointers. Use
@@ -255,22 +255,22 @@ The routine fails if the string being translated
 is longer than
 .IR maxsize .
 .I strp
-is the address of the pointer to the string. While decoding if 
+is the address of the pointer to the string. While decoding if
 .I *strp
-is 
+is
 .SM NULL\s0,
 then the necessary storage is allocated
-to hold this 
-null-terminated string and 
-.I *strp 
+to hold this
+null-terminated string and
+.I *strp
 is set to point to this.
 This storage can be freed by using
 .B xdr_free(\|)
 (see
 .BR xdr_simple (3N)).
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -290,7 +290,7 @@ bool_t (*defaultarm) (\|);  /* may be \s-1NULL\s0 */
 .IP
 A filter primitive that translates between a discriminated C
 .B union
-and its corresponding external representation. 
+and its corresponding external representation.
 It first translates the discriminant of the union located at
 .IR dscmp .
 This discriminant is always an
@@ -305,14 +305,14 @@ is a pointer to an array of
 structures.
 Each structure contains an ordered pair of
 .RI [ value , proc ].
-If the union's discriminant is equal to any of the 
+If the union's discriminant is equal to any of the
 .IR value s,
-then the associated 
+then the associated
 .I proc
 is called to translate the union.
 The end of the
 .B xdr_discrim
-structure array is denoted by a 
+structure array is denoted by a
 .SM NULL
 pointer.
 If the discriminant is not found in the
@@ -321,9 +321,9 @@ array, then the
 .I defaultarm
 procedure is called (if it is not
 .SM NULL\s0).
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -358,9 +358,9 @@ is an
 filter that translates between
 the array elements' C form, and their external
 representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -390,22 +390,22 @@ routines as parameters, and
 one of the most frequently used primitives, requires three.
 .I strp
 is the address of the pointer to the string.
-While decoding if 
+While decoding if
 .I *strp
-is 
+is
 .SM NULL\s0,
 then the necessary storage is allocated
-to hold the 
-null-terminated string and 
-.I *strp 
+to hold the
+null-terminated string and
+.I *strp
 is set to point to this.
 This storage can be freed by using
 .B xdr_free(\|)
 (see
 .BR xdr_simple (3N)).
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .SH SEE ALSO

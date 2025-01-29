@@ -39,7 +39,7 @@ mount, umount \- mount and unmount file systems
 .br
 .B /usr/etc/mount
 .BR \-d
-[ 
+[
 .B fnvr
 ]
 [
@@ -119,7 +119,7 @@ described in
 .BR fstab (5).
 If invoked without an argument,
 .B mount
-displays the contents of this table. 
+displays the contents of this table.
 If invoked with either a
 .I filesystem
 or
@@ -253,9 +253,9 @@ and see
 .BR tmpfs (4)
 for a description of
 .BR tmp .
-See 
-.TX ADMIN 
-for details on 
+See
+.TX ADMIN
+for details on
 .BR rfs .
 .TP
 .B \-r
@@ -269,13 +269,13 @@ read-only. Otherwise errors occur when the system attempts to
 update access times, even if no write operation is attempted.
 .TP
 .B \-d
-Mount an 
+Mount an
 .SM RFS
 file system. This option provides compatibility
-with the System V, Release 3 syntax for 
+with the System V, Release 3 syntax for
 .SM RFS
-mounts. Alternatively, the 
-equivalent Sun syntax, 
+mounts. Alternatively, the
+equivalent Sun syntax,
 .BR "\-t rfs" ,
 may be used.
 .TP
@@ -301,12 +301,12 @@ Read/write or read-only.
 Setuid execution allowed or disallowed.
 .TP
 .B grpid
-Create files with 
-.SM BSD 
+Create files with
+.SM BSD
 semantics for the propagation of
 the group
 .SM ID\s0.
-Under this option, files inherit the 
+Under this option, files inherit the
 .SM GID
 of the directory in which they are created, regardless of the
 directory's set-\s-1GID\s0 bit.
@@ -416,9 +416,9 @@ Use a more secure protocol for
 transactions.
 .TP
 .B posix
-Request 
+Request
 .SM POSIX.1
-semantics for the file system.  Requires a mount version 2 
+semantics for the file system.  Requires a mount version 2
 .BR mountd (8C)
 on the server.
 .TP
@@ -467,10 +467,10 @@ Regular defaults are:
 .RE
 .LP
 .B actimeo
-has no default; it sets 
+has no default; it sets
 .BR acregmin ,
 .BR acregmax ,
-.B acdirmin 
+.B acdirmin
 and
 .B acdirmax
 .LP
@@ -511,7 +511,7 @@ file systems:
 .TP 14
 .BR norrip
 Disable processing of Rock Ridge extensions for the file system.
-.PD 
+.PD
 .LP
 .RE
 .RE
@@ -632,7 +632,7 @@ mounting for the file system.
 .SS "File Attributes"
 .LP
 The attribute cache retains file attributes on the client.
-Attributes for a file are assigned a time to be flushed. 
+Attributes for a file are assigned a time to be flushed.
 If the file is modified before the flush time, then the
 flush time is extended by the time since the last modification
 (under the assumption that files that changed recently are likely
@@ -647,16 +647,16 @@ seconds for both regular files and directories.
 .SH SYSTEM V COMPATIBILITY
 .SS "System V File-Creation Semantics"
 .LP
-Ordinarily, when a file is created its 
+Ordinarily, when a file is created its
 .SM GID
-is set to the effective 
+is set to the effective
 .SM GID
 of the calling process.
 This behavior may be overridden on a per-directory basis,
 by setting the set-\s-1GID\s0 bit of the parent directory;
-in this case, the 
+in this case, the
 .SM GID
-is set to the 
+is set to the
 .SM GID
 of the parent directory (see
 .BR open (2V)
@@ -664,10 +664,10 @@ and
 .BR mkdir (2V)).
 Files created on file systems that are mounted with the
 .B grpid
-option will obey 
-.SM BSD 
+option will obey
+.SM BSD
 semantics;
-that is, the 
+that is, the
 .SM GID
 is unconditionally inherited from that of the parent directory.
 .SH EXAMPLES

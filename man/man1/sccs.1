@@ -44,7 +44,7 @@ prefix to the filename of a working copy.  The
 command normally expects these
 .RB ` s. files'
 to reside in an
-.SM 
+.SM
 .B SCCS
 subdirectory.  Thus, when you supply
 .B sccs
@@ -124,7 +124,7 @@ Define the root portion of the pathname for
 history files.  The default root portion is the current directory.
 Note:
 .I rootprefix
-is prepended to the entire 
+is prepended to the entire
 .I filename
 argument, even if
 .I filename
@@ -303,7 +303,7 @@ to retrieve a read-only copy of the initial version.
 .B deledit
 .RB [ \-s ]
 .RB [ \-y\c
-.RI [ comment ]\|] 
+.RI [ comment ]\|]
 .br
 Equivalent to an
 .RB ` "sccs delta" '
@@ -327,7 +327,7 @@ is omitted,
 .BR delta
 prompts for a comment.  A
 .SM NULL
-.I comment 
+.I comment
 results in an empty comment field for the delta.
 .RE
 .RE
@@ -353,7 +353,7 @@ and
 .B sccs
 performs a
 .B delta
-on all the files specified in the argument list, and then a 
+on all the files specified in the argument list, and then a
 .BR get
 on all the files.  If an error occurs during the
 .BR delta ,
@@ -428,7 +428,7 @@ takes the form:
 .IR yy [ mm [ dd [\c
 .IR hh [ mm [ ss ]\|]\|]\|]\|].
 Omitted units default to their maximum possible values; that is
-.B \-c7502   
+.B \-c7502
 is equivalent to
 .BR \-c750228235959 .
 .TP
@@ -444,7 +444,7 @@ Retrieve a version of the file for editing.
 extracts a version of the file that is writable by you, and creates a
 .BR p. file
 in the
-.SM 
+.SM
 .B SCCS
 subdirectory as lock on the history, so that no one else can check that
 version in or out.
@@ -525,15 +525,15 @@ Produce the retrieved version on the standard output.  Reports that
 would normally go to the standard output (delta
 .SM ID\s0's
 and statistics) are directed to the standard error.
-.TP 
+.TP
 .B \-s
-Silent.  Do not report version numbers or statistics. 
+Silent.  Do not report version numbers or statistics.
 .TP
 .BI \-c date-time
 Retrieve the latest version checked in prior to the date and time
 indicated by the
-.I date-time 
-argument.  
+.I date-time
+argument.
 .I date-time
 takes the form:
 .IR yy [ mm [ dd [\c

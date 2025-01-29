@@ -89,9 +89,9 @@ All files in the
 that have been modified since the last
 .B dump
 at a lower dump level are copied to the volume.
-For instance, if you did a 
+For instance, if you did a
 \*(lqlevel \fB2\fP\*(rq
-dump on Monday, followed by a 
+dump on Monday, followed by a
 \*(lqlevel \fB4\fP\*(rq
 dump on Tuesday, a subsequent
 \*(lqlevel \fB3\fP\*(rq
@@ -105,7 +105,7 @@ dump copies the entire filesystem to the dump volume.
 .BI a " archive-file"
 Create a dump table-of-contents archive in the specified file,
 .IR archive-file .
-This file can be used by 
+This file can be used by
 .BR restore (8)
 to determine whether a file is present on a dump tape,
 and if so, on which volume it resides.
@@ -137,7 +137,7 @@ This sets the density to 1000 \s-1BPI\s0,
 the blocking factor to 126, and the length to 425 feet.
 This option also sets the \*(lqinter-record gap\*(rq
 to the appropriate length.
-When cartridge tapes are used, and this option is 
+When cartridge tapes are used, and this option is
 .I not
 specified,
 .B dump
@@ -168,7 +168,7 @@ Default densities are:
 .PD 0
 1600 \s-1BPI\s0
 .TP
-1/4" cartridge 
+1/4" cartridge
 1000 \s-1BPI\s0
 .TP
 2.3-Gbyte 8mm tape
@@ -185,9 +185,9 @@ Note: the density specified should correspond to the density of the
 tape device being used, or
 .B dump
 will not be able to handle end-of-tape properly.
-The 
+The
 .B d
-option is not compatible with the 
+option is not compatible with the
 .B D
 option.
 .TP
@@ -251,7 +251,7 @@ of the volume being dumped to. When the specified size is reached,
 waits for you to change the volume.
 .B dump
 interprets the specified size as the length in
-feet for tapes, and cartridges and 
+feet for tapes, and cartridges and
 as the number of 1024 byte blocks for diskettes.
 The following are
 defaults:
@@ -262,10 +262,10 @@ defaults:
 .PD 0
 2300 feet
 .TP
-60-Mbyte 1/4" cartridge 
+60-Mbyte 1/4" cartridge
 425 feet
 .TP
-150-Mbyte 1/4" cartridge 
+150-Mbyte 1/4" cartridge
 700 feet
 .TP
 2.3-Gbyte 8mm
@@ -280,9 +280,9 @@ to a 1.44-Mbyte diskette, with one cylinder reserved for bad block information.)
 .TP
 .BI t " tracks"
 Specify the number of tracks for a cartridge tape.
-The 
+The
 .B t
-option is not compatible with the 
+option is not compatible with the
 .B D
 option.
 The following are
@@ -297,7 +297,7 @@ defaults:
 60-Mbyte 1/4" cartridge (all other platforms)
 9 tracks
 .TP
-150-Mbyte 1/4" cartridge 
+150-Mbyte 1/4" cartridge
 18 tracks
 .PD
 .RE
@@ -318,7 +318,7 @@ If any discrepancies are found,
 dump will respond as if a write error had occurred;
 the operator will be asked to mount new media,
 and dump will attempt to rewrite the volume.
-Note that 
+Note that
 .I any
 change to the filesystem, even the update of the access time
 on a file will cause the verification to fail.

@@ -103,7 +103,7 @@ must have write permission on the file specified in the
 .LP
 Since both
 .B uuencode
-and 
+and
 .B uudecode
 run with user ID set to
 .BR uucp ,

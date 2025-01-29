@@ -23,7 +23,7 @@ forwards lock requests for remote data to the server site's
 lock daemon through the
 .BR rpc (3N)
 .BR xdr (3N)
-in 
+in
 .BR lockd (8C)
 package.
 .B lockd

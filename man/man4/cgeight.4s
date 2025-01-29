@@ -28,7 +28,7 @@ The
 is a 24-bit color memory frame buffer with a
 monochrome overlay plane and an overlay enable
 plane implemented optionally on the Sun-4/110,
-Sun-4/150, Sun-3/60, Sun-3/470 and Sun-3/80 system models.  
+Sun-4/150, Sun-3/60, Sun-3/470 and Sun-3/80 system models.
 It provides the standard frame buffer interface
 as defined in
 .BR fbio (4S).

@@ -8,7 +8,7 @@ nd \- network disk driver
 .IX  "nd device"  ""  "\fLnd\fP \(em network disk driver"  ""  PAGE START
 The network disk device,
 .I /dev/nd*,
-allows a client workstation to perform disk I/O operations on a 
+allows a client workstation to perform disk I/O operations on a
 server system over the network.
 To the client system, this device looks like any normal disk driver:
 it allows read/write operations at a given block number and byte count.
@@ -31,16 +31,16 @@ The server receives the request, performs the actual disk I/O,
 and sends a response back to the client.
 .LP
 The server contains a table which lists the net address of each of
-his clients and the server disk partition which corresponds to 
+his clients and the server disk partition which corresponds to
 each client unit number (nd0,1,...).
 This table resides in the server kernel in a structure owned by
 the nd device.
-The table is initialized by running the program 
+The table is initialized by running the program
 .I /etc/nd
 with text file
 .I /etc/nd.local
 as its input.
-.I /etc/nd 
+.I /etc/nd
 then issues
 .IR ioctl (2)
 functions to load the table into the kernel.
@@ -78,7 +78,7 @@ units and are named
 The Sun physical disk sector 0 label only provides a limited
 number of partitions per physical disk (eight).
 Since this number is small and these partitions have somewhat fixed
-meanings, the nd driver itself has a 
+meanings, the nd driver itself has a
 .I subpartitioning
 capability built-in.
 This allows the large server physical disk partition (e.g.
@@ -87,17 +87,17 @@ This allows the large server physical disk partition (e.g.
 Of course on the client side these would be referenced as
 .I "/dev/nd0,1,..."
 ; but the server needs to reference these client partitions from
-time to time, to do 
+time to time, to do
 .IR mkfs (8)
 and
 .IR fsck (8)
 for example.
-The 
+The
 .I /dev/ndl*
 entries allow the server `local' access to his subpartitions without
 causing any net activity.
 The actual local unit number to client unit number correspondence is
-again recorded in the 
+again recorded in the
 .I /etc/nd.local
 text file.
 .LP
@@ -111,7 +111,7 @@ The minor device and ioctl encoding used is given in file
 The low six bits of the minor number are the unit number.
 The 0x40 bit indicates a
 .I public
-unit;  the 0x80 bit indicates a 
+unit;  the 0x80 bit indicates a
 .I local
 unit.
 .SH INITIALIZATION
@@ -119,7 +119,7 @@ No special initialization is required on the client side;  he finds the
 server by broadcasting the initial request.  Upon getting a response,
 he locks onto that server address.
 .LP
-At the server, the 
+At the server, the
 .IR nd (8C)
 command initializes the network disk service by issuing ioctl's
 to the kernel.
@@ -134,11 +134,11 @@ The client continues (forever) making his request until he
 gets positive acknowledgement from the server.
 This means the server can crash or power down and come back up
 without any special action required of the user at the client machine.
-It also means the process performing the I/O to \fInd\fP will block, 
+It also means the process performing the I/O to \fInd\fP will block,
 insensitive to signals, since the process is sleeping inside the
 kernel at PRIBIO.
 .SH "PROTOCOL AND DRIVER INTERNALS"
-The protocol packet is defined in 
+The protocol packet is defined in
 .RI < sun/ndio.h >
 and also included below:
 .LP
@@ -182,7 +182,7 @@ struct ndpack {
 IP datagrams were chosen instead of UDP datagrams because only the IP
 header is checksummed, not the entire packet as in UDP.  Also the
 kernel level interface to the IP layer is simpler.
-The 
+The
 .I min,
 .I blkno,
 and
@@ -222,14 +222,14 @@ cases this means the requested disk I/O has actually occured.
 .LP
 Requests received by the server are entered on an active list which
 is timed out and discarded if not completed within NDXTIMER seconds.
-Requests received by the server allocate a 
+Requests received by the server allocate a
 .I bcount
 size buffer to minimize buffer copying.
 Contiguous DMA disk I/O thus occurs in the same size chunks it would
 if requested from a local physical disk.
 .SH BOOTSTRAP
 The Sun workstation has PROM code to perform a net boot using
-this driver.  
+this driver.
 Usually, the boot files are obtained from public device 0 (\fI/dev/ndp0\fP\^)
 on the server with which the client is registered;  this allows
 multiple servers to exist on the same net (even running different

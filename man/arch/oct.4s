@@ -18,7 +18,7 @@ for the encoding.
 Bit
 .I i
 of flags may be specified to say that a line is not properly
-connected, and that the line 
+connected, and that the line
 .I i
 should be treated as hard-wired with carrier
 always present.  Thus specifying ``flags 0x0004'' in the specification of oct0

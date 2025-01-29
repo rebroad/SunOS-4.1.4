@@ -46,7 +46,7 @@ creates an object called an
 which maps the asynchronous event
 .I event
 into messages that can be received with
-.B msg_recv(\|) 
+.B msg_recv(\|)
 (see
 .BR msg_send (3L)).
 .I agt

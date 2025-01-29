@@ -13,7 +13,7 @@ dos2unix \- convert text file from DOS format to ISO format
 [
 .B \-7
 ]
-.I originalfile 
+.I originalfile
 .I convertedfile
 .SH DESCRIPTION
 .IX dos2unix "" "\fLdos2unix\fR \(em convert text file from DOS format to ISO format"
@@ -21,7 +21,7 @@ dos2unix \- convert text file from DOS format to ISO format
 .B dos2unix
 converts characters in the
 .SM DOS
-extended character set to the corresponding 
+extended character set to the corresponding
 .SM ISO
 standard characters.
 .LP
@@ -29,13 +29,13 @@ This command can be invoked from either
 .SM DOS
 or SunOS.
 However, the filenames must conform to
-the conventions of the environment in which the command is invoked.  
+the conventions of the environment in which the command is invoked.
 .LP
-If the original file and the converted file are the same, 
+If the original file and the converted file are the same,
 .B dos2unix
 will rewrite the original file after converting it.
 .SH OPTIONS
-.TP 
+.TP
 .B \-ascii
 Removes extra carriage returns and converts end of file  characters in
 .SM DOS
@@ -44,14 +44,14 @@ format text files to conform to SunOS requirements.
 .B \-iso
 This is the default.  It converts characters in the
 .SM DOS
-extended character set to the corresponding 
+extended character set to the corresponding
 .SM ISO
 standard characters.
-.TP 
+.TP
 .B \-7
 Convert 8 bit
 .SM DOS
-graphics characters to 7 bit space characters so that 
+graphics characters to 7 bit space characters so that
 SunOS can read the file.
 .SH DIAGNOSTICS
 .TP
@@ -64,11 +64,11 @@ command).
 .B "Bad output filename \fIfilename\fP, or no write permission
 The output file you specified
 is either invalid, or you do not have write permission for that
-file or the directory that contains it.  Check also that the drive or diskette 
+file or the directory that contains it.  Check also that the drive or diskette
 is not write-protected.
 .TP
 .B Error while writing to temporary file
-An error occurred while converting your file, possibly because 
+An error occurred while converting your file, possibly because
 there is not enough space on the current drive.  Check the amount of
 space on the current drive using the DIR command.  Also be certain that
 the default diskette or drive is write-enabled (not write-protected).

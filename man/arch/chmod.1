@@ -6,12 +6,12 @@ chmod \- change mode
 .B chmod
 [
 .B \-fR
-] 
-.I mode 
+]
+.I mode
 .I filename \fB.\|.\|.\fP
 .SH SYSTEM V SYNOPSIS
 .B chmod
-.I mode 
+.I mode
 .I filename \fB.\|.\|.\fP
 .SH DESCRIPTION
 .IX  chmod  ""  "\fLchmod\fP \(em change mode"
@@ -24,10 +24,10 @@ Change the permissions, or mode, of a file or files.
 Only the owner of a file (or the superuser) may change its mode.
 .LP
 The mode of each named file is changed according to \fImode\fP,
-which may be absolute or symbolic.  
+which may be absolute or symbolic.
 .SS Absolute Modes
-An absolute \fImode\fP is an octal number constructed from the 
-.SM OR 
+An absolute \fImode\fP is an octal number constructed from the
+.SM OR
 of the following modes:
 .nf
 .ta +.5i
@@ -53,7 +53,7 @@ A symbolic \fImode\fP has the form:
 .IP
 [ \fIwho\fP ] \fIop permission\fP [ \fIop permission\fP ]\fB.\|.\|.\fP
 .LP
-\fIwho\fP is a combination of: 
+\fIwho\fP is a combination of:
 .ta +.5i
 .nf
 \fBu\fP	user's permissions
@@ -66,8 +66,8 @@ If \fIwho\fR is omitted, the default is \fBa\fP,
 but the setting of the file creation mask (see \fIumask\fR in
 .IR sh (1)
 or
-.IR csh (1) 
-for more information) is taken into account.  When 
+.IR csh (1)
+for more information) is taken into account.  When
 .I who
 is omitted,
 .I chmod
@@ -76,8 +76,8 @@ will not override the restrictions of your user mask.
 \fIop\fP is one of:
 .ta +.5i
 .nf
-\fB+\fP	to add the \fIpermission\fP 
-\fB\-\fP	to remove the \fIpermission\fP 
+\fB+\fP	to add the \fIpermission\fP
+\fB\-\fP	to remove the \fIpermission\fP
 \fB=\fP	to assign the permission explicitly (all other bits for that category, owner, group, or others, will be reset).
 .fi
 .LP
@@ -99,7 +99,7 @@ Omitting \fIpermission\fP
 is only useful with \fB=\fP, to take away all permissions.
 .LP
 Multiple symbolic modes, separated by commas, may be given.
-Operations are performed in the order specified.  
+Operations are performed in the order specified.
 .SH SYSTEM V DESCRIPTION
 If
 .I who

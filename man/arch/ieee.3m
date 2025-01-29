@@ -92,12 +92,12 @@ requires the latter to signal Division\-by\-Zero.
 .PP
 IEEE 754 currently specifies that
 logb(denormalized no.) = logb(tiniest normalized no. > 0)
-but the consensus has changed to the specification in the new 
-proposed IEEE standard p854, namely that logb(x) satisfy 
+but the consensus has changed to the specification in the new
+proposed IEEE standard p854, namely that logb(x) satisfy
 .RS
 1 \(<= scalb(|x|,\-logb(x)) < Radix\0\0\0... = 2 for IEEE 754
 .RE
-for every x except 0, 
+for every x except 0,
 .if n \
 infinity
 .if t \

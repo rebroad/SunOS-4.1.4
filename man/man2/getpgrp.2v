@@ -131,8 +131,8 @@ fails, and the process group is not altered when
 one of the following occurs:
 .TP 15
 .SM EACCES
-The value of 
-.I pid 
+The value of
+.I pid
 matches the process
 .SM ID
 of a child process of the calling process and the child
@@ -141,8 +141,8 @@ process has successfully executed one of the
 functions.
 .TP
 .SM EINVAL
-The value of 
-.I pgrp 
+The value of
+.I pgrp
 is less than zero or is greater than
 .SM MAXPID\s0,
 the maximum process
@@ -153,27 +153,27 @@ as defined in
 .ne 15
 .TP
 .SM EPERM
-The process indicated by 
-.I pid 
+The process indicated by
+.I pid
 is a session leader.
 .IP
-The value of 
-.I pid 
+The value of
+.I pid
 is valid but matches the process
 .SM ID
 of a child process of the calling process and the child process is
 not in the same session as the calling process.
 .IP
-The value of 
+The value of
 .I pgrp
 does not match the process
 .SM ID
-of the process indicated by 
-.I pid 
+of the process indicated by
+.I pid
 and there is no process with a process group
 .SM ID
-that matches the value of 
-.I pgrp 
+that matches the value of
+.I pgrp
 in the same session as the
 calling process.
 .IP
@@ -193,7 +193,7 @@ of a different process.
 .TP
 .SM ESRCH
 The value of
-.I pid 
+.I pid
 does not match the process
 .SM ID
 of the calling process or of a child process of the calling

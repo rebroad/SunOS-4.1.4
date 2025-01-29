@@ -112,7 +112,7 @@ destroys a monitor, as well as any
 conditions bound to it (see
 .BR cv_create (3L)).
 Because the lifetime of a monitor can
-transcend the lifetime of the 
+transcend the lifetime of the
 .SM LWP
 that created it,
 monitor destruction is not automatic upon
@@ -216,7 +216,7 @@ macro is a convenient predicate used
 to compare two monitors for equality.
 .LP
 Monitor locks are released automatically
-when the 
+when the
 .SM LWP
 holding them dies.  This may have
 implications for the validity of the monitor invariant

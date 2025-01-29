@@ -211,7 +211,7 @@ components glue on.
 			   embedded in the current message.  Which ones we
 			   have depends on how we set up the stream (and
 			   therefore on what command line flags were set).
-			  
+
 			   If snaplen is positive then the packet was truncated
 			   before the buffering module saw it, so we must
 			   obtain its length from the nit_if-level nit_iflen

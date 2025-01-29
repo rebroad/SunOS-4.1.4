@@ -44,25 +44,25 @@ typedef	unsigned int	uint;		/* System V compatibility */
 #ifdef vax
 typedef	struct	_physadr { int r[1]; } *physadr;
 typedef	struct	label_t	{
-	int	val[14];
+    int	val[14];
 } label_t;
 #endif
 #ifdef mc68000
 typedef	struct	_physadr { short r[1]; } *physadr;
 typedef	struct	label_t	{
-	int	val[13];
+    int	val[13];
 } label_t;
 #endif
 #ifdef sparc
 typedef struct  _physadr { int r[1]; } *physadr;
 typedef struct label_t {
-	int     val[2];
+    int     val[2];
 } label_t;
 #endif
 #ifdef i386
 typedef struct	_physadr { short r[1]; } *physadr;
 typedef struct	label_t {
-	int	val[8];
+    int	val[8];
 } label_t;
 #endif
 typedef	struct	_quad { long val[2]; } quad;
@@ -100,7 +100,7 @@ typedef	long	fd_mask;
 #endif
 
 typedef	struct fd_set {
-	fd_mask	fds_bits[howmany(FD_SETSIZE, NFDBITS)];
+    fd_mask	fds_bits[howmany(FD_SETSIZE, NFDBITS)];
 } fd_set;
 
 typedef	char *	addr_t;

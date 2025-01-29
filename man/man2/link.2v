@@ -41,7 +41,7 @@ must not be a directory.
 .LP
 Upon successful completion,
 .B link(\|)
-marks for update the 
+marks for update the
 .B st_ctime
 field of the file.  Also, the
 .B st_ctime

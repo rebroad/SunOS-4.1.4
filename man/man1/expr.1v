@@ -41,7 +41,7 @@ The list is in order of increasing precedence,
 with equal precedence operators grouped within
 .B {\|}
 symbols.
-.TP 
+.TP
 .IB expr " \e\^\(bv " expr
 Return the first
 .I expr
@@ -51,7 +51,7 @@ nor
 .BR 0 ,
 otherwise returns the second
 .IR expr .
-.TP 
+.TP
 .IB expr " \e& " expr
 Return the first
 .I expr
@@ -63,7 +63,7 @@ or
 .BR 0 ,
 otherwise returns
 .BR 0 .
-.HP 
+.HP
 .IR expr " {"
 .BR =, " \e>" , " \e>= ,
 .BR \e< , " \e<=" , " != " }
@@ -71,7 +71,7 @@ otherwise returns
 .br
 Return the result of an integer comparison if both arguments are integers,
 otherwise returns the result of a lexical comparison.
-.HP 
+.HP
 .IR expr " { "
 .BR + , " \- " }
 .I expr
@@ -89,7 +89,7 @@ Multiplication, division, or remainder of the integer-valued arguments.
 .ns
 .TP
 .BI match " string regular-expression"
-The two forms of the matching operator above are synonymous.  
+The two forms of the matching operator above are synonymous.
 The matching operators
 .B :
 and
@@ -111,7 +111,7 @@ on failure).  Alternatively, the
 pattern symbols can be used to return a portion of the first argument.
 .TP
 .BI substr " string integer-1 integer-2
-Extract the substring of 
+Extract the substring of
 .I string
 starting at position
 .I integer-1
@@ -131,7 +131,7 @@ Beware of using negative values for either
 .I integer-1
 or
 .I integer-2
-as 
+as
 .B expr
 tends to run forever in these cases.
 .TP
@@ -140,7 +140,7 @@ Report the first position in
 .I string
 at which any one of the characters in
 .I character-list
-matches a character in 
+matches a character in
 .IR string .
 .br
 .ne 5

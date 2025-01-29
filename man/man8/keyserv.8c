@@ -21,7 +21,7 @@ When a user logs in to the system, the
 .BR login (1)
 program uses the login password to decrypt
 the user's encryption key stored
-in the 
+in the
 Network Information Service
 (\s-1NIS\s0),
 and then gives the decrypted key to the
@@ -37,7 +37,7 @@ yet you still want the secure network services to operate normally.
 .SH OPTIONS
 .TP
 .B \-d
-Prohibit the use of the default key. 
+Prohibit the use of the default key.
 If this is used
 then every machine and user should have a publickey.
 New publickeys cannot be created if you do not already have a key.
@@ -64,7 +64,7 @@ Do not read root's key from
 .BR /etc/.rootkey .
 Instead, prompt the user for the password to decrypt
 .B root 's
-key stored in the 
+key stored in the
 .SM NIS
 service
 and then store the decrypted key in
@@ -89,6 +89,6 @@ file ever gets out of date or corrupted.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

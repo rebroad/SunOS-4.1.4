@@ -63,7 +63,7 @@ Multiple
 may be specified, and if no
 .I pattern
 is specified, the default
-is 
+is
 .RB ` * ',
 selecting all files.
 The extracted files are conditionally created and copied into the
@@ -85,10 +85,10 @@ argument,
 reads the standard input to obtain a list
 of files that are conditionally created and copied into the
 destination
-.I directory 
+.I directory
 based upon the options described below.
 .LP
-If an error is detected, the cause is reported and 
+If an error is detected, the cause is reported and
 .B paxcpio
 continues to copy other files.
 .B paxcpio
@@ -149,20 +149,20 @@ Can only be used with  the
 or
 .B \-p
 arguments.
-.TP 
+.TP
 .B \-f
 Copy in all files except those in
 .IR pattern s.
 Can only be used with the
 .B \-i
 argument.
-.TP 
+.TP
 .B \-l
 Whenever possible, link files rather than copying them.
 Can only be used with  the
 .B \-p
 argument.
-.TP 
+.TP
 .B \-m
 Retain previous modification times.
 This option is ineffective on directories that are being copied.
@@ -171,7 +171,7 @@ Can only be used with the
 or
 .B \-p
 arguments.
-.TP 
+.TP
 .B \-r
 Interactively rename files.
 The user is asked whether to rename
@@ -186,7 +186,7 @@ Should only be used with the
 or
 .B \-o
 arguments.
-.TP 
+.TP
 .B \-t
 Print a table of contents of the input.
 No files are created.
@@ -195,7 +195,7 @@ Can only be used with the
 argument.
 .br
 .ne 5
-.TP 
+.TP
 .B \-u
 Copy files unconditionally; usually an older file will not replace a
 new file with the same name.
@@ -204,14 +204,14 @@ Can only be used with the
 or
 .B \-p
 arguments.
-.TP 
+.TP
 .B \-v
 Verbose.
 Print the names of the affected files.
 Can only be used with the
 .B \-i
 argument.
-Provides a detailed listing when used with the 
+Provides a detailed listing when used with the
 .B \-t
 option.
 .SH EXAMPLES
@@ -266,10 +266,10 @@ while retaining the modification time.
 .LP
 .B paxcpio
 exits with one of the following values:
-.TP 
+.TP
 0
 All input files were copied.
-.TP 
+.TP
 2
 .B paxcpio
 encountered errors in copying or accessing files or
@@ -282,8 +282,8 @@ files.
 .TP 20
 .B /dev/tty
 used to prompt the user for information when the
-.B \-i 
-or 
+.B \-i
+or
 .B \-r
 options are specified
 .PD
@@ -303,22 +303,22 @@ It is important to use the
 .B "\-depth"
 option of
 .BR find (1)
-to generate pathnames for 
+to generate pathnames for
 .BR paxcpio .
 This eliminates problems
 .B paxcpio
 could have trying to create files under read-only directories.
 .\".SH COPYRIGHT
-.\"Copyright (c) 1989 Mark H. Colburn.  
+.\"Copyright (c) 1989 Mark H. Colburn.
 .\".br
 .\"All rights reserved.
 .\".LP
 .\"Redistribution and use in source and binary forms are permitted
-.\"provided that the above copyright notice is duplicated in all such 
-.\"forms and that any documentation, advertising materials, and other 
-.\"materials related to such distribution and use acknowledge that the 
-.\"software was developed by Mark H. Colburn and sponsored by The 
-.\"USENIX Association. 
+.\"provided that the above copyright notice is duplicated in all such
+.\"forms and that any documentation, advertising materials, and other
+.\"materials related to such distribution and use acknowledge that the
+.\"software was developed by Mark H. Colburn and sponsored by The
+.\"USENIX Association.
 .\".LP
 .\"THE SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
 .\"IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED

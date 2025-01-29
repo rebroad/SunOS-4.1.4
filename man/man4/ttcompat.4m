@@ -23,11 +23,11 @@ ioctl(fd, \s-1I_PUSH\s0, "ttcompat");
 is a
 .SM STREAMS
 module that translates the
-.B ioctl 
+.B ioctl
 calls
 supported by the older Version 7 and 4\s-1BSD\s0
 terminal drivers into the
-.B ioctl 
+.B ioctl
 calls
 supported by the
 .BR termio (4)
@@ -50,10 +50,10 @@ interface be supported by the modules and driver downstream.  The
 .BR \s-1TCSETS\s0 ,
 and
 .SB TCSETSF
-.B ioctl 
+.B ioctl
 calls
 must be supported; if any information set or fetched by those
-.B ioctl 
+.B ioctl
 calls
 is not supported by the modules and driver downstream,
 some of the V7/4\s-1BSD\s0 functions may not be supported.
@@ -82,25 +82,25 @@ is not supported, the functions provided by the
 .SB TIOCSTOP
 and
 .SB TIOCSTART
-.B ioctl 
+.B ioctl
 calls
 will not be supported.
 If the
 .SB TIOCMBIS
 and
 .SB TIOCMBIC
-.B ioctl 
+.B ioctl
 calls
 are not supported, the functions provided by the
 .SB TIOCSDTR
 and
 .SB TIOCCDTR
-.B ioctl 
+.B ioctl
 calls
 will not be supported.
 .LP
 The basic
-.B ioctl 
+.B ioctl
 calls
 use the
 .B sgttyb
@@ -122,8 +122,8 @@ struct sgttyb {
 .RE
 .LP
 The
-.B sg_ispeed 
-and 
+.B sg_ispeed
+and
 .B sg_ospeed
 fields describe the input and output speeds of the
 device, and reflect the values in the
@@ -204,7 +204,7 @@ If previous
 .SB TIOCLSET
 or
 .SB TIOCLBIS
-.B ioctl 
+.B ioctl
 calls
 have not selected
 .SB LITOUT
@@ -226,7 +226,7 @@ flags control the parity of characters sent to the terminal and
 accepted from the terminal:
 .TP 12
 .SB 0
-Parity is not to be generated on output or checked on input; 
+Parity is not to be generated on output or checked on input;
 the character size is set to
 .B CS8
 and the
@@ -424,7 +424,7 @@ The following structure is defined by
 .RS
 .nf
 .ft B
-.ta .5i 1i 2i 
+.ta .5i 1i 2i
 struct tchars {
 	char	t_intrc;	/* interrupt */
 	char	t_quitc;	/* quit */
@@ -688,7 +688,7 @@ The argument is ignored.  The break bit is set for the device.
 .SB TIOCCBRK
 The argument is ignored.  The break bit is cleared for the device.
 .TP
-.SB TIOCSDTR 
+.SB TIOCSDTR
 The argument is ignored.  The Data Terminal Ready bit is set for the device.
 .TP
 .SB TIOCCDTR

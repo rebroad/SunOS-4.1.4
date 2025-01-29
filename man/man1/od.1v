@@ -15,7 +15,7 @@ od \- octal, decimal, hexadecimal, and ascii dump
 .RI [ label ]
 ]
 .SH SYSTEM V SYNOPSIS
-.B /usr/5bin/od 
+.B /usr/5bin/od
 .RI [ arguments ]
 .SH AVAILABILITY
 The System V version of this command is available with the
@@ -197,7 +197,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .SH "SEE ALSO"

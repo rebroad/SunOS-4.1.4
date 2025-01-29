@@ -40,7 +40,7 @@ is started, it uses the
 to find those
 directly connected interfaces configured into the
 system and marked \*(lqup\*(rq (the software loopback interface
-is ignored). 
+is ignored).
 If multiple interfaces
 are present, it is assumed the host will forward packets
 between networks.
@@ -222,7 +222,7 @@ changes made to the routing tables with a timestamp.
 .TP
 .I logfile
 Specify a file in which
-.B routed 
+.B routed
 records any changes to the routing tables and a history of
 recent messages sent and received which are related to
 the changed route.

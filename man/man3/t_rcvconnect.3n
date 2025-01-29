@@ -65,7 +65,7 @@ members of the
 structure are described in
 .BR t_accept (3N).
 In the
-.I t_call 
+.I t_call
 structure,
 .I addr
 returns the protocol address associated with the responding
@@ -109,7 +109,7 @@ is set (using
 or
 .BR fcntl(\|) ),
 .B t_rcvconnect(\|)
-executes asynchronously, 
+executes asynchronously,
 reducing to a
 .BR poll (2)
 request for existing connect confirmations.
@@ -165,8 +165,8 @@ This function is not supported by the underlying transport
 provider.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .BR poll (2),

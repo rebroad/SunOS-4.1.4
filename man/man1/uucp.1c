@@ -151,7 +151,7 @@ and gives 0666 read and write permissions (see
 .B uulog
 queries the log file
 .BI /var/spool/uucp/.Log/uucico/ system
-of 
+of
 .B uucp
 transactions for system
 .IR system ,
@@ -175,7 +175,7 @@ names of systems that can be accessed using
 .TP
 .B \-c
 Use the source file when copying out rather than
-copying the file to the spool directory. 
+copying the file to the spool directory.
 This is the default.
 .TP
 .B \-C
@@ -188,7 +188,7 @@ This lets you remove the source file after issuing the
 command.
 .TP
 .B \-d
-Make all necessary directories for the file copy. 
+Make all necessary directories for the file copy.
 This is the default.
 .TP
 .B \-f
@@ -254,7 +254,7 @@ Produce debugging output on the standard output.
 is a number between 0 and 9; higher numbers give more detailed information.
 5, 7, and 9 are good numbers to try;
 they give increasing amounts of detail.
-.SS uulog 
+.SS uulog
 .TP
 .B \-x
 Look in the
@@ -280,7 +280,7 @@ Indicate that a
 command of
 .I number
 lines should be executed.
-.SS uuname 
+.SS uuname
 .TP
 .B \-c
 Display the names of systems known to

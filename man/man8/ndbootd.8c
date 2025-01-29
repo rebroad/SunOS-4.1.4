@@ -6,7 +6,7 @@ ndbootd \- ND boot block server
 .B ndbootd
 [
 .B \-dv
-] 
+]
 .SH DESCRIPTION
 .IX "ndbootd daemon" "" "\fLndbootd\fP daemon"
 .LP

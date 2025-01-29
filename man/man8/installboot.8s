@@ -51,7 +51,7 @@ The prototype bootblock file must have an
 .BR a.out (5)
 header, but it will be written out to the
 device with the header removed.
-See 
+See
 .RB ` "\s-1SPARC\s0station 1 Systems Only" '
 below for exceptions.
 .I bootdevice
@@ -65,7 +65,7 @@ a regular file instead of a device, and examining the result with
 .BR od (1V).
 .SS SPARCstation 1 Systems Only
 .LP
-The \s-1SPARC\s0station 1 system (or any machine of 
+The \s-1SPARC\s0station 1 system (or any machine of
 kernel architecture
 .BR sun4c )
 uses bootblocks which are regular
@@ -82,17 +82,17 @@ architecture.
 .LP
 .B installboot
 distributed with the
-.B sun4c 
+.B sun4c
 executables leaves the header on the bootblock automatically;
-this behavior may be duplicated by other versions of 
+this behavior may be duplicated by other versions of
 .B installboot
-by using the 
+by using the
 .B \-h
 flag described below.
 .SH OPTIONS
 .TP
 .B \-h
-Leave the 
+Leave the
 .B a.out
 header on the bootblock when installed on disk.
 .TP

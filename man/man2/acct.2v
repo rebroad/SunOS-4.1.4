@@ -51,7 +51,7 @@ call is made with a non-\s-1NULL\s0
 all subsequent accounting records will be written to the new accounting file.
 .SH SYSTEM V DESCRIPTION
 .LP
-If accounting is already turned on, 
+If accounting is already turned on,
 it is an error to call
 .B acct(\|)
 with a non-\s-1NULL\s0 path.

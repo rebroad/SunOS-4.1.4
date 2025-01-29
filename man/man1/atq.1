@@ -8,31 +8,31 @@
 atq \- display the queue of jobs to be run at specified times
 .SH SYNOPSIS
 .B atq
-.RB [ " \-c " ] 
-.RB [ " \-n " ] 
-.IR username  .\|.\|. 
+.RB [ " \-c " ]
+.RB [ " \-n " ]
+.IR username  .\|.\|.
 .SH DESCRIPTION
-.B atq 
+.B atq
 .IX  "atq command"  ""  "\fLatq\fP \(em display delayed execution queue"
 .IX  "delayed execution"  "display queue \(em \fLatq\fP"
 .IX  "display" "delayed execution queue \(em \fLatq\fP"
 .IX  queue  "display delayed execution"  ""  "\fLatq\fP \(em display delayed execution"
 prints the queue of jobs, created with the
 .BR at (1)
-command, that are waiting to be run at later date.  
+command, that are waiting to be run at later date.
 .LP
-With no flags, the queue is sorted in chronological 
+With no flags, the queue is sorted in chronological
 order of execution.
 .PP
-If no usernames are specified, the entire queue is 
+If no usernames are specified, the entire queue is
 displayed; otherwise,
 only those jobs belonging to the named users are displayed.
 .SH OPTIONS
 .TP
 .B \-c
-Creation time.  Sorted the queue by the time that the 
+Creation time.  Sorted the queue by the time that the
 .BR at
-command was given, the most recently created job first. 
+command was given, the most recently created job first.
 .TP
 .B \-n
 Number of jobs.  Print the total number of jobs currently

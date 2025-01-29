@@ -26,7 +26,7 @@ filesystem provides standard file operations and semantics.
 .B tmpfs
 is so named because files and directories are not
 preserved across reboot or unmounts,
-all files residing on a 
+all files residing on a
 .B tmpfs
 filesystem
 that is unmounted will be lost.
@@ -52,7 +52,7 @@ file contains commands to mount a
 filesystem on
 .B /tmp
 at multi-user startup time but is by default commented out.
-To mount a 
+To mount a
 .B tmpfs
 filesystem on
 .B /tmp
@@ -66,7 +66,7 @@ and uncomment the following line in
 .LP
 .B tmpfs
 is designed as a performance enhancement
-which is achieved by cacheing the writes to files residing on a 
+which is achieved by cacheing the writes to files residing on a
 .B tmpfs
 filesystem.
 Performance improvements are most noticeable when a large number of
@@ -82,7 +82,7 @@ are a good example of this.
 Users of
 .B tmpfs
 should be aware of some tradeoffs
-involved in mounting a 
+involved in mounting a
 .B tmpfs
 filesystem.
 The resources used by
@@ -172,7 +172,7 @@ Remove unneccesary files or directories
 or install more physical memory.
 .SH WARNINGS
 .LP
-A 
+A
 .B tmpfs
 filesystem should
 .I not
@@ -182,7 +182,7 @@ this directory is used by
 .BR vi (1)
 for preserved files.
 .LP
-Files and directories on a 
+Files and directories on a
 .B tmpfs
 filesystem are not preserved
 across reboots or unmounts.

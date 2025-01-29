@@ -52,7 +52,7 @@ on the host located at
 address
 .IR *addr .
 This routine returns
-.SM NULL 
+.SM NULL
 if the remote portmap service could not be contacted.
 The command
 .RB ` "rpcinfo \-p" '
@@ -76,7 +76,7 @@ on which waits a service that supports program number
 .IR prognum ,
 version
 .IR versnum ,
-and speaks the transport protocol 
+and speaks the transport protocol
 .IR protocol .
 The address is returned in
 .IR addr ,
@@ -98,11 +98,11 @@ service.  In the latter case, the global variable
 .BR rpc_clnt_create (3N))
 contains the
 .SM RPC
-status. 
+status.
 If the requested version number is not registered, but
 at least a version number is registered for the given program
 number, the call returns a port number.
-Note: 
+Note:
 .B pmap_getport(\|)
 returns the port number in host byte order.
 Some other network routines may require
@@ -149,10 +149,10 @@ and
 (see
 .BR rpc_clnt_calls (3N)).
 .IP
-Warning: 
+Warning:
 If the requested remote procedure is not registered with the
-remote 
-.BR portmap 
+remote
+.BR portmap
 then no error response is returned and the call times out.
 Also, no authentication is done.
 .br
@@ -180,9 +180,9 @@ can be either
 .SB IPPROTO_UDP
 or
 .BR \s-1IPPROTO_TCP\s0 .
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 It is called by servers to register themselves with the local
@@ -205,12 +205,12 @@ Deregisters all mappings between the triple
 and ports
 on the local machine's
 .B portmap
-service. 
+service.
 It is called by servers to deregister themselves with the local
 .BR portmap.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -232,9 +232,9 @@ This routine is useful for users who wish to generate
 these parameters without using the
 .B pmap
 interface.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -254,9 +254,9 @@ This routine is useful for users who wish to generate
 these parameters without using the
 .B pmap
 interface.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br

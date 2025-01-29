@@ -12,19 +12,19 @@ administrator (or super-user):
 .TP 3
 \(bu
 Create an entry for the new user in the system password files.
-.TP 
+.TP
 \(bu
 Create a home directory for the user,
 and change ownership so the new user owns that directory.
-.TP 
+.TP
 \(bu
 Optionally set up skeletal dot files for the new user
 .RB ( .cshrc ,
 .BR .login ,
 .BR .profile .\|.\|.).
-.TP 
+.TP
 \(bu
-If the account is on a system running the 
+If the account is on a system running the
 Network Information Service
 (\s-1NIS\s0),
 take additional measures.
@@ -47,11 +47,11 @@ string:
 .ft R
 .LP
 This line indicates that additional accounts can be found
-in the 
+in the
 .SM NIS
 service.
 .LP
-To add an entry for the new login name into the 
+To add an entry for the new login name into the
 .SM NIS
 service,
 add an identical line to the file
@@ -84,7 +84,7 @@ Typically, users working on similar projects will assigned to the same
 group.  The system staff is group 10 for historical reasons,
 and the super-user is in this group.
 .LP
-An entry for a new user 
+An entry for a new user
 .B francine
 would look like this:
 .IP
@@ -112,71 +112,71 @@ If security demands a password, it should be assigned by running
 immediately after exiting the editor. The number of significant
 characters in a password is eight. (See
 .BR passwd (1).)
-.TP 
+.TP
 \(bu
 User
 .SM ID\s0.
-The 
+The
 .SM UID
 is a number which identifies that user uniquely in the system.
 Files owned by the user have this number stored in
 their data blocks, and commands such as
-.B ls (1V) 
-(see 
-.BR ls (1V)), 
+.B ls (1V)
+(see
+.BR ls (1V)),
 use it to look up the owner's login name.
-For this reason, you cannot 
+For this reason, you cannot
 randomly change this number. See
 .BR passwd (5)
 for more information.
-.TP 
+.TP
 \(bu
 Group
 .SM ID\s0.
-The 
+The
 .SM GID
 number identifies the group to which
 the user belongs by default (although the user may belong to
 additional groups as well).  All files that the user creates have this
 number stored in their data blocks, and commands such as
 .BR ls (1V)
-(see 
+(see
 .BR ls (1V),
 use it to look up the group name.  Group names and assignments
 are listed in the file
 .B /etc/group
 (which is described in
 .BR group (5))
-or in the 
+or in the
 .SM NIS
 group map.
-.TP 
+.TP
 \(bu
 This field is called the
 .SM GCOS
 field (from earlier implementation of the
-operating system) and is traditionally used to hold the user's full name.  
+operating system) and is traditionally used to hold the user's full name.
 Some installations have other information encoded in this field.
 From this information we can tell that Francine's real name is
-`Francine Featherstonehaugh'. 
+`Francine Featherstonehaugh'.
 The
 .B &
 in the entry is shorthand for the user's
 login name.
 .br
 .ne 5
-.TP 
+.TP
 \(bu
 User's home directory.
 This is the directory in which that user is
 \*(lqpositioned\*(rq when they log in.
-.TP 
+.TP
 \(bu
 Initial shell which this user will see on login.
 If this field is empty,
 .BR sh (1)
 is used as the initial shell.
-.RE	
+.RE
 .LP
 An entry for a new user
 .B francine
@@ -193,19 +193,19 @@ the following meanings:
 Login name
 (\fBfrancine\fP).
 This name must match the login name in the password file.
-.TP 
+.TP
 \(bu
 Encrypted password.  Typically, this field is left empty when
 adding the line using the editor.
 .BR passwd (1)
 should be run immediately after exiting the editor.
-.TP 
+.TP
 \(bu
 The next three fields are
 the minimum label, the maximum label, and the default label.
 These fields should be left empty,
 since they are reserved for future use.
-.TP 
+.TP
 \(bu
 The next two fields are for
 the always-audit flags and the never-audit flags.
@@ -327,6 +327,6 @@ group file
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

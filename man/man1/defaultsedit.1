@@ -65,7 +65,7 @@ and
 .I tty subwindow
 packages, and the
 SunView
-environment itself. 
+environment itself.
 .LP
 The remaining commands are used by
 .B defaultsedit
@@ -78,7 +78,7 @@ invoked directly from the shell:
 update window-system I/O defaults from current system values
 .TP
 .B defaults_to_indentpro
-update 
+update
 .BR indent (1)
 defaults in the database from the
 .B \&.indent.pro
@@ -101,7 +101,7 @@ update current system values for window-system I/O from
 defaults database
 .TP
 .B lockscreen_default
-apply current default for 
+apply current default for
 .BR lockscreen (1)
 display program
 .TP
@@ -153,16 +153,16 @@ From top to bottom they are:
 control
 Contains the name of the category currently
 displayed, and buttons labeled
-.SM SAVE\s0, 
-.SM QUIT\s0, 
+.SM SAVE\s0,
+.SM QUIT\s0,
 .SM RESET\s0,
-and 
-.SM EDIT 
-.SM ITEM\s0. 
+and
+.SM EDIT
+.SM ITEM\s0.
 To change the category,
 click the
 .SM LEFT
-mouse button on the word 
+mouse button on the word
 .SM CATEGORY\s0,
 or use the menu that pops up when you click the
 .SM RIGHT
@@ -178,12 +178,12 @@ Shows all current default parameter
 names with corresponding values. Clicking the
 .SM LEFT
 mouse button over a parameter
-displays a help string 
-in the message subwindow. 
+displays a help string
+in the message subwindow.
 .TP
 edit
 A small text subwindow which enables text editing
-of parameter values. 
+of parameter values.
 This is useful for very long text values,
 such as a long mailing list.
 .SS Control Panel
@@ -210,18 +210,18 @@ Clicking the
 mouse button over the
 .SM EDIT
 .SM ITEM
-button brings up a menu with three choices: 
-.SM COPY 
-.SM ITEM\s0, 
-.SM DELETE 
+button brings up a menu with three choices:
+.SM COPY
+.SM ITEM\s0,
+.SM DELETE
 .SM ITEM
 and
-.SM EDIT 
+.SM EDIT
 .SM LABEL\s0.
 Only text or numeric items can be edited.
 Note: edits made using this menu will appear
 only in your private
-defaults database, not in the master database. 
+defaults database, not in the master database.
 The three editing operations are described below.
 .TP
 .SM COPY ITEM
@@ -232,7 +232,7 @@ will duplicate the current item.
 You can then edit both the label and the value of the
 newly created item.  Only items with text or
 numeric values can be copied in this way.
-.SM COPY 
+.SM COPY
 .SM ITEM
 is useful when you want to change the number of
 instances of a certain type of item \(em
@@ -241,9 +241,9 @@ a new mail alias into your defaults database.
 .TP
 .SM DELETE ITEM
 Choosing
-.SM DELETE 
+.SM DELETE
 .SM ITEM
-will delete the current 
+will delete the current
 item from your private database.
 It cannot be permanently deleted if
 the corresponding node is present in the
@@ -255,11 +255,11 @@ an undefined node by giving it the special value
 Choosing
 .SM EDIT
 .SM LABEL
-allows you to edit the label of the current item.  
+allows you to edit the label of the current item.
 When you choose
 .SM EDIT
 .SM LABEL\s0,
-the label of the current item changes from 
+the label of the current item changes from
 bold to normal face.  Then you can select the
 label and edit it as a normal panel text item.
 .LP
@@ -281,7 +281,7 @@ The value of this environment variable
 indicates the file from which private
 SunView
 defaults are read.  When it is undefined,
-defaults are read from the 
+defaults are read from the
 .B .\|defaults
 file in your home directory.
 .SH FILES

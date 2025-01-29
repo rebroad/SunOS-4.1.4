@@ -53,7 +53,7 @@ or
 .IB field = value
 per line).
 .LP
-Only the super-user may alter the 
+Only the super-user may alter the
 .SM EEPROM
 contents.
 .LP
@@ -94,9 +94,9 @@ device.
 .PD 0
 .TP 20
 .B hwupdate
-a valid date (including 
+a valid date (including
 .B today
-and 
+and
 .BR now )
 .TP
 .B memsize
@@ -106,11 +106,11 @@ and
 8 bit integer (megabytes of memory to test)
 .TP
 .B scrsize
-.BR 1024x1024 , 
-.BR 1152x900 , 
+.BR 1024x1024 ,
+.BR 1152x900 ,
 .BR 1600x1280 ,
-or 
-.B 1440x1440 
+or
+.B 1440x1440
 .TP
 .B watchdog_reboot
 .B true
@@ -119,7 +119,7 @@ or
 .TP
 .B default_boot
 .B true
-or 
+or
 .B false
 .TP
 .B bootdev
@@ -136,21 +136,21 @@ a hexadecimal integer.)
 .TP
 .B keyclick
 .B true
-or 
+or
 .B false
 .TP
 .B console
 .B b&w
-or 
+or
 .B ttya
-or 
+or
 .B ttyb
-or 
+or
 .B color
 .TP
 .B custom_logo
 .B true
-or 
+or
 .B false
 .TP
 .B banner
@@ -164,22 +164,22 @@ diagnostic boot path
 .TP
 .B ttya_no_rtsdtr
 .B true
-or 
+or
 .B false
 .TP
 .B ttyb_no_rtsdtr
 .B true
-or 
+or
 .B false
 .TP
 .B ttya_use_baud
 .B true
-or 
+or
 .B false
 .TP
 .B ttyb_use_baud
 .B true
-or 
+or
 .B false
 .TP
 .B ttya_baud
@@ -195,55 +195,55 @@ number of columns on screen (8-bit integer)
 number of rows on screen (8-bit integer)
 .TP
 .B secure
-.BR none , 
+.BR none ,
 .BR command ,
-or 
+or
 .BR full .
 If
-.B secure=none 
-the 
-.SM PROM 
-monitor runs in the non-secure mode.
-In this mode all 
+.B secure=none
+the
 .SM PROM
-monitor commands are allowed with no password required.  
+monitor runs in the non-secure mode.
+In this mode all
+.SM PROM
+monitor commands are allowed with no password required.
 If
 .B secure=command
-the 
-.SM PROM 
+the
+.SM PROM
 monitor is in the command secure mode.
-In this mode, only the 
+In this mode, only the
 .B b
-(boot) command with no parameters and the 
+(boot) command with no parameters and the
 .B c
 (continue) command
-with no parameters may be entered without a password being required.  
-Any other command requires that the 
-.SM PROM 
+with no parameters may be entered without a password being required.
+Any other command requires that the
+.SM PROM
 monitor password be entered.
 If
 .B secure=full
-the 
-.SM PROM 
+the
+.SM PROM
 monitor is in the fully secure mode.
 In this mode, only the
 .B c
 (continue) command with no parameters may be entered without a password
 being required.
-Entry of any other command requires that the 
+Entry of any other command requires that the
 .SM PROM
 monitor password be entered.
 Note: the system will not auto-reboot in
 fully secure mode.
-The 
-.SM PROM 
+The
+.SM PROM
 monitor password must be entered before the
 boot process will take place.
 When changing the security mode from non-secure to either command secure
 or fully secure,
 .B eeprom
-prompts for the entry and re-entry of a new 
-.SM PROM 
+prompts for the entry and re-entry of a new
+.SM PROM
 password as in the
 .BR passwd (1)
 command.
@@ -254,10 +254,10 @@ Changing to non-secure mode erases the password.
 .B bad_login
 number of bad login tries (16-bit unsigned integer, 0 if
 .BR reset ).
-The field 
+The field
 .B bad_login
 maintains the count of bad login tries.
-It may be reset to zero (0) by 
+It may be reset to zero (0) by
 specifying
 .BR bad_login=reset .
 .TP
@@ -269,8 +269,8 @@ The content of the
 field is never displayed to any user.
 If the security mode is not
 .BR none ,
-the super-user may change the 
-.SM PROM 
+the super-user may change the
+.SM PROM
 monitor password by entering:
 .TP
 .RS
@@ -302,7 +302,7 @@ to reboot after watchdog reset
 .B boot-from
 A string specifying boot string (for example,
 .BR le(\|)vmunix );
-defaults to 
+defaults to
 .BR vmunix .
 (\s-1SPARC\s0station 1 systems only)
 .TP
@@ -368,8 +368,8 @@ format) containing custom logo.
 .B boot-from-diag
 80 chars specifying diag boot string (for example,
 .BR sd(\|)dexec );
-defaults to 
-.BR le(\|)vmunix . 
+defaults to
+.BR le(\|)vmunix .
 (\s-1SPARC\s0station 1 systems only)
 .TP
 .B ttya-mode
@@ -392,7 +392,7 @@ data bits:
 parity:
 n(none), e(even), o(odd), m(mark), s(space)
 .TP
-stop bits: 
+stop bits:
 1, 1.5, 2
 .TP
 handshake:
@@ -425,7 +425,7 @@ stop bits:
 parity:
 n(none), e(even), o(odd), m(mark), s(space)
 .TP
-handshake: 
+handshake:
 \-(none), h(hardware:rts/cts), s(software:xon/xoff)
 .RE
 .RE
@@ -456,7 +456,7 @@ Defaults to
 or
 .BR false ;
 .B true
-to ignore the 
+to ignore the
 .SB CARRIER DETECT
 line.
 Defaults to
@@ -487,9 +487,9 @@ of the onboard
 host adapter.
 .TP
 .B sd-targets
-An array of 8 integers that map 
+An array of 8 integers that map
 .SM SCSI
-disk unit numbers to 
+disk unit numbers to
 .SM SCSI
 target numbers.
 The unit number is used to index into this string.
@@ -500,9 +500,9 @@ maps to target 1, and so on.
 (\s-1SPARC\s0station 1 systems only)
 .TP
 .B st-targets
-An array of 8 integers that map 
+An array of 8 integers that map
 .SM SCSI
-tape unit numbers to 
+tape unit numbers to
 .SM SCSI
 target numbers.
 The unit number is used to index into this string.
@@ -536,8 +536,8 @@ The content of the
 field is never displayed to any user.
 If the security mode is not
 .BR none ,
-the super-user may change the 
-.SM PROM 
+the super-user may change the
+.SM PROM
 monitor password by entering:
 .TP
 .RS
@@ -551,10 +551,10 @@ prompts for a new password to be entered and re-entered.
 .B security-#badlogins
 number of bad login tries (16-bit unsigned integer, 0 if
 .BR reset ).
-The field 
+The field
 .B security-#badlogins
 maintains the count of bad login tries.
-It may be reset to zero (0) by 
+It may be reset to zero (0) by
 specifying
 .BR security-#badlogins=reset .
 .TP
@@ -569,7 +569,7 @@ Defaults to
 .BR false .
 .TP
 .B last-hardware-update
-Date the 
+Date the
 .SM CPU
 board was manufactured or upgraded to the
 latest hardware revision.

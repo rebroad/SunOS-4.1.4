@@ -7,7 +7,7 @@ sccs-get, get \- retrieve a version of an SCCS file
 [
 .B \-begkmnpst
 ] [
-.BR \-l \|[\| p \|]\|] 
+.BR \-l \|[\| p \|]\|]
 [
 .BI \-a sequence
 ]
@@ -28,14 +28,14 @@ sccs-get, get \- retrieve a version of an SCCS file
 .if t .ti +.5i
 [
 .BI \-x sid-list
-] 
+]
 .I s.filename
 \&.\|.\|.
 .SH DESCRIPTION
 .IX "get command"  ""  "\fLget\fP \(em get SCCS file"
 .IX "SCCS commands"  "get command"  ""  "\fLget\fP \(em get SCCS file"
 .B get
-retrieves a working copy from the 
+retrieves a working copy from the
 .SM SCCS
 history file,
 according to the specified options.
@@ -44,7 +44,7 @@ For each
 .I s.filename
 argument,
 .B get
-displays the 
+displays the
 .SM SCCS
 delta
 .SM ID
@@ -111,7 +111,7 @@ With this option,
 .B get
 places a lock on the
 .BR s. file,
-so that no one else can check in changes to the version 
+so that no one else can check in changes to the version
 you have checked out.
 If the
 .B j
@@ -230,7 +230,7 @@ Any number of non-numeric characters may separate
 the various 2 digit components.  If white-space characters occur, the
 .I date-time
 specification must be quoted.
-.TP 
+.TP
 .BI \-G newname
 Use
 .I newname
@@ -242,10 +242,10 @@ The included deltas are noted in the standard output message.
 .I sid-list
 is a comma-separated list of
 .SM SID\s0s.
-To specify a range of deltas, use a 
-.RB ` \- ' 
-separator instead of a comma, between two 
-.SM SID\s0s 
+To specify a range of deltas, use a
+.RB ` \- '
+separator instead of a comma, between two
+.SM SID\s0s
 in the list.
 .TP
 .BI \-r sid
@@ -311,17 +311,17 @@ Similarly with branches, if you specify a release, level and
 branch,
 .B get
 retrieves the highest sequence in that branch.
-.TP 
+.TP
 .BI \-x sid-list
 Exclude the indicated deltas from the retrieved version.
 The excluded deltas are noted in the standard output message.
 .I sid-list
 is a comma-separated list of
 .SM SID\s0s.
-To specify a range of deltas, use a 
-.RB ` - ' 
-separator instead of a comma, between two 
-.SM SID\s0s 
+To specify a range of deltas, use a
+.RB ` - '
+separator instead of a comma, between two
+.SM SID\s0s
 in the list.
 .SH USAGE
 .SS ID Keywords

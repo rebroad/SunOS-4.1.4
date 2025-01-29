@@ -44,7 +44,7 @@ the Telex 9250.
 In no case will the controller select among more than 2 densities.
 .LP
 The
-.B xt 
+.B xt
 driver supports the character device interface.
 .IX  "xt device"  ""  "\fLxt\fP \(em Xylogics 472 1/2-inch tape drive"  ""  PAGE END
 .IX  "Xylogics 472 1/2-inch tape drive"  ""  "Xylogics 472 1/2-inch tape drive \(em \fLxt\fP"  ""  PAGE END
@@ -58,8 +58,8 @@ by a 0 byte count returned the first time this is attempted.
 This write must be retried by the user.
 Subsequent writes will be successful
 until the tape winds off the reel.
-Read past 
-.SM EOT 
+Read past
+.SM EOT
 is transparent to the user.
 .SS Ioctls
 .LP
@@ -72,13 +72,13 @@ error on unsupported ioctls.
 .SH FILES
 .PD 0
 .TP 20
-.B /dev/rmt0	
+.B /dev/rmt0
 low density operation, typically 1600 bpi
 .TP
-.B /dev/rmt8	
+.B /dev/rmt8
 high density operation, typically 6250 bpi
 .TP
-.B /dev/nrmt*	
+.B /dev/nrmt*
 non-rewinding
 .PD
 .SH SEE ALSO
@@ -92,5 +92,5 @@ non-rewinding
 Record sizes are restricted to an even number of bytes.
 .LP
 Absolute file positioning is not fully supported;
-it is only meant to be used by 
+it is only meant to be used by
 .BR suninstall (8).

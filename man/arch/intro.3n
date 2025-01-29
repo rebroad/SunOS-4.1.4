@@ -6,7 +6,7 @@ intro \- introduction to network library functions
 .IX  introduction  "network library functions"
 .IX  "network library functions, introduction to"
 .IX  "library functions"  "introduction to network"
-This section describes functions that are applicable to 
+This section describes functions that are applicable to
 the DARPA Internet network, which are part of the standard C library.
 .SH "LIST OF FUNCTIONS"
 .sp 2

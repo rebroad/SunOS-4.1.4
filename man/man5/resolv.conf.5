@@ -16,7 +16,7 @@ by the domain name system resolver library the first time
 it is invoked in a process.
 It is only necessary to create this file to specify
 an explicit default domain name other than the default one derived
-from the 
+from the
 .BR domainname (1)
 command, or to specify name servers to use on other machines.
 The file is designed to be human readable
@@ -31,7 +31,7 @@ The different configuration options are:
 .BI nameserver " address"
 The Internet address (in dot
 notation) of a name server
-that the resolver should query.  
+that the resolver should query.
 Up to
 .SM MAXNS
 (currently 3) name servers may be listed. In that
@@ -48,16 +48,16 @@ must be a name server running on the same machine.
 .TP
 .BI domain " name"
 The default domain to append to names that do
-not have a dot in them, and used in searches.  If there is no 
+not have a dot in them, and used in searches.  If there is no
 .B domain
 line in this file, then it is derived from the domain set by the
 .BR domainname (1)
 command, usually by removing the first component.
-For example, if the 
+For example, if the
 .BR domainname (1)
 is set to ``foo.podunk.edu'' then the default
 domain used by the resolver will be ``podunk.edu''.
-The is the same policy used by 
+The is the same policy used by
 .BR sendmail (8).
 .LP
 The keyword-value pair must appear on a single line,

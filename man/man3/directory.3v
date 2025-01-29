@@ -173,7 +173,7 @@ to indicate the error.
 .B readdir(\|)
 returns
 a pointer to an object of type
-.B "struct dirent" 
+.B "struct dirent"
 on success.
 On failure,
 it returns
@@ -294,10 +294,10 @@ Sample code which searchs a directory for entry ``name'' is:
 	dirp = opendir(".");
 	for (dp = readdir(dirp); dp != \s-1NULL\s0; dp = readdir(dirp))
 		if (!strcmp(dp->d_name, name)) {
- 			closedir (dirp);
+			closedir (dirp);
 			return \s-1FOUND\s0;
 		}
- 	closedir (dirp);
+	closedir (dirp);
 	return \s-1NOT_FOUND\s0;
 .ft R
 .fi

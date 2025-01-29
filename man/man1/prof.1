@@ -28,7 +28,7 @@ prof \- display profile data
 .B prof
 produces an execution profile of a program.
 The profile data is taken from the profile file
-which is created by programs compiled with the 
+which is created by programs compiled with the
 .B \-p
 option of
 .BR cc (1V)
@@ -56,19 +56,19 @@ information in the given profile files.
 To tally the number of calls to a routine, the modules that make up the
 program must be compiled with the
 .RB ' "cc \-p" '
-option (see 
+option (see
 .BR cc (1V)).
 This option also means that the profile file is produced automatically.
 .LP
 A single function may be split into subfunctions for profiling
-by means of the 
+by means of the
 .SB MARK
-macro (see 
+macro (see
 .BR prof (3)).
 .LP
 Beware of quantization errors.
 .LP
-The profiled program must call 
+The profiled program must call
 .BR exit (2V)
 or return normally for the profiling information to be saved in the
 .B mon.out

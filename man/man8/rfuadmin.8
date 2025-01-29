@@ -23,11 +23,11 @@ for information on how to install optional software.
 .IX "unmount, forced" "RFS notification shell script"
 .LP
 The
-.B rfuadmin 
+.B rfuadmin
 shell script is used to respond to unexpected Remote File Sharing
 (\s-1RFS\s0)
 events picked up by the
-.BR rfudaemon (8) 
+.BR rfudaemon (8)
 process.
 Such events may include broken network connections and forced
 unmounts.
@@ -35,21 +35,21 @@ This script is not intended to be run directly from the
 shell.
 .LP
 Responses to messages received by
-.B rfudaemon 
+.B rfudaemon
 can be tailored to suit the particular system by editing this script.
 The following paragraphs describe the arguments passed to
-.B rfuadmin 
+.B rfuadmin
 and its standard responses.
 .TP
 .BI disconnect " remote_resource"
 A link to a remote resource has been cut.
 .B rfudaemon
 executes
-.BR rfuadmin , 
+.BR rfuadmin ,
 passing it the message
-.B disconnect 
+.B disconnect
 and the name of the disconnected resource.
-.B rfuadmin 
+.B rfuadmin
 sends this message to all terminals using
 .BR wall (1):
 .RS
@@ -67,20 +67,20 @@ attempts to mount the resource again.
 .TP 8
 .B fumount " remote_resource"
 A remote server machine has forced an unmount of a resource
-a local machine has mounted. 
-The processing is 
+a local machine has mounted.
+The processing is
 similar to processing for a disconnect.
 .TP 8
 .BI fuwarn " remote_resource seconds"
 This message notifies
-.B rfuadmin 
+.B rfuadmin
 that a resource is about to be unmounted.
-.B rfudaemon 
+.B rfudaemon
 sends this script the
-.B fuwarn 
+.B fuwarn
 message, the resource name, and the number of seconds in
 which the forced unmount will occur.
-.B rfuadmin 
+.B rfuadmin
 sends this message to all terminals:
 .RS
 .RS
@@ -99,7 +99,7 @@ sends this message to all terminals:
 The console must be on when
 .SM RFS
 is running, otherwise
-.B rfuadmin 
+.B rfuadmin
 hangs when it attempts to write to it,
 in which case recovery from disconected resources
 may not complete.

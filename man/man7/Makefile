@@ -4,7 +4,7 @@
 #
 #  NOTE that the list of filenames in the description file must be
 #  kept up to date with the actual manual pages, including ".so" files.
- 
+
 HERE=man7
 
 # --------------------------------------------------------------- #

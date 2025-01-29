@@ -7,7 +7,7 @@ ansic \- ANSI C (draft of December 7 1988) lint library
 .I ansic_src.c
 .SH AVAILABILITY
 .LP
-This environment is not available under SunOS Release 4.1. 
+This environment is not available under SunOS Release 4.1.
 The environment that most closely approximates an
 .SM ANSI C
 environment is the System V environment.
@@ -67,7 +67,7 @@ functions not supported at all in SunOS Release 4.1 are
 .BR ldiv(\|) ,
 .BR strtoul(\|) ,
 .BR strerror(\|) ,
-and 
+and
 .BR difftime(\|) .
 .SH FILES
 .PD 0

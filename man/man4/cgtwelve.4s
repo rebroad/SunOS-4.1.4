@@ -11,11 +11,11 @@ device-driver cgtwelve
 .SH DESCRIPTION
 .IX  "cgtwelve device"  ""  "\fLcgtwelve\fP \(em Sun-4c mid-range graphics accelerator with color memory frame buffer"  ""  PAGE START
 .IX  "color graphics interface"  "cgtwelve"  ""  "\fLcgtwelve\fP \(em Sun-4c color memory frame buffer"
-.LP  
+.LP
 .B cgtwelve
 is a 24-bit SBus-based color frame buffer and graphics accelerator,
 with 12-bit double buffering, 8-bit colormap, and overlay/enable planes.
-It provides the standard frame buffer interface defined in 
+It provides the standard frame buffer interface defined in
 .BR fbio (4S),
 paired with microcode which can be downloaded using
 .BR gpconfig (8).
@@ -32,13 +32,13 @@ Application Programmer Interfaces (\s-1API\s0s).
 .\" the color frame buffer underneath is visible.
 .LP
 The cgtwelve has registers and memory that may be mapped with
-.BR mmap (2), 
+.BR mmap (2),
 using the offsets defined in
 .BR <sbusdev/cg12reg.h> .
 .\" .LP
 .\" The 24-bit frame buffer pixel is organized as one
-.\" longword (32 bits) per pixel. 
-.\" The pixel format is defined in 
+.\" longword (32 bits) per pixel.
+.\" The pixel format is defined in
 .\" .B /usr/include/pixrect/pixrect.h
 .\" as follows:
 .\" .RS
@@ -53,7 +53,7 @@ using the offsets defined in
 .\"		unsigned int	R:8;	/* red channel */
 .\"		}
 .\"			channel;	/* access per channel */
-.\"	};  
+.\"	};
 .\" .fi
 .\" .ft R
 .\" .RE

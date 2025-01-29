@@ -11,7 +11,7 @@ acctcom \- search and print process accounting files
 .BI \-C " sec"
 ]
 [
-.BI \-e " time" 
+.BI \-e " time"
 ]
 [
 .BI \-E " time"
@@ -24,7 +24,7 @@ acctcom \- search and print process accounting files
 .BI \-H " factor"
 ]
 [
-.BI \-I " chars" 
+.BI \-I " chars"
 ]
 .if t .ti +.5i
 [
@@ -80,31 +80,31 @@ and optionally,
 .IR fork / exec
 flag:
 .B 1
-for 
+for
 .B fork(\|)
-without 
+without
 .BR exec(\|) ),
 .SB STAT
 (the system exit status),
-.BR "\s-1HOG FACTOR\s0" , 
+.BR "\s-1HOG FACTOR\s0" ,
 .BR "\s-1KCORE MIN\s0" ,
 .BR "\s-1CPU FACTOR\s0" ,
 .BR "\s-1CHARS TRNSFD\s0" ,
-and 
+and
 .SB BLOCKS READ
 (total blocks read and written).
 .LP
-A 
+A
 .RB ` # '
 is prepended to the command name if the command was executed with
 super-user privileges.
-If a process is not associated with a known terminal, a 
+If a process is not associated with a known terminal, a
 .RB ` ? '
 is printed in the
 .SB TTYNAME
 field.
 .LP
-If no 
+If no
 .IR filename s
 are specified, and
 if the standard input is associated with a terminal or
@@ -210,9 +210,9 @@ shows the processes that existed at
 .BI \-g " group"
 Show only processes belonging to
 .IR group .
-The 
+The
 .I group
-may be designated by either the group 
+may be designated by either the group
 .SM ID
 or group name.
 .TP
@@ -220,7 +220,7 @@ or group name.
 Show only processes that exceed
 .IR factor ,
 where factor is the \*(lqhog factor\*(rq as explained in the
-.B \-h 
+.B \-h
 option above.
 .TP
 .BI \-I " chars"
@@ -263,17 +263,17 @@ Select processes starting at or after
 .BI \-u " user"
 Show only processes belonging to
 .I user
-that may be specified by: a user 
+that may be specified by: a user
 .SM ID\s0,
 a login name
-that is then converted to a user 
+that is then converted to a user
 .SM ID\s0,
-a 
+a
 .RB ` # ',
 which designates only those processes executed with
-super-user privileges, or 
+super-user privileges, or
 .RB ` ? ',
-which designates only those processes associated with unknown user 
+which designates only those processes associated with unknown user
 .SM ID\s0s.
 .SH FILES
 .PD 0

@@ -71,7 +71,7 @@ Remove the shared memory identifier specified by
 from the system.
 If no processes are currently mapped to the corresponding
 shared memory segment, then the segment is removed and the associated resources
-are reclaimed. 
+are reclaimed.
 Otherwise, the segment will persist, although
 .BR shmget (2)
 will not be able to locate it, until it is no longer mapped by any process.
@@ -105,7 +105,7 @@ in the data structure associated with
 .LP
 In the
 .BR shmop (2)
-and 
+and
 .BR shmctl (2)
 system call descriptions, the permission required
 for an operation is given as "[token]", where \*(lqtoken\*(rq is the type

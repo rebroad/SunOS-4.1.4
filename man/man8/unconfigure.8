@@ -3,7 +3,7 @@
 .TH UNCONFIGURE 8 "24 February 1988"
 .SH NAME
 unconfigure \- reset the network configuration for a Sun386i system
-.SH SYNOPSIS 
+.SH SYNOPSIS
 .B /usr/etc/unconfigure
 [
 .B \-y
@@ -123,7 +123,7 @@ to
 .TP
 \(bu
 Rename all the files (including home directories) so that
-they aren't deleted.  (See 
+they aren't deleted.  (See
 .SB FILES
 below.)
 These will probably be only in
@@ -153,7 +153,7 @@ with the same
 .SM UID.
 .TP
 \(bu
-Use the 
+Use the
 .RB ` "chown \-R" '
 command to change the ownership of the home directories.
 .TP
@@ -185,7 +185,7 @@ lfB lfB lfB lfB .
 /etc/auto.vol	/etc/fstab	/etc/netmasks	/etc/syslog.conf
 /etc/bootparams	/etc/group	/etc/networks	/etc/systems
 /etc/bootservers	/etc/hosts	/etc/passwd	/single/ifconfig
-/var/sysex/*	
+/var/sysex/*
 .TE
 .LP
 and all files in
@@ -193,7 +193,7 @@ and all files in
 except those distributed with the operating system.
 .LP
 .B unconfigure
-truncates all files in 
+truncates all files in
 .BR /var/adm .
 All user home directories in
 .B /export/home
@@ -231,6 +231,6 @@ to a master server is automated.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

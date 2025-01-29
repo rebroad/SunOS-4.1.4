@@ -11,16 +11,16 @@ device cgnine0 at vme32d32 ? csr 0x08000000 priority 4 vector cgnineintr 0xaa
 .SH DESCRIPTION
 .IX  "cgnine device"  ""  "\fLcgnine\fP \(em low-end graphics accelerator with color memory frame buffer"  ""
 .IX  "color graphics interface"  "cgnine"  ""  "\fLcgnine\fP \(em color memory frame buffer"
-.LP  
+.LP
 .B cgnine
 is a 24-bit double-buffered
 .SM VME\s0-based
 color frame buffer.
-It provides the standard frame buffer interface defined in 
+It provides the standard frame buffer interface defined in
 .BR fbio (4S),
-and and can be paired with the 
+and and can be paired with the
 .SB GP2
-graphics accelerator board using 
+graphics accelerator board using
 .BR gpconfig (8).
 .LP
 .B cgnine
@@ -32,8 +32,8 @@ If both bits are zero,
 the color frame buffer underneath is visible.
 .LP
 The 24-bit frame buffer pixel is organized as one
-longword (32 bits) per pixel. 
-The pixel format is defined in 
+longword (32 bits) per pixel.
+The pixel format is defined in
 .B <pixrect/pixrect.h>
 as follows:
 .RS
@@ -48,7 +48,7 @@ as follows:
 		unsigned int	R:8;	/* red channel */
 		}
 			channel;	/* access per channel */
-	};  
+	};
 .fi
 .ft R
 .RE

@@ -17,7 +17,7 @@ stdio \- standard buffered input/output package
 .B FILE
 .B *stderr;
 .SH DESCRIPTION
-.IX  introduction  "standard I/O library functions"  
+.IX  introduction  "standard I/O library functions"
 .IX  "standard I/O library functions, introduction to"
 .IX  "buffered I/O library functions, introduction to"
 .IX  "library functions"  "introduction to standard I/O"
@@ -153,7 +153,7 @@ When it is line-buffered,
 each line of output is written to the
 destination file or terminal as soon as the line is completed
 (that is, as soon as a
-.SM NEWLINE 
+.SM NEWLINE
 character is output
 or, if the output stream is
 .B stdout

@@ -40,7 +40,7 @@ Except for
 .BR ver ,
 the following terminal-types can be used with
 .RB ` "lpr \-g" '
-see 
+see
 .BR lpr (1))
 to produce plotted output:
 .RS

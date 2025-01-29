@@ -25,7 +25,7 @@ for i in 1 2 3 4 5 6 7 8 ; do
 
 		tail -1 $j | awk '/^\.[ILT]P/ {
 			print $0 " on last line"
-		}' >> ../tmp/badtroff.$i 
+		}' >> ../tmp/badtroff.$i
 	done
 	cd ..
 done

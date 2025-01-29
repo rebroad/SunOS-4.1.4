@@ -1,7 +1,7 @@
 .\" @(#)xopen.7v 1.1 94/10/31 SMI;
 .TH XOPEN 7V "30 September 1989"
 .SH NAME
-xopen \- overview of the X/Open Portability Guide Issue 2 (X/Open) environment 
+xopen \- overview of the X/Open Portability Guide Issue 2 (X/Open) environment
 .SH SYNOPSIS
 .B "/usr/5bin/lint \-n \-lxopen"
 .I xopen_src.c
@@ -20,7 +20,7 @@ X/Open is a set of functions and header files.
 The SunOS Release 4.1
 implementation of X/Open is a superset \(em it includes all of the
 functionality described in the
-.B /usr/group 
+.B /usr/group
 Standard 1984 \(em as well as much of
 the System V functionality, and much of the SunOS functionality.
 .LP
@@ -30,7 +30,7 @@ Some \*(lqV\*(rq pages may be part of other System V based environments such as
 .SM POSIX.1\s0.
 .LP
 If a user desires to work in a X/Open (or System V) environment, the user
-should set the path variable to include 
+should set the path variable to include
 .B /usr/xpg2bin
 and
 .B /usr/5bin
@@ -44,7 +44,7 @@ set path=( /usr/xpg2bin /usr/5bin /bin /usr/bin /usr/ucb )
 .LP
 As a portability aid, Sun is providing a lint library
 that consists exclusively of X/Open functions.  Users may lint
-their code with the 
+their code with the
 .B "\-n \-lxopen"
 options to catch all non-X/Open features.
 .LP
@@ -55,7 +55,7 @@ supported by Sun.  Some applications may wish to port to a
 particular version of the environment; they may safely use the more
 specific name of
 .B \-lxpg2
-(currently the same as 
+(currently the same as
 .BR \-lxopen ).
 .SH FILES
 .PD 0

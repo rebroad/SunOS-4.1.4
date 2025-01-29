@@ -1,16 +1,16 @@
-.\" @(#)client.8 1.1 94/10/31 SMI; 
+.\" @(#)client.8 1.1 94/10/31 SMI;
 .TH CLIENT 8 "%20 December 1988%"
 .SH NAME
 client \- add or remove diskless Sun386i systems
-.SH SYNOPSIS 
-.B client 
+.SH SYNOPSIS
+.B client
 [
 .B \-a
 .I arch
 ] [
 .B \-h
 .I hostid
-] [ 
+] [
 .B \-o
 .I os
 ] [
@@ -19,9 +19,9 @@ client \- add or remove diskless Sun386i systems
 .B \-t
 .I minutes
 ]
-.B add 
+.B add
 .I bootserver
-.I client 
+.I client
 .I etheraddress
 .I ipaddress
 .LP
@@ -52,7 +52,7 @@ can boot.
 Only users in the
 .I networks
 group (group 12) on the boot server
-are allowed to change configurations using this utility. 
+are allowed to change configurations using this utility.
 .B client
 can be invoked from any system on the network.
 .LP
@@ -65,17 +65,17 @@ Diskful clients, however can provide most of their own boot services.
 Network clients only need name and time services from the network,
 and can use any boot server.
 .LP
-To add a diskless client, use the 
+To add a diskless client, use the
 .B add
 operation.  To remove a
 diskless, diskful, or network client, use the
-.B remove 
+.B remove
 operation.  To change a system's network role, use the
 .B modify
 operation.
 .LP
 A server can reject a configuration request if it is disallowed by the
-contents of the 
+contents of the
 .B bootservers
 map (e.g., too many clients would
 be configured, or too little free space would be left on the server),
@@ -97,10 +97,10 @@ string.
 .TP
 .BI \-o " os
 Specifies the operating system; defaults to 'unix'.  This
-is currently used only to construct the system's 
+is currently used only to construct the system's
 .I publickey
 data,
-where applicable; this is never done if the system has no 
+where applicable; this is never done if the system has no
 .I hostid
 specified.
 .TP
@@ -108,34 +108,34 @@ specified.
 Quiet.  Displays only error messages.
 .TP
 .BI \-t " minutes
-Sets the 
-.SM RPC 
+Sets the
+.SM RPC
 timeout to the number of minutes indicated; this
-defaults to 15 minutes.  If the bootserver takes more time than this 
-to complete, 
+defaults to 15 minutes.  If the bootserver takes more time than this
+to complete,
 .B client
 will exit.  Unless the server has
-already completed setup, but not yet sent status to 
+already completed setup, but not yet sent status to
 .BR client ,
 this will cause the bootserver to back out of the setup, deallocating
 all assigned resources.
 .SH "SEE ALSO"
 .BR publickey (5)
 .BR netconfig (8C),
-.BR pnpd (8C), 
+.BR pnpd (8C),
 .SH BUGS
 .\".LP
 .\"The concept of a default architecture should go away.
 .LP
-Unless the 
+Unless the
 .I hostid
 is assigned, the root filesystem for the diskless
-client is not set up beyond copying the 
-.B proto 
-and 
+client is not set up beyond copying the
+.B proto
+and
 .B boot
 files
 into it.
-This means that 
+This means that
 .B netconfig
 will often handle other parts of the setup.

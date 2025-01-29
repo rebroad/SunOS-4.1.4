@@ -57,10 +57,10 @@ program's address space, obtain the address bindings of symbols defined by such
 objects, and to remove such objects when their use is no longer required.
 .LP
 .B dlopen(\|)
-provides access to the shared object in 
+provides access to the shared object in
 .IR path ,
 returning a descriptor that can be used for later
-references to the object in calls to 
+references to the object in calls to
 .B dlsym(\|)
 and
 .BR dlclose(\|) .
@@ -69,16 +69,16 @@ If
 was not in the address space prior to the call to
 .BR dlopen(\|) ,
 then it will be placed in the address space, and if it defines a function
-with the name 
+with the name
 .I _init
-that function will be called by 
+that function will be called by
 .BR dlopen(\|) .
 If, however,
 .I path
 has already been placed in the address space in a previous call to
-.BR dlopen(\|) , 
+.BR dlopen(\|) ,
 then it will not be added a
-second time, although a count of 
+second time, although a count of
 .B dlopen(\|)
 operations on
 .I path
@@ -87,11 +87,11 @@ will be maintained.
 is an integer containing flags describing options to be applied to the opening
 and loading process \(em it is reserved for future expansion and must always have
 the value 1.
-A null pointer supplied for 
+A null pointer supplied for
 .I path
 is interpreted as a reference to the \*(lqmain\*(rq
 executable of the process.
-If 
+If
 .B dlopen(\|)
 fails, it will return a null pointer.
 .LP
@@ -101,9 +101,9 @@ character string
 .I symbol
 as it occurs in the shared object identified by
 .IR handle .
-The symbols exported by objects added to the address space by 
+The symbols exported by objects added to the address space by
 .B dlopen(\|)
-can be accessed 
+can be accessed
 .I only
 through calls to
 .BR dlsym(\|) ,
@@ -112,9 +112,9 @@ in the address space when the object is loaded, nor are they available to
 satisfy \*(lqnormal\*(rq dynamic linking references.
 .B dlsym(\|)
 returns a null pointer if the symbol can not be found.
-A null pointer supplied as the value of 
+A null pointer supplied as the value of
 .I handle
-is interpreted as a reference to the executable from which the call to 
+is interpreted as a reference to the executable from which the call to
 .B dlsym(\|)
 is being made \(em thus a shared object can reference its own symbols.
 .LP
@@ -125,7 +125,7 @@ occurred during a
 .BR dlsym(\|) ,
 or
 .BR dlclose(\|) .
-If no such error has occurred, then 
+If no such error has occurred, then
 .B dlerror(\|)
 will return a null pointer.
 At each call to
@@ -139,22 +139,22 @@ will always return a null pointer.
 .B dlclose(\|)
 deletes a reference to the shared object referenced by
 .IR handle .
-If the reference count drops to 0, then if the object referenced by 
+If the reference count drops to 0, then if the object referenced by
 .I handle
-defines a function 
+defines a function
 .IR _fini ,
 that function will be called, the object
-removed from the address space, and 
+removed from the address space, and
 .I handle
 destroyed.
-If 
+If
 .B dlclose(\|)
 is successful, it will return a value of 0.
 A failing call to
 .B dlclose(\|)
 will return a non-zero value.
 .LP
-The object-intrinsic functions 
+The object-intrinsic functions
 .I _init
 and
 .I _fini
@@ -163,7 +163,7 @@ are called with no arguments and treated as though their types were
 .LP
 These functions are obtained by specifying
 .B \-ldl
-as an option to 
+as an option to
 .BR ld (1).
 .SH SEE ALSO
 .BR ld (1),

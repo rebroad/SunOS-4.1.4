@@ -108,7 +108,7 @@ number device addressing scheme is used.
 The minor number is formed using
 the low order 5 bits of the unit number and the 3-bit partition number.
 The low-order 3 bits of the minor number give the partition number on the
-drive.  
+drive.
 The high order bits of the unit number are added to the first major number
 for
 .B id
@@ -123,7 +123,7 @@ and then the channel number.
 The standard device names begin with
 .B id
 followed by three hex digits giving the channel number, slave number, and
-facility number, 
+facility number,
 and then a letter
 .BR a-h ,
 for partitions 0-7 respectively.
@@ -131,7 +131,7 @@ for partitions 0-7 respectively.
 The block files access the disk using the system's normal
 buffering mechanism and may be read and written without regard to
 physical disk records.
-There is also a 
+There is also a
 .I raw
 interface which provides for direct transmission between the disk
 and the user's read or write buffer.
@@ -151,15 +151,15 @@ be required to be on a 2-byte or 4-byte boundary.
 .LP
 The
 .B ioctl(\|)
-interface described in 
+interface described in
 .BR dkio (4S)
 is supported by this driver.
-The 
-.SM DKIOCSCMD 
+The
+.SM DKIOCSCMD
 ioctl can be used to issue certain
 .SM IPI
 commands to the drive.
-The argument structure is: 
+The argument structure is:
 .LP
 .RS
 .ft B
@@ -176,13 +176,13 @@ struct dk_cmd {
 .ft R
 .RE
 .LP
-The lower 8-bits of the 
-.B dkc_cmd 
+The lower 8-bits of the
+.B dkc_cmd
 field indicate one of the supported commands listed below.
 The upper 8-bits indicate the
 .SM IPI
 Opcode modifier.
-These commands are defined in 
+These commands are defined in
 .BR /usr/include/sundev/ipi3.h .
 Block numbers are not remapped by the partition map when
 these commands are used.
@@ -204,7 +204,7 @@ logical partition information); the Opcode modifier is ignored.
 .SB IP_WRITE_DEFLIST
 Read or write one of the defect lists.
 The defect list is selected by the Opcode modifier in bits
-<15:8> of the 
+<15:8> of the
 .BR dkc_cmd .
 .PD
 .TP
@@ -212,8 +212,8 @@ The defect list is selected by the Opcode modifier in bits
 Format a range of cylinders.
 For this command, the block number and sector
 count fields must both be a multiple of the number of blocks per cylinder.
-The 
-.B dk_buflen 
+The
+.B dk_buflen
 field must be zero for this command.
 .TP
 .SB IP_REALLOC
@@ -222,8 +222,8 @@ The controller attempts to recover the data from the
 old block being reallocated.
 If the old data cannot be recovered, a
 conditional success status is presented and a message may be printed.
-The 
-.B dk_buflen 
+The
+.B dk_buflen
 field must be zero for this command.
 .SH "DISK SUPPORT"
 .LP
@@ -266,13 +266,13 @@ raw files
 .BR is (4S)
 .SH DIAGNOSTICS
 .LP
-The following messages are usually preceded by either 
+The following messages are usually preceded by either
 .BI idc n\fR,
 indicating a message associated with controller
 .IR n ,
 or
 .BI id csf\fR,
-indicating a message associated with the drive 
+indicating a message associated with the drive
 .IR csf ,
 where
 .I csf
@@ -317,7 +317,7 @@ of total blocks than would be expected from the blocks
 per cylinder and the number of cylinders.
 .TP
 .B "id\fIcsf\fP: invalid logical block size \fInum\fP"
-The disk logical block size, given by the logical block size attribute 
+The disk logical block size, given by the logical block size attribute
 parameter, is not a power of two less than 2**31.
 .TP
 .B "idintr: bad rupt \s-1NULL\s0 q_dev"
@@ -330,8 +330,8 @@ The firmware in the disk controller issued the message
 The controller manual should describe the message.
 .TP
 .B "idc\fIn\fP: ctlr failure fru \fInum\fP message: '\fImessage-text\fP'"
-The firmware in the disk controller issued the 
-failure message 
+The firmware in the disk controller issued the
+failure message
 .IR message-text ,
 and indicates a likely field-replaceable
 unit number (printed in hex).
@@ -344,7 +344,7 @@ The label checksum mismatched.
 .TP
 .B "id\fIcsf\fP: <\fI\s-1ASCII\s0-label\fP>"
 The label contains an
-.SM ASCII 
+.SM ASCII
 string which is printed after the label is read.
 The
 .SM ASCII
@@ -368,28 +368,28 @@ but indicates a non-standard label.
 An
 .B ioctl(\|)
 read or write was issued to a block in a cylinder with a number
-greater than or equal to the number of physical cylinders indicated by 
+greater than or equal to the number of physical cylinders indicated by
 the disk geometry from the label or attributes.
 .TP
 .B "id\fIcsf\fP: id_format failed. result \fInum\fP"
-A format operation failed. 
+A format operation failed.
 The code number printed,
 .IR num ,
-is defined in 
+is defined in
 .BR /usr/include/sundev/ipi_driver.h .
 .TP
 .B "id\fIcsf\fP: id_rdwr_deflist failed. result \fInum\fP"
 A read or write defect list operation failed.
 The code number printed,
 .IR num ,
-is defined in 
+is defined in
 .BR /usr/include/sundev/ipi_driver.h .
 .TP
 .B "id\fIcsf\fP: id_realloc failed. result \fInum\fP"
 A reallocation operation failed.
 The code number printed,
 .IR num ,
-is defined in 
+is defined in
 .BR /usr/include/sundev/ipi_driver.h .
 .TP
 .B "id\fIcsf\fP[a-h]: \fIopcode\fP block \fIrel-block\fP (\fIblock\fP abs) idintr: bad rupt \s-1NULL\s0 qdev"
@@ -433,14 +433,14 @@ determined from the controller attributes.
 .TP
 .B "id\fIcsf\fP[a-h]: \fIopcode\fP block \fIrel-block\fP (\fIblock\fP abs) id_error: log read not supported"
 The controller presented status indicating
-that its internal log has 
+that its internal log has
 overflowed and should be read by the host.
 If this message occurs, controllers which
 issue this status are not supported.
 .TP
 .B "id\fIcsf\fP[a-h]: \fIopcode\fP block \fIrel-block\fP (\fIblock\fP abs) id_error: aborted command not supported"
 An interrupt indicated that the associated
-command had been terminated by abort. 
+command had been terminated by abort.
 If this message occurs, the driver does
 not issue aborts or expect this status.
 .TP
@@ -451,14 +451,14 @@ but none was found.
 .TP
 .B "id\fIcsf\fP[a-h]: \fIopcode\fP block \fIrel-block\fP (\fIblock\fP abs) missing interrupt \- attempting recovery"
 The command took much longer than expected,
-indicating a possible problem 
+indicating a possible problem
 with the controller or drive.
 Recovery of the controller will be started,
 and the command will be retried if possible.
 .TP
 .B "id\fIcsf\fP[a-h]: \fIopcode\fP block \fIrel-block\fP (\fIblock\fP abs) missing interrupt \- recovery in progress"
 The command took much longer than expected,
-indicating a possible problem 
+indicating a possible problem
 with the controller or drive.
 Since recovery was already in progress,
 the command was added to the list
@@ -537,11 +537,11 @@ Normally, these messages are not printed when the condition described
 arises.
 They will only be printed if the condition is \*(lqinteresting.\*(rq
 Certain conditions print all of the messages associated with a response,
-even though the individual messages might not be 
+even though the individual messages might not be
 especially interesting.
 .LP
-The description of the message meaning is excerpted from the 
-.SM IPI\s0-3 
+The description of the message meaning is excerpted from the
+.SM IPI\s0-3
 standards document.
 Refer to it for a more complete explanation.
 .TP
@@ -561,7 +561,7 @@ programmed Port Disable command that will take effect when the Disable
 conditions are met.
 .TP
 .B "Message/Microcode Exception.  Port Response."
-A port has executed a Port Response command. 
+A port has executed a Port Response command.
 .TP
 .B "Intervention Required.  Not P-Available."
 The selected addressee is not powered on or is not
@@ -653,7 +653,7 @@ buffer contents are either lost or suspect.
 .TP
 .B "Machine Exception.  Environmental Error."
 Some condition internal or external to the
-addressee has been detected which may cause failure condition(s) \(em 
+addressee has been detected which may cause failure condition(s) \(em
 for example, a temperature sensor alert.
 .TP
 .B "Machine Exception.  Power Fail Alert."
@@ -743,7 +743,7 @@ is invalid.
 .B "Command Exception.  Invalid Selection Address."
 The facility selected at the Physical
 Interface does not match the facility address supplied in the command
-packet. 
+packet.
 .TP
 .B "Command Exception.  Invalid Opcode."
 The command packet contained an invalid or unsupported Opcode.
@@ -760,7 +760,7 @@ The slave has encountered a situation in which it
 cannot process the command because it considers it out of context \(em for
 example, a
 .SB RESUME
-command without a previous 
+command without a previous
 .BR \s-1COPY\s0.
 .TP
 .B "Command Exception.  Invalid Parameter."
@@ -768,7 +768,7 @@ One or more of the parameters in the command
 packet was invalid.
 .TP
 .B "Command Exception.  Missing Parameter."
-One or more of the parameters required in the command is not present. 
+One or more of the parameters required in the command is not present.
 .TP
 .B "Command Exception.  Reserved Value nonzero."
 A reserved value defined by the standard does not contain zero.
@@ -926,7 +926,7 @@ This status is used to advise the master that an otherwise successful
 command did not complete.
 The incomplete command remains on the
 slave's queue, and its Command Reference Number shall remain valid,
-until the command is resumed or aborted. 
+until the command is resumed or aborted.
 .TP
 .B "Incomplete.  Response Packet Truncated."
 The maximum Information Transfer Length

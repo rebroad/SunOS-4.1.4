@@ -85,11 +85,11 @@ is the address of the procedure's argument, and
 .I out
 is the address of where to place the result;
 .I inproc
-is an 
+is an
 .SM XDR
 function used to encode the procedure's parameters, and
 .I outproc
-is an 
+is an
 .SM XDR
 function used to decode the procedure's results.
 This routine returns 0 if it succeeds, or the value of
@@ -99,7 +99,7 @@ Use
 .B clnt_perrno(\|)
 to translate failure statuses into messages.
 .IP
-Warning: 
+Warning:
 Calling remote procedures with this routine uses
 .SM UDP/IP
 as the transport; see
@@ -161,17 +161,17 @@ status.  If
 is
 .SM NULL\s0,
 .B clnt_broadcast(\|)
-returns without waiting for any replies. 
+returns without waiting for any replies.
 .br
 .ne 6
 .IP
-Note: 
+Note:
 .B clnt_broadcast(\|)
 uses
 .SB AUTH_UNIX
 style of authentication.
 .IP
-Warning: 
+Warning:
 Broadcast packets are limited in size to the
 maximum transfer unit of the data link.
 For Ethernet, the callers argument size should not
@@ -207,7 +207,7 @@ is the address of the procedure's argument, and
 .I out
 is the address of where to place the result;
 .I inproc
-is an 
+is an
 .SM XDR
 function used to encode the procedure's parameters in
 .SM XDR\s0,
@@ -241,15 +241,15 @@ is the address of the results, and
 is the
 .SM XDR
 routine describing the results.
-This routine returns 
+This routine returns
 .SM TRUE
 if the results were successfully
 freed,
-and 
+and
 .SM FALSE
 otherwise.
-Note: 
-This is equivalent to doing 
+Note:
+This is equivalent to doing
 .B xdr_free(outproc, out)
 (see
 .BR xdr_simple (3N)).
@@ -289,7 +289,7 @@ A
 .SM NEWLINE
 is appended at the end of the message.
 Used after
-.BR callrpc(\|) 
+.BR callrpc(\|)
 or
 .BR clnt_broadcast(\|) .
 .br
@@ -371,7 +371,7 @@ Unlike
 it does not append the message with a
 .SM NEWLINE\s0.
 .IP
-Note: 
+Note:
 .B clnt_sperror(\|)
 returns pointer to a static buffer that is overwritten
 on each call.

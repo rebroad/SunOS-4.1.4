@@ -173,7 +173,7 @@ This is the only
 user-accessible bucky bit.
 It is ORed in as the 0x80 bit; since this bit is a
 legitimate bit in a character, the only way to distinguish between, for
-example, 0xA0 as 
+example, 0xA0 as
 .SM META\s0+0x20
 and 0xA0 as an 8-bit character is to watch for
 \*(lq\s-1META\s0 key up\*(rq and
@@ -210,14 +210,14 @@ and
 characters.
 .TP
 .SM CTRLS\s0 0x304
-Sends 
+Sends
 .SM CTRL\s0-S
 character and toggles
 .SM NOSCROLL\s0
 key.
 .TP
 .SM CTRLQ\s0 0x305
-Sends 
+Sends
 .SM CTRL\s0-Q
 character and toggles
 .SM NOSCROLL
@@ -431,7 +431,7 @@ sequence is sent:
 .RS
 \s-1ESC\s0[0\|.\|.\|.\.\|9z
 .RE
-where 
+where
 .SM ESC
 is a single escape character and \*(lq0\|.\|.\.\|9\*(rq
 indicates the decimal representation of the function-key value.
@@ -482,7 +482,7 @@ code.
 .IX  "get keyboard translation ioctl"  ""  "get keyboard translation \fLioctl\fP \(em \fLKIOCGTRANS\fP"
 .LP
 The following
-.B ioctl(\|) 
+.B ioctl(\|)
 requests set and retrieve the current translation mode of a keyboard:
 .TP 15
 .SB KIOCTRANS

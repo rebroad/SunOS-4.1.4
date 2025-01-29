@@ -210,13 +210,13 @@ When reporting (and updating) the most recent login date,
 .B login
 performs an
 .BR lseek (2V)
-to a byte-offset in 
-.BR /var/adm/lastlog 
+to a byte-offset in
+.BR /var/adm/lastlog
 corresponding to the userid.  Because
 the count of userids may be high, whereas the number actual users
 may be small within a network environment, the bulk of this file
 may never be allocated by the file system even though an offset
-may appear to be quite large.  
+may appear to be quite large.
 Although
 .BR ls (1V)
 may show it to be large,

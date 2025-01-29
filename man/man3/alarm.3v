@@ -56,7 +56,7 @@ The alarm signal is not sent when one would expect
 for programs that wait one second of clock time between
 successive calls to
 .BR sleep(\|) .
-Each 
+Each
 .B sleep(\|)
 call postpones the alarm signal
 that would have been sent during the requested sleep period

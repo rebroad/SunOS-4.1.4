@@ -22,7 +22,7 @@ third version that includes \*(lqchange mark\*(rq
 .RB ( .mc )
 commands for
 .BR nroff (1)
-and 
+and
 .BR troff (1).
 .I oldfile
 and
@@ -33,25 +33,25 @@ generates
 .IR markedfile ,
 which, contains the text from
 .I newfile
-with 
+with
 .BR troff (1)
 \*(lqchange mark\*(rq requests
 .RB ( .mc )
-inserted where 
+inserted where
 .I newfile
-differs from 
+differs from
 .IR oldfile .
 When
 .I markedfile
 is formatted,
-changed or inserted text is shown by 
+changed or inserted text is shown by
 .B |
 at the right margin of each line.
 The position of deleted text is shown by a single
 .BR * .
 .LP
 .B diffmk
-can also be used in conjunction with the proper 
+can also be used in conjunction with the proper
 .B troff
 requests to produce program listings with marked changes.
 In the following command line:
@@ -59,7 +59,7 @@ In the following command line:
 .ft B
 diffmk old.c new.c marked.c ; nroff reqs marked.c | pr
 .ft R
-.LP 
+.LP
 the file
 .B reqs
 contains the following
@@ -81,13 +81,13 @@ which eliminate page breaks, adjust the line length, set no-fill
 mode, ignore escape characters, and turn off hyphenation,
 respectively.
 .LP
-If the characters 
-.B | 
+If the characters
+.B |
 and
 .B *
-are inappropriate, you might run 
-.I markedfile 
-through 
+are inappropriate, you might run
+.I markedfile
+through
 .BR sed (1V)
 to globally change them.
 .SH SEE ALSO

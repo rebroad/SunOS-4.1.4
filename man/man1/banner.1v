@@ -23,7 +23,7 @@ in large letters on the standard output.
 .SH BUGS
 .LP
 When
-.B banner 
+.B banner
 is used with characters from the top half of the
 Latin-1 character set
 (see

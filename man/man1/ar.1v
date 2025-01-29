@@ -71,7 +71,7 @@ but can be used for any similar purpose.
 .I archive
 is the name of the archive file.
 .I member-file
-is a member file contained in the archive. 
+is a member file contained in the archive.
 If this argument is omitted, the command applies to all entries
 in the archive.  Member names have a maximum of 15 characters,
 except on Sun386i systems, where they have a

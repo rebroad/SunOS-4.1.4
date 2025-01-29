@@ -78,7 +78,7 @@ The
 file can also have lines beginning with a
 .RB ` + '
 (plus sign)
-which means to incorporate entries from the 
+which means to incorporate entries from the
 Network Information Service
 (\s-1NIS\s0).
 There are three styles of
@@ -86,13 +86,13 @@ There are three styles of
 entries in this file: by itself,
 .B +
 means to insert the entire contents
-of the 
+of the
 .SM NIS
 password file at that point;
 .BI + name
 means to insert the entry (if any) for
 .I name
-from the 
+from the
 .SM NIS
 service at that point;
 .BI +@ netgroup
@@ -110,7 +110,7 @@ or
 .I login-shell
 field,
 the value of that field overrides what is
-contained in the 
+contained in the
 .SM NIS
 service.
 The
@@ -124,7 +124,7 @@ The
 file can also have lines beginning with a
 .RB ` \- '
 (minus sign)
-which means to disallow entries from the 
+which means to disallow entries from the
 .SM NIS
 service.
 There are two styles of
@@ -133,7 +133,7 @@ entries in this file:
 .BI \- name
 means to disallow any subsequent entries (if any) for
 .IR name
-(in this file or in the 
+(in this file or in the
 .SM NIS
 service);
 .BI \-@ netgroup
@@ -209,7 +209,7 @@ and
 to assure that they can log in even when
 the system is running standalone.  The user
 .B john
-will have his password entry in the 
+will have his password entry in the
 .SM NIS
 service incorporated without change; anyone in the netgroup
 .B documentation
@@ -259,6 +259,6 @@ gcos-field; for example:
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

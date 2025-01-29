@@ -1,5 +1,5 @@
 .\" @(#)colldef.8 1.1 94/10/31 SMI; from POSIX
-.\" how to print -    troff -t -man colldef.8 | lpr -t 
+.\" how to print -    troff -t -man colldef.8 | lpr -t
 .ds e' \o"e\(ga"
 .TH COLLDEF 8 "30 May 1991"
 .SH NAME
@@ -27,17 +27,17 @@ with other transformed strings by using
 .BR strcmp(\|) ,
 .BR strncmp(\|) ,
 or
-.B memcmp(\|) 
+.B memcmp(\|)
 (see
 .BR string (3)
 and
-.BR memory (3)). 
+.BR memory (3)).
 .BR strcoll (3)
 transforms its arguments and does a comparison.
 .LP
 .B colldef
 reads the collation sequence source definition from the
-standard input and stores the converted definition in 
+standard input and stores the converted definition in
 .IR filename .
 The output file produced contains the database with collating sequence
 information in a form usable by system commands and routines.
@@ -48,22 +48,22 @@ containing these should be ordered.
 This is most useful for different language
 definitions.
 .LP
-The 
+The
 .B colldef
 command can support languages whose mapping and collating
 sequences can be described by the following cases:
 .IP \(bu 4
 Ordering of single characters within the codeset.
-For example, in Swedish, 
+For example, in Swedish,
 .B V
-is sorted after 
+is sorted after
 .BR U ,
-before 
+before
 .B X
-and with 
+and with
 .B W
 .RB ( V
-and 
+and
 .B W
 are considered identical as far as sorting is concerned).
 .IP \(bu 4
@@ -72,13 +72,13 @@ A collection of characters is defined to have the same
 primary sorting value.
 .IP \(bu 4
 Ordering of "double characters" in the collation sequence.
-For example, in Spanish, 
+For example, in Spanish,
 .B ch
-and 
+and
 .B ll
 are collated after
 .B c
-and 
+and
 .BR l ,
 respectively.
 .IP \(bu 4
@@ -93,7 +93,7 @@ Substitution of one character with a character string,
 that is, a one-to-many mapping.
 In the example above, the character
 .B \(*b
-is replaced with 
+is replaced with
 .B ss
 during sorting.
 .IP \(bu 4
@@ -155,12 +155,12 @@ and
 Of these, only the
 .B order
 statement is required.
-When 
+When
 .B charmap
 or
 .B substitute
 is supplied, these statements must be ordered as above.
-Any statements after the 
+Any statements after the
 .B order
 statement are ignored.
 .LP
@@ -178,7 +178,7 @@ collating element symbols to the actual character encoding can be
 found.
 The
 .I charmapfile
-filename cannot be a keyword (for example, 
+filename cannot be a keyword (for example,
 .BR substitute ,
 .BR order ,
 or
@@ -235,7 +235,7 @@ to their respective symbol values.
 .IP
 The symbol names defined in
 .I charmapfile
-can be used in 
+can be used in
 .B order
 statements by enclosing the symbol name in angle brackets,
 .BI < symbol-name >\fR.
@@ -256,7 +256,7 @@ This statement is equivalent to,
 .fi
 .ft R
 .IP
-Symbol names cannot be specified in 
+Symbol names cannot be specified in
 .B substitute
 fields.
 Symbol names also cannot be combined with any other representation,
@@ -282,7 +282,7 @@ statement is optional.
 .TP
 .BI "substitute " char " with " repl
 .IP
-The 
+The
 .B substitute
 statement substitutes
 the character
@@ -310,7 +310,7 @@ by mapping them to the null string.
 	substitute "m" with ""
 .ft R
 .IP
-This is convenient for simplifying 
+This is convenient for simplifying
 .B order
 statements.
 When used with the statement below, the lower-case
@@ -363,19 +363,19 @@ A symbol can be up to two characters in length and can be represented
 in any one of the following ways:
 .RS
 .IP \(bu 4
-The symbol itself (for example, 
+The symbol itself (for example,
 .B a
-for the lower-case letter 
+for the lower-case letter
 .BR a ).
 .IP \(bu 4
-In octal representation (for example, 
+In octal representation (for example,
 .B \e141
 for the letter
 .BR a ).
 .IP \(bu 4
-In hexadecimal representation (for example, 
+In hexadecimal representation (for example,
 .B \ex61
-for the letter 
+for the letter
 .BR a ).
 .IP \(bu 4
 The symbol name as defined in the
@@ -385,7 +385,7 @@ file.
 .IP
 Any combination of these may be used as well.
 .IP
-The backslash character, 
+The backslash character,
 .BR \e ,
 is used for continuation.
 In this case,
@@ -404,9 +404,9 @@ For example,
 .ft R
 .fi
 .IP
-In the above example, 
+In the above example,
 .B e
-and 
+and
 .B \*(e'
 are assigned the
 same primary ordering and different secondary ordering, and digits 1
@@ -415,14 +415,14 @@ no secondary ordering.
 Note that the ellipses cannot be specified within curly brackets.
 Only primary ordering is assigned to the remaining symbols.
 Notice how double letters can be specified in the collating
-sequence (letter 
+sequence (letter
 .B ch
-comes between 
+comes between
 .B c
 and
 .BR d ).
 .IP
-If a character is not included in the 
+If a character is not included in the
 .B order
 statement
 it is excluded from the ordering and will be ignored during sorting.
@@ -484,8 +484,8 @@ substitute "8" with "eight"
 substitute "9" with "nine"
 
 order A;a;B;b;C;c;CH;Ch;ch;D;d;E;e;F;f;\\
-      G;g;H;h:I;i;J;j;K;k;L;l;M;m;N;n;O;o;P;p;\\
-      Q;q;R;r;S;s;T;t;U;u;{V,W};{v,w};X;x;Y;y;Z;z
+	  G;g;H;h:I;i;J;j;K;k;L;l;M;m;N;n;O;o;P;p;\\
+	  Q;q;R;r;S;s;T;t;U;u;{V,W};{v,w};X;x;Y;y;Z;z
 .fi
 .ft R
 .RE
@@ -503,13 +503,13 @@ Errors were found.
 .PD 0
 .TP 10
 .B /etc/locale/\s-1LC_COLLATE\s0/\fIlocale\fP
-standard private location for collation orders under the 
-.I locale 
+standard private location for collation orders under the
+.I locale
 locale
 .TP
 .B /usr/share/lib/locale/\s-1LC_COLLATE\s0/\fIlocale\fP
-standard shared location for collation orders under the 
-.I locale 
+standard shared location for collation orders under the
+.I locale
 locale
 .SH "SEE ALSO"
 .BR memory (3),

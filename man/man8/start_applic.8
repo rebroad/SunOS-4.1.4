@@ -2,7 +2,7 @@
 .TH START_APPLIC 8 "10 March 1989"
 .SH NAME
 start_applic \- generic application startup procedures
-.SH SYNOPSIS 
+.SH SYNOPSIS
 .B /usr/etc/start_applic
 .SH AVAILABILITY
 .LP
@@ -26,7 +26,7 @@ Installing
 (or a customized version of it) in one of these locations
 ensures that no user's or system's environment
 needs to be modified just to run the application.
-Applications are stored in a single tree which is 
+Applications are stored in a single tree which is
 not shared with any other applications.
 This tree may be available on different systems in different places; if
 the application needs to reference its distribution tree, this should be
@@ -65,7 +65,7 @@ The
 assumes very limited availability of software, requires
 administrative procedures to ensure that
 .B /usr/local
-only contains binaries of the local architecture, and does not 
+only contains binaries of the local architecture, and does not
 really account for networked installations.
 It is easier to add support for additional
 architectures using a heterogeneous
@@ -148,10 +148,10 @@ does not need to be registered using
 .BI /export/local/ arch/application
 .PD
 .SH SEE ALSO
-.BR auto.vol (5), 
+.BR auto.vol (5),
 .BR exports (5),
-.BR automount (8), 
-.BR exportfs (8) 
+.BR automount (8),
+.BR exportfs (8)
 .LP
 .I Sun386i SNAP Administration
 .LP

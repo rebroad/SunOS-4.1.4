@@ -30,11 +30,11 @@ given below:
 .SH OPTIONS
 .TP
 .BI \-a " maxcontig"
-This specifies the maximum number of blocks, belonging to 
+This specifies the maximum number of blocks, belonging to
 the same file, that will be
 allocated contiguously before inserting a rotational delay (see
 .B \-d
-below). 
+below).
 .sp
 Formerly, this value was always 1 because neither the device drivers
 nor the Unix file system (UFS) could handle multiple block requests.
@@ -76,19 +76,19 @@ This parameter is limited in the following way:
 .sp
 .I maxphys
 is a read-only kernel variable that specifies
-the maximum block transfer size (in bytes) that 
-the I/O subsystem is capable of satisfying.  On most machines, 
-.I maxphys 
-is 56 Kbytes; on the 
+the maximum block transfer size (in bytes) that
+the I/O subsystem is capable of satisfying.  On most machines,
+.I maxphys
+is 56 Kbytes; on the
 .B sun4c
-architecture it is currently 124 Kbytes which allows 
-.I maxcontig 
+architecture it is currently 124 Kbytes which allows
+.I maxcontig
 to vary from 1 to 15.  This value is subject to change.
-(The limit is enforced by 
+(The limit is enforced by
 .IR mount (2),
-not by 
+not by
 .I newfs
-or 
+or
 .IR mkfs .)
 .TP
 .BI \-d " rotdelay"
@@ -99,7 +99,7 @@ It is used to decide how much rotational spacing to place between
 successive blocks in a file.
 For drives with track buffers a
 .I rotdelay
-of 0 is usually the best choice.  
+of 0 is usually the best choice.
 .TP
 .BI \-e " maxbpg"
 This indicates the maximum number of blocks any single file can

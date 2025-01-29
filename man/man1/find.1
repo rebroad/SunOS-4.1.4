@@ -14,15 +14,15 @@ find \- find files by name, or by other characteristics
 .IX "search for files"
 .LP
 .B find
-recursively descends the directory hierarchy for each 
-pathname in the 
+recursively descends the directory hierarchy for each
+pathname in the
 .IR pathname-list ,
 seeking files that match a logical
 .I expression
-written using the operators listed below.  
+written using the operators listed below.
 .LP
 .B find
-does 
+does
 .I not
 follow symbolic links to other files or directories; it
 applies the selection criteria to the symbolic links themselves,
@@ -30,7 +30,7 @@ as if they were ordinary files (see
 .BR ln (1V)
 for a description of symbolic links).
 .LP
-If the 
+If the
 .I fast-find
 feature is enabled,
 .B find
@@ -39,16 +39,16 @@ displays pathnames in which a filename
 occurs.
 .SH USAGE
 .SS Operators
-In the descriptions, the argument 
+In the descriptions, the argument
 .I n
-is used as a decimal integer where 
+is used as a decimal integer where
 .BI + n
-means more than 
+means more than
 .IR n ,
 .BI \-  n
-means less than 
+means less than
 .IR n ,
-and 
+and
 .I n
 means exactly
 .IR n .
@@ -56,17 +56,17 @@ means exactly
 .TP 15
 .BI \-fstype " type"
 True if the filesystem to which the
-file belongs is of type 
+file belongs is of type
 .IR type ,
-where 
+where
 .I type
 is typically
 .B "4.2"
 or
 .BR "nfs" .
 .TP
-.BI \-name " filename" 
-True if the 
+.BI \-name " filename"
+True if the
 .I filename
 argument matches the current file name.
 Shell argument syntax can be used if escaped (watch out for
@@ -75,11 +75,11 @@ Shell argument syntax can be used if escaped (watch out for
 .BR * ")."
 .TP
 .BI \-perm " onum"
-True if the file permission flags exactly match the octal number 
+True if the file permission flags exactly match the octal number
 .I onum
 (see
 .BR chmod (1V)).
-If 
+If
 .I onum
 is prefixed by a minus sign, more flag bits (017777, see
 .BR chmod (1V))
@@ -94,12 +94,12 @@ tree at the file.  That is, if the current path name is a directory,
 will not descend into that directory.
 .TP
 .BI \-type " c"
-True if the type of the file is 
+True if the type of the file is
 .IR c ,
-where 
+where
 .I c
 is one of:
-.RS 
+.RS
 .RS
 .TP
 .PD 0
@@ -130,18 +130,18 @@ for socket
 .PD
 .TP 15
 .BI \-links " n"
-True if the file has 
+True if the file has
 .I n
 links.
 .TP
 .BI \-user " uname"
-True if the file belongs to the user 
+True if the file belongs to the user
 .IR uname .
-If 
+If
 .I uname
 is numeric and does not appear as a login name in the
 .B /etc/passwd
-database, it is taken as a user 
+database, it is taken as a user
 .SM ID.
 .TP
 .B \-nouser
@@ -152,13 +152,13 @@ in the
 database.
 .TP
 .BI \-group " gname"
-True if the file belongs to group 
+True if the file belongs to group
 .IR gname .
-If 
+If
 .I gname
 is numeric and does not appear as a login name in the
 .B /etc/group
-database, it is taken as a group 
+database, it is taken as a group
 .SM ID.
 .TP
 .B \-nogroup
@@ -169,7 +169,7 @@ in the
 database.
 .TP
 .BI \-size " n"
-True if the file is 
+True if the file is
 .I n
 blocks long (512 bytes per block).
 If
@@ -179,27 +179,27 @@ is followed by a
 the size is in characters.
 .TP
 .BI \-inum " n"
-True if the file has inode number 
+True if the file has inode number
 .IR n .
 .TP
 .BI \-atime " n"
-True if the file has been accessed in 
+True if the file has been accessed in
 .I n
 days.
 .br
-Note: the access time of directories in 
+Note: the access time of directories in
 .I path-name-list
-is changed by 
+is changed by
 .B find
 itself.
 .TP
 .BI \-mtime " n"
-True if the file has been modified in 
+True if the file has been modified in
 .I n
 days.
 .TP
 .BI \-ctime " n"
-True if the file has been changed in 
+True if the file has been changed in
 .I n
 days.
 \*(lqChanged\*(rq means either that the file has been modified or some attribute
@@ -207,13 +207,13 @@ of the file (its owner, its group, the number of links to it, etc.) has been
 changed.
 .TP
 .BI \-exec " command"
-True if the executed 
+True if the executed
 .I command
 returns a zero value as exit status.
-The end of 
+The end of
 .I command
 must be punctuated by an escaped semicolon.
-A command argument 
+A command argument
 .B {\|}
 is replaced by the current pathname.
 .TP
@@ -246,7 +246,7 @@ device numbers.
 If the file is a symbolic link the
 pathname of the linked-to file is printed preceded by
 .RB ` \-> '.
-The format is identical to that of 
+The format is identical to that of
 .B "ls \-gilds"
 (see
 .BR ls (1V)).
@@ -274,7 +274,7 @@ format (5120-byte records).
 .TP
 .BI \-newer " file"
 True if the current file has been modified more recently than the
-argument 
+argument
 .IR filename .
 .TP
 .B \-xdev
@@ -289,31 +289,31 @@ pathname resides.
 .B \-depth
 Always true;
 .B find
-descends the directory hierarchy, 
+descends the directory hierarchy,
 acting on the entries in a directory before
-acting on 
+acting on
 the directory itself.
-This can be useful when 
+This can be useful when
 .B find
 is used with
 .BR cpio (1)
 to transfer files
-that are contained in directories without 
+that are contained in directories without
 write permission.
 .TP
 .BI ( expression )
-True if the parenthesized 
+True if the parenthesized
 .I expression
 is true.
 .br
 Note: Parentheses are special to the shell and must be escaped.
 .TP
 .BI ! primary
-True if the 
+True if the
 .I primary
-is false 
+is false
 .RB ( !
-is the unary 
+is the unary
 .I not
 operator).
 .HP
@@ -323,21 +323,21 @@ operator).
 ]
 .I primary2
 .br
-True if both 
+True if both
 .I primary1
-and 
+and
 .I primary2
 are true.
-The 
+The
 .B \-a
-is not required.  It is implied by the juxtaposition of two 
+is not required.  It is implied by the juxtaposition of two
 primaries.
 .HP
 .IB primary1 " \-o " primary2
 .br
-True if either 
+True if either
 .I primary1
-or 
+or
 .I primary2
 is true
 .RB "(" \-o " is the"
@@ -363,11 +363,11 @@ An alternate database can be specified by setting the
 environment variable.
 .SH EXAMPLE
 .LP
-In our local development system, we keep a file called 
+In our local development system, we keep a file called
 .SM TIMESTAMP
 in all the manual page directories.
 Here is how to find all entries that have
-been updated since 
+been updated since
 .SM TIMESTAMP
 was created:
 .RS
@@ -383,7 +383,7 @@ example%
 .ft R
 .RE
 .LP
-To find all the files called 
+To find all the files called
 .B intro.ms
 starting from the current
 directory:
@@ -404,7 +404,7 @@ example%
 .RE
 .LP
 To recursively print all files names in the current directory and below,
-but skipping 
+but skipping
 .SM SCCS
 directories:
 .RS
@@ -438,7 +438,7 @@ example%
 To remove files beneath your home directory named
 .B a.out
 or
-.B *.o 
+.B *.o
 that have not been accessed for a week
 and that are not mounted using
 .SM NFS\s0:

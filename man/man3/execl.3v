@@ -94,7 +94,7 @@ arguments to
 .B execl(\|)
 are the character strings constituting the file and the arguments; the
 first argument is conventionally the same as the file name (or its last
-component).  A 
+component).  A
 .B (char *)0
 argument must end the argument list.  The cast to type
 .B char *
@@ -241,7 +241,7 @@ is in effect for that file
 .BR pathconf (2V)).
 .TP
 .SM ENOENT
-One or more components of the new process image file's pathname 
+One or more components of the new process image file's pathname
 do not exist.
 .TP
 .SM ENOTDIR

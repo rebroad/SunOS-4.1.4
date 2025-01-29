@@ -67,7 +67,7 @@ tables.
 .fi
 .ft R
 .LP
-Each 
+Each
 .B ioctl(\|)
 takes the same structure as an argument.
 .IX  "ioctls for sockets"  "SIOCSARP"  "\fLioctl\fP's for sockets"  "\fLSIOCSARP\fP \(em set arp entry"

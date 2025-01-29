@@ -3,7 +3,7 @@
 .SH NAME
 old-filemerge \- window-based file comparison and merging program
 .SH SYNOPSIS
-.B /usr/old/filemerge 
+.B /usr/old/filemerge
 [
 .B \-br
 ] [
@@ -18,15 +18,15 @@ old-filemerge \- window-based file comparison and merging program
 .I rightfile
 [
 .I outfile
-] 
+]
 ]
 ]
 .SH DESCRIPTION
-.IX "filemerge command" "" "\fLfilemerge\fR command"  
+.IX "filemerge command" "" "\fLfilemerge\fR command"
 .LP
-Note: This program is considered to be obsolete, and will not be 
+Note: This program is considered to be obsolete, and will not be
 distributed or supported in future Sun releases.
-.LP 
+.LP
 .B filemerge
 is a window-based version of
 .BR diff (1),
@@ -47,7 +47,7 @@ is name of the file containing the merged version.  If
 .I outfile
 is a directory, then the output is placed in the file
 .IB outfile / leftfile.
-If 
+If
 .I outfile
 is omitted, the output file is named
 .B filemerge.\|out
@@ -83,14 +83,14 @@ in the directory
 .IR outfile ).
 The
 .RB \s-1SHIFT\s0- Load
-command button, which is selected by holding the 
+command button, which is selected by holding the
 .SM SHIFT
 key while clicking on the
 .B Load
 button, reads in the next pair named in the list.
 If
 .I listfile
-is 
+is
 .RB ` - ',
 then the list of files is read from the standard input.
 .SH USAGE
@@ -112,9 +112,9 @@ At any given time, one of the displayed ``differences'' is
 .IR current .
 The current difference is indicated by emboldening the
 symbol adjacent to each line, and also by the notation
-.RI `` i 
+.RI `` i
 .B of
-.IR n\|'' 
+.IR n\|''
 displayed in the control panel.  Once a
 difference is current, you can use the
 .B Left
@@ -125,7 +125,7 @@ the right-hand version of the text to
 .IR outfile .
 The
 .B Next
-and 
+and
 .B Prev
 buttons select the next or previous difference, respectively.
 .SS Property Sheet
@@ -136,20 +136,20 @@ set or alter various display and control options.  To bring up
 the property sheet, press the
 .B Props
 function key (typically L3)
-while the mouse is over any part of the 
+while the mouse is over any part of the
 .BR filemerge " window."
 .SS "Menus"
 There are pop-up menus associated with several of the control panel
 items, and a menu associated with the editing subwindow.  The former
 provide to select any command function obtained with a modified
-mouse-button (such as 
+mouse-button (such as
 .RB \s-1SHIFT\s0- Next
 ); the editing subwindow's menu has items that
 control the filename and directory location of the merged output.  To
 bring up a menu, move the mouse-cursor
 to the command button, or to the
-editing subwindow, and hold down the 
-.SM RIGHT 
+editing subwindow, and hold down the
+.SM RIGHT
 mouse-button.  Select a
 desired menu item by releasing the
 mouse-button after moving the cursor
@@ -159,55 +159,55 @@ on top of it.
 .B Next
 Make the next difference current.  The
 subwindow scrolls, if necessary, to display it.
-.IP 
+.IP
 .RB \s-1SHIFT\s0- Next
 12
-Make the first difference current.  (Also a menu item from the 
+Make the first difference current.  (Also a menu item from the
 .B Next
 menu.)
-.TP 
+.TP
 .B Prev
 Make the previous difference current.
-.IP 
+.IP
 .RB \s-1SHIFT\s0- Prev
 12
 Make the last difference current.
-(Also a menu item from the 
+(Also a menu item from the
 .B Prev
 menu.)
-.TP 
+.TP
 .B Right
-Apply right-hand version of the current difference to 
+Apply right-hand version of the current difference to
 .IR outfile .
 If
 .B autoadvance
 is in effect, advance to the next difference.
-.IP 
+.IP
 .RB \s-1SHIFT\s0- Right
 12
 Apply the right-hand version and advance
 to the next difference, unless
 .B autoadvance
 is in effect.
-(Also a menu item from the 
+(Also a menu item from the
 .B Right
 menu.)
-.TP 
+.TP
 .RB \s-1CTRL\s0- Right
 Apply the right-hand version for the current difference, and
 for all subsequent differences up to the end of the file.
-.TP 
+.TP
 .B Left
 Apply the left-hand version of the current difference.
-.TP 
+.TP
 .B Undo
 Undo the last
 .B Right
 or
 .B Left
-operation.  You can 
+operation.  You can
 .B Undo
-up to 100 stacked operations.  You cannot undo an 
+up to 100 stacked operations.  You cannot undo an
 .BR Undo .
 .IP
 .RB \s-1SHIFT\s0- Undo
@@ -216,11 +216,11 @@ Undo all the operations since the last
 .BR Load ,
 or the last
 100 operations.
-.TP 
+.TP
 .B Scroll-Lock
 When in effect, the three text-subwindows scroll in unison.
 Otherwise each subwindow scrolls independently.
-.TP 
+.TP
 .IB i " of " n
 The number of the current difference,
 .IR i ,
@@ -229,41 +229,41 @@ out of
 detected differences.
 Popping up a menu on this item allows you to jump
 to a selected difference.
-.TP 
+.TP
 .B Load
 Load the files whose names appear by the prompts
 .B File1:
 and
 .BR File2: .
-.IP 
+.IP
 .RB \s-1SHIFT\s0- Load
 12
 When the
 .B \-l
 option is used, load the files from the directories shown in
 .B File1
-and 
+and
 .B File2
 corresponding to the next name in the list (taken from the
 .I listfile
 argument).
-.TP 
+.TP
 .B Done
 Save
 .I outfile
 and close the tool.  The name used to save the
-file appears in the namestripe, in the same fashion as 
+file appears in the namestripe, in the same fashion as
 .BR textedit (1).
-.IP 
+.IP
 .RB \s-1SHIFT\s0- Done
 12
 Save without closing.  You can also save the merged version using
 the
 .B Save
 item in the editing subwindow's menu.
-.TP 
+.TP
 .B Quit
-Exit the tool.  You must explicitly save your merged 
+Exit the tool.  You must explicitly save your merged
 .IR outfile ,
 either with the
 .B Done
@@ -284,28 +284,28 @@ The property panel items have the following meanings:
 .TP 12
 .B Apply
 Any changes you have made to the property sheet will now take effect.
-.TP 
+.TP
 .B Reset
 Reset the property sheet to the state it had at the time of
 the last
 .BR Apply .
-.TP 
+.TP
 .B Done
 Close the property sheet.
-.TP 
+.TP
 .B autoadvance
 Advance to the next difference
 after each
 .B Left
 or
 .BR Right operation.
-.TP 
+.TP
 .B Toplines
 Number of lines in the top two subwindows.
-.TP 
+.TP
 .B Bottomlines
 Number of lines in the bottom subwindow.
-.TP 
+.TP
 .B Columns
 Number of columns in the left (and also right) subwindow.
 .RE
@@ -319,14 +319,14 @@ file storing property sheet information
 default output file
 .PD
 .SH SEE ALSO
-.BR diff (1), 
+.BR diff (1),
 .BR sdiff (1V),
 .BR textedit (1)
 .SH BUGS
 .LP
 Using the
 .B Find
-function key gets the subwindows 
+function key gets the subwindows
 out of sync for scrolling.  To resync them, turn
 .B Scroll-Lock
 first off, and then on.

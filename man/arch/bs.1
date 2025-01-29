@@ -7,8 +7,8 @@ bs \- a compiler/interpreter for modest-sized programs
 [ \fIsourcefile\fP [ \fIargs\fP ] ]
 .SH DESCRIPTION
 .I bs
-is a remote descendant of Basic and Snobol4 with a little 
-.B C 
+is a remote descendant of Basic and Snobol4 with a little
+.B C
 language thrown in.
 .I bs
 is designed for programming tasks where program development time
@@ -28,9 +28,9 @@ functions have been written, and vice versa.
 If the command line
 .I sourcefile
 argument is provided, it is used for input before the keyboard is read.
-By default, statements read from 
-.I sourcefile 
-are compiled for later 
+By default, statements read from
+.I sourcefile
+are compiled for later
 execution.  Likewise, statements entered from the keyboard are normally
 executed immediately
 (see
@@ -57,8 +57,8 @@ accepts lines of the following form:
 .PP
 A label and a variable can have the same name.
 .PP
-A 
-.I statement 
+A
+.I statement
 is either an expression or a keyword followed by zero or more expressions.
 Some keywords
 .RB ( clear ,
@@ -89,7 +89,7 @@ Clears the symbol table and compiled statements;
 .B clear
 is executed immediately.
 .HP
-.B compile 
+.B compile
 .RI [ " expression " ]
 .br
 Succeeding statements are compiled (overrides the immediate execution default).
@@ -105,7 +105,7 @@ Transfer to the loop-continuation of the current
 .BR for / while
 loop.
 .HP
-.B dump 
+.B dump
 .RI [ " name " ]
 .br
 The name and current value of every nonlocal variable is printed.
@@ -269,7 +269,7 @@ is supported.
 Only a single
 .B fi
 is required to close an
-\fBif .\|.\|. elif .\|.\|. \fR[ \fBelse .\|.\|. \fR] 
+\fBif .\|.\|. elif .\|.\|. \fR[ \fBelse .\|.\|. \fR]
 sequence.
 .TP
 .BI include " expression"
@@ -367,12 +367,12 @@ An immediate escape to the Shell.
 .TP
 .BR # \ \&.\|.\|.
 Comment.
-A comment is terminated at the next newline. 
-.SS Expressions 
+A comment is terminated at the next newline.
+.SS Expressions
 .TP .75i
 .I name
-A 
-.I name 
+A
+.I name
 is used to specify a variable.  Names are composed of a letter
 (upper or lower case) optionally followed by letters and digits.
 Only the first six characters of a name are significant.
@@ -432,7 +432,7 @@ followed by a possibly signed exponent.
 .I string
 Character strings are delimited by \fB"\fP characters.
 The \fB\e\fP escape character allows the double quote (\fB\e"\fP),
-newline (\fB\en\fP), carriage return (\fB\er\fP), 
+newline (\fB\en\fP), carriage return (\fB\er\fP),
 backspace (\fB\eb\fP), and tab (\fB\et\fP) characters
 to appear in a string.
 Otherwise, \fB\e\fP stands for itself.
@@ -473,7 +473,7 @@ if the comparison is true.
 The interrogation operator
 tests for the success of the expression rather than its value.
 At the moment, it is useful for testing end-of-file
-(see 
+(see
 .SM EXAMPLES,
 below),
 the result of the
@@ -533,23 +533,23 @@ holds true for their operands, or ``0'' otherwise.
 .RS
 .PD 0
 .TP
-\fB<\fP 
+\fB<\fP
 less than
 .TP
-\fB<=\fP 
+\fB<=\fP
 less than or equal to
 .TP
-\fB>\fP 
+\fB>\fP
 greater than
 .TP
-\fB>=\fP 
+\fB>=\fP
 greater than or equal to
 .TP
-\fB==\fP 
+\fB==\fP
 equal to
 .TP
-\fB!=\fP 
-not equal 
+\fB!=\fP
+not equal
 .LP
 Relational operators at the same level extend as follows:
 .RS
@@ -568,13 +568,13 @@ Logical Conjunctions.
 .RS
 .TP
 .B &
-Logical 
+Logical
 .SM AND.
 Has result ``0'' if either of its operands evaluates to ``0''.
 It has result ``1'' if both of its operands are nonzero.
 .TP
 .B |
-Logical 
+Logical
 .SM OR.
 Has result ``0'' if both of its arguments are ``0''.
 It has result ``1'' if either of its arguments is nonzero.
@@ -712,7 +712,7 @@ position and
 .BI mstring( n )
 The
 .I pattern
-is similar to the regular expression syntax of 
+is similar to the regular expression syntax of
 .IR grep (1).
 The characters \fB.\fP, \fB[\fP, \fB]\fP, \*^ (inside
 brackets), \fB*\fP and \fB$\fP are special.
@@ -723,7 +723,7 @@ that occurred between pairs of the pattern symbols \fB\e(\fP and \fB\e)\fP
 for the most recent call to
 .IR match .
 To succeed, patterns must match the beginning of the string
-(as if all patterns began with 
+(as if all patterns began with
 .BR ^ ).
 .IP
 .B match
@@ -745,7 +745,7 @@ The
 argument must be a
 .I bs
 variable name (passed as a string).
-For 
+For
 .BR open() ,
 the
 .I file
@@ -754,8 +754,8 @@ may be
 .PD 0
 .RS
 .TP
-.B 0 
-standard input 
+.B 0
+standard input
 .TP
 .B 1
 standard output
@@ -788,7 +788,7 @@ write without new-line
 .B a
 append
 .RE
-.PD 
+.PD
 .IP
 After a
 .BR close() ,
@@ -821,7 +821,7 @@ returns a single character file-type indication:
 regular file
 .TP
 .B p
-.SM FIFO 
+.SM FIFO
 (named pipe)
 .TP
 .B d
@@ -968,9 +968,9 @@ for more details.
 Available
 .I requests
 are as follows:
-.RS 
+.RS
 .PD 0
-.TP 
+.TP
 .BI plot(0, \ term )
 Further
 .B plot()
@@ -978,26 +978,26 @@ output is piped into
 .IR plot (1G)
 with an argument of
 .BI \-T term.
-.TP 
-.B plot(4) 
+.TP
+.B plot(4)
 ``erase'' the plotter.
-.TP 
+.TP
 .BI plot(2, \ string)
 Label the current point with
 .IR string .
-.TP 
+.TP
 \fBplot(3, \fIx1\fB, \fIy1\fB, \fIx2\fB, \fIy2\fB)
 Draw the line between
 .BI ( x1 , \ y1 )
 and
 .BI ( x2 , \ y2 ).
-.TP 
+.TP
 .BI plot(4,  \ x , \ y ,\ r )
 Draw a circle with center
 .BI ( x , \ y )
 and radius
 .IR r .
-.TP 
+.TP
 \fBplot(5, \fIx1\fB, \fIy1fB, \fIx2\fB, \fIy2\fB, \fIx3\fB, \fIy3\fB)
 Draw an arc (counterclockwise)
 with center
@@ -1008,30 +1008,30 @@ and
 .BI ( x3 , \ y3 ) .
 .IP plot(6)
 Not implemented.
-.TP 
+.TP
 .BI plot(7, \ x , \ y )
 Make the current point
 .BI ( x , \ y ) .
-.TP 
+.TP
 .BI plot(8 , \ x , \ y )
 Draw a line from the current point to
 .BI ( x , \ y ) .
-.TP 
+.TP
 .BI plot(9, \ x , \ y )
 Draw a point at
 .BI ( x , \ y ) .
-.TP 
+.TP
 .BI plot(10, \ string )
 Set the line mode to
 .IR string .
-.TP 
+.TP
 \fBplot(11, \fIx1\fB, \fIy1\fB, \fIx2\fB, \fIy2\fB\|)
 Make
 .BI ( x1 , \ y1 )
 the lower-left corner of the plotting area and
 .BI ( x2 , \ y2 )
 the upper-right corner of the plotting area.
-.TP 
+.TP
 .BI plot(12, \fIx1\fB, \fIy1\fB, \fIx2\fB, \fIy2\fB\|)
 causes subsequent coordinates to be multiplied componentwise by
 .I x1
@@ -1040,7 +1040,7 @@ and
 respectively, and then added to
 .I x2
 and
-.I y2 
+.I y2
 before being plotted.
 The initial scaling is
 .BR "plot(12, 1.0, 1.0, 0.0, 0.0)" .
@@ -1127,5 +1127,5 @@ close("pr")
 .SH SEE ALSO
 ed(1), grep(1), plot(1G), sh(1), access(2), printf(3S), intro(3S), plot(5)
 .br
-See Section\ 3M of the \f2\s-1UNIX\s+1 Interface Reference Manual\fR for a 
+See Section\ 3M of the \f2\s-1UNIX\s+1 Interface Reference Manual\fR for a
 further description of the mathematical functions.

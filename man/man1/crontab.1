@@ -42,12 +42,12 @@ described in
 .LP
 If the file
 .BR /var/spool/cron/cron.allow
-exists, only users whose username appears in it can use 
+exists, only users whose username appears in it can use
 .BR crontab .
 If that file does
 .I not
-exist, however, 
-.B crontab 
+exist, however,
+.B crontab
 checks the
 .B /var/spool/cron/cron.deny
 file to determine if the user
@@ -133,5 +133,5 @@ command with no argument, do not attempt to get out by typing
 This removes all entries in your
 .B crontab
 file.  Instead, exit by typing your interrupt character
-(normally 
+(normally
 \s-1CTRL-C\s0).

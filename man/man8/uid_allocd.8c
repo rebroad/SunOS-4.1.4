@@ -1,8 +1,8 @@
-.\" @(#)uid_allocd.8c 1.1 94/10/31 SMI; 
+.\" @(#)uid_allocd.8c 1.1 94/10/31 SMI;
 .TH UID_ALLOCD 8C "6 October 1989"
 .SH NAME
 uid_allocd, gid_allocd \- UID and GID allocator daemons
-.SH SYNOPSIS 
+.SH SYNOPSIS
 .B /usr/etc/rpc.uid_allocd
 .br
 .B /usr/etc/rpc.gid_allocd
@@ -29,7 +29,7 @@ It maintains a cache of
 by potentially multiple tools (or instances of tools) in
 a distributed system, so that they can create accounts (or groups)
 concurrently.
-It also provides the ability to safely enter a 
+It also provides the ability to safely enter a
 .SM UID
 (\s-1GID\s0) into the
 cache which was allocated using some other method, such as
@@ -39,9 +39,9 @@ Entries in this cache persist for at least
 an hour even through system crashes.
 .LP
 These allocators are available on the system which contains
-the master copy of the list of 
+the master copy of the list of
 .SM UID\s0s
-(or 
+(or
 .SM GID\s0).
 Since this list is currently maintained using the
 Network Information Service
@@ -51,55 +51,55 @@ the service is available on the master of the
 .RB ( group.bygid )
 .SM NIS
 map.
-The service could be provided using a 
+The service could be provided using a
 .SM UID
 database service other than the
 .SM NIS
 service.
 .LP
-This implementation uses 
+This implementation uses
 .SM DES
-authentication (the Sun Secure 
+authentication (the Sun Secure
 .SM RPC
 protocol) to restrict access to this function.
-The only clients privileged to allocate 
+The only clients privileged to allocate
 .SM UID\s0s
 (\s-1GID\s0s) are those whose
 net
 .SM ID\s0s
 are in the
 .I accounts
-group (fixed at 
+group (fixed at
 .SM GID\s0 11).
 All machine
 .SM ID\s0s
-are allowed to allocate 
+are allowed to allocate
 .SM UID\s0s
 (\s-1GID\s0s).
 .LP
 If the file
 .B /etc/ugid_alloc.range
-exists, the allocator only allocates 
+exists, the allocator only allocates
 .SM UID\s0s
 (\s-1GID\s0s) in the range listed there.
 This feature is intended to be used by sites which have
-multiple 
+multiple
 .SM NIS
-domains on their networks; each 
+domains on their networks; each
 .SM NIS
-domain would be assigned a unique range of 
+domain would be assigned a unique range of
 .SM UID\s0s
 (\s-1GID\s0s).
-If the file exists, and the local 
+If the file exists, and the local
 .SM NIS
-domain is not explicitly assigned a unique range of 
+domain is not explicitly assigned a unique range of
 .SM UID\s0s
-or 
+or
 .SM GID\s0,
 none will be allocated.
-Without a mechanism to ensure that 
+Without a mechanism to ensure that
 .SM UID\s0s
-are uniquely assigned between 
+are uniquely assigned between
 .SM NIS
 domains that share resources, normal
 .SM NFS
@@ -107,7 +107,7 @@ security mechanisms (excluding Secure
 .SM NFS\s0)
 may fail to serve
 as an advisory security mechanism.
-Common alternative methods for ensuring 
+Common alternative methods for ensuring
 .SM UID
 uniqueness
 include using a function of some preexisting identifier
@@ -140,15 +140,15 @@ for the entire site.
 .BR logintool (8)
 .SH BUGS
 .LP
-Using 
+Using
 .SM UID
 (\s-1GID\s0) ranges does not solve the problem that two different
-machines, or groups of machines, may assign different meaning to a given 
+machines, or groups of machines, may assign different meaning to a given
 .SM UID
 (\s-1GID\s0).
 .LP
 The current implementation of the daemon is tuned towards small
-lists of active 
+lists of active
 .SM UID\s0s
 (\s-1GID\s0s), both in the
 .SM NIS
@@ -160,6 +160,6 @@ service and in the cache it maintains.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

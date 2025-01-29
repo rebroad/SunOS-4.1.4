@@ -7,7 +7,7 @@ svidiii \- SVIDIII lint library
 .I svidiii_src.c
 .SH AVAILABILITY
 .LP
-This environment is not fully tested under SunOS Release 4.1 as there is 
+This environment is not fully tested under SunOS Release 4.1 as there is
 no test suite available.
 The environment that is believed to closely approximate a
 .SM SVIDIII
@@ -31,9 +31,9 @@ functions described by the
 .SM SVIDIII
 document.
 This man page does not imply that
-the functions supported by SunOS Release 4.1 and the functions described by the 
+the functions supported by SunOS Release 4.1 and the functions described by the
 .SM SVIDIII
-document perform identically.  
+document perform identically.
 The
 .SM SVIDIII
 lint library is intended solely as a porting aid.
@@ -44,12 +44,12 @@ lint library
 consists exclusively of
 .SM SVIDIII
 functions.  Users may lint
-their code with the 
+their code with the
 .B "\-n \-lsvidiii"
-options to catch all non-\s-1SVIDIII\s0 features.  
+options to catch all non-\s-1SVIDIII\s0 features.
 .SH FILES
 .PD 0
-.TP 25 
+.TP 25
 .B /usr/5lib/lint/llib-lsvidiii*
 .SM SVIDIII
 C lint library

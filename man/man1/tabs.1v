@@ -18,11 +18,11 @@ software installation option.  Refer to
 .TX INSTALL
 for information on how to install optional software.
 .SH DESCRIPTION
-.IX "tabs command" "" "\fLtabs\fR command"  
+.IX "tabs command" "" "\fLtabs\fR command"
 .LP
 .B tabs
 can be used to specify
-.SM TAB 
+.SM TAB
 stops on terminals that support
 remotely-settable hardware
 .SM TAB
@@ -83,7 +83,7 @@ otherwise set them to every 8 columns.
 This type of specification may be used to make sure that a file containing a
 .SM TAB
 specification is displayed with correct
-.SM TAB 
+.SM TAB
 settings.  For example, it can be used with the
 .BR pr (1V)
 command:
@@ -174,7 +174,7 @@ flag is given explicitly.
 .\"An invalid predefined code was specified.
 .\".TP
 .\".B can't open
-.\"The file named in the 
+.\"The file named in the
 .\".BI \-\|\- file
 .\"option could not be opened.
 .\".TP

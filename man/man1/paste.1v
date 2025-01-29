@@ -3,7 +3,7 @@
 .SH NAME
 paste \- join corresponding lines of several files, or subsequent lines of one file
 .SH SYNOPSIS
-.B paste 
+.B paste
 .I filename1
 .I filename2
 \&.\|.\|.
@@ -111,7 +111,7 @@ the very last character of the file is forced to be a
 .\".TP
 .\"\fBls \|\(bv\| paste \|\-d" " \|\-\fR
 .\"List directory in one column.
-.LP 
+.LP
 List directory in four columns:
 .IP
 .B "ls | paste\|\-\|\-\|\-\|\-"

@@ -13,7 +13,7 @@ unix2dos \- convert text file from ISO format to DOS format
 [
 .B \-7
 ]
-.I originalfile 
+.I originalfile
 .I convertedfile
 .SH DESCRIPTION
 .IX unix2dos "" "\fLunix2dos\fR \(em convert text file from ISO format to SunOS DOS format"
@@ -29,9 +29,9 @@ This command may be invoked from either
 .SM DOS
 or SunOS.
 However, the filenames must conform to
-the conventions of the environment in which the command is invoked.  
+the conventions of the environment in which the command is invoked.
 .LP
-If the original file and the converted file are the same, 
+If the original file and the converted file are the same,
 .B unix2dos
 will rewrite the original file after converting it.
 .SH OPTIONS
@@ -41,14 +41,14 @@ Adds carriage returns and converts end of file characters in SunOS format
 text files to conform to
 .SM DOS
 requirements.
-.TP 
+.TP
 .B \-iso
 This is the default.  Converts
 .SM ISO
 standard characters to the corresponding character in the
 .SM DOS
 extended character set.
-.TP 
+.TP
 .B \-7
 Convert 8 bit SunOS characters to 7 bit
 .SM DOS
@@ -63,11 +63,11 @@ exist, or you do not have read permission (check with the SunOS command
 .B "Bad output filename \fIfilename\fP, or no write permission
 The output file you specified
 is either invalid, or you do not have write permission for that
-file or the directory that contains it.  Check also that the drive or diskette 
+file or the directory that contains it.  Check also that the drive or diskette
 is not write-protected.
 .TP
 .B "Error while writing to temporary file
-An error occurred while converting your file, possibly because 
+An error occurred while converting your file, possibly because
 there is not enough space on the current drive.  Check the amount of
 space on the current drive using the
 .SM DIR

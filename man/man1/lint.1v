@@ -6,12 +6,12 @@ lint \- a C program verifier
 .B lint
 [
 .B \-abchinquvxz
-] 
+]
 [
 .BI \-D name\fR\|[ = def\|\fR]
 ]
 [
-.BI \-host= arch 
+.BI \-host= arch
 ]
 .if n .ti +0.5i
 [
@@ -38,7 +38,7 @@ lint \- a C program verifier
 .BI \-C library
 ]
 [
-.BI \-D name\fR\|[ = def\|\fR] 
+.BI \-D name\fR\|[ = def\|\fR]
 ]
 .if n .ti +0.5i
 [
@@ -51,7 +51,7 @@ lint \- a C program verifier
 .BI \-l library
 ]
 [
-.BI \-target= arch 
+.BI \-target= arch
 ]
 .if t .ti +.5i
 [
@@ -63,7 +63,7 @@ lint \- a C program verifier
 .B /usr/5bin/lint
 [
 .B \-abcghnpquvxzO
-] 
+]
 [
 .BI \-D name\fR\|[ = def\|\fR]
 ]
@@ -247,9 +247,9 @@ values to variables that are not
 Report
 .B break
 statements that cannot be reached.
-This is not the default because, unfortunately, most 
+This is not the default because, unfortunately, most
 .BR lex (1)
-and many 
+and many
 .BR yacc (1)
 outputs produce many such complaints.
 .TP
@@ -261,13 +261,13 @@ Apply a number of heuristic tests to attempt to intuit bugs, improve style,
 and reduce waste.
 .TP
 .B \-i
-Produce a 
+Produce a
 .B \&.ln
-file for every 
+file for every
 .B \&.c
-file on the command line.  These 
+file on the command line.  These
 .B \&.ln
-files are the product of 
+files are the product of
 .BR lint 's
 first pass only, and are not checked for compatibility
 between functions.
@@ -315,20 +315,20 @@ Do not complain about structures that are never defined (for example,
 using a structure pointer without knowing its contents).
 .TP
 .BI \-C library
-Create a 
+Create a
 .B lint
 library with the name
 .BI llib-l library .ln\fR.
 .TP
 .BI \-D name\fR[ = def\fR]
-Define 
+Define
 .I name
-for 
+for
 .BR cpp (1),
 as if by a
 .B #define
 directive.
-If no definition is given, 
+If no definition is given,
 .I name
 is defined as 1.
 .TP
@@ -350,11 +350,11 @@ Add
 .I directory
 to the list of list of directories in which to search for
 include files.  Include files with names that do not begin
-with 
+with
 .B /
 are always sought first in the directory of the
 .I filename
-argument, then in directories named in 
+argument, then in directories named in
 .B \-I
 options, then in the
 .B /usr/include
@@ -371,8 +371,8 @@ directory.
 Name the output file
 .IR outputfile .
 .I outputfile
-cannot be the same as 
-.I sourcefile 
+cannot be the same as
+.I sourcefile
 .RB ( lint
 will not overwrite the source file).
 .TP
@@ -380,7 +380,7 @@ will not overwrite the source file).
 Define the target architecture to be
 .IR arch ,
 for additional portability checks specific to that architecture.
-The default is the value returned by the 
+The default is the value returned by the
 .BR arch (1)
 command.
 .I arch
@@ -499,9 +499,9 @@ below).
 .ne 7
 .SH USAGE
 .LP
-For more information about 
+For more information about
 .B lint
-refer to 
+refer to
 .B lint
 in
 .TX PUL
@@ -543,7 +543,7 @@ The data types of the first
 .I n
 arguments are checked; a missing
 .I n
-is taken to be 0.  In this version of 
+is taken to be 0.  In this version of
 .BR lint ,
 .SB /*VARARGS0*/
 is allowed.  It no longer indicates the absence of variable
@@ -626,7 +626,7 @@ example% lint  \-b  myfile.c
 .LP
 checks the consistency of the code in the C source file file
 .BR myfile.c .
-The 
+The
 .B \-b
 option indicates that unreachable
 .B break

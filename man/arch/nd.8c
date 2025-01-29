@@ -26,15 +26,15 @@ The available commands are:
 .B user
 .I "hostname hisunit mydev myoff mysize mylunit maxpkts"
 .br
-For the client 
+For the client
 .I hostname
-transform incoming requests for 
+transform incoming requests for
 .I hisunit
-into server device 
+into server device
 .I mydev
 at offset
 .I myoff
-and size 
+and size
 .I mysize
 sectors.
 When responding to a read reequest, allow at most
@@ -43,7 +43,7 @@ packets to be outstanding at one time without a reply.
 .RI /dev/ndl mylunit
 provides a local name for this disk ``subpartition''.  If
 .I mysize
-is \-1, then this user unit is equivalent 
+is \-1, then this user unit is equivalent
 to the entire filesystem partition
 .I mydev
 (no subpartioning is done.)
@@ -97,7 +97,7 @@ commands.
 .HP
 .B soff
 .br
-Stops the disk server until a subsequent 
+Stops the disk server until a subsequent
 .B son
 command.
 .HP

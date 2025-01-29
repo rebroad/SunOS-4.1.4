@@ -3,7 +3,7 @@
 .SH NAME
 intro \- introduction to compatibility library functions
 .SH DESCRIPTION
-.IX  introduction  "compatibility library functions" 
+.IX  introduction  "compatibility library functions"
 .IX  "compatibility library functions, introduction to"
 .IX  "library functions" "introduction to compatibility"
 These functions constitute the compatibility library portion

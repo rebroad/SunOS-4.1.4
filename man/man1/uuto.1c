@@ -24,8 +24,8 @@ software  installation  option.   Refer to
 .TX INSTALL
 for information on how to install optional software.
 .SH DESCRIPTION
-.IX "uuto command" "" "\fLuuto\fR command"  
-.IX "uupick command" "" "\fLuupick\fR command"  
+.IX "uuto command" "" "\fLuuto\fR command"
+.IX "uupick command" "" "\fLuupick\fR command"
 .SS uuto
 .LP
 .B uuto
@@ -112,7 +112,7 @@ If
 is not specified as a complete path name (in which
 .SB $HOME
 is legitimate), a destination relative to the current directory is
-assumed. 
+assumed.
 If no destination is given, the default is the current
 directory.
 .TP

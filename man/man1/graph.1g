@@ -18,10 +18,10 @@ graph \- draw a graph
 .if n .ti +0.5i
 [
 .B \-g
-.I gridstyle 
+.I gridstyle
 ]\ \ [
 .B \-l
-.I label 
+.I label
 ]
 .if t .ti +0.5i
 [
@@ -58,7 +58,7 @@ graph \- draw a graph
 .if n .ti +0.5i
 [
 .B \-h
-.I fraction 
+.I fraction
 ]\ \ [
 .B \-w
 .I fraction
@@ -70,7 +70,7 @@ graph \- draw a graph
 .if t .ti +0.5i
 [
 .B \-u
-.I fraction 
+.I fraction
 ]\ \ [
 .B \-t
 ] .\|.\|.
@@ -79,17 +79,17 @@ graph \- draw a graph
 .IX "draw graph"
 .B graph
 with no options takes pairs of numbers from the standard input
-as abscissaes and ordinates of a graph. 
-Successive points are connected by straight lines. 
-The standard output from 
+as abscissaes and ordinates of a graph.
+Successive points are connected by straight lines.
+The standard output from
 .B graph
 contains plotting instructions (see
 .BR plot (5))
-suitable for input to 
+suitable for input to
 .BR plot (1G)
 or to the command
 .B "lpr \-g"
-(see 
+(see
 .BR lpr (1)).
 .LP
 If the coordinates of a point are followed by a nonnumeric string, that
@@ -114,7 +114,7 @@ upper limit, the axis is reversed.
 Supply abscissaes automatically (they are missing from
 the input);
 .I spacing
-is the spacing (default 1). 
+is the spacing (default 1).
 .I start
 is the starting point for automatic abscissaes
 (default 0 or lower limit given by
@@ -144,7 +144,7 @@ for other small integers.
 .B  \-s
 Save screen, do not erase before plotting.
 .HP
-.BI "\-x [ l ] " lower " [ " upper 
+.BI "\-x [ l ] " lower " [ " upper
 .BI [ " spacing " "] ]"
 .br
 If
@@ -155,13 +155,13 @@ axis is logarithmic.
 .IR lower " and " upper
 are lower (and upper)
 .IR x ""
-limits. 
+limits.
 .IR spacing ,
 if present, is grid spacing on
 .I x
 axis.  Normally these quantities are determined automatically.
 .HP
-.BI "\-y [ l ] " lower " [ " upper 
+.BI "\-y [ l ] " lower " [ " upper
 .BI [ " spacing " "] ]"
 .br
 If
@@ -172,7 +172,7 @@ axis is logarithmic.
 .IR lower " and " upper
 are lower (and upper)
 .IR y ""
-limits. 
+limits.
 .IR spacing ,
 if present, is grid spacing on
 .I y

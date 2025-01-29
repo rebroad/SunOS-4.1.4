@@ -24,18 +24,18 @@ after altering the execution environment to make
 .I command
 to be interrutable.
 .LP
-Since interactive commands are by default interruptable, 
+Since interactive commands are by default interruptable,
 .B intr
 is intended for use as a wrapper around commands started by the
 .B /etc/rc
 files;
 commands spawned from these files are not interruptable
 by default.
-It has no other intended use than as a wrapper around 
-.B /etc/rc 
+It has no other intended use than as a wrapper around
+.B /etc/rc
 commands.
 .LP
-The following signals are ignored as a result of wrapping 
+The following signals are ignored as a result of wrapping
 .B intr
 around a command:
 .RS
@@ -62,16 +62,16 @@ quit signal
 .SH OPTIONS
 .TP 10
 .B \-v
-Echo the command in the form 
+Echo the command in the form
 .I ' command'
-(note leading 
+(note leading
 .SM SPACE\s0).
 .TP
-.B \-a 
+.B \-a
 Echo the command and its arguments.
 .TP
 .B \-n
-Do not echo a 
+Do not echo a
 .SM NEWLINE
 after the command or arguments (for example
 .RB ` "echo \-n .\|.\|." ').
@@ -79,7 +79,7 @@ after the command or arguments (for example
 .BI \-t " secs"
 Arrange to have a
 .SB SIGALRM
-signal delivered to the command in 
+signal delivered to the command in
 .I secs
 seconds.
 .SH EXAMPLES

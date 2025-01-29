@@ -94,8 +94,8 @@ as the
 .I s.filename
 argument indicates that the names of files are to be read from the
 standard input, one
-.BR s. file 
-per line.  
+.BR s. file
+per line.
 .SH OPTIONS
 .TP
 .B \-b
@@ -126,7 +126,7 @@ inhibits writing on the file; and so nullifies the effect of any
 other options.
 .TP
 .B \-n
-Create a new 
+Create a new
 .SM SCCS
 history file.
 .TP
@@ -212,7 +212,7 @@ The floor is a number greater than 0 but less than
 is not set, the floor is 1.
 .TP
 .BI d sid
-The default delta number, or 
+The default delta number, or
 .SM SID,
 to be used by an
 .SM SCCS
@@ -257,7 +257,7 @@ empty releases when releases are skipped.  These null (empty) deltas
 serve as anchor points for branch deltas.
 .TP
 .BI q value
-Supply a 
+Supply a
 .I value
 to which the
 .B %\&Q%
@@ -361,7 +361,7 @@ initial deltas are named 1.1 by default.
 .BI \-t\fR\|[\fP description-file\fR]
 Insert descriptive text from the file
 .IR description-file .
-When 
+When
 .B \-t
 is used in conjunction with
 .BR \-n ,
@@ -410,12 +410,12 @@ subdirectory
 temporary lock file
 .PD
 .SH WARNINGS
-The last component of all 
+The last component of all
 .SM SCCS
 filenames must have the
 .RB ` s. '
 prefix.
-New 
+New
 .SM SCCS
 files are given mode 444 (see
 .BR chmod (1V)).
@@ -431,28 +431,28 @@ file.  After successful execution of
 .BR admin ,
 the existing
 .B s.
-file is removed and replaced with the 
+file is removed and replaced with the
 .BR x. file.
-This ensures that changes are made to the 
+This ensures that changes are made to the
 .SM SCCS
 file only when no errors have occurred.
 .LP
-It is recommended that directories containing 
+It is recommended that directories containing
 .SM SCCS
 files have permission mode 755,
-and that the 
+and that the
 .BR s. files
 themselves have mode 444.
 The  mode for directories allows only the owner to modify the
 .SM SCCS
 files contained in the directories, while
-the mode of the 
+the mode of the
 .BR s. files
 prevents all modifications except those performed using
 .SM SCCS
 commands.
 .LP
-If it should be necessary to patch an 
+If it should be necessary to patch an
 .SM SCCS
 file for any reason,
 the mode may be changed to 644 by the owner to allow use of a text

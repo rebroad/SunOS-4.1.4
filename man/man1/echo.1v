@@ -7,13 +7,13 @@ echo \- echo arguments to the standard output
 [
 .B \-n
 ]
-[ 
-.I argument 
+[
+.I argument
 .B .\|.\|.
 ]
 .SH SYSTEM V SYNOPSIS
 .B /usr/5bin/echo
-.I argument 
+.I argument
 .B .\|.\|.
 .SH AVAILABILITY
 The System V version of this command is available with the
@@ -26,9 +26,9 @@ for information on how to install optional software.
 .IX "echo command"  ""  "\fLecho\fP \(em echo arguments"
 .LP
 .B echo
-writes its arguments on the standard output.  Arguments must be separated by 
+writes its arguments on the standard output.  Arguments must be separated by
 .SM SPACE
-characters or 
+characters or
 .SM TAB
 characters, and terminated by a
 .SM NEWLINE.
@@ -38,28 +38,28 @@ is useful for producing diagnostics in shell programs and for writing constant
 data on pipes.  If you are using the Bourne shell
 .RB ( sh (1)),
 you
-can send diagnostics to the standard error file by typing: 
+can send diagnostics to the standard error file by typing:
 .RS
 .B
 echo .\|.\|.  >&2
 .RE
 .SH SYSTEM V DESCRIPTION
 .LP
-Note: 
-If 
+Note:
+If
 .B /usr/5bin
 is ahead of
 .B /usr/bin
-in the Bourne shell's search path, its built-in 
-.B echo 
-command mimics the System V version of 
+in the Bourne shell's search path, its built-in
+.B echo
+command mimics the System V version of
 .B echo
 as described here.
 .LP
 .B echo
 also
-understands C \-like 
-escape conventions; beware of conflicts with the shell's use of 
+understands C \-like
+escape conventions; beware of conflicts with the shell's use of
 .RB ` \e ' :
 .RS
 .PD 0
@@ -84,14 +84,14 @@ Print line without
 .SM TAB
 .TP
 .B \ev
-vertical 
+vertical
 .SM TAB
 .TP
 .B \e\e
 backslash
 .TP
 .BI \e n
-the 8-bit character whose 
+the 8-bit character whose
 .SM ASCII
 code is
 the 1-, 2-, 3- or 4-digit octal number
@@ -99,9 +99,9 @@ the 1-, 2-, 3- or 4-digit octal number
 The first digit must be zero.
 .RE
 .SH OPTIONS
-.TP 
+.TP
 .B \-n
-Do not add the 
+Do not add the
 .SM NEWLINE
 to the output.
 .SH SEE ALSO

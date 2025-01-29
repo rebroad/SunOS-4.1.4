@@ -21,32 +21,32 @@ is a script for commands that are pertinent only
 to a specific site or client machine.
 .LP
 .B rc.boot
-sets the machine name and, if on SunOS 4.1.1 Rev B or later, invokes 
+sets the machine name and, if on SunOS 4.1.1 Rev B or later, invokes
 .BR ifconfig ,
-which uses 
-.SB RARP 
-to obtain the machine's 
-.SM IP 
-address from the 
-.SM NIS 
-network.  Then a \*(lqwhoami\*(rq 
+which uses
+.SB RARP
+to obtain the machine's
+.SM IP
+address from the
+.SM NIS
+network.  Then a \*(lqwhoami\*(rq
 bootparams request is used to retrieve the system's
-hostname, 
-.SM NIS 
+hostname,
+.SM NIS
 domain name and default router.
 The
 .B ifconfig
 and
 .B hostconfig
-programs set the system's hostname, 
-.SM IP 
-address, 
-.SM NIS 
+programs set the system's hostname,
+.SM IP
+address,
+.SM NIS
 domain name,
 and default router in the kernel.
 .LP
-If coming up multi-user, 
-.B rc.boot 
+If coming up multi-user,
+.B rc.boot
 runs
 .BR fsck (8)
 with the
@@ -83,7 +83,7 @@ which mounts
 filesystems, runs
 .B sysIDtool
 (if on SunOS 4.1.1 Rev B or later)
-to set the system's configuration information into local 
+to set the system's configuration information into local
 configuration files, and starts local daemons.  After
 .B rc.local
 returns,
@@ -94,21 +94,21 @@ starts system accounting (if applicable), starts the network
 (where applicable), and if enabled, runs
 .BR savecore (8)
 to preserve the core image after a crash.
-.SH Sun386i 
+.SH Sun386i
 These files
 operate as described above with the following variations:
 .LP
 .BR fsck (8)
-is invoked with the 
+is invoked with the
 .B \-y
 option to prevent users being put in single-user mode by happenstance.
 .LP
 .B rc.boot
-invokes 
+invokes
 .BR netconfig (8C)
 to configure the system for the network before
-booting. 
-.B netconfig 
+booting.
+.B netconfig
 is invoked before the
 .B /usr
 filesystem is mounted, because
@@ -119,7 +119,7 @@ writes
 .B /etc/net.conf
 unless the
 .B \-n
-option is specified, controlling system booting. 
+option is specified, controlling system booting.
 .LP
 .B rc.boot
 dynamically loads device drivers.
@@ -127,44 +127,44 @@ dynamically loads device drivers.
 .B rc
 invokes any programs found in
 .B /var/recover
-to clean up any operations partially completed when the system 
-crashed or was shut down.  
+to clean up any operations partially completed when the system
+crashed or was shut down.
 .LP
 .B rc.local
 starts the automounter.
 .LP
 The file
-.B /etc/net.conf 
+.B /etc/net.conf
 stores these environment variables:
 The
 .SB VERBOSE
 environment variable controls the verbosity of the messages from the
 .B rc
 script; its value is taken from
-\fB\s-1NVRAM\s0\fP. 
+\fB\s-1NVRAM\s0\fP.
 The
 .SB NETWORKED
-environment variable controls whether services useful 
+environment variable controls whether services useful
 only on a networked system are started in
-.BR /etc/rc.local . 
-The 
+.BR /etc/rc.local .
+The
 .SB PNP
 environment variable, set up during initial system installation,
 controls whether local network configuration information is used
-or whether that information comes from the network. 
+or whether that information comes from the network.
 (Using automatic system installation causes all systems
 except boot servers to get this information
 from the network, facilitating network reconfiguration.)
-The 
+The
 .SB HOSTNAME
-and 
+and
 .SB DOMAINNAME
 environment variables, used together, help determine if this system is
 a boot server or, with
 .SB PNP
-set to 
+set to
 .BR no ,
-control the host name and domain name. 
+control the host name and domain name.
 .SH FILES
 .PD 0
 .TP 20
@@ -177,7 +177,7 @@ control the host name and domain name.
 .B /etc/net.conf
 .TP
 .B /var/recover/*
-.TP 
+.TP
 .B /var/yp/*
 .TP
 .B /tmp

@@ -75,11 +75,11 @@ Otherwise, if the destination has a \*(lqlocal address part\*(rq of
 \fB\s-1INADDR_ANY\s0\fP,
 then the route is
 assumed to be to a network; otherwise, it is presumed to be a
-route to a host.  
+route to a host.
 If the route is to a destination connected
 by a gateway, the
 .I metric
-parameter should be greater than 0.  
+parameter should be greater than 0.
 If adding a route with metric 0,
 the gateway given is the address of this host on the common network,
 indicating the interface to be used directly for transmission.

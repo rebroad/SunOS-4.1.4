@@ -197,27 +197,27 @@ passed to
 .ne 5
 .LP
 .B waitpid(\|)
-behaves identically to 
+behaves identically to
 .B wait(\|)
-if 
-.I pid 
-has a value of \-1 and 
-.I options 
+if
+.I pid
+has a value of \-1 and
+.I options
 has a value of zero.
-Otherwise, 
+Otherwise,
 the behavior of
 .B waitpid(\|)
 is modified by the values
-of 
+of
 .I pid
 and
 .I options
 as follows:
 .LP
-.I pid 
+.I pid
 specifies a set of child processes for which status is
 requested.
-.B waitpid(\|) 
+.B waitpid(\|)
 only returns the status of a child process from this set.
 .LP
 .RS
@@ -226,7 +226,7 @@ only returns the status of a child process from this set.
 If
 .I pid
 is equal to \-1,
-status is requested for any child process. 
+status is requested for any child process.
 In this repect,
 .B waitpid(\|)
 is then equivalent to
@@ -253,7 +253,7 @@ is equal to that of the calling process.
 If
 .I pid
 is less than \-1,
-status is requested for any child process 
+status is requested for any child process
 whose process group
 .SM ID
 is equal to the absolute value of
@@ -271,16 +271,16 @@ defined in the header
 .TP
 .SB WNOHANG
 .B waitpid(\|)
-does not suspend execution of the 
-calling process if status is not immediately available for one 
+does not suspend execution of the
+calling process if status is not immediately available for one
 of the child processes specified by
 .IR pid .
 .TP
 .SB WUNTRACED
-The status of any 
+The status of any
 child processes specified by
 .I pid
-that are stopped, and whose 
+that are stopped, and whose
 status has not yet been reported since they stopped,
 are also reported to the requesting process.
 .RE
@@ -407,8 +407,8 @@ or the value the child process returned from
 .LP
 If the information stored at the location pointed to by
 .I statusp
-was stored there by a call to 
-.B waitpid(\|) 
+was stored there by a call to
+.B waitpid(\|)
 that specified the
 .SB WUNTRACED
 flag, exactly one of the macros
@@ -420,13 +420,13 @@ will evaluate to a non-zero value.
 If the information stored at the location pointed to
 by
 .I statusp
-was stored there by a call to 
+was stored there by a call to
 .B waitpid(\|)
 that did
 .I not
 specify the
 .SB WUNTRACED
-flag or by a call to 
+flag or by a call to
 .BR wait(\|) ,
 exactly one of the macros
 .BI \s-1WIFEXITED\s0(* statusp )
@@ -467,17 +467,17 @@ is returned and
 .B errno
 is set to indicate the error.
 .LP
-If 
+If
 .B wait(\|)
 or
-.B waitpid(\|) 
+.B waitpid(\|)
 return due to the delivery of a signal to the calling process,
 a value of \-1 is
 returned and
 .B errno
-is set to 
+is set to
 .SM EINTR\s0.
-If 
+If
 .B waitpid(\|)
 function was invoked with
 .SB WNOHANG
@@ -532,7 +532,7 @@ The value of the location pointed to by
 .I statusp
 is undefined.
 .LP
-.B waitpid(\|) 
+.B waitpid(\|)
 may set
 .B errno
 to:
@@ -549,8 +549,8 @@ The value of the location pointed to by
 is undefined.
 .TP
 .SM EINVAL
-The value of 
-.I options 
+The value of
+.I options
 is not valid.
 .LP
 .BR wait(\|) ,

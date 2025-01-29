@@ -160,7 +160,7 @@ value of either
 or one of the system's valid
 .SM IP
 addresses.
-Requests to bind any other address will elicit the error 
+Requests to bind any other address will elicit the error
 .SM EADDRNOTAVAIL\s0.
 When a
 .BR connect (2)

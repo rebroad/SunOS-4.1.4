@@ -32,20 +32,20 @@ pid_t pgrp_id;
 .IX "set" "foreground process group ID"
 .IX "group ID" "set foreground process group ID"
 .LP
-.B tcgetpgrp(\|) 
+.B tcgetpgrp(\|)
 returns the value of the process group
 .SM ID
 of the foreground process group associated with the terminal (see
 .SM NOTES\s0).
 .B tcgetpgrp(\|)
-is allowed from a process that is a member 
+is allowed from a process that is a member
 of a background process group;
-however, the information may be 
-subsequently changed by a process that is a member of a foreground 
+however, the information may be
+subsequently changed by a process that is a member of a foreground
 process group.
 .LP
 If the process has a controlling terminal,
-.B tcsetpgrp(\|) 
+.B tcsetpgrp(\|)
 sets the foreground process group
 .SM ID
 associated with the terminal to
@@ -86,7 +86,7 @@ on failure and sets
 to indicate the error.
 .SH ERRORS
 .LP
-If any of the following conditions occur, 
+If any of the following conditions occur,
 .B tcgetpgrp(\|)
 sets
 .B errno
@@ -105,19 +105,19 @@ The calling process does not have a controlling terminal.
 .IP
 The file is not the controlling terminal.
 .LP
-If any of the following conditions occur, 
+If any of the following conditions occur,
 .B tcsetpgrp(\|)
 sets
 .B errno
 to:
 .TP 15
 .SM EBADF
-.I fd 
+.I fd
 is not a valid file descriptor.
 .TP
 .SM EINVAL
-The value of 
-.I pgrp_id 
+The value of
+.I pgrp_id
 is not a valid process group
 .SM ID\s0.
 .TP
@@ -134,8 +134,8 @@ The value of
 .I pgrp_id
 is a valid process group
 .SM ID\s0,
-but does not match the process group 
-.SM ID 
+but does not match the process group
+.SM ID
 of a process in the same session as the calling process.
 .SH SEE ALSO
 .BR setpgid (2V),
@@ -168,8 +168,8 @@ either
 .B tcgetpgrp(\|)
 and
 .B tcsetpgrp(\|)
-behave as described above, or 
+behave as described above, or
 .B tcgetpgrp(\|)
 and
-.B tcsetpgrp(\|) 
+.B tcsetpgrp(\|)
 fail.

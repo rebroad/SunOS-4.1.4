@@ -39,7 +39,7 @@ By default,
 .B t_snd(\|)
 operates synchronously and
 may wait if flow control restrictions prevents data acceptance
-by the local transport provider when 
+by the local transport provider when
 the call is made.
 However, if
 .SB O_NDELAY
@@ -125,7 +125,7 @@ The size of each
 .SM TSDU
 or
 .SM ETSDU
-must not exceed the 
+must not exceed the
 transport provider limits as returned by
 .BR t_open (3N)
 or
@@ -178,8 +178,8 @@ This function is not supported by the underlying transport
 provider.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .BR t_open (3N),

@@ -114,11 +114,11 @@ Free any data allocated by the
 system when it decoded the arguments to a service procedure
 using
 .BR svc_getargs(\|) .
-This routine returns 
+This routine returns
 .SM TRUE
 if the results were successfully
 freed,
-and 
+and
 .SM FALSE
 otherwise.
 .br
@@ -148,9 +148,9 @@ is the address where the arguments will be placed;
 is the
 .SM XDR
 routine used to decode the arguments.
-This routine returns 
+This routine returns
 .SM TRUE
-if decoding succeeds, and 
+if decoding succeeds, and
 .SM FALSE
 otherwise.
 .br
@@ -256,9 +256,9 @@ is the
 routine which is used to encode the results; and
 .I out
 is the address of the results.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .SH SEE ALSO

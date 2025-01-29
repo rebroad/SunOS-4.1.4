@@ -146,7 +146,7 @@ Unlike previous signal facilities, the handler
 remains installed after a signal has been delivered.
 .LP
 If a caught signal occurs
-during certain system calls, 
+during certain system calls,
 terminating the call prematurely, the call
 is automatically restarted.
 In particular this can occur

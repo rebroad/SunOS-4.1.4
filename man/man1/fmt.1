@@ -6,10 +6,10 @@ fmt, fmt_mail \- simple text and mail-message formatters
 .B fmt
 [
 .B \-cs
-] 
+]
 [
 .BI \- width
-] 
+]
 [
 .IR inputfile  ".\|.\|."
 ]
@@ -17,10 +17,10 @@ fmt, fmt_mail \- simple text and mail-message formatters
 .B fmt_mail
 [
 .B \-cs
-] 
+]
 [
 .BI \- width
-] 
+]
 [
 .IR inputfile " .\|.\|."
 ]
@@ -28,12 +28,12 @@ fmt, fmt_mail \- simple text and mail-message formatters
 .IX "fmt command"  ""  "\fLfmt\fP \(em simple formatter"
 .IX "document production" fmt "" "\fLfmt\fR \(em simple formatter"
 .LP
-.B fmt 
-is a simple text formatter that fills and joins lines 
+.B fmt
+is a simple text formatter that fills and joins lines
 to produce output lines of (up to) the number of characters
 specified in the
 .BI \- width
-option.  The default 
+option.  The default
 .I width
 is 72.
 .B fmt
@@ -46,10 +46,10 @@ formats text from the standard input.
 Blank lines are preserved in the output, as is the spacing between
 words.
 .B fmt
-does not fill lines beginning with `\fB.\fR', for compatibility with 
+does not fill lines beginning with `\fB.\fR', for compatibility with
 .BR nroff (1).
 Nor does it fill lines starting with
-.BR ` From: ' 
+.BR ` From: '
 (but for full compatibility with
 .BR mail (1),
 use
@@ -58,12 +58,12 @@ use
 Indentation is preserved in the output, and input lines with differing
 indentation are not joined (unless
 .B \-c
-is used). 
+is used).
 .LP
 .B fmt
 can also be used as an in-line text filter for
 .BR vi (1);
-the 
+the
 .B vi
 command:
 .IP
@@ -91,14 +91,14 @@ Split lines only.  Do not join short lines to form longer ones.  This
 prevents sample lines of code, and other such \*(lqformatted\*(rq text,
 from being unduly combined.
 .IP \fB\-\fIwidth\fR
-Fill output lines to up to 
+Fill output lines to up to
 .IR width " columns."
 .SH ENVIRONMENT
-.LP 
+.LP
 The environment variables
 .BR \s-1LC_CTYPE\s0 ,
 .BR \s-1LANG\s0 ,
-and 
+and
 .B \s-1LC\s0_default
 control the character classification
 throughout
@@ -109,7 +109,7 @@ these environment variables are checked in the
 following order:
 .BR \s-1LC_CTYPE\s0 ,
 .BR \s-1LANG\s0 ,
-and 
+and
 .BR \s-1LC\s0_default.
 When a valid value is found,
 remaining environment variables for character classification

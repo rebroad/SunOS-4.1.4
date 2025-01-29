@@ -37,8 +37,8 @@ for information on how to install optional software.
 .IX  "C programming language"  cflow  ""  "\fLcflow\fP \(em code flow graph"
 .IX  languages  cflow  ""  "\fLtcflow\fP \(em code flow graph"
 .B cflow
-analyzes a collection of C, 
-.BR yacc , 
+analyzes a collection of C,
+.BR yacc ,
 .BR lex ,
 assembler, and object files
 and attempts to build a graph charting the external references.
@@ -117,8 +117,8 @@ The System V version of
 .B cflow
 in
 .B /usr/5bin/cflow
-makes the 
-.B C 
+makes the
+.B C
 preprocessor,
 .BR cpp (1)
 search in
@@ -170,8 +170,8 @@ As an example, given the following in
 		g();
 		f();
 	}
-.br	
-.ne 6	
+.br
+.ne 6
 	f()
 	{
 		i = h();

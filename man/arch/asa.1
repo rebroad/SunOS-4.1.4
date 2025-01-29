@@ -7,15 +7,15 @@ asa \- interpret ASA carriage control characters
 .I filename .\|.\|.
 .SH DESCRIPTION
 .IX asa "" "\fLasa\fP" \(em convert ASA files for printing
-.IX "formatting ASA files" "" 
+.IX "formatting ASA files" ""
 .I asa
 interprets the output of
 .SM FORTRAN
 programs that
-utilize 
-.SM ASA 
+utilize
+.SM ASA
 carriage control characters.
-If no 
+If no
 .I filename
 is supplied as an argument, the standard input is used.
 .SS ASA Control Characters
@@ -47,7 +47,7 @@ This program forces the first line of each input file to start on
 a new page.
 .SH EXAMPLE
 .I asa
-can be used as a filter to display the output of 
+can be used as a filter to display the output of
 .SM FORTRAN
 programs that use
 .SM ASA
@@ -55,9 +55,9 @@ carriage control characters.  The pipeline:
 .IP
 \fLa.out | asa | lp\fR
 .LP
-directs formatted 
+directs formatted
 .SM FORTRAN
-output 
+output
 to the line printer.
 .SH SEE ALSO
 f77(1), fsplit(1), ratfor(1).

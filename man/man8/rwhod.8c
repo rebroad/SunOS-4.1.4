@@ -167,7 +167,7 @@ This service takes up progressively more network bandwidth as
 the number of hosts on the local net increases.
 For large networks, the cost becomes prohibitive.
 .SM RPC\s0-based
-services such as 
+services such as
 .BR rup (1C)
 and
 .BR rusers (1C)

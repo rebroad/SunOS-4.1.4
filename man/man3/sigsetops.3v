@@ -52,19 +52,19 @@ int signo;
 .IX "sigemptyset()" "" "\fLsigemptyset()\fR \(em manipulate signal sets" ""
 .IX "sigismember()" "" "\fLsigismember()\fR \(em manipulate signal sets" ""
 .LP
-The 
+The
 .B sigsetops
 primitives manipulate sets of signals.
-They operate on data objects 
+They operate on data objects
 addressable by the application.
 They do not operate on any set of signals known to the system,
 such as the set blocked from delivery to a process or the set
 pending for a process.
 .LP
 .B sigaddset(\|)
-and 
+and
 .B sigdelset(\|)
-respectively add and delete the individual signal specified by 
+respectively add and delete the individual signal specified by
 the value of
 .B signo
 from the signal set pointed to by
@@ -80,13 +80,13 @@ initializes the signal set pointed to by
 .I set
 such that all signals defined in this standard are included.
 .LP
-Applications shall call either 
+Applications shall call either
 .B sigemptyset(\|)
-or 
+or
 .B sigfillset(\|)
 at least once for each object of type
 .B sigset_t
-prior to any other use of that object.  If such an object is not initialized 
+prior to any other use of that object.  If such an object is not initialized
 in this way, but is nonetheless supplied as an argument to any of
 .BR sigaddset(\|) ,
 .BR sigdelset(\|) ,
@@ -95,7 +95,7 @@ in this way, but is nonetheless supplied as an argument to any of
 .BR sigprocmask(\|) ,
 .BR sigpending(\|) ,
 or
-.BR sigsuspend(\|) 
+.BR sigsuspend(\|)
 the results are undefined.
 .LP
 .B sigismember(\|)
@@ -136,9 +136,9 @@ to indicate the error.
 For each of the following conditions, if the condition is detected,
 .BR sigaddset(\|) ,
 .BR sigdelset(\|) ,
-and 
-.BR sigismember(\|) 
-set 
+and
+.BR sigismember(\|)
+set
 .B errno
 to:
 .TP 15

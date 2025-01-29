@@ -47,7 +47,7 @@ between the remote client and the login process.
 .PP
 When a
 .SM TELNET
-session is started up, 
+session is started up,
 .B telnetd
 sends
 .SM TELNET
@@ -95,8 +95,8 @@ and
 .SH "SEE ALSO"
 .BR telnet (1C)
 .LP
-Postel, Jon, and Joyce Reynolds, ``Telnet Protocol Specification,'' RFC 854, 
-Network Information Center, SRI International, Menlo Park, Calif., 
+Postel, Jon, and Joyce Reynolds, ``Telnet Protocol Specification,'' RFC 854,
+Network Information Center, SRI International, Menlo Park, Calif.,
 May 1983.
 .SH BUGS
 Some

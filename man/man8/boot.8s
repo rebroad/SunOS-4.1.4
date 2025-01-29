@@ -21,7 +21,7 @@ boot \- start the system kernel or a standalone program
 .I tapedev
 .BR ( [\fIc\fB,\|\fIu\fB,\|\fIp\fR\^] )install
 [
-.I filenum 
+.I filenum
 ]
 .if n .ti +5n
 .I diskdev\c
@@ -76,11 +76,11 @@ The form
 .BI b \|.\|.\|. install
 loads the miniroot from a SunOS distribution tape or
 .SM CDROM
-into the designated partition of 
+into the designated partition of
 .I diskdev
-(commonly 
+(commonly
 .BR 1 ,
-the swap partition), and then boots the mini-root 
+the swap partition), and then boots the mini-root
 kernel in preparation for a
 software installation.
 .LP
@@ -99,7 +99,7 @@ When booting standalone, the boot program
 .RB ( /boot )
 is brought in by the
 .SM PROM
-from the file system. 
+from the file system.
 This program contains drivers for all devices.
 .SS "Booting a Sun-3 System Over the Network"
 .LP
@@ -144,7 +144,7 @@ to transfer the file to the client.
 When the file is successfully read in by the client,
 the boot program jumps to the load-point and loads
 .B vmunix
-(or a standalone program). 
+(or a standalone program).
 In order to do this,
 the boot program makes a broadcast
 .SM RARP
@@ -182,7 +182,7 @@ responds with a short diagnostic message.
 Other Sun systems boot over the network in a similar
 fashion.
 However, the filename requested from a server must
-have a suffix that reflects the 
+have a suffix that reflects the
 .I kernel
 architecture of the
 machine being booted.
@@ -201,7 +201,7 @@ Only Sun-3 systems may omit the
 .I arch
 suffix.
 These filenames are restricted to 14 characters
-for compatibility with 
+for compatibility with
 .SM UNIX
 System V and other operating systems.
 Therefore, the architecture suffix is limited to 5 characters;
@@ -213,7 +213,7 @@ for Sun-3 systems,
 for Sun-3x systems,
 .SB SUN4
 for Sun-4 systems,
-.SB S386 
+.SB S386
 for Sun386i systems,
 and
 .SB PCNFS
@@ -281,16 +281,16 @@ Xylogics 440/450 disk (Sun-3, Sun-4 systems only)
 .I diskdev
 Disk or
 .SM CDROM\s0;
-one of 
-.BR sd , 
-.BR id , 
+one of
+.BR sd ,
+.BR id ,
 .B xy
 from the above device set.
 .TP
 .I tapedev
-Tape; one of 
-.BR st , 
-.BR xt , 
+Tape; one of
+.BR st ,
+.BR xt ,
 .B mt
 from the above device set.
 .TP
@@ -308,7 +308,7 @@ if there is only one driver.
 .I p
 Partition number when booting off a disk, or
 tape file number when booting from a tape.
-Defaults to 
+Defaults to
 .BR 0 .
 .TP
 .I filename
@@ -337,7 +337,7 @@ standalone program loaded using
 .BR adb (1).
 .TP
 .I filenum
-Filenumber to load from 
+Filenumber to load from
 .I tapedev
 to
 .IR diskdev .
@@ -352,7 +352,7 @@ For more information on how to boot from a specific device, refer to
 .TX INSTALL .
 .TP
 .B \-v
-Verbose.  
+Verbose.
 Print more detailed information to assist in
 diagnosing diskless booting problems.
 .TP

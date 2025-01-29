@@ -141,7 +141,7 @@ built-in commands instead of
 .SH SYSTEM V DESCRIPTION
 The
 .I System V
-version of 
+version of
 .B ln
 behaves as described above except for the following.
 If the linkname is an existing file and its mode does not forbid writing,
@@ -181,10 +181,10 @@ command:
 .RS
 .ft B
 .nf
-example% ln file link 
+example% ln file link
 example% ls \-F file link
 file   link
-example% ln \-s file symlink 
+example% ln \-s file symlink
 example% ls \-F file symlink
 file   symlink@
 example% ls \-li file link symlink

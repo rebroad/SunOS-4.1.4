@@ -45,7 +45,7 @@ the amount of used and available space,
 and how much of the file system's total capacity has been used.
 Used without arguments,
 .B df
-reports on all mounted file systems, 
+reports on all mounted file systems,
 producing something like:
 .LP
 .RS
@@ -93,14 +93,14 @@ The
 .I System V
 version of
 .B df
-works in the same manner as above but prints 
-only the amount of available space 
+works in the same manner as above but prints
+only the amount of available space
 (in 512 byte units) and the number of free inodes.
 .SH OPTIONS
 .TP
 .B \-a
 Report on all filesystems including the uninteresting
-ones which have zero total blocks. (that is, 
+ones which have zero total blocks. (that is,
 .IR automounter )
 .TP
 .B \-i

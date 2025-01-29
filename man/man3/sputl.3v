@@ -37,7 +37,7 @@ and returns the long integer value in the byte ordering of the host machine.
 .LP
 The combination of
 .B sputl(\|)
-and 
+and
 .B sgetl(\|)
 provides a machine-independent way of storing long numeric data in a file
 in binary form without conversion to characters.

@@ -1,6 +1,6 @@
-.\" @(#)curses_functions.3v 1.1 94/10/31 SMI; 
+.\" @(#)curses_functions.3v 1.1 94/10/31 SMI;
 .ig
-.TH CURSES_FUNCTIONS 3V 
+.TH CURSES_FUNCTIONS 3V
 .SH NAME
 curses, addch, addstr, attroff, attron, attrset, baudrate, beep, box,
 clear, clearok, clrtobot, clrtoeol, cbreak, delay_output, delch,
@@ -19,6 +19,6 @@ wattron, wattrset, wclear, wclrtobot, wclrtoeol, wdelch, wdeleteln,
 werase, wgetch, wgetstr, winch, winsch, winsertln, wmove, wnoutrefresh,
 wprintw, wrefresh, wscanw, wsetscrreg, wstandend, wstandout \-
 System V cursor addressing and screen display library, see curses(3V)
-.SH 
+.SH
 ..
 .so man3/curses.3v

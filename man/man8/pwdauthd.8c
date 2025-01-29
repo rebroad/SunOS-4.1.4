@@ -57,7 +57,7 @@ file.  Otherwise, the server calls
 .BR getpwaent (3))
 to get the entry for
 .I filename
-in either the local or the 
+in either the local or the
 Network Information Service
 (\s-1NIS\s0)
 file for
@@ -89,7 +89,7 @@ Otherwise, the server calls
 .BR getgraent (3))
 to get the entry for
 .I filename
-in either the local or the 
+in either the local or the
 .SM NIS
 file for
 .BR group.adjunct .
@@ -120,6 +120,6 @@ If the passwords do not match, it returns
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

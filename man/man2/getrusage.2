@@ -84,7 +84,7 @@ The total amount of time spent executing in system mode.
 Time is given in seconds and microseconds.
 .TP
 .B ru_maxrss
-The maximum resident set size. 
+The maximum resident set size.
 Size is given in pages (the size of a page, in bytes, is given by the
 .BR getpagesize (2)
 system call).  Also, see
@@ -199,18 +199,18 @@ and could misrepresent the true resident set size.
 Page faults can be generated from a variety of sources and for
 a variety of reasons.
 The customary cause for a page fault is a direct reference
-by the program to a page which is not in memory. 
+by the program to a page which is not in memory.
 Now, however, the kernel can generate page faults on
 behalf of the user, for example, servicing
 .BR read (2V)
 and
 .BR write (2V)
-system calls. 
+system calls.
 Also, a page fault can be caused by an absent hardware translation
 to a page, even though the page is in physical memory.
 .LP
 In addition to hardware detected page faults, the kernel may
-cause pseudo page faults in order to perform some housekeeping. 
+cause pseudo page faults in order to perform some housekeeping.
 For example, the kernel may generate page faults, even if the pages
 exist in physical memory, in order to lock down pages involved
 in a raw I/O request.

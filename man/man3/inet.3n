@@ -93,7 +93,7 @@ When four parts are specified, each is interpreted as a byte of data
 and assigned, from left to right, to the four bytes of an Internet
 address.  Note: when an Internet address is viewed as a 32-bit
 integer quantity on
-.SM Sun386i 
+.SM Sun386i
 systems,
 the bytes referred to above appear as
 .BR d.c.b.a .

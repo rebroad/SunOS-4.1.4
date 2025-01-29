@@ -19,7 +19,7 @@ diff \- display line-by-line differences between pairs of text files
 .B \-n
 |
 .B \-h
-] 
+]
 .I "\0filename1 filename2"
 .br
 .B diff
@@ -27,7 +27,7 @@ diff \- display line-by-line differences between pairs of text files
 .B \-bitw
 ] [
 .BI \-D string
-] 
+]
 .I "\0filename1 filename2"
 .br
 .B diff
@@ -37,9 +37,9 @@ diff \- display line-by-line differences between pairs of text files
 .B \-c
 [
 .I #
-] | 
+] |
 .B \-e
-| 
+|
 .B \-f
 |
 .B \-n
@@ -53,7 +53,7 @@ diff \- display line-by-line differences between pairs of text files
 .B \-s
 ] [
 .BI \-S name
-] 
+]
 .I "\0directory1 directory2"
 .SH DESCRIPTION
 .IX "diff command"  ""  "\fLdiff\fP \(em differential compare"
@@ -78,7 +78,7 @@ finds a smallest sufficient set of differences.  If neither
 .I filename1
 nor
 .I filename2
-is a directory, either may be given as 
+is a directory, either may be given as
 .RB ` \- ',
 in which case the standard input is used.  If
 .I filename1
@@ -116,11 +116,11 @@ In fact, by exchanging
 for
 .B d
 and reading backward
-one may ascertain equally how to convert 
+one may ascertain equally how to convert
 .I filename2
 into
 .IR filename1 .
-As in 
+As in
 .BR ed (1),
 identical pairs, where
 .I n\|1
@@ -134,7 +134,7 @@ are abbreviated as a single number.
 .LP
 Following each of these lines come all the lines that are
 affected in the first file flagged by
-.RB ` < ', 
+.RB ` < ',
 then all the lines that are affected in the second file
 flagged by
 .RB ` > '.
@@ -207,7 +207,7 @@ file to the other are marked in both files with
 .RB ` "! " '.
 .IP
 Changes which lie within <context> lines of each other are grouped
-together on output.  This is a change from the previous 
+together on output.  This is a change from the previous
 .RB ` "diff \-c" '
 but the resulting output is usually much easier to interpret.
 .TP
@@ -215,7 +215,7 @@ but the resulting output is usually much easier to interpret.
 Produce a script of
 .BR a ,
 .BR c ,
-and 
+and
 .B d
 commands for the editor
 .BR ed ,
@@ -273,7 +273,7 @@ Do a fast, half-hearted job.
 It works only when changed stretches are short and well separated,
 but does work on files of unlimited length.
 .LP
-Options for the second form of 
+Options for the second form of
 .B diff
 are as follows:
 .TP
@@ -283,7 +283,7 @@ Create a merged version of
 and
 .I filename2
 on the standard output, with C preprocessor controls included so that
-a compilation of the result without defining 
+a compilation of the result without defining
 .I string
 is equivalent
 to compiling
@@ -344,7 +344,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .SH FILES
@@ -353,7 +353,7 @@ locale.
 .B /tmp/d?????
 .TP
 .B /usr/lib/diffh
-for 
+for
 .B \-h
 .PD
 .SH "SEE ALSO"
@@ -383,11 +383,11 @@ although the output will seem to indicate they are the same.
 .SH BUGS
 .LP
 Editing scripts produced under the
-.B \-e 
+.B \-e
 or
-.B \-f 
+.B \-f
 option are naive about
-creating lines consisting of a single 
+creating lines consisting of a single
 .RB ` . '.
 .LP
 When comparing directories with the
@@ -397,7 +397,7 @@ or
 .B \-i
 options specified,
 .B diff
-first compares the files (as in 
+first compares the files (as in
 .BR cmp (1),
 and then runs the regular
 .B diff
@@ -406,17 +406,17 @@ This may cause a small amount of spurious output if the files
 then turn out to be identical because the only differences are
 insignificant blank string or case differences.
 .LP
-The 
+The
 .B \-D
 option ignores existing preprocessor controls in the source
-files, and can generate 
+files, and can generate
 .BR #ifdefs 's
 with overlapping scope.  The output should be checked by hand,
 or run through
 .RB ` "cc \-E" '
 (see
 .BR cc (1V))
-and then 
+and then
 .BR diff ed
 with the original source files.  Discrepancies revealed should be
 corrected before compilation.

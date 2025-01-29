@@ -22,8 +22,8 @@ data records and end-of-file (\s-1EOF\s0) records.
 records are also known as tape marks and file marks.
 A record is separated by interrecord (or tape) gaps on a tape.
 .LP
-End-of-recorded-media (\s-1EOM\s0) is indicated by two 
-.SM EOF 
+End-of-recorded-media (\s-1EOM\s0) is indicated by two
+.SM EOF
 marks on 1/2\*(rq tape; by one on 1/4\*(rq and 8 mm cartridge tapes.
 .SS 1/2\*(rq Reel Tape
 .LP
@@ -36,9 +36,9 @@ The recording formats available (check specific tape drive) are
 .SM BPI\s0,
 1600
 .SM BPI\s0,
-and 6250 
+and 6250
 .SM BPI\s0,
-and data compression. 
+and data compression.
 Actual storage capacity is a function of the
 recording format and the length of the tape reel.
 For example, using
@@ -57,15 +57,15 @@ device.  The I/O request size must be a multiple of the physical
 record size of the device.  For
 .SM QIC\s0\-11,
 .SM QIC\s0\-24,
-and 
+and
 .SM QIC\s0\-150
 tape drives the block size is 512 bytes.
 .LP
 The records are recorded on tracks
 in a serpentine motion.
 As one track is completed,
-the drive switches to the next and begins writing in the 
-opposite direction, eliminating the wasted motion of 
+the drive switches to the next and begins writing in the
+opposite direction, eliminating the wasted motion of
 rewinding.
 Each file, including the last, ends with
 one file mark.
@@ -91,9 +91,9 @@ is preferable to
 because it records a reference signal to mark the position of the
 first track on the tape, and each block has a unique block number.
 .LP
-The 
+The
 .SM QIC\s0\-150
-tape drives require 
+tape drives require
 .SM DC\s0\-6150
 (or equivalent)
 tape cartridges for writing.
@@ -120,12 +120,12 @@ provided it is no greater than the number requested.
 When a tape mark is read, a zero byte count is returned;
 another read will fetch the first record of the next
 tape file.
-Two successive reads 
+Two successive reads
 returning zero byte counts indicate
-the 
+the
 .SM EOM\s0.
 No further reading should be performed past
-the 
+the
 .SM EOM\s0.
 .LP
 Fixed-length
@@ -158,11 +158,11 @@ Writing is not so restricted
 on 1/2\*(rq and 8 mm cartridge tape.
 Care should be used when appending files onto 1/2\*(rq reel tape
 devices, since an extra file mark is appended after the last
-file to mark the 
+file to mark the
 .SM EOM\s0.
 This extra file mark must be overwritten to prevent
 the creation of a null file.  To facilitate write append
-operations, a space to the 
+operations, a space to the
 .SM EOM
 ioctl is provided.
 Care should be taken when overwriting records; the
@@ -202,7 +202,7 @@ in tape I/O.
 .LP
 Magnetic tapes are rewound when closed,
 except when the \*(lqno-rewind\*(rq devices have been specified.
-The names of no-rewind device files use 
+The names of no-rewind device files use
 the letter
 .B n
 as the beginning of the final component.
@@ -220,7 +220,7 @@ ioctl, like rewind, is issued after writing, a file mark is written
 before repositioning the tape.
 .LP
 Note: for 1/2\*(rq reel tape devices, two file marks are
-written to mark the 
+written to mark the
 .SM EOM
 before rewinding or
 performing a file positioning ioctl.  If the user wrote a file
@@ -235,12 +235,12 @@ the second one is overwritten on a subsequent
 .BR open (2V)
 and
 .BR write (2V).
-For performance reasons,  some 
+For performance reasons,  some
 .B st
 drivers postpone writing the second tape mark until
 just before a file positioning ioctl is issued (for example, rewind).
 This means that the user must not manually rewind the tape
-because the tape will be missing the second tape mark which marks 
+because the tape will be missing the second tape mark which marks
 .SM EOM\s0.
 .LP
 If no data was written and the driver was opened for
@@ -311,7 +311,7 @@ struct	mtop	{
 };
 
 .ft R
-The following ioctls are supported:  
+The following ioctls are supported:
 
 	\|\s-1MTWEOF\s0	write an end-of-file record
 	\|\s-1MTFSF\s0	forward space over file mark
@@ -346,37 +346,37 @@ struct	mtget {
 .fi
 .ft R
 .LP
-When spacing forward over a record (either data or 
+When spacing forward over a record (either data or
 .SM EOF\s0),
 the tape head is positioned in the tape gap between the record
 just skipped and the next record.
 When spacing forward over file marks (\s-1EOF\s0 records),
 the tape head is positioned in the tape gap
-between the next 
-.SM EOF 
+between the next
+.SM EOF
 record and the record that follows it.
 .LP
-When spacing backward over a record (either data or 
+When spacing backward over a record (either data or
 .SM EOF\s0),
 the tape head is positioned in the tape gap immediately preceding
 the tape record where the tape head is currently positioned.
 When spacing backward over file marks (\s-1EOF\s0 records),
-the tape head is positioned in the tape gap preceding the 
+the tape head is positioned in the tape gap preceding the
 .SM EOF\s0.
-Thus the next read would fetch the 
+Thus the next read would fetch the
 .SM EOF\s0.
 .LP
 Note, the following features are unique to the
 .B st
 driver:
 record skipping does not go past a file mark;
-file skipping does not go past the 
+file skipping does not go past the
 .SM EOM\s0.
 Both the
 .B st
 and
 .B xt
-drivers stop upon encountering 
+drivers stop upon encountering
 .SM EOF
 during a record
 skipping command, but leave the tape positioned differently.
@@ -386,7 +386,7 @@ the
 driver leaves the tape positioned
 .ul
 before
-the 
+the
 .SM EOF\s0.
 After the same command, the
 .B xt
@@ -394,25 +394,25 @@ driver leaves the
 tapes positioned
 .ul
 after
-the 
+the
 .SM EOF\s0.
 Consequently on the next read, the
 .B xt
 driver fetches the first record
 of the next file whereas the
 .B st
-driver fetches the 
+driver fetches the
 .SM EOF\s0.
 A related
 .B st
-feature is that 
-.SM EOF\s0s 
+feature is that
+.SM EOF\s0s
 remain pending until the tape is closed.
 For example, a program which first reads all the records of a file up to
-and including the 
+and including the
 .SM EOF
 and then performs an MTFSF command will
-leave the tape positioned just after that same 
+leave the tape positioned just after that same
 .SM EOF\s0,
 rather than skipping the next file.
 .LP
@@ -438,7 +438,7 @@ fixed-length
 devices space physical records (blocks).
 1/4\*(rq cartridge tape, for example, spaces 512 byte
 physical records.
-The status ioctl residual count contains the number of 
+The status ioctl residual count contains the number of
 files or records not skipped.
 .LP
 MTOFFL rewinds and, if appropriate, takes the device
@@ -452,7 +452,7 @@ It is used to restore tape tension improving the tape's soft error rate
 after extensive start-stop operations
 or long-term storage.
 .LP
-MTERASE rewinds the tape, erases it 
+MTERASE rewinds the tape, erases it
 completely, and returns to the beginning of tape.
 .LP
 MTEOM positions
@@ -462,10 +462,10 @@ mark on the tape.
 For 1/2\*(rq reel tape, this is just after the first file
 mark but before the second (and last) file mark on the tape.
 Additional files can then be appended onto the tape from that point.
-.LP 
+.LP
 Note the difference between MTBSF (backspace over file mark) and
 MTNBSF (backspace file to beginning of file).
-The former moves the tape backward until it crosses an 
+The former moves the tape backward until it crosses an
 .SM EOF
 mark,
 leaving the tape positioned
@@ -477,22 +477,22 @@ the file mark.
 Hence, "MTNBSF n" is equivalent to "MTBSF (n+1)" followed by "MTFSF 1".
 1/4 \*(rq cartridge tape devices do not support MTBSF.
 .LP
-The MTIOCGET get status ioctl call returns the drive id 
+The MTIOCGET get status ioctl call returns the drive id
 .RI ( mt_type ),
-sense key error 
+sense key error
 .RI ( mt_erreg ),
-file number 
+file number
 .RI ( mt_fileno ),
-optimum blocking factor 
+optimum blocking factor
 .RI ( mt_bf )
-and record number 
+and record number
 .RI ( mt_blkno )
 of the last error.  The
-residual count 
+residual count
 .RI ( mt_resid )
 is set to the number of bytes not
 transferred or files/records not spaced.
-The flags word 
+The flags word
 .RI ( mt_flags )
 contains information such as
 whether the device is SCSI,

@@ -12,8 +12,8 @@ sigprocmask \- examine and change blocked signals
 .LP
 .nf
 .ft B
-int sigprocmask(how, set, oset) 
-int how; 
+int sigprocmask(how, set, oset)
+int how;
 sigset_t *set, *oset;
 .ft R
 .fi
@@ -25,46 +25,46 @@ sigset_t *set, *oset;
 .IX examine "blocked signals"
 .LP
 .B sigprocmask(\|)
-is used to examine or change (or both) the calling process's 
+is used to examine or change (or both) the calling process's
 signal mask.  If the value of
 .I set
-is not 
+is not
 .SM NULL\s0,
 it points to a set of signals to be used to change the currently blocked set.
 .LP
 The value of
 .I how
-indicates the manner in which the set is changed, and consists of one of 
-the following values, as defined in the header 
+indicates the manner in which the set is changed, and consists of one of
+the following values, as defined in the header
 .BR <signal.h> :
 .RS
 .TP 15
 .SB SIG_BLOCK
-The resulting set is the union of the 
+The resulting set is the union of the
 current set and the signal set pointed to by
 .IR set .
 .TP
 .SB SIG_UNBLOCK
 The resulting set is the intersection
-of the current set and the complement of the 
+of the current set and the complement of the
 signal set pointed to by
 .IR set .
 .TP
 .SB SIG_SETMASK
-The resulting set is the signal set 
+The resulting set is the signal set
 pointed to by
 .IR set .
 .RE
 .LP
 If
 .I oset
-is not 
+is not
 .SM NULL\s0,
-the previous mask is stored in the space pointed to by 
-.I oset.  
+the previous mask is stored in the space pointed to by
+.I oset.
 If the value of
 .I set
-is  
+is
 .SM NULL\s0,
 the value of
 .I how
@@ -78,15 +78,15 @@ at least one of those signals is be delivered before
 .B sigprocmask(\|)
 returns.
 .LP
-If it is not possible to block the 
+If it is not possible to block the
 .SB SIGKILL
-and 
+and
 .SB SIGSTOP
 signals.
 This is enforced by the system without causing an error to be
 indicated.
 .LP
-If any of the 
+If any of the
 \fB\s-1SIGFPE\s0\fP,
 \fB\s-1SIGKILL\s0\fP,
 or

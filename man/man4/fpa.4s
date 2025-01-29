@@ -81,7 +81,7 @@ Disable the
 .TP
 .SB FPA_GET_DATAREGS
 Return the contents of 8
-.SM FPA 
+.SM FPA
 registers.
 .TP
 .SB FPA_INIT_DONE

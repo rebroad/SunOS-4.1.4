@@ -46,7 +46,7 @@ The function
 .BR ldopen (3X)
 allocates and initializes the
 .SB LDFILE
-structure and returns a pointer 
+structure and returns a pointer
 to the structure
 to the calling program.
 The fields of the
@@ -83,15 +83,15 @@ categories:
 .BR ldopen (3X)
 and
 .B ldaopen(\|)
-(see 
+(see
 .BR ldopen (3X))
 .RS
 open a common object file
 .RE
 .BR ldclose (3X)
 and
-.B ldaclose(\|) 
-(see 
+.B ldaclose(\|)
+(see
 .BR ldclose (3X))
 .RS
 close a common object file
@@ -111,7 +111,7 @@ read the file header of a common object file
 .RE
 .BR ldshread (3X)
 and
-.B ldnshread(\|) 
+.B ldnshread(\|)
 (see
 .BR ldshread (3X))
 .RS
@@ -138,7 +138,7 @@ seek to the optional file header of a common object file
 .RE
 .BR ldsseek (3X)
 and
-.B ldnsseek(\|) 
+.B ldnsseek(\|)
 (see
 .BR ldsseek (3X))
 .RS
@@ -146,7 +146,7 @@ seek to a section of a common object file
 .RE
 .BR ldrseek (3X)
 and
-.B ldnrseek(\|) 
+.B ldnrseek(\|)
 (see
 .BR ldrseek (3X))
 .RS
@@ -155,7 +155,7 @@ object file
 .RE
 .BR ldlseek (3X)
 and
-.B ldnlseek(\|) 
+.B ldnlseek(\|)
 (see
 .BR ldlseek (3X))
 .RS
@@ -169,8 +169,8 @@ seek to the symbol table of a common object file
 .PP
 (4) The unction
 .BR ldtbindex (3X),
-which returns the 
-index of a particular common object 
+which returns the
+index of a particular common object
 file symbol table entry.
 .RE
 .LP
@@ -185,9 +185,9 @@ return either
 both constants defined in
 .BR ldfcn.h .
 .BR ldopen (3X)
-and 
+and
 .B ldaopen(\|)
-(see 
+(see
 .BR ldopen (3X))
 both return pointers to an
 .BR \s-1LDFILE\s+1 " structure."
@@ -197,7 +197,7 @@ defined in
 .BR ldfcn.h .
 These macros parallel the standard
 input/output file reading and manipulating functions,
-translating a reference 
+translating a reference
 of the
 .B \s-1LDFILE\s+1
 structure into a reference to its file descriptor field.
@@ -257,7 +257,7 @@ The macro
 .SB FSEEK
 defined in the header file
 .B ldfcn.h
-translates into a call to the 
+translates into a call to the
 standard input/output function
 .BR fseek (3S).
 .SB FSEEK

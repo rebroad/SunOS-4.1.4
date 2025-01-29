@@ -88,7 +88,7 @@ is equivalent to
 On success,
 .B lseek(\|)
 returns
-the seek pointer location as measured in bytes from the beginning 
+the seek pointer location as measured in bytes from the beginning
 of the file.
 On failure,
 it returns
@@ -109,8 +109,8 @@ is not an open file descriptor.
 .I whence
 is not a proper value.
 .IP
-The seek operation would result in an 
-illegal file offset value for the file (for example, a negative file 
+The seek operation would result in an
+illegal file offset value for the file (for example, a negative file
 offset for a file other than a character special file).
 .TP
 .SM ESPIPE

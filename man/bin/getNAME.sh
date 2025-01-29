@@ -30,7 +30,7 @@ do
 	-t)	# Set for for TOC format.
 		if test "$opt" = "ptx" ; then opt=toc ; fi
 	;;
-	-p)	# Change filenames of man pages to printed-format page refs. 
+	-p)	# Change filenames of man pages to printed-format page refs.
 		print=1 # add font changes for printed intros
 	;;
 	-a)	# Alternate names for page.
@@ -40,7 +40,7 @@ do
 		# or unformatted source of section given by -S.
 		if test "$opt" = "ptx" # raw
 		then
-			opt=raw 
+			opt=raw
 			filter='tail +3'
 			troff=cat
 			raw=1
@@ -69,7 +69,7 @@ esac
 for i in $*
 do # yell about a missing file, but continue with next arg.
 if test -f $i
-then 
+then
 
 	# handle "no section-number suffix" cases
 	case $i in
@@ -147,7 +147,7 @@ then
 			else
 				item=`echo $j | sed "s/,//"`
 				if test "$item" != "$base"
-				then 
+				then
 					echo "${item}${suffix}	${base}${suffix}"
 				fi
 			fi
@@ -161,8 +161,8 @@ then
 			else
 				item=`echo $j | sed "s/,//"`
 				if test "$item" != "$base" -a ! -f SCCS/s.${item}${suffix}
-				then 
-					echo "echo .so $mandir/${base}${suffix} > ${item}${suffix}" " ; " 'echo ".\\\" ~%~Z~%~%~M~% ~%~I~% %~E~% SMI;" >> '"${item}${suffix} ; echo ${item}${suffix} 2>&1" | sed "s/~//g" ; 
+				then
+					echo "echo .so $mandir/${base}${suffix} > ${item}${suffix}" " ; " 'echo ".\\\" ~%~Z~%~%~M~% ~%~I~% %~E~% SMI;" >> '"${item}${suffix} ; echo ${item}${suffix} 2>&1" | sed "s/~//g" ;
 				fi
 			fi
 		done

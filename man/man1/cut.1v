@@ -3,21 +3,21 @@
 .SH NAME
 cut \- remove selected fields from each line of a file
 .SH SYNOPSIS
-.B cut 
-.BI \-c \|list 
+.B cut
+.BI \-c \|list
 [
 .I filename
 \&.\|.\|.
 ]
 .LP
-.B cut 
-.BI \-f \|list 
+.B cut
+.BI \-f \|list
 [
 .BI \-d c
-] 
+]
 [
 .B \-s
-] 
+]
 [
 .I filename
 \&.\|.\|.
@@ -38,7 +38,7 @@ for information on how to install optional software.
 .LP
 Use
 .B cut
-to cut out columns from a table or 
+to cut out columns from a table or
 fields from each line of a file; in data base parlance, it implements
 the projection of a relation.
 The fields as specified by
@@ -59,7 +59,7 @@ a file name of
 .RB ` \- '
 explicitly refers to the standard input.
 .SH OPTIONS
-.TP 
+.TP
 .BI \-c \|list
 By character position.
 .I list
@@ -70,10 +70,10 @@ to indicate ranges:
 .RS
 .TP
 .PD 0
-.B 1,4,7 
+.B 1,4,7
 characters 1, 4 and 7
 .TP
-.BR 1\-3,8 
+.BR 1\-3,8
 characters 1 through 3, and 8
 .TP
 .B \-5,10
@@ -87,12 +87,12 @@ characters 3 through (last)
 .BI \-f \|list
 By field position.
 Instead of character positions,
-.I list 
+.I list
 specifies fields that are separated a delimiter (normally a
 .SM TAB\s0):
 .RS
 .TP
-.B 1,4,7 
+.B 1,4,7
 fields 1, 4 and 7
 .RE
 .IP
@@ -121,7 +121,7 @@ Mapping of user
 to names.
 .TP
 \fBname=\*`who am i | cut \-f1 \-d" "\*`\fP
-Set 
+Set
 .B name
 to the current login name.
 .SH SEE ALSO
@@ -134,9 +134,9 @@ to the current login name.
 A line can have no more than 1023 characters or fields.
 .TP
 .B "\s-1ERROR\s0:  bad list for c\|/\|f option"
-Missing 
+Missing
 .B \-c
-or 
+or
 .B \-f
 option or incorrectly specified
 .IR list .

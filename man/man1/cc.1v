@@ -86,12 +86,12 @@ cc \- C compiler
 .\".B \-mc68020
 .\"]
 .if n .ti +5
-.if t .ti +.5i 
+.if t .ti +.5i
 [
 .B \-misalign
 ]
 [
-.B \-o 
+.B \-o
 .I outputfile
 ]
 [
@@ -115,22 +115,22 @@ cc \- C compiler
 .B \-PIC
 ]
 [
-.B \-pipe 
+.B \-pipe
 ]
-.if t .ti +.5i 
+.if t .ti +.5i
 .if n .ti +5
 [
 .B \-Qoption
 .I prog opt
 ]
 [
-.B \-Qpath 
+.B \-Qpath
 .I pathname
 ]
 .if n .ti +5
 [
 .B \-Qproduce
-.I sourcetype 
+.I sourcetype
 ]
 [
 .B \-R
@@ -185,7 +185,7 @@ cc \- C compiler
 .LP
 Note:
 .I arguments
-to 
+to
 .B /usr/5bin/cc
 and
 .B /usr/xpg2bin/cc
@@ -205,7 +205,7 @@ for information on how to install optional software.
 .IX  "compilers"  "cc command"  ""  "\fLcc\fP \(em C compiler"
 .LP
 .B cc
-is the C compiler. 
+is the C compiler.
 It translates programs written in the C
 programming language into executable load modules, or into relocatable
 binary programs for subsequent loading with the
@@ -214,36 +214,36 @@ link editor.
 .LP
 In addition to the many options,
 .B cc
-accepts several types of filename arguments.  For instance, files with 
+accepts several types of filename arguments.  For instance, files with
 names ending in
 .B \&.c
-are taken to be C source programs. 
-They are compiled, and each 
-resulting object program is placed in the current directory.  The 
+are taken to be C source programs.
+They are compiled, and each
+resulting object program is placed in the current directory.  The
 object file is named after its source file \(em the suffix
 .B \&.o
-replacing 
-.BR \&.c 
+replacing
+.BR \&.c
 in the name of the object.
 In the same way, files whose names end with
 .B \&.s
 are taken to be assembly source programs.
 They are assembled, and produce
 .B \&.o
-files.  
+files.
 Filenames ending in
 .B \&.il
 are taken to be inline expansion code template files; these are
 used to expand calls to selected routines in-line when code
 optimization is enabled.
-See 
+See
 .SM FILES\s0,
 below for a complete list of compiler-related filename suffixes.
 .LP
 Other arguments refer to assembler or loader options,
 object programs, or object libraries.  Unless
 .BR \-c ,
-.BR \-S , 
+.BR \-S ,
 .B \-E
 .B \-P
 or
@@ -253,7 +253,7 @@ specified compilations or assemblies, are loaded
 (in the order given) to produce an output file named
 .BR a.out .
 You can specify a name for the executable by using the
-.B \-o 
+.B \-o
 option.
 .LP
 If a single
@@ -261,7 +261,7 @@ file is compiled and loaded all at once, the intermediate
 file is deleted.
 .LP
 .B /usr/xpg2bin/cc
-is a shell script that should be used to compile 
+is a shell script that should be used to compile
 X/Open compliant applications.
 .B /usr/5bin/cc
 and
@@ -269,9 +269,9 @@ and
 accept the same arguments and options as
 .BR cc .
 .B /usr/xpg2bin/cc
-searches 
+searches
 .B /usr/xpg2include
-for 
+for
 .B #include
 files before
 .BR /usr/include ,
@@ -280,7 +280,7 @@ and specifies
 as an additional static library of object-library routines.
 .SH OPTIONS
 .LP
-When debugging or profiling 
+When debugging or profiling
 objects are compiled using the
 .B \-g
 or
@@ -310,14 +310,14 @@ incompatible with
 .BR \-g .
 .\".TP
 .\".BI \-A opt
-.\"Pass option 
+.\"Pass option
 .\".I opt
-.\"to 
+.\"to
 .\".BR as (1).
 .TP
 .BI \-align " " _ block
-Force the global uninitialized data symbol 
-.IR block 
+Force the global uninitialized data symbol
+.IR block
 to be page-aligned by
 increasing its size to a whole number of pages, and placing its first
 byte at the beginning of a page.
@@ -363,8 +363,8 @@ by the compilation driver.
 .BI \-D name\fR[\fP = def\fR]
 Define a symbol
 .I name
-to the C preprocessor 
-.RB ( cpp (1)). 
+to the C preprocessor
+.RB ( cpp (1)).
 Equivalent to a
 .B #define
 directive in the source.  If no
@@ -375,14 +375,14 @@ is defined as
 .RB ` 1 '.
 .\".TP
 .\".B \-dl
-.\"Generate 
-.\".B something or other 
+.\"Generate
+.\".B something or other
 .\"for SunRise.
 .PD
 .\".TP
 .\".B \-ds
-.\"Generate 
-.\".B something or other 
+.\"Generate
+.\".B something or other
 .\"for SunRise.
 .TP
 .B \-E
@@ -392,14 +392,14 @@ the C preprocessor, only.
 Sends the output to the standard output, or to
 a file named with the
 .B \-o
-option.  Includes the 
+option.  Includes the
 .B cpp
-line numbering information.  (See also, the 
+line numbering information.  (See also, the
 .B \-P
 option.)
 .br
 .ne 24
-.TP 
+.TP
 .I float_option
 Floating-point code generation option.  Can be one of:
 .RS
@@ -447,14 +447,14 @@ Use single-precision arithmetic in computations involving only
 .B float
 expressions.  Do not convert everything to
 .BR double ,
-which is the default.  Note: floating-point 
-.I parameters 
-are still converted to double precision, and 
-.I functions 
-returning values still return double-precision values.  
+which is the default.  Note: floating-point
+.I parameters
+are still converted to double precision, and
+.I functions
+returning values still return double-precision values.
 .IP
 Although not standard C,
-certain programs run much faster using this option.  
+certain programs run much faster using this option.
 Be aware that some significance can be lost due
 to lower-precision intermediate values.
 .\".TP
@@ -468,13 +468,13 @@ to lower-precision intermediate values.
 .\".BR \-fsingle .
 .TP
 .B \-g
-Produce additional symbol table information for 
+Produce additional symbol table information for
 .BR dbx (1)
-and 
+and
 .BR dbxtool (1)
 and pass
 .B \-lg
-option to 
+option to
 .BR ld (1)
 (so as to include the
 .B g
@@ -487,7 +487,7 @@ and
 options are suppressed.
 .TP
 .B \-go
-Produce additional symbol table information for 
+Produce additional symbol table information for
 .BR adb (1).
 When this option is given, the
 .B \-O
@@ -496,7 +496,7 @@ and
 options are suppressed.
 .TP
 .B \-help
-Display helpful information about 
+Display helpful information about
 .BR cc .
 .br
 .ne 5
@@ -518,14 +518,14 @@ options (if any), and finally, in
 .BR /usr/include .
 .TP
 .B \-J
-Generate 32-bit offsets in 
+Generate 32-bit offsets in
 .B switch
 statement labels (supported only on Sun-2 and Sun-3 systems).
 .TP
 .BI \-l library
-Link with object library 
+Link with object library
 .I library
-(for 
+(for
 .BR ld (1)).
 This option must follow
 the
@@ -533,7 +533,7 @@ the
 arguments.
 .TP
 .BI \-L directory
-Add 
+Add
 .I directory
 to the list of directories containing object-library routines (for linking
 using
@@ -552,7 +552,7 @@ Generate code to allow loading and storage of misaligned data
 (Sun-4 systems only).
 .\".TP
 .\".B \-mc68010
-.\"Generate relocatable object 
+.\"Generate relocatable object
 .\".RB ( \&.o )
 .\"files for the
 .\".SM MC\s068010
@@ -561,7 +561,7 @@ Generate code to allow loading and storage of misaligned data
 .\".SM MC\s068020).
 .\".TP
 .\".B \-mc68020
-.\"Generate relocatable object 
+.\"Generate relocatable object
 .\".RB ( \&.o )
 .\"files for the
 .\".SM MC\s068020
@@ -570,26 +570,26 @@ Generate code to allow loading and storage of misaligned data
 .BI \-o " outputfile"
 Name the output file
 .IR outputfile .
-.I outputfile 
+.I outputfile
 must have the appropriate suffix for the type of file to be produced
 by the compilation (see
 .SM FILES\s0,
-below).  
+below).
 .I outputfile
-cannot be the same as 
-.I sourcefile 
+cannot be the same as
+.I sourcefile
 (the compiler will not overwrite the source file).
 .br
 .ne 5
 .TP
 .BI \-O\fR[\fP level\fR]
-Optimize the object code.  Ignored when either 
+Optimize the object code.  Ignored when either
 .BR \-g ,
 .BR \-go ,
 or
 .B \-a
 is used.
-.B \-O 
+.B \-O
 with the
 .I level
 omitted is equivalent to
@@ -607,7 +607,7 @@ Do postpass assembly-level optimization only.
 .B 2
 Do global optimization prior to code generation,
 including loop optimizations, common subexpression
-elimination, copy propagation, and automatic register allocation.  
+elimination, copy propagation, and automatic register allocation.
 .BR \-O2
 does not optimize references to or definitions of external or
 indirect variables.
@@ -654,7 +654,7 @@ Prepare the object code to collect data for profiling with
 .BR gprof (1).
 Invokes a run-time recording mechanism that produces a
 .B gmon.out
-file (at normal termination).  
+file (at normal termination).
 .TP
 .B \-pic
 Produce position-independent code.  Each reference to a global datum is
@@ -856,14 +856,14 @@ Do not print warnings.
 .SH ENVIRONMENT
 .TP 20
 .SB FLOAT_OPTION
-.\" Sun386i 
+.\" Sun386i
 (Sun-2, Sun-3, Sun-4 systems only.)
 When no floating-point option is specified, the compiler uses the value
 of this environment variable (if set).  Recognized values are:
 .BR f68881 ,
 .BR ffpa ,
 .BR fsky ,
-.BR fswitch 
+.BR fswitch
 and
 .BR fsoft .
 .br
@@ -882,7 +882,7 @@ C source file
 .TP
 .IB file .d
 .BR tcov (1)
-.\" Sun386i 
+.\" Sun386i
 test coverage input file (Sun-2, Sun-3, Sun-4 systems only)
 .TP
 .IB file .i
@@ -890,7 +890,7 @@ C source file after preprocessing with
 .BR cpp (1)
 .TP
 .IB file .il
-.I inline 
+.I inline
 expansion file
 .TP
 .IB file .o
@@ -904,9 +904,9 @@ assembler source for
 .BR cpp (1)
 .TP
 .IB file .tcov
-output from 
+output from
 .BR tcov (1)
-.\" Sun386i 
+.\" Sun386i
 (Sun-2, Sun-3, Sun-4 systems only)
 .TP
 .B /usr/lib/c2
@@ -928,7 +928,7 @@ runtime startup code
 startup code for
 .B \-fsoft
 option
-.\" Sun386i 
+.\" Sun386i
 (Sun-2, Sun-3, Sun-4 systems only)
 .TP
 .B /usr/lib/gcrt0.o
@@ -963,21 +963,21 @@ startup code for
 option (for Sun-3 systems)
 .TP
 .B /usr/include
-standard directory for 
-.B #include 
+standard directory for
+.B #include
 files
 .TP
 .B /usr/lib/bb_link.o
 basic block counting routine
 .TP
 .B /usr/lib/cg
-code generator used with 
+code generator used with
 .B /usr/lib/iropt
 .TP
 .B /usr/lib/libc_p.a
-profiling library, see 
+profiling library, see
 .BR gprof (1)
-or 
+or
 .BR prof (1)
 .TP
 .B /usr/lib/inline
@@ -994,9 +994,9 @@ System V standard compatibility library, see
 .BR intro (3)
 .TP
 .B /usr/5lib/libc_p.a
-System V profiling library, see 
+System V profiling library, see
 .BR gprof (1)
-or 
+or
 .BR prof (1)
 .br
 .ne 5
@@ -1005,7 +1005,7 @@ or
 compiler temporary files
 .TP
 .B /usr/xpg2include
-directory for 
+directory for
 .SM X/O\s0pen
 .B #include
 files
@@ -1066,7 +1066,7 @@ Prentice-Hall, 1978
 .\".I "\s-1UNIX\s0 Interface Overview"
 .SH DIAGNOSTICS
 .LP
-The diagnostics produced by the C compiler 
+The diagnostics produced by the C compiler
 are intended to be self-explanatory.
 Occasional obscure messages may be produced by
 the preprocessor, assembler, or loader.
@@ -1076,8 +1076,8 @@ the preprocessor, assembler, or loader.
 .LP
 While the compiler allows 8-bit strings and comments,
 8-bits are not allowed anywhere else.
-The 
-.B cc 
+The
+.B cc
 command does not generate or support 8-bit symbol names
 because, until
 .SM ANSI C\s0,
@@ -1105,18 +1105,18 @@ and
 .LP
 The program context given in syntax error messages
 is taken from the input text
-.I after 
+.I after
 the C preprocessor has performed substitutions.
 Therefore, error messages
-involving syntax errors in or near macro references or manifest 
+involving syntax errors in or near macro references or manifest
 constants may be misleading.
 .LP
 Compiling with optimization level
-.B 2 
+.B 2
 or greater may produce
 incorrect object code if tail-recursion
 elimination is applied to functions called with fewer actual
 parameters (arguments) than the number of formal parameters in
-the function's definition. 
+the function's definition.
 Such parameter-count mismatches can be detected using
 .BR lint (1V).

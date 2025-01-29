@@ -24,7 +24,7 @@ kb, kbd \- Sun keyboard
 .SH DESCRIPTION
 .IX  "kbd device"  ""  "\fLkbd\fP \(em Sun keyboard"  ""  PAGE START
 .I kb
-provides access to the Sun workstation keyboard and its translation 
+provides access to the Sun workstation keyboard and its translation
 tables.  Definitions for altering keyboard translation, and reading events
 from the keyboard, are in
 .B <sundev/kbio.h>
@@ -40,14 +40,14 @@ keystrokes are normally treated as input to the
 .B /dev/console
 device.
 .LP
-The 
+The
 .SM UNIX
 kernel recognizes which keys have been typed using a set of
 tables for each known type of keyboard.  Each translation table is
-an array of 128 bytes (unsigned characters).  
+an array of 128 bytes (unsigned characters).
 If a character value is less than 0x80, it is treated as an
 .SM ASCII
-character (perhaps with the 
+character (perhaps with the
 .SM META
 bit included).  Higher values indicate special characters that invoke
 more complicated actions.
@@ -84,7 +84,7 @@ values for all input events within the window system.
 .SS Keyboard Translation-Table Entries
 .LP
 The call KIOCSETKEY changes a keyboard translation table entry,
-using the 
+using the
 .IR kiockey
 struct:
 .IX  "ioctls for keyboards"  "KIOCSETKEY"  "\fLioctl\fP's for keyboards"  "\fLKIOCSETKEY\fP \(em change translation table entry"
@@ -233,7 +233,7 @@ to query its state.
 .LP
 When shift keys are pressed or locked, a different translation
 table is used to translate keyboard actions.  The shift
-mask indicates which translation table to use.  Since there may be 
+mask indicates which translation table to use.  Since there may be
 more than one bit in in the shift mask at any given time, they
 are prioritized as follows:
 .nr xx (\w'(No shift keys pressed or locked)'u+2n)/1n
@@ -254,19 +254,19 @@ CAPSMASK 0x0001
 ``Unshifted'' translation table.
 .LP
 That is:  if the event corresponds to a key-up, use the ``Key Up''
-table.  If the 
+table.  If the
 .SM CTRL
 is down, use the ``Controlled'' table, and so on.
 .SS "Special-Entry Values"
 Special-entry values are classified according to the value of
-the high-order bits (with the exception of 
+the high-order bits (with the exception of
 .SM ALT,
 which is defined as 0x6).  The high-order value for each class is
 defined as a constant, as shown in the list below.  The value of
-the low-order bits, when added to this constant,  distinguishes 
+the low-order bits, when added to this constant,  distinguishes
 between keys within each class:
 .TP 20n
-SHIFTKEYS 0x80 
+SHIFTKEYS 0x80
 A shift key.  The value of the particular shift
 key is added to determine which shift mask to apply:
 .RS
@@ -291,7 +291,7 @@ Right-hand "Control" key.
 .RE
 .TP
 BUCKYBITS 0x90
-Used to toggle mode-key-up/down status without altering the value of 
+Used to toggle mode-key-up/down status without altering the value of
 an accompanying
 .SM ASCII
 character.  (The actual bit-position value, minus 7, is added.)
@@ -409,8 +409,8 @@ struct keyboard *keytables[\|] = {
 .RE
 Each keyboard type is described by a
 .B "struct keyboard"
-that contains pointers to the five translation-tables 
-("Unshifted", "Shifted", "Caps Locked" "Controlled", and "Key Up") 
+that contains pointers to the five translation-tables
+("Unshifted", "Shifted", "Caps Locked" "Controlled", and "Key Up")
 associated with that type, plus bit-masks that indicate what
 state can persist with no keys pressed, and the key-pair used as
 the abort sequence for the system.
@@ -519,7 +519,7 @@ static struct keyboard keyindex_vt = {
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	LF(2)	04	HOLE	05	TF(1)	06	TF(2)	07	HOLE
@@ -595,7 +595,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	LF(2)	04	HOLE	05	TF(1)	06	TF(2)	07	HOLE
@@ -633,7 +633,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	LF(2)	04	HOLE	05	TF(1)	06	TF(2)	07	HOLE
@@ -671,7 +671,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	OOPS	04	HOLE	05	OOPS	06	OOPS	07	HOLE
@@ -706,7 +706,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	LF(11)	03	LF(2)	04	HOLE	05	TF(1)	06	TF(2)	07	TF(11)
@@ -744,7 +744,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	LF(11)	03	LF(2)	04	HOLE	05	TF(1)	06	TF(2)	07	TF(11)
@@ -782,7 +782,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	LF(11)	03	LF(2)	04	HOLE	05	TF(1)	06	TF(2)	07	TF(11)
@@ -857,7 +857,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	OOPS	03	OOPS	04	HOLE	05	OOPS	06	OOPS	07	OOPS
@@ -892,7 +892,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	LF(2)	03	LF(3)	04	HOLE	05	TF(1)	06	TF(2)	07	TF(3)
@@ -929,7 +929,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS	02	LF(2)	03	LF(3)	04	HOLE	05	TF(1)	06	TF(2)	07	TF(3)
@@ -966,7 +966,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	LF(2)	03	LF(3)	04	HOLE	05	TF(1)	06	TF(2)	07	TF(3)
@@ -1003,7 +1003,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	LF(2)	03	LF(3)	04	HOLE	05	TF(1)	06	TF(2)	07	TF(3)
@@ -1040,7 +1040,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	OOPS	03	OOPS	04	HOLE	05	OOPS	06	OOPS	07	OOPS
@@ -1076,7 +1076,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	HOLE	04	HOLE	05	HOLE	06	HOLE	07	HOLE
@@ -1112,7 +1112,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	HOLE	04	HOLE	05	HOLE	06	HOLE	07	HOLE
@@ -1148,9 +1148,9 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
-.sp 
+.sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	HOLE	04	HOLE	05	HOLE	06	HOLE	07	HOLE
 			SYSTEMBIT
 08	HOLE	09 	HOLE	0A 	STRING+	0B	STRING+	0C	STRING+	0D	STRING+	0E	HOLE	0F	TF(1)
@@ -1184,7 +1184,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	HOLE	04	HOLE	05	HOLE	06	HOLE	07	HOLE
@@ -1220,7 +1220,7 @@ c l c l c l c l c l c l c l c l .
 .TS
 expand ;
 c l c l c l c l c l c l c l c l .
- 
+
 \fIKey	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value	Key	Value\fR
 .sp
 00	HOLE	01	BUCKYBITS+	02	HOLE	03	HOLE	04	HOLE	05	HOLE	06	HOLE	07	HOLE

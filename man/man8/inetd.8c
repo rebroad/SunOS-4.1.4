@@ -10,7 +10,7 @@ inetd \- Internet services daemon
 .B /usr/etc/inetd
 [
 .B \-d
-] [ 
+] [
 .I configuration-file
 ]
 .SH DESCRIPTION
@@ -32,8 +32,8 @@ for more information on the format of this file.
 It listens for connections on the Internet addresses of the
 services that its configuration file specifies.
 When a connection is found, it invokes the server daemon specified by
-that configuration file for the service requested. 
-Once a server is finished, 
+that configuration file for the service requested.
+Once a server is finished,
 .B inetd
 continues to listen on the socket (except in some cases which
 will be described below).
@@ -61,7 +61,7 @@ they are needed.
 .LP
 .B inetd
 itself provides a number of simple TCP-based services.
-These include 
+These include
 .BR echo ,
 .BR discard ,
 .BR chargen
@@ -100,14 +100,14 @@ Network Information Center,
 International, Menlo Park, Calif.,
 May 1983.
 .LP
-Postel, Jon, 
+Postel, Jon,
 .IR "Discard Protocol" ,
 .SM RFC
 863,
 Network Information Center, SRI International, Menlo Park, Calif.,
 May 1983.
 .LP
-Postel, Jon, 
+Postel, Jon,
 .IR "Character Generator Protocol" ,
 .SM RFC
 864,

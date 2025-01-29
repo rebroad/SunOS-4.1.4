@@ -39,7 +39,7 @@ rm_services \- remove server capability for specified architecture
 .B rm_services
 deletes directories and changes files appropriate to removing
 server capabilities for the specified architecture.
-.B rm_services 
+.B rm_services
 deletes
 .BI exec/ arch
 and
@@ -60,7 +60,7 @@ also removes the
 .BR share ,
 .BR export ,
 .BI home/ server,
-and 
+and
 .BR home
 directories, and then unexports the
 .BR home ,
@@ -81,29 +81,29 @@ Silent.
 .B \-y
 Supply ``yes'' answers to all confirmation questions.
 .TP
-.BI \-a " arch" 
-Specify the architecture to be removed (for instance, 
+.BI \-a " arch"
+Specify the architecture to be removed (for instance,
 .BR sun4 ,
-.BR sun3 .\|.\|.). 
+.BR sun3 .\|.\|.).
 The default is the architecture of the server.
 .TP
-.BI \-e " exec-path" 
+.BI \-e " exec-path"
 Use
 .I exec-path
 as the parent pathname of the directory in which the
 executables (for the architecture specified by
 .BR \-a )
-reside. 
+reside.
 The default is
 .BR /export/exec .
 .TP
-.BI \-h " home-path" 
+.BI \-h " home-path"
 Use
 .I home-path
 as the parent pathname for home directories.  The default is
 .BR /home .
 .TP
-.BI \-k " kvm" 
+.BI \-k " kvm"
 Use
 .I kvm
 as the parent pathname of the directory in which the
@@ -113,21 +113,21 @@ executables reside, for the architecture specified by
 The default is
 .BR /export/exec/kvm .
 .TP
-.BI \-m " mail" 
+.BI \-m " mail"
 Use
 .I mail
 as the mail directory.
 The default is
 .BR /var/spool/mail .
 .TP
-.BI \-p " proto" 
+.BI \-p " proto"
 Use
 .I proto
 as the directory for the proto root file system.
 The default is
 .BR /export/root/proto .
 .TP
-.BI \-q " share-path" 
+.BI \-q " share-path"
 Use
 .I share-path
 as the pathname for the
@@ -136,15 +136,15 @@ directory.
 The default is
 .BR /export/share .
 .TP
-.BI \-s " swap-path" 
+.BI \-s " swap-path"
 Use
 .I swap-path
 as the parent pathname of the directory in which the
-swap files reside. 
+swap files reside.
 The default is
 .BR /export/swap .
 .TP
-.BI \-x " export" 
+.BI \-x " export"
 .BI x
 Use
 .I export
@@ -161,7 +161,7 @@ directories.  The default is
 This example shows how to delete server capability
 for Sun-4 system clients:
 .IP
-.B example# rm_services sun4 
+.B example# rm_services sun4
 .LP
 .SH FILES
 .PD 0

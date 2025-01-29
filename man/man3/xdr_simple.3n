@@ -74,9 +74,9 @@ A filter primitive that translates between a boolean (C
 integer) and its external representation.
 When encoding data, this
 filter produces values of either one or zero.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -93,13 +93,13 @@ char *cp;
 .IP
 A filter primitive that translates between a C character
 and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .IP
-Note: 
+Note:
 Encoded characters are not packed, and occupy 4 bytes each.
 For arrays of characters, it is worthwhile to consider
 .BR xdr_bytes(\|) ,
@@ -123,9 +123,9 @@ double *dp;
 A filter primitive that translates between a C
 .B double
 precision number and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -141,11 +141,11 @@ enum_t *ep;
 .ft R
 .IP
 A filter primitive that translates between a C
-.BR enum 
+.BR enum
 (actually integer) and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -161,11 +161,11 @@ float *fp;
 .ft R
 .IP
 A filter primitive that translates between a C
-.BR float 
+.BR float
 and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -183,14 +183,14 @@ char *objp;
 Generic freeing routine.
 The first argument is the
 .SM XDR
-routine for the object being freed. 
-The second argument is a pointer to the object itself. 
+routine for the object being freed.
+The second argument is a pointer to the object itself.
 Note:
 The pointer passed to this routine is
 .I not
 freed, but what it points to
 .I is
-freed, recursively such that objects pointed to are also freed 
+freed, recursively such that objects pointed to are also freed
 for example, linked lists.
 .br
 .if t .ne 7
@@ -204,12 +204,12 @@ int *ip;
 .fi
 .ft R
 .IP
-A filter primitive that translates between a C 
+A filter primitive that translates between a C
 .B integer
 and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -227,9 +227,9 @@ long *lp;
 A filter primitive that translates between a C
 .B long
 integer and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -247,9 +247,9 @@ short *sp;
 A filter primitive that translates between a C
 .B short
 integer and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -267,9 +267,9 @@ unsigned char *ucp;
 A filter primitive that translates between an
 .B unsigned
 C character and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -287,9 +287,9 @@ unsigned *up;
 A filter primitive that translates between a C
 .B unsigned
 integer and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -307,9 +307,9 @@ unsigned long *ulp;
 A filter primitive that translates between a C
 .B "unsigned long"
 integer and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -327,9 +327,9 @@ unsigned short *usp;
 A filter primitive that translates between a C
 .B "unsigned short"
 integer and its external representation.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -342,7 +342,7 @@ bool_t xdr_void(\|)
 .fi
 .ft R
 .IP
-This routine always returns 
+This routine always returns
 .SM TRUE\s0.
 It may be passed to
 .SM RPC

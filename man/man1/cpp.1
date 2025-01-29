@@ -3,7 +3,7 @@
 .SH NAME
 cpp \- the C language preprocessor
 .SH SYNOPSIS
-.B /usr/lib/cpp 
+.B /usr/lib/cpp
 [
 .B \-BCHMpPRT
 ] [
@@ -44,19 +44,19 @@ command; however,
 .B cpp
 can also be used as a first-pass preprocessor for other Sun compilers.
 .LP
-Although 
+Although
 .B cpp
 can be used as a macro processor, this is not normally
 recommended, as its output is geared toward that which would be
 acceptable as input to a compiler's second pass.
 Thus, the preferred way to invoke
 .B cpp
-is through the 
+is through the
 .BR cc (1V)
 command, or some other compilation command.
 For general-purpose macro-processing, see
 .BR m4 (1V),
-and the chapter on 
+and the chapter on
 .B m4
 in
 .TX PUL .
@@ -78,7 +78,7 @@ With this indicator everything on the line after the
 is treated as a comment.
 .TP
 .B \-C
-Pass all comments (except those that appear on 
+Pass all comments (except those that appear on
 .B cpp
 directive lines) through the preprocessor.
 By default,
@@ -120,10 +120,10 @@ Remove initial definitions for all predefined symbols.
 .BI \-D name
 Define
 .I name
-as 1 (one). 
+as 1 (one).
 This is the same as if a
 .BI \-D name =1
-option appeared on the 
+option appeared on the
 .B cpp
 command line, or as if a
 .RS
@@ -131,7 +131,7 @@ command line, or as if a
 .BI #define " name " 1
 .RE
 .IP
-line appeared in the source file that 
+line appeared in the source file that
 .B cpp
 is processing.
 .TP
@@ -147,7 +147,7 @@ This is the same as if a
 .BI #define " name " def
 .RE
 .IP
-line appeared in the source file that 
+line appeared in the source file that
 .B cpp
 is processing.
 The
@@ -165,7 +165,7 @@ option, the name will be undefined regardless of the order of the options.
 .ne 8
 .TP
 .BI \-I directory
-Insert 
+Insert
 .I directory
 into the search path for
 .B #include
@@ -200,17 +200,17 @@ Remove any initial definition of
 where
 .I name
 is a symbol that is predefined by a particular preprocessor.
-Here is a partial list of symbols that may be predefined, depending upon 
+Here is a partial list of symbols that may be predefined, depending upon
 the architecture of the system:
 .RS
 .RS
 .TP 20
 Operating System:
 .PD 0
-.BR ibm , 
+.BR ibm ,
 .BR gcos ,
 .BR os ,
-.BR tss 
+.BR tss
 and
 .BR unix
 .TP 20
@@ -224,7 +224,7 @@ Hardware:
 .BR u3b15 ,
 .BR u3b20d ,
 .BR vax ,
-.\".B m68k 
+.\".B m68k
 .\"(or alternatively,
 .\".BR mc68000 ),
 .\".B M68010
@@ -251,7 +251,7 @@ and
 .RE
 .RE
 .IP
-The symbols 
+The symbols
 .B sun
 and
 .B unix
@@ -278,7 +278,7 @@ All
 directives start with a hash symbol
 .RB ( # )
 as the first character on a line.
-White space 
+White space
 (\s-1SPACE\s0
 or
 .SM TAB
@@ -296,13 +296,13 @@ with
 .HP
 .B #define
 .IB name ( argument
-.RB [ , 
+.RB [ ,
 .IR argument "] .\|.\|."
 .BI ) " token-string"
 .br
 There can be no space between
 .I name
-and the 
+and the
 .RB ` ( '.
 Replace subsequent instances of
 .IR name ,
@@ -337,10 +337,10 @@ No additional tokens are permitted on the directive line after
 .BI #include " " < filename >
 .PD
 Read in the contents of
-.I filename 
+.I filename
 at this location.
 This data is processed by
-.BR cpp 
+.BR cpp
 as if it were part of the current file.
 When the
 .BI < filename >
@@ -381,7 +381,7 @@ or
 directive, appear in the output only if
 .I constant-expression
 yields a nonzero value.
-All binary non-assignment C operators, including 
+All binary non-assignment C operators, including
 .RB ` && ',
 .RB ` |\|| ',
 and
@@ -437,7 +437,7 @@ has been defined, either with a
 directive or a
 .B \-D
 option, and in the absence of an intervening
-.BR #undef 
+.BR #undef
 directive.
 No additional tokens are permitted on the directive line after
 .IR name .
@@ -532,7 +532,7 @@ directive.
 .BI #else
 This inverts the sense of the conditional directive
 otherwise in effect.  If the preceding conditional
-would indicate that lines are to be included, then lines between the 
+would indicate that lines are to be included, then lines between the
 .B #else
 and the matching
 .B #endif
@@ -552,8 +552,8 @@ Each such directive must have a matching
 .BR #endif .
 .SS Macros
 .LP
-Formal parameters for macros are recognized in 
-.B #define 
+Formal parameters for macros are recognized in
+.B #define
 directive bodies,
 even when they occur inside character constants and quoted strings.
 For instance, the output from:
@@ -582,14 +582,14 @@ regular scan.  Thus:
 does not expand
 .B abc
 in the second line, since it is inside
-a quoted string that is not part of a 
-.B #define 
+a quoted string that is not part of a
+.B #define
 macro definition.
 .LP
-Macros are not expanded while processing a 
-.B #define 
+Macros are not expanded while processing a
+.B #define
 or
-.BR #undef .  
+.BR #undef .
 Thus:
 .RS
 .sp .5v
@@ -601,11 +601,11 @@ Thus:
 .fi
 .RE
 .LP
-produces 
+produces
 .BR abc .
 The token appearing immediately after an
 .B #ifdef
-or 
+or
 .B #ifndef
 is not expanded.
 .LP
@@ -622,7 +622,7 @@ the actual parameters to another macro call.  Thus:
 .fi
 .RE
 .LP
-produces 
+produces
 .RB `` " #define hello goodbye  hello" ''.
 .SS Output
 .LP
@@ -644,15 +644,15 @@ is empty).
 .SS Details
 .SS "\fIDirectory Search Order\fP"
 .LP
-.B #include 
+.B #include
 files is:
 .RS
 .TP 4
 1.
-The directory of the file that contains the 
-.B #include 
-request (that is, 
-.B #include 
+The directory of the file that contains the
+.B #include
+request (that is,
+.B #include
 is relative to the file being scanned when the request is made).
 .TP
 2.
@@ -664,7 +664,7 @@ options, in left-to-right order.
 The standard directory(s)
 .RB ( /usr/include
 on
-.SM UNIX 
+.SM UNIX
 systems).
 .RE
 .SS "\fISpecial Names\fR"
@@ -682,16 +682,16 @@ is defined as the current filename (a C string) as known by
 They can be used anywhere (including in macros) just as any other defined name.
 .SS "\fINewline Characters\fR"
 .LP
-A 
+A
 .SM NEWLINE
 character terminates a character constant or quoted string.
 An escaped
 .SM NEWLINE
 (that is, a backslash immediately
-followed by a 
+followed by a
 .SM NEWLINE\s0)
-may be used in the body of a 
-.B #define 
+may be used in the body of a
+.B #define
 statement to continue
 the definition onto the next line.  The escaped
 .SM NEWLINE
@@ -735,7 +735,7 @@ put out the
 characters as they were found and expanded.
 The current version of
 .B cpp
-replaces them with 
+replaces them with
 .SM SPACE
 characters.
 .br

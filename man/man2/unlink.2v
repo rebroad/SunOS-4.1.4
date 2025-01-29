@@ -38,7 +38,7 @@ of the calling process must be super-user.
 .LP
 Upon successful completion,
 .B unlink(\|)
-marks for update the 
+marks for update the
 .B st_ctime
 and
 .B st_mtime

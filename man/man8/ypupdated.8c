@@ -36,7 +36,7 @@ authentication available to it, either
 .B \-i
 Accept
 .SM RPC
-calls with the insecure 
+calls with the insecure
 .SM AUTH_UNIX
 credentials.
 This allows programmatic updating of the
@@ -44,7 +44,7 @@ This allows programmatic updating of the
 maps in all networks.
 .TP
 .B \-s
-Accept only calls authenticated using the secure 
+Accept only calls authenticated using the secure
 .SM RPC
 mechanism
 (\s-1AUTH_DES\s0
@@ -70,7 +70,7 @@ maps unless the network supports these calls.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 The name Yellow Pages is a registered trademark in the United Kingdom

@@ -155,7 +155,7 @@ va_dcl
 	file = va_arg(ap, char \(**);
 	while ((args[argno++] = va_arg(ap, char \(**)) != (char \(**)0)
 		;
- 	va_end (ap);
+	va_end (ap);
 	return execv(file, args);
 }
 .ft R

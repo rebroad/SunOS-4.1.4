@@ -12,8 +12,8 @@ HERE	= man4
 
 FILES= \
 Intro.4 \
-ar.4s arp.4p audio.4 audioamd.4 bpp.4s bwtwo.4s cdromio.4 cgeight.4s \ 
-cgfour.4s cgnine.4s cgsix.4s cgthree.4s cgtwelve.4s cgtwo.4s clone.4 
+ar.4s arp.4p audio.4 audioamd.4 bpp.4s bwtwo.4s cdromio.4 cgeight.4s \
+cgfour.4s cgnine.4s cgsix.4s cgthree.4s cgtwelve.4s cgtwo.4s clone.4
 console.4s db.4m dbri.4 dkio.4s \
 drum.4 fb.4s fbio.4s fd.4s filio.4 fpa.4s gpone.4s gt.4s icmp.4p id.4s \
 ie.4s if.4n inet.4f ip.4p ipi.4s is.4s \

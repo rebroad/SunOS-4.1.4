@@ -6,7 +6,7 @@ fbio \- frame buffer control operations
 .IX  "fbio device"  ""  "\fLfbio\fP \(em frame buffer control operations"  ""  PAGE START
 .LP
 All Sun frame buffers support the same general interface that is defined
-by 
+by
 .BR <sun/fbio.h> .
 Each responds to an
 .SB FBIOGTYPE
@@ -60,7 +60,7 @@ and
 .B ioctl(\|)
 requests allow access to special features of
 newer frame buffers.
-They use the 
+They use the
 .B fbsattr
 and
 .B fbgattr

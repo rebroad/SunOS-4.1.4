@@ -59,7 +59,7 @@ constants (defined in the header file):
 .RS
 .PD 0
 .TP 20
-.SB DOMAIN	
+.SB DOMAIN
 argument domain exception
 .TP
 .SB SING
@@ -237,7 +237,7 @@ IEEE Exception	Invalid	Division	Overflow	Underflow
 ACOS, ASIN:	M, NaN	\-	\-	\-
 ATAN2(0,0):	M, \(+-0.0	\-	\-	\-
 	or \(+-\(*p
-BESSEL:                
+BESSEL:
 y0, y1, yn (x < 0)	M, NaN	\-	\-	\-
 y0, y1, yn (x = 0)	\-	M, \-\(if	\-	\-
 COSH, SINH:	\-	\-	IEEE Overflow	\-
@@ -330,7 +330,7 @@ register struct exception \(**x;
 			return (0); /* print message and set errno */
 	} /\(** fall through \(**/
 	case
- 		\s-1SING\s0:
+		\s-1SING\s0:
 		/\(** all other domain or sing exceptions, print message and abort \(**/
 		fprintf(stderr, "domain exception in %s\en", x\->name);
 		abort( );

@@ -25,7 +25,7 @@ Display successive views with no waiting.
 .TP
 .B w
 Wait for
-.SM SPACE 
+.SM SPACE
 to be typed before displaying each view.
 .TP
 .B q
@@ -62,18 +62,18 @@ of the definition of a pyramid:
 The first line gives the number of vertices followed by the number of
 polygons.  The second line gives the coordinates of a bounding box for the
 object.  Minimum and maximum coordinate values are given for each of three
-dimensions in the order 
-.IR minx , 
-.IR maxx , 
-.IR miny , 
-.IR maxy , 
-.IR minz , 
-.IR maxz .  
+dimensions in the order
+.IR minx ,
+.IR maxx ,
+.IR miny ,
+.IR maxy ,
+.IR minz ,
+.IR maxz .
 Lines 3 through
 v+2 (where v is the number of vertices) give vertex coordinates in the order
-.IR x , 
-.IR y , 
-,IR z .  
+.IR x ,
+.IR y ,
+,IR z .
 Lines v+3 through v+p+2 (where p is the number of polygons) give
 polygon descriptions.  The first number is the number of vertices for the
 polygon.  Succeeding numbers on the line are indices into the vertex list.
@@ -89,14 +89,14 @@ contains several object definition files, including
 and
 .BR pyramid.dat .
 .LP
-The above format may be used to define non-convex 
+The above format may be used to define non-convex
 objects.  The program will
-display these objects but hidden surface 
+display these objects but hidden surface
 computations will not be done correctly.
 .SH FILES
 .PD 0
 .TP 30
-.B /usr/demo/data/*.dat	
+.B /usr/demo/data/*.dat
 sample object definition files
 .TP
 .B icosa.dat

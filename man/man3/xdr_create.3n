@@ -139,7 +139,7 @@ and
 except that
 .I handle
 is passed to the former routines as the first parameter.
-Note: 
+Note:
 The
 .SM XDR
 stream's
@@ -150,7 +150,7 @@ and
 .I recvsz
 should be multiples of 4.
 .IP
-Warning: 
+Warning:
 This
 .SM XDR
 stream implements an intermediate record stream.
@@ -189,7 +189,7 @@ stream (either
 or
 .BR \s-1XDR_FREE\s0 ).
 .IP
-Warning: 
+Warning:
 The destroy routine associated with such
 .SM XDR
 streams calls

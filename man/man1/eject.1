@@ -23,14 +23,14 @@ Sun 386\fIi\fR systems.
 .B eject
 is used for those removable media devices that do not have
 a manual eject button.
-The device may be specified by its name or by a nickname; 
+The device may be specified by its name or by a nickname;
 if no device is specified the default device is used.
 .LP
 Only devices that support
 .B eject
 under program control respond to this command.
 .LP
-It is not recommended to physically eject media from a device 
+It is not recommended to physically eject media from a device
 which contains mounted filesystems.
 .B eject
 automatically searches for any mounted
@@ -39,10 +39,10 @@ filesystems which reside on the device and attempts to
 them prior to ejecting the media
 (see
 .BR mount (8)).
-If the unmount operation fails, 
+If the unmount operation fails,
 .B eject
 prints a warning message and exits.
-The 
+The
 .B \-f
 flag may be used to specify an eject
 .I even
@@ -104,7 +104,7 @@ option, if the media
 in the drive.
 .TP
 1
-If the operation was 
+If the operation was
 unsuccessful
 or, with the
 .B \-q

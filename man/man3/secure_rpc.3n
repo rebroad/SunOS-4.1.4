@@ -50,14 +50,14 @@ authentication flavor.
 See
 .BR rpc_clnt_auth (3N)
 for routines relating to the
-.SB AUTH_NONE 
-and 
+.SB AUTH_NONE
+and
 .SB AUTH_UNIX
 authentication types.
 .IP
-Note: 
-Both the client and server should have their keys in the 
-.BR publickey (5) 
+Note:
+Both the client and server should have their keys in the
+.BR publickey (5)
 database.
 Also, the keyserver daemon
 .BR keyserv (8C)
@@ -133,7 +133,7 @@ then the authentication system will
 generate a random
 .SM DES
 key to be used for the encryption of credentials.
-If 
+If
 .I deskeyp
 is supplied then it is used instead.
 .br
@@ -159,18 +159,18 @@ authentication routine used by the server for converting a
 credential, which is
 operating system independent, into a
 .SM UNIX
-credential. 
-.I uidp 
+credential.
+.I uidp
 points to the user
 .SM ID\s0
 of the user associated with
-.IR adc ; 
-.I gidp 
+.IR adc ;
+.I gidp
 refers to the user's current group
-.SM ID\s0; 
-.I gidlistp 
+.SM ID\s0;
+.I gidlistp
 refers to an array of groups to which the user belongs and
-.I gidlenp 
+.I gidlenp
 has the count of the entries in this array.
 .br
 .ne 5
@@ -183,7 +183,7 @@ pulls its information from a cache, and does not have to do a
 .SM NIS
 name service
 lookup every time it is called to get its information.
-Returns 1 if it succeeds and 0 if it fails. 
+Returns 1 if it succeeds and 0 if it fails.
 .br
 .if t .ne 8
 .LP
@@ -232,7 +232,7 @@ char *domain;
 .ft R
 .IP
 Convert from a domain-specific hostname to an
-operating-system independent netname. 
+operating-system independent netname.
 This routine is normally used to get the netname of the
 server, which is then used to get an authentication handle
 by calling
@@ -279,8 +279,8 @@ key, and decrypts the key by
 using the public key of the server and the secret key
 associated with the effective user
 .SM ID
-of the calling process.  Returns 0 if 
-it succeeds and \-1 if it fails. This routine 
+of the calling process.  Returns 0 if
+it succeeds and \-1 if it fails. This routine
 is the inverse of
 .BR key_encryptsession(\|) .
 .br
@@ -300,8 +300,8 @@ takes the netname of the server and a des key, and encrypts
 it using the public key of the server and the secret key
 associated with the effective user
 .SM ID
-of the calling process.  Returns 0 if 
-it succeeds and \-1 if it fails. This routine 
+of the calling process.  Returns 0 if
+it succeeds and \-1 if it fails. This routine
 is the inverse of
 .BR key_decryptsession(\|) .
 .br
@@ -320,8 +320,8 @@ is used to ask the keyserver for a secure conversation key.
 Choosing one at \*(lqrandom\*(rq is usually not good enough,
 because
 the common ways of choosing random numbers, such as using the
-current time, are very easy to guess. Returns 0 if 
-it succeeds and \-1 if it fails. 
+current time, are very easy to guess. Returns 0 if
+it succeeds and \-1 if it fails.
 .br
 .if t .ne 6
 .LP
@@ -337,8 +337,8 @@ A keyserver interface routine. It is used to set the secret key for
 the effective user
 .SM ID
 of the calling process.
-Returns 0 if 
-it succeeds and \-1 if it fails. 
+Returns 0 if
+it succeeds and \-1 if it fails.
 .br
 .if t .ne 7
 .LP
@@ -355,7 +355,7 @@ int hostlen;
 Convert an operating-system independent netname to a
 domain-specific hostname.
 .I hostlen
-specifies the size of the array pointed to by 
+specifies the size of the array pointed to by
 .I host.
 It returns 1 if it succeeds and 0 if it fails.
 This routine is the inverse of
@@ -378,16 +378,16 @@ int *gidlistp;
 Convert an operating-system independent netname to a
 domain-specific user
 .SM ID\s0.
-.I uidp 
+.I uidp
 points to the user
 .SM ID\s0
-of the user; 
-.I gidp 
+of the user;
+.I gidp
 refers to the user's current group
-.SM ID\s0; 
-.I gidlistp 
+.SM ID\s0;
+.I gidlistp
 refers to an array of groups to which the user belongs and
-.I gidlenp 
+.I gidlenp
 has the count of the entries in this array.
 It returns 1 if it succeeds and 0 if it fails.
 This routine is the inverse of
@@ -406,7 +406,7 @@ char *domain;
 .ft R
 .IP
 Convert  a domain-specific username to an operating-system
-independent netname. 
+independent netname.
 .I uid
 is the user
 .SM ID\s0

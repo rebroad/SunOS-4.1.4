@@ -1,4 +1,4 @@
-#! /bin/sh 
+#! /bin/sh
 # @(#)titles.sh 1.1 94/10/31 SMI;
 :
 for i in 1 2 3 4 5 6 7 8 ; do

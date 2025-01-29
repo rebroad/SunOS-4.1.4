@@ -62,7 +62,7 @@ example# restore r
 .RE
 .RE
 .IP
-is a typical sequence to restore a \*(lqlevel \fB0\fP\*(rq 
+is a typical sequence to restore a \*(lqlevel \fB0\fP\*(rq
 dump.  Another
 .B restore
 can be done to get an incremental dump in on top of this.
@@ -127,7 +127,7 @@ If only contents information is needed, for example when the
 .I t
 option is specified, or the
 .I i
-option is specified without a corresponding 
+option is specified without a corresponding
 .I extract
 request, no dump tape will have to be mounted.
 .TP 5n
@@ -248,8 +248,8 @@ directory.
 .br
 List files in
 .I directory
-or the current directory, represented by a 
-.RB ` . ' 
+or the current directory, represented by a
+.RB ` . '
 (period).
 Directories are appended with a
 .RB ` / '
@@ -393,7 +393,7 @@ a tape that was written before the previous incremental tape,
 or that has too low an incremental level has been loaded.
 .TP
 .B
-Incremental tape too high 
+Incremental tape too high
 When doing incremental restore,
 a tape that does not begin its coverage where the previous incremental
 tape left off,
@@ -429,16 +429,16 @@ This message lists the number of blocks that were skipped over.
 can get confused when doing incremental restores from
 dump tapes that were made on active file systems.
 .LP
-A \*(lqlevel \fB0\fP\*(rq 
+A \*(lqlevel \fB0\fP\*(rq
 dump must be done after a full restore.
-Because 
-.B restore 
+Because
+.B restore
 runs in user mode,
 it has no control over inode allocation;
 this means that
 .B restore
 repositions the files, although it
-does not change their contents. 
+does not change their contents.
 Thus, a full dump must be done to get a
 new set of directories reflecting the new file positions, so that later
 incremental dumps will be correct.

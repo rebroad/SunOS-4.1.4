@@ -132,7 +132,7 @@ abandon work on the current target but continue with other branches
 that do not depend on that target.
 .TP
 .B \-n
-No execution mode. 
+No execution mode.
 Print commands, but do not execute them.
 Even lines beginning with an
 .B @
@@ -374,7 +374,7 @@ control structure for branching, use a command line of the form:
 .fi
 .RE
 Although composed of several input lines, the escaped
-.SM NEWLINE 
+.SM NEWLINE
 characters insure that
 .B make
 treats them all as one command line.
@@ -401,7 +401,7 @@ and
 signals received from the keyboard halt
 .B make
 and remove the target file being processed
-(unless it is in the dependency list for 
+(unless it is in the dependency list for
 .BR \&.\s-1PRECIOUS\s0 ).
 .SS "Special-Function Targets"
 .LP
@@ -416,20 +416,20 @@ of the implicit rules applies.
 ignores the dependency list for this target.
 .TP
 .SB \&.PRECIOUS
-List of files not to delete.  
+List of files not to delete.
 Files listed as dependencies for this target are
 not removed if
 .B make
 is interrupted while rebuilding them.
 .TP
 .SB \&.SILENT
-Run silently.  
+Run silently.
 When this target appears in the makefile,
 .B make
 does not echo commands before executing them.
 .TP
 .SB \&.IGNORE
-Ignore errors.  
+Ignore errors.
 When this target appears in the makefile,
 .B make
 ignores nonzero error codes returned from commands.
@@ -515,7 +515,7 @@ This macro is only assigned for implicit rules, or within the
 target's rule.
 .TP
 .B $@
-The name of the current target.  
+The name of the current target.
 It is assigned only for rules
 in targets that are explicitly defined in the makefile.
 .TP
@@ -524,11 +524,11 @@ The list of dependencies with respect to which the target
 is out of date.  This macro is assigned only for explicit rules.
 .TP
 .B $%
-The library member. The 
-.B $% 
+The library member. The
+.B $%
 macro is only evaluated when the target is an
 archive library member of the form:
-.IB lib ( file ".o )"\fR. 
+.IB lib ( file ".o )"\fR.
 In this case,
 .B $@
 evaluates to
@@ -597,7 +597,7 @@ even though they are in effect, are not shown in the output produced by
 .LP
 The
 .SB MAKE
-macro is another special case.  It has the value 
+macro is another special case.  It has the value
 .B make
 by default, and temporarily overrides the
 .B \-n
@@ -609,12 +609,12 @@ written as:
 .BR $(\s-1MAKE\s0) " .\|.\|."
 .LP
 to run recursively,
-so that the command 
-.B make \-n 
+so that the command
+.B make \-n
 can be used to test an
 entire hierarchy of makefiles.
 .LP
-For compatibility with the 4.2 
+For compatibility with the 4.2
 .SM BSD
 .BR make ,
 the
@@ -632,7 +632,7 @@ supplies the following macros for compilers and their options:
 lBp-1 l lBp-1 l .
 CC	\fBC\fR compiler, \fBcc\fR\|(1V)	CFLAGS	\fBC\fR compiler options
 FC	\s-1FORTRAN\s0 77 compiler, \fBf77\fR\|(1)	FFLAGS	\s-1FORTRAN\s0 77 compiler options
-		RFLAGS	\s-1FORTRAN\s0 77 compiler options with 
+		RFLAGS	\s-1FORTRAN\s0 77 compiler options with
 			Ratfor (\fB.r\fR) source files
 PC	Pascal compiler, \fBpc\fR\|(1)	PFLAGS	Pascal compiler options
 M2C	Modula-2 compiler 	M2FLAGS 	Modula-2 compiler options
@@ -718,7 +718,7 @@ as a dependency, by default:
 .br
 .B \&.s  .s\*~  .sh  .sh\*~  .h  .h\*~
 .RE
-Multiple suffix-list targets accumulate; a 
+Multiple suffix-list targets accumulate; a
 .SB \&.SUFFIXES
 target with no dependencies clears the list of suffixes.  Order is
 significant;
@@ -730,8 +730,8 @@ A tilde
 .RB ( \(ap )
 refers to the
 .BI s. prefix
-of an 
-.SM SCCS 
+of an
+.SM SCCS
 history file (see
 .BR sccs (1)).
 If
@@ -739,7 +739,7 @@ If
 cannot locate a history file (with a name of the form
 .BI s. basename.suffix\fR)
 in the current working directory, it checks for one in the
-.SM SCCS 
+.SM SCCS
 subdirectory (if that directory exists) for one from which to
 .BR sccs-get (1)
 the dependency file.
@@ -860,7 +860,7 @@ files using the
 .B \&.c.o
 implicit rule.  It then loads the freshly compiled version of
 each file into the library according to the explicit rules in
-the 
+the
 .BR lib.a() targets.
 .LP
 Implicit rules pertaining to archive libraries have the form
@@ -874,10 +874,10 @@ requires that
 .SM
 .I XX
 to be different from the suffix of the archive member itself.
-For instance, the target 
-.BI lib( file .o) 
+For instance, the target
+.BI lib( file .o)
 cannot depend upon the
-.IB file .o 
+.IB file .o
 explicitly, but instead, must be made to depend
 on a source file, such as
 .IB file .c\fR.
@@ -1015,9 +1015,9 @@ and
 .B @
 will not work.
 .LP
-You cannot build 
-.BI lib( file .o) 
-from 
+You cannot build
+.BI lib( file .o)
+from
 .IB file .o\fR.
 .LP
 The macro substitution

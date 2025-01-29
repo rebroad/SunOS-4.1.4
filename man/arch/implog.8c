@@ -37,19 +37,19 @@ implog \- IMP log interpreter
 interprets the message log produced by
 .IR implogd (8C).
 .PP
-If no arguments are specified, 
+If no arguments are specified,
 .B implog
 interprets and prints every message present in the message
 file.  Options may be specified to force printing only a
 subset of the logged messages.
 .TP
 .B \-D
-Do not show data messages. 
+Do not show data messages.
 .TP
 .B \-f
 Follow (monitor) the logging process.
 First print the current contents of the log file, then
-check for newly logged messages every 5 seconds. 
+check for newly logged messages every 5 seconds.
 .TP
 .B \-c
 In addition to printing any data messages logged, show the
@@ -84,7 +84,7 @@ Show only those messages received of the specified message type.
 .SH "SEE ALSO"
 implogd(8C)
 .SH BUGS
-You cannot specify multiple hosts, 
+You cannot specify multiple hosts,
 .SM IMP\s0s,
 etc.
 You cannot follow the reception of messages without looking at

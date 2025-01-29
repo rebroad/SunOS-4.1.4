@@ -124,7 +124,7 @@ The format of the scanned line is described by
 .PD 0
 .TP 20
 .B /etc/ethers
-(or the 
+(or the
 Network Information Service
 (\s-1NIS\s0)
 maps
@@ -139,6 +139,6 @@ and
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

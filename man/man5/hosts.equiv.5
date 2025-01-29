@@ -6,7 +6,7 @@ hosts.equiv, .rhosts \- trusted remote hosts and users
 .IX  "hosts.equiv file"  ""  "\fLhosts.equiv\fP \(em trusted hosts list"
 .IX  "trusted hosts list"  ""  "trusted hosts list \(em \fLhosts.equiv\fP"
 .LP
-The 
+The
 .B /etc/hosts.equiv
 and
 .B .rhosts
@@ -17,7 +17,7 @@ files provide the ``remote authentication'' database for
 and
 .BR rcmd (3N).
 The files specify remote hosts and users
-that are considered 
+that are considered
 .IR trusted .
 Trusted users are allowed to access the local system
 \fIwithout supplying a password.\fR
@@ -30,7 +30,7 @@ performs the authentication procedure for programs by using the
 and
 .B .rhosts
 files.
-The 
+The
 .B /etc/hosts.equiv
 file applies to the entire system,
 while individual users can maintain their own
@@ -53,10 +53,10 @@ file and then checks the
 file in the home directory of the local user as whom access
 is being attempted.
 Entries in these files can be of two forms.
-.I Positive 
-entries explicitly 
+.I Positive
+entries explicitly
 .I allow
-access, while 
+access, while
 .I negative
 entries explicitly
 .I deny
@@ -73,7 +73,7 @@ and
 .BR rcp (1C)
 programs fail if the remote authentication procedure fails.
 The
-.B rlogin 
+.B rlogin
 program will fall back
 to the standard password-based login procedure if the
 remote authentication fails.
@@ -84,7 +84,7 @@ a list of one-line entries.  Each entry has the form:
 .IR hostname " [" username "] "
 .LP
 Negative entries are differentiated from positive
-entries by a `-' character preceding either the 
+entries by a `-' character preceding either the
 .I hostname
 or
 .I username
@@ -93,12 +93,12 @@ field.
 .LP
 If the form:
 .IP
-.I hostname 
+.I hostname
 .LP
 is used, then users from the named host are trusted.
 That is, they may access the system with the same user name
 as they have on the remote system.
-This form may be used in both the 
+This form may be used in both the
 .B /etc/hosts.equiv
 and
 .B .rhosts
@@ -111,16 +111,16 @@ If the line is in the form:
 then the named user from the named host can access the system.
 This form may be used in individual
 .B .rhosts
-files to allow 
+files to allow
 remote users to access the system
 \fIas a different local user.\fR
 If this form is used in the
 .B /etc/hosts.equiv
-file, the named remote user will be allowed to access the system as 
-.I any 
+file, the named remote user will be allowed to access the system as
+.I any
 local user.
 .LP
-Netgroups(5) can be used in either the 
+Netgroups(5) can be used in either the
 .I hostname
 or
 .I username
@@ -193,7 +193,7 @@ means that access is explicitly disallowed from all hosts in the
 named netgroup.
 The form:
 .IP
-.I hostname 
+.I hostname
 .BI \- username
 .LP
 disallows access by the named user only from the named host,
@@ -237,9 +237,9 @@ that include a
 .I username
 field (either an individual named user, a netgroup, or `+' sign) should be
 used only with extreme caution.
-Because 
+Because
 .I /etc/hosts.equiv
-applies system-wide, these entries 
+applies system-wide, these entries
 allow one or a group of remote users to access the system
 .I as any local user.
 This can be the source of a security hole.

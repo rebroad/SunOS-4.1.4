@@ -4,15 +4,15 @@
 calendar \- a simple reminder service
 .SH SYNOPSIS
 .B calendar
-[ 
-.B \- 
+[
+.B \-
 ]
 .SH DESCRIPTION
 .IX  calendar  ""  "\fLcalendar\fP \(em reminder service"
 .IX  "timed event services"  "calendar command"  ""  "\fLcalendar\fP \(em reminder service"
 .IX  "reminder services"  "calendar command"  ""  "\fLcalendar\fP \(em reminder service"
 .LP
-.B calendar 
+.B calendar
 consults the file
 .B calendar
 in the current directory and displays lines
@@ -72,18 +72,18 @@ to figure out today's and tomorrow's dates
 .BR cron (8)
 .SH NOTES
 .LP
-The 
+The
 .RB ` \- '
 argument works only on calendar files that are local to the machine;
 .B calendar
 is intended not to work on calendar files that are mounted remotely with
 .BR \s-1NFS\s0.
-Thus, 
+Thus,
 .RB ` "calendar \-" '
 should be run only on diskful machines where home
-directories exist;  running it on a diskless client has no effect.  
+directories exist;  running it on a diskless client has no effect.
 .LP
-.B calendar 
+.B calendar
 is no longer in the default root crontab.
 Because of the network burden
 .RB ` "calendar \-" '
@@ -112,11 +112,11 @@ extended idea of \*(lqtomorrow\*(rq does not account for holidays.
 .\" Sun386i
 .LP
 Problems may occur when there is no
-.B /etc/passwd 
+.B /etc/passwd
 file on the local host.
 .\" Sun386i
 .LP
-The calendar mail will be sent to the user at the machine on which 
+The calendar mail will be sent to the user at the machine on which
 .RB ` "calendar \-" '
-is run.  If the system administrator wants the mail to be sent to another 
+is run.  If the system administrator wants the mail to be sent to another
 machine, mail aliases should be set up accordingly.

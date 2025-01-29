@@ -40,7 +40,7 @@ The
 .SB CLIENT
 data structure is defined in the
 .SM RPC/XDR
-Library Definition of the 
+Library Definition of the
 .TX NETP .
 .LP
 .ft B
@@ -85,7 +85,7 @@ and their argument types and what they do are:
 .fi
 .RE
 .IP
-Note: 
+Note:
 If you set the timeout using
 .BR clnt_control(\|) ,
 the timeout parameter passed to
@@ -116,9 +116,9 @@ waits for the server to reply before
 retransmitting the request.
 .IP
 This routine returns
-.SM TRUE 
+.SM TRUE
 on success, and
-.SM FALSE 
+.SM FALSE
 on failure.
 .br
 .if t .ne 10
@@ -146,7 +146,7 @@ currently supported values for this field are \*(lqudp\*(rq
 and \*(lqtcp\*(rq.
 Default timeouts are set, but they can be modified using
 .BR clnt_control(\|) .
-If successful it returns a client handle, otherwise it 
+If successful it returns a client handle, otherwise it
 returns
 .SM NULL\s0.
 .br
@@ -197,7 +197,7 @@ char *protocol;
 .ft R
 .IP
 This is a generic client creation routine which also checks for the version
-available. 
+available.
 .I  host
 identifies the name of the remote host where the server
 is located.
@@ -205,25 +205,25 @@ is located.
 indicates which kind of transport protocol to use. The
 currently supported values for this field are \*(lqudp\*(rq
 and \*(lqtcp\*(rq.
-If the routine is successful it returns a client handle created for 
-the highest version between 
+If the routine is successful it returns a client handle created for
+the highest version between
 .I vers_low
-and 
+and
 .I vers_high
-that is supported by the server. 
-.I vers_outp 
+that is supported by the server.
+.I vers_outp
 is set to this value.
 That is, after a successful return
-.I vers_low 
-<= 
+.I vers_low
+<=
 .I *vers_outp
-<= 
+<=
 .I
 vers_high.
-If no version between 
-.I vers_low 
-and  
-.I vers_high 
+If no version between
+.I vers_low
+and
+.I vers_high
 is supported by the server then the routine fails and returns
 .SM NULL\s0.
 Default timeouts are set, but can be modified using
@@ -231,20 +231,20 @@ Default timeouts are set, but can be modified using
 .br
 .ne 5
 .IP
-Note: 
+Note:
 .BR clnt_create(\|)
 returns a valid client handle even
-if the particular version number supplied to 
-.BR clnt_create(\|) 
-is not 
+if the particular version number supplied to
+.BR clnt_create(\|)
+is not
 registered with the portmap service.
-This mismatch will be discovered by a 
-.BR clnt_call(\|) 
+This mismatch will be discovered by a
+.BR clnt_call(\|)
 later
 (see
 .BR rpc_clnt_calls (3N)).
-However, 
-.BR clnt_create_vers(\|) 
+However,
+.BR clnt_create_vers(\|)
 does this for you and returns a valid handle
 only if a version within
 the range supplied is supported by the server.
@@ -311,7 +311,7 @@ u_long prognum, versnum;
 .fi
 .ft R
 .IP
-Create an 
+Create an
 .SM RPC
 client for the remote program
 .IR prognum ,
@@ -330,8 +330,8 @@ This allows simulation of
 and getting
 .SM RPC
 overheads, such as round trip times, without any
-kernel interference. 
-If successful it returns a client handle, otherwise it 
+kernel interference.
+If successful it returns a client handle, otherwise it
 returns
 .SM NULL\s0.
 .br
@@ -352,7 +352,7 @@ instead of printing to the standard error.
 It, however, does not append the message with a
 .SM NEWLINE\s0.
 .IP
-Note: 
+Note:
 .B clnt_spcreateerror(\|)
 returns a pointer to a static buffer that is overwritten
 on each call.
@@ -390,8 +390,8 @@ The parameter
 .I sockp
 is a pointer to a socket; if it is
 .BR \s-1RPC_ANYSOCK\s0 ,
-then a new socket is opened and 
-.IR sockp 
+then a new socket is opened and
+.IR sockp
 is updated.
 Since
 .SM TCP\s0-based
@@ -404,13 +404,13 @@ with the parameters
 and
 .IR recvsz ;
 values of zero choose defaults.
-If successful it returns a client handle, otherwise it 
+If successful it returns a client handle, otherwise it
 returns
 .SM NULL\s0.
 .br
 .ne 5
 .IP
-Warning: 
+Warning:
 If
 \fB\%addr\->sin_port\fR
 is zero and the requested version number
@@ -444,7 +444,7 @@ client handle for the remote program
 .IR prognum ,
 on
 .IR versnum ;
-the client uses 
+the client uses
 .SM UDP/IP
 as the transport. The remote program is located at the Internet
 address
@@ -459,7 +459,7 @@ service is consulted for this information). The parameter
 is a pointer to a socket; if it is
 .BR \s-1RPC_ANYSOCK\s0 ,
 then a new socket is opened and
-.BR sockp 
+.BR sockp
 is updated.
 The
 .SM UDP
@@ -471,14 +471,14 @@ The total time for the call to time out is specified by
 .B clnt_call(\|)
 (see
 .BR rpc_clnt_calls (3N)).
-If successful it returns a client handle, otherwise it 
+If successful it returns a client handle, otherwise it
 returns
 .SM NULL\s0.
 .IP
-The user can specify the maximum packet size for sending and receiving 
-by using 
+The user can specify the maximum packet size for sending and receiving
+by using
 .I sendsz
-and 
+and
 .I recvsz
 arguments for
 .SM UDP\s0-based
@@ -487,7 +487,7 @@ messages.
 .br
 .ne 5
 .IP
-Warning: 
+Warning:
 If
 \fB\%addr\->sin_port\fR
 is zero and the requested version number
@@ -534,7 +534,7 @@ service is consulted for this information). The parameter
 is a pointer to a  socket; if it is
 .BR \s-1RPC_ANYSOCK\s0 ,
 a new socket is opened and
-.IR sockp 
+.IR sockp
 is updated.
 The
 .SM UDP
@@ -546,11 +546,11 @@ The total time for the call to time out is specified by
 .B clnt_call(\|)
 (see
 .BR rpc_clnt_calls (3N)).
-If successful it returns a client handle, otherwise it 
+If successful it returns a client handle, otherwise it
 returns
 .SM NULL\s0.
 .IP
-Warning: 
+Warning:
 Since
 .SM UDP\s0-based
 .SM RPC
@@ -562,7 +562,7 @@ should be used instead.
 .br
 .ne 5
 .IP
-Warning: 
+Warning:
 If
 \fB\%addr\->sin_port\fR
 is zero and the requested version number

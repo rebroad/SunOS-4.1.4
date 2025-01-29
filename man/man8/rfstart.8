@@ -24,7 +24,7 @@ for information on how to install optional software.
 .B rfstart
 starts Remote File Sharing
 (\s-1RFS\s0)
-and defines an authentication level for incoming requests. 
+and defines an authentication level for incoming requests.
 This command can be used only after the domain name
 server is set up and your computer's domain name and
 network specification has been defined using
@@ -75,7 +75,7 @@ The command is run without super-user privileges.
 .LP
 Remote file sharing will not start if the host password in
 .B /usr/nserve/loc.passwd
-is corrupted. 
+is corrupted.
 If you suspect this has happened, remove the file and run
 .B rfstart
 again to reenter your password.
@@ -86,7 +86,7 @@ will
 .I not
 fail if your host password does not match
 the password on the domain name server.
-You will simply receive a warning message. 
+You will simply receive a warning message.
 However, if you try to mount a resource from the primary
 or any other host that validates your password, the
 mount will fail if your password does not match the one
@@ -119,7 +119,7 @@ If the
 option is not specified, the address of the domain
 name server is taken from the
 .B rfmaster
-file. 
+file.
 See
 .BR rfmaster (5)
 for a description of the valid address syntax.
@@ -127,7 +127,7 @@ for a description of the valid address syntax.
 .PD 0
 .TP 20
 .B /usr/nserve/rfmaster
-.TP 
+.TP
 .B /usr/nserve/loc.passwd
 .PD
 .SH "SEE ALSO"

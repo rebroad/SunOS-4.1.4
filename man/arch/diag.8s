@@ -12,35 +12,35 @@ diag \- stand-alone disk initialization and diagnosis
 .IX  "stand-alone utilities"  diag  ""  "\fLdiag\fP \(em initialize/diagnose disk"
 \fIDiag\fP is a general purpose stand-alone package
 for initializing, diagnosing, and repairing disks.
-It supports the various 
+It supports the various
 .SM SMD
 and
 .SM SCSI
 disk controllers.
 .LP
-\fBNote\fP: \fIDiag\fP is not a system utility and can only be called 
+\fBNote\fP: \fIDiag\fP is not a system utility and can only be called
 from the Sun Workstation
 .SM PROM
-monitor. 
+monitor.
 .LP
 The most common use of \fIdiag\fP is formatting and labelling a disk
 \(em see the \fIformat\fP, \fIlabel\fP, and \fIpartition\fP commands.
 .LP
 Immediately after startup, \fIdiag\fP
-prompts for information about the particular disk drive(s) and controller(s) 
-it is to work with.  
+prompts for information about the particular disk drive(s) and controller(s)
+it is to work with.
 There is a facility for specifying additional information
 about nonstandard disks.
 .LP
-\fIDiag\fR tries to access the disk controller you have defined.  If the 
+\fIDiag\fR tries to access the disk controller you have defined.  If the
 attempt succeeds,
-it gives you a status report on the disk and issues the `diag>' prompt. 
-If the attempt fails (if the controller is ill-defined or 
+it gives you a status report on the disk and issues the `diag>' prompt.
+If the attempt fails (if the controller is ill-defined or
 nonexistent), you get a bus error message,
 and return to the PROM monitor.
 .LP
-Once configured, \fIdiag\fR accepts the comands listed below.  Only enough 
-characters to uniquely identify the command need be typed.  
+Once configured, \fIdiag\fR accepts the comands listed below.  Only enough
+characters to uniquely identify the command need be typed.
 .IP \fBabortdma\fP 12
 Aborts/does not abort the \fIdmatest\fP command when a data
 miscompare is detected.  That is, if the internal variable set by
@@ -67,7 +67,7 @@ Formats and verifies a range of tracks; any defective tracks/sectors
 found are automatically corrected using mapping or slipping.
 \fBNote:\fP  this command is available for SMD controllers only.
 .\"Interphase controller or Xylogics controller).  This command is not available
-.\"for use with Adaptec disk controllers (ST-506 interface). 
+.\"for use with Adaptec disk controllers (ST-506 interface).
 .IP \fBformat\fP
 For SMD disks, formats the entire disk; for SCSI disks,
 initiates the SCSI \fIformat\fP program.
@@ -84,7 +84,7 @@ Reports/suppresses report of all disk activity as it completes
 .\"Toggles an option to report
 (toggles; default is reporting off).
 .IP \fBlabel\fP
-Labels the disk. 
+Labels the disk.
 .IP \fBmap\fP
 Displays current mappings and allows you to
 explicitly map one track/sector to a different track/sector.
@@ -97,7 +97,7 @@ Xylogics controllers.  This command is not available for use
 with SCSI disk controllers.
 .IP \fBmapcheck\fP
 Enables/disables checking for overlapping mapped sectors/tracks during
-the \fIposition\fP, \fIread\fP, \fItest\fP, or \fIwrite\fP commands.  If 
+the \fIposition\fP, \fIread\fP, \fItest\fP, or \fIwrite\fP commands.  If
 the internal variable set by \fImapcheck\fP is `on'
 when an error occurs (default),
 then the current mappings (if any) are read from the disk and checked to see if

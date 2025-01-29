@@ -39,7 +39,7 @@ for information on how to install optional software.
 .IX  display "selected lines from file \(em \fLsed\fP"
 .LP
 .B sed
-copies the 
+copies the
 .IR filename s
 (standard input default) to the
 standard output, edited according to a script of commands.
@@ -55,7 +55,7 @@ is an edit command for
 If there is just one
 .B \-e
 option and no
-.B \-f 
+.B \-f
 options, the
 .B \-e
 flag may be omitted.
@@ -78,7 +78,7 @@ cyclically copies a line of input into a
 \fIpattern space\fP (unless there is something left after a
 .B D
 command),
-sequentially applies all commands with 
+sequentially applies all commands with
 .I addresses
 matching that pattern
 space until reaching the end of the script, copies the pattern space
@@ -91,7 +91,7 @@ Some commands use a
 to save all or part of the pattern space
 for subsequent retrieval.
 .LP
-An 
+An
 .I address
 is either:
 .IP
@@ -126,13 +126,13 @@ regular expression is
 .BR abcxdef .
 .TP
 .B \en
-Matches a 
-.SM NEWLINE 
+Matches a
+.SM NEWLINE
 embedded in the pattern space.
 .TP
 .B .
-Matches any character except the 
-.SM NEWLINE 
+Matches any character except the
+.SM NEWLINE
 ending the pattern space.
 .TP
 .I null
@@ -145,19 +145,19 @@ Selects each pattern space that matches.
 .TP
 .I address1 ,\|address2
 Selects the inclusive range from the first
-pattern space matching 
+pattern space matching
 .I addrress1
-to the first pattern space matching 
+to the first pattern space matching
 .IR address2 .
-Selects only one line if 
+Selects only one line if
 .I address1
-is greater than or equal to 
+is greater than or equal to
 .IR address2 .
 .RE
 .br
 .ne 10
 .SS Comments
-If the first nonwhite character in a line is a 
+If the first nonwhite character in a line is a
 .RB ` # '
 (pound sign),
 .B sed
@@ -167,38 +167,38 @@ first such line is of the form:
 .B #n
 .LP
 .B sed
-runs as if the 
+runs as if the
 .B \-n
 flag were specified.
 .SS Functions
 The maximum number of permissible addresses
 for each function is indicated in parentheses in the list below.
 .LP
-An argument denoted 
+An argument denoted
 .I text
 consists of one or more lines,
 all but the last of which end with
 .B \e
-to hide the 
+to hide the
 .SM NEWLINE\s0.
 Backslashes in text are treated like backslashes in the replacement string
 of an
 .B s
-command, and may be used to protect initial 
+command, and may be used to protect initial
 .SM SPACE
 and
 .SM TAB
 characters
 against the stripping that is done on every script line.
 .LP
-An argument denoted 
+An argument denoted
 .I rfilename
-or 
+or
 .I wfilename
 must terminate the command
-line and must be preceded by exactly one 
-.SM SPACE\s0. 
-Each 
+line and must be preceded by exactly one
+.SM SPACE\s0.
+Each
 .I wfilename
 is created before processing begins.  There can be at most 10 distinct
 .I wfilename
@@ -209,7 +209,7 @@ arguments.
 .TP
 .I text
 .PD
-Append: place 
+Append: place
 .I text
 on the output before reading the next input line.
 .TP
@@ -218,7 +218,7 @@ Branch to the
 .RB ` : '
 command bearing the
 .IR label .
-Branch to the end of the script if 
+Branch to the end of the script if
 .I label
 is empty.
 .TP
@@ -228,7 +228,7 @@ is empty.
 .I text
 .PD
 Change: delete the pattern space.
-With 0 or 1 address or at the end of a 2 address range, place 
+With 0 or 1 address or at the end of a 2 address range, place
 .I text
 on the output.  Start the next cycle.
 .TP
@@ -236,8 +236,8 @@ on the output.  Start the next cycle.
 Delete the pattern space.  Start the next cycle.
 .TP
 (2)\|\fBD\fP
-Delete the initial segment of the 
-pattern space through the first 
+Delete the initial segment of the
+pattern space through the first
 .SM NEWLINE\s0.
 Start the next cycle.
 .TP
@@ -258,7 +258,7 @@ Append the contents of the pattern space to the hold space.
 .TP
 .I text
 .PD
-Insert: place 
+Insert: place
 .I text
 on the standard output.
 .TP
@@ -284,8 +284,8 @@ Print: copy the pattern space to the standard output.
 .TP
 (2)\|\fBP\fP
 Copy the initial segment of the pattern space through
-the first 
-.SM NEWLINE 
+the first
+.SM NEWLINE
 to the standard output.
 .TP
 (1)\|\fBq\fP
@@ -300,7 +300,7 @@ the next input line.
 .ne 14
 .TP
 .RI (2)\|\fBs\fP /regular\ expression/replacement/flags
-Substitute the 
+Substitute the
 .I replacement
 string for instances of the
 .I "regular expression"
@@ -315,8 +315,8 @@ is zero or more of:
 .TP 12
 .I n
 \fIn\fP= 1 \- 512.
-Substitute for just the 
-.IR n th 
+Substitute for just the
+.IR n th
 occurrence of the
 .IR regular expression .
 .TP
@@ -329,7 +329,7 @@ rather than just the first one.
 Print the pattern space if a replacement was made.
 .TP
 .BI w " wfilename"
-Write: append the pattern space to 
+Write: append the pattern space to
 .I wfilename
 if a replacement was made.
 .RE
@@ -337,13 +337,13 @@ if a replacement was made.
 .RI (2)\|\fBt\fP " label"
 Test: branch to the
 .RB ` : '
-command bearing the 
+command bearing the
 .I label
 if any
 substitutions have been made since the most recent
 reading of an input line or execution of a
 .BR t .
-If 
+If
 .I label
 is empty, branch to the end of the script.
 .TP
@@ -355,36 +355,36 @@ Write: append the pattern space to
 Exchange the contents of the pattern and hold spaces.
 .TP
 .RI (2)\|\fBy\fP /string1/string2/
-Transform: replace all occurrences of characters in 
+Transform: replace all occurrences of characters in
 .I string1
-with the corresponding character in 
-.IR string2 .  
+with the corresponding character in
+.IR string2 .
 The lengths of
 .I string1
-and 
+and
 .I string2
 must be equal.
 .TP
 .RI (2)\fB!\fP " function"
-Do not: apply the 
+Do not: apply the
 .I function
-(or group, if 
+(or group, if
 .I function
 is
 .RB ` { '\|)
-only to lines 
+only to lines
 .I not
 selected by the address(es).
 .TP
 .RI (0)\|\fB:\fP " label"
-This command does nothing; it bears a 
+This command does nothing; it bears a
 .I label
 for
 .B b
 and
 .B t
 commands to branch to.
-Note: the maximum length of 
+Note: the maximum length of
 .I label
 is seven characters.
 .TP
@@ -400,7 +400,7 @@ only when the pattern space is selected.  Commands are separated by
 (0)\|
 An empty command is ignored.
 .SS System V sed Scripts
-Initial 
+Initial
 .SM SPACE
 and
 .SM TAB
@@ -619,7 +619,7 @@ More than 4000 characters were to be stored in the
 .LP
 .TX TEXT
 .SH BUGS
-There is a combined limit of 200 
+There is a combined limit of 200
 .B \-e
 and
 .B \-f

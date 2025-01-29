@@ -180,7 +180,7 @@ the allocation routines call
 to get more memory from the system.
 .LP
 Each of the allocation routines returns a pointer
-to space suitably aligned for storage of any type of object. 
+to space suitably aligned for storage of any type of object.
 Each returns a
 .SM NULL
 pointer if the request cannot be completed (see
@@ -233,7 +233,7 @@ bytes and returns a pointer to the (possibly moved) block.
 The contents will be unchanged
 up to the lesser of the new and old sizes.
 If unable to honor a reallocation request,
-.B realloc(\|) 
+.B realloc(\|)
 leaves its first argument unaltered.
 For backwards compatibility,
 .B realloc(\|)
@@ -350,33 +350,33 @@ Initially,
 is 0 and the small block algorithm is disabled.
 .TP
 .SB M_NLBLKS
-Set 
+Set
 the number of small blocks in a holding block
 .RI ( numlblks )
-to 
+to
 .IR value .
 The holding blocks each contain
 .I numlblks
-blocks.  
+blocks.
 .I numlblks
 must be greater than 1.
-The default value for 
+The default value for
 .I numlblks
 is 100.
 .TP
 .SB M_GRAIN
-Set 
+Set
 the granularity for small block requests
 .RI ( grain )
 to
 .IR value .
 The sizes of all blocks smaller than
 .I maxfast
-are rounded up to the nearest multiple of 
+are rounded up to the nearest multiple of
 .IR grain .
 .I grain
 must be greater than 0.
-The default value of 
+The default value of
 .I grain
 is the smallest number of bytes
 which will allow alignment of any data type.
@@ -395,7 +395,7 @@ Preserve data in a freed block until the next
 or
 .BR calloc(\|) .
 This option is provided only for compatibility with the old
-version of 
+version of
 .B malloc(\|)
 and is not recommended.
 .LP
@@ -766,7 +766,7 @@ and also checks for inconsistencies in the free
 space table.
 .B malloc_verify(\|)
 returns 1 if all checks pass without error, and otherwise
-returns 0. 
+returns 0.
 The checks can take a significant
 amount of time, so it should not be used
 indiscriminately.

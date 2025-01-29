@@ -6,21 +6,21 @@ as \- Sun-1, Sun-2 and Sun-3, Sun-4 and Sun386i assemblers
 .B as
 [
 .B \-L
-] [ 
+] [
 .B \-R
-] [ 
+] [
 .BI \-o " objfile"
-] [ 
+] [
 .B \-d2
-] 
+]
 .\"[
 .\".B \-e
 .\"]
-[ 
+[
 .B \-h
-] [ 
+] [
 .B \-j
-] [ 
+] [
 .B \-J
 ] [
 .B \-O
@@ -50,9 +50,9 @@ as \- Sun-1, Sun-2 and Sun-3, Sun-4 and Sun386i assemblers
 .B as
 [
 .B \-L
-] [ 
+] [
 .B \-R
-] [ 
+] [
 .BI \-o " objfile"
 ] [
 .BI \-O\fR[ n\fR]\|]
@@ -74,7 +74,7 @@ as \- Sun-1, Sun-2 and Sun-3, Sun-4 and Sun386i assemblers
 .BR \-S [ C ]\|]
 .\"[
 .\".B \-V
-.\"]  
+.\"]
 .I filename
 \&.\|.\|.
 .SH Sun386i SYNOPSIS
@@ -82,13 +82,13 @@ as \- Sun-1, Sun-2 and Sun-3, Sun-4 and Sun386i assemblers
 [
 .B \-k
 ]
-[ 
+[
 .B \-o
 .I objfile
-] 
-[ 
+]
+[
 .B \-R
-] 
+]
 [
 .B \-V
 ]
@@ -101,7 +101,7 @@ as \- Sun-1, Sun-2 and Sun-3, Sun-4 and Sun386i assemblers
 .LP
 .B as
 translates the assembly source file,
-.I filename  
+.I filename
 into an executable object file,
 .IR objfile .
 The Sun-4 assembler recognizes the filename argument
@@ -125,14 +125,14 @@ to save space in the resultant symbol table.
 The compilers generate many such temporary labels.
 .TP
 .B \-R
-Make the initialized data segment read-only by concatenating 
+Make the initialized data segment read-only by concatenating
 it to the text segment.
 This eliminates the need to run editor scripts on assembly
 code to make initialized data read-only and shared.
 .TP
 .BI \-o " objfile"
 The next argument is taken as the name of the object file to
-be produced.  If the 
+be produced.  If the
 .B \-o
 flag is not used, the object file is named
 .BR a.out .
@@ -141,7 +141,7 @@ flag is not used, the object file is named
 .B \-d2
 Instruction offsets that involve forward or external
 references, and with unspecified size, are two bytes long.
-(See also the 
+(See also the
 .B \-j
 option.)
 .\".TP
@@ -151,7 +151,7 @@ option.)
 .TP
 .B \-h
 Suppress span-dependent instruction calculations.  Restrict branches
-to medium length.  Force calls to take the most general form.  
+to medium length.  Force calls to take the most general form.
 This option is used when the assembly must be minimized, even at
 the expense of program size and run-time performance.  It
 results in a smaller and faster program than one produced by the
@@ -167,7 +167,7 @@ which the
 option is inappropriate due to large-program relocation.
 .TP
 .B \-J
-Suppress span-dependent instruction calculations and force branches 
+Suppress span-dependent instruction calculations and force branches
 and calls to take the most general form.  This is useful when assembly
 time must be minimized, even at the expense of program size and
 run-time performance.
@@ -205,8 +205,8 @@ The preprocessor output is passed to the assembler.
 .BI \-D name=def
 .TP
 .BI \-U name
-.PD 
-When 
+.PD
+When
 .B \-P
 is in effect, these
 .BR cpp (1)
@@ -259,7 +259,7 @@ default temporary file
 The Sun Pascal compiler qualifies a nested procedure name by
 chaining the names of the enclosing procedures.
 This sometimes results in
-names long enough to abort the assembler, which 
+names long enough to abort the assembler, which
 currently limits identifiers to 512 characters
 (the Sun-4 assembler does not have this restriction).
 .SH Sun386i WARNINGS

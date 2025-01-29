@@ -113,11 +113,11 @@ may be invoked only by the super-user for file types other than
 special.
 .LP
 .B mkfifo(\|)
-creates a new 
+creates a new
 .SM FIFO
 special file named by the pathname pointed to by
 .IR path .
-The access permissions of the new 
+The access permissions of the new
 .SM FIFO
 are initialized from
 .IR mode .
@@ -129,19 +129,19 @@ Bits in
 .I mode
 other than the access permissions are ignored.
 .LP
-The 
+The
 .SM FIFO\s0's
 owner
-.SM ID 
+.SM ID
 is set to the process's effective user
 .SM ID\s0.
-The 
+The
 .SM FIFO\s0's
 group
 .SM ID
 is set to the group
 .SM ID
-of the directory in which the 
+of the directory in which the
 .SM FIFO
 is being created or to the process's effective group
 .SM ID\s0.
@@ -152,7 +152,7 @@ function marks for update the
 .BR st_atime ,
 .BR st_ctime ,
 and
-.B st_mtime 
+.B st_mtime
 fields of the file.
 Also, the
 .B st_ctime
@@ -295,7 +295,7 @@ is in effect
 .TP
 .SM ENOENT
 A component of the path prefix does not exist.
-.IP 
+.IP
 .I path
 points to an empty string.
 .TP

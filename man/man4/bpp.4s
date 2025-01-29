@@ -34,7 +34,7 @@ bidirectional interface to parallel device,
 on Sun-4m/SPARCstation 10 systems.
 It supports a variety of output (printer)
 and input (scanner) devices,
-using 
+using
 programmable timing
 relationships between the various handshake signals.
 The
@@ -43,8 +43,8 @@ driver is an exclusive use device.
 If the device has already been opened,
 subsequent opens will fail with EBUSY.
 .SS Default Operation
-Each time the 
-.BR bpp 
+Each time the
+.BR bpp
 device is opened,
 the default configuration
 is BPP_ACK_BUSY_HS for read handshake, BPP_ACK_HS for write handshake,
@@ -53,7 +53,7 @@ and 60 seconds for both timeouts.
 This configuration (in the write mode) will drive
 many common personal computer parallel printers
 with Centronics-type interfaces.
-The application should use the 
+The application should use the
 BPPIOC_SETPARMS
 ioctl to configure the
 .BR bpp
@@ -81,7 +81,7 @@ assumed that scanning will take place, as scanners
 are the only devices supported by this mode.
 Most scanners require that the SLCT_IN or AFX pin be
 set to tell the scanner the direction of the transfer.
-The AFX line is set when the 
+The AFX line is set when the
 .BR read_handshake
 element of the
 .BR bpp_transfer_parms
@@ -112,19 +112,19 @@ If a failure or error condition occurs during a
 the number of bytes successfully read
 will be returned (short read).
 Note that errno will not be set.
-If 
+If
 .BR read_handshake
 is set to BPP_CLEAR_MEM or BPP_SET_MEM, zeroes
 or ones, respectively, will be written into the user buffer.
 .SH IOCTLS
-The following 
-.BR ioctl(2) 
+The following
+.BR ioctl(2)
 calls are supported:
 .TP 20
 .SB BPPIOC_SETPARMS
 Set transfer parameters.
 .br
-The argument is a pointer to a 
+The argument is a pointer to a
 .ft B
 struct bpp_transfer_parms.
 .ft R
@@ -134,7 +134,7 @@ If a parameter is out of range, EINVAL is returned.
 .SB BPPIOC_GETPARMS
 Get current transfer parameters.
 .br
-The argument is a pointer to a 
+The argument is a pointer to a
 .ft B
 struct bpp_transfer_parms.
 .ft R
@@ -145,7 +145,7 @@ of the parameters (see Default Operation above).
 .TP 20
 .SB Transfer Parameters Structure
 .LP
-This structure is defined in 
+This structure is defined in
 .BR<sbusdev/bpp_io.h>.
 .nf
 .sp
@@ -159,7 +159,7 @@ struct bpp_transfer_parms {
 					 * wait this many seconds
 					 * before aborting a transfer
 					 */
-	enum	handshake_t	
+	enum	handshake_t
 		write_handshake;	/* parallel port write handshake mode */
 	int	write_setup_time;	/* DSS register - in nanoseconds */
 	int	write_strobe_width;	/* DSW register - in nanoseconds */
@@ -193,10 +193,10 @@ enum	handshake_t {
 .fi
 .ft R
 .LP
-The 
+The
 .BR read_setup_time
 field controls the time between
-dstrb falling edge to bsy rising edge if the 
+dstrb falling edge to bsy rising edge if the
 .BR read_handshake
 field is set to BPP_NO_HS or BPP_ACK_HS.
 It controls the time between
@@ -208,7 +208,7 @@ ack falling edge to dstrb rising edge if the
 .BR read_handshake
 field is set to BPP_XSCAN_HS.
 .LP
-The 
+The
 .BR read_strobe_width
 field controls the time between
 ack rising edge and ack falling edge if the
@@ -227,14 +227,14 @@ are duplicates of the definitions for the
 field. Note that some of these handshake definitions
 are only valid in one mode or the other.
 .LP
-The 
+The
 .BR write_setup_time
 field controls the time between
-data valid to dstrb rising edge for all values of the 
+data valid to dstrb rising edge for all values of the
 .BR write_handshake
 field.
 .LP
-The 
+The
 .BR write_strobe_width
 field controls the time between
 dstrb rising edge and dstrb falling edge if the
@@ -248,7 +248,7 @@ field is set to BPP_VPRINT_HS or BPP_VPLOT_HS.
 .SB BPPIOC_SETOUTPINS
 Set output pin values.
 .br
-The argument is a pointer to a 
+The argument is a pointer to a
 .ft B
 struct bpp_pins.
 .ft R
@@ -258,7 +258,7 @@ If a parameter is out of range, EINVAL is returned.
 .SB BPPIOC_GETOUTPINS
 Read output pin values.
 .br
-The argument is a pointer to a 
+The argument is a pointer to a
 .ft B
 struct bpp_pins.
 .ft R
@@ -300,7 +300,7 @@ struct bpp_error_status.
 .ft R
 See below for a description of the elements of this structure.
 This structure
-indicates the status of all the appropriate 
+indicates the status of all the appropriate
 status bits
 at the time of the most recent error condition during
 a
@@ -308,7 +308,7 @@ a
 or
 .BR write()
 call,
-or the status of the bits at the most recent BPPIOC_TESTIO 
+or the status of the bits at the most recent BPPIOC_TESTIO
 .BR ioctl()
 call.
 Note that the bits in the pin_status element
@@ -396,7 +396,7 @@ An invalid command argument is received from the vd driver
 .ft B
 modload, modunload
 .ft R
-or 
+or
 .BR modstat ).
 .TP
 .SM EIO
@@ -419,7 +419,7 @@ prevent a transfer (such as a peripheral error).
 \."and another transfer has been attempted.
 .TP
 .SM ENXIO
-The driver has received an open request for a 
+The driver has received an open request for a
 unit for which the attach failed.
 .br
 The driver has received a read or write request for a unit
@@ -452,9 +452,9 @@ bidirectional parallel port device(s)
 .\".SH WARNINGS
 .\".SH NOTES
 .SH BUGS
-The message 
+The message
 .ft B
-remintr: driver not installed on level 2 
+remintr: driver not installed on level 2
 .ft R
 is normal when
 unloading a loaded driver in a system with more than one SPARCprinter

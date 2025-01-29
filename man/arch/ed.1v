@@ -8,10 +8,10 @@ ed, red \- line editor
 .B \-
 ] [
 .B \-p
-.I string 
+.I string
 ] [
 .B \-x
-] [ 
+] [
 .I filename
 ]
 .SH SYSTEM V DESCRIPTION
@@ -59,14 +59,14 @@ commands),
 and the
 .B !
 prompt (after a
-.BI ! 
+.BI !
 command).
 .TP
 .BI \-p " string"
 Specify a prompt string.
 .TP
 .B \-x
-Edit an encrypted file (see 
+Edit an encrypted file (see
 .IR crypt (1)
 for details.
 .SH USAGE
@@ -74,10 +74,10 @@ for details.
 .PP
 .I ed
 commands have a simple and regular structure: zero, one, or two
-.IR address es 
+.IR address es
 are followed by a single-character
 .I command,
-which may be followed by parameters for that 
+which may be followed by parameters for that
 .I command.
 .IP
 .RI [ address [\c
@@ -89,7 +89,7 @@ A single
 .I address
 specifies a single line in the buffer.  A pair specifies an
 inclusive range.
-Commands that requires an 
+Commands that requires an
 .I address
 uses certain addresses by
 default (typically the address of the current line).
@@ -97,7 +97,7 @@ default (typically the address of the current line).
 In general, only one command can appear on a line.
 Certain commands allow you to insert or add text,
 which is placed in the appropriate location in the buffer.
-While accepting text, 
+While accepting text,
 .I ed
 is said to be in
 .IR "input mode" .
@@ -108,9 +108,9 @@ To exit input mode, type a period (\^\fB.\fP\^) by itself
 on a line.
 .SS Addresses
 .PP
-Generally speaking, the 
-.I current line 
-is the last line affected by a command.  
+Generally speaking, the
+.I current line
+is the last line affected by a command.
 Explicit addresses are constructes as follows:
 .TP
 .B \&.
@@ -135,17 +135,17 @@ which must be a lower-case letter.
 command).
 .TP
 .BI / \s-1RE\s0 /
-An RE is a 
+An RE is a
 .I regular expression,
 as described below.  When enclosed by slashes, it addresses
-the first line found by searching for a string that it matches. 
-The search proceeds forward from the line following the 
-current line.  If necessary, the search wraps around to the beginning 
-of the buffer and continues up to and including the current line, so 
+the first line found by searching for a string that it matches.
+The search proceeds forward from the line following the
+current line.  If necessary, the search wraps around to the beginning
+of the buffer and continues up to and including the current line, so
 that the entire buffer is searched.
 .TP
 .BI ? \s-1RE\s0 ?
-An RE enclosed in question marks addresses the first line containing 
+An RE enclosed in question marks addresses the first line containing
 a match found by searching backward from the line preceding the current
 line.  If necessary, the search wraps around to the end of the buffer
 and continues up to and including the current line.
@@ -157,12 +157,12 @@ and continues up to and including the current line.
 .IB addr \- n
 .PD
 An address followed by a plus sign (\^\fB+\fP\^)
-or a minus sign (\fB\-\fP), followed by a decimal number, specifies 
+or a minus sign (\fB\-\fP), followed by a decimal number, specifies
 that base address plus or minus the indicated number of lines.
 (The plus sign may be omitted.)  If
 .I addr
 is omitted, the current line is used as the base.  For
-instance, 
+instance,
 .B 31\-3
 addresses the 28'th line in the buffer.
 .IP
@@ -183,8 +183,8 @@ pair \fB.\^,\^$\fP.
 .PP
 .I Ed
 supports a limited form of "regular expression" notation, which
-can be used in an 
-.I address 
+can be used in an
+.I address
 to specify lines by their contents.  A regular expression (RE) specifies
 a set of character strings to match.  These strings are built up
 from the following "single-character" RE's:
@@ -213,7 +213,7 @@ The construction
 .TP
 .B *
 When it follows any RE that matches a single-character, an
-asterisk (or "star") matches a string composed of zero or more 
+asterisk (or "star") matches a string composed of zero or more
 occurrences of the RE.
 .TP
 .I d
@@ -222,14 +222,14 @@ The delimiting character for the RE.
 .BI [ c\|.\|.\|. ]
 A nonempty string of characters, enclosed in square brackets,
 matches any single character in the string.  When the
-first character of the string is a carat 
+first character of the string is a carat
 .RB ( \s+2^\s0 ),
-then the RE matches any character 
+then the RE matches any character
 .I except
-those in the remainder of the string.  A carat in any other position 
+those in the remainder of the string.  A carat in any other position
 is taken as an ordinary character.  The right square bracket doesn't
 terminate the enclosed string if it is the first character
-(after an initial 
+(after an initial
 .BR \s+2^\s0 ,
 if any).
 .TP
@@ -245,12 +245,12 @@ The
 is treated as an ordinary character if it occurs first (or first
 after an initial
 .BR \s+2^\s0 )
-or last in the string.  
+or last in the string.
 .TP
 .I d
-The character used to delimit an RE is special for that RE 
-(for example, see how 
-.B / 
+The character used to delimit an RE is special for that RE
+(for example, see how
+.B /
 is used in the
 .B g
 command, below).
@@ -260,7 +260,7 @@ from single-character RE's:
 .IP
 The concatenation of RE's matches the concatenation of text strings,
 each of which is matched by a component RE.
-.TP 
+.TP
 .B *
 A one-character RE, followed by an asterisk (\fB\(**\fP) matches
 .I zero
@@ -314,7 +314,7 @@ An RE enclosed between the character sequences
 \fB\^\e(\fP and \fB\^\e)\fP
 matches whatever the unadorned RE matches.
 The expression \fB\^\e\fP\fIn\fP\^ matches the same string of characters
-as was matched by an expression enclosed between \fB\^\e(\fP 
+as was matched by an expression enclosed between \fB\^\e(\fP
 and \fB\^\e)\fP
 .I earlier
 in the same RE.  Here
@@ -339,7 +339,7 @@ Commands may require zero, one, or two addresses.
 Commands that require no addresses regard the presence
 of an address as an error.
 Commands that accept one or two addresses
-assume default addresses when an insufficient number of addresses is 
+assume default addresses when an insufficient number of addresses is
 given; if more addresses are given than such a command requires,
 the last one(s) are used.
 .PP
@@ -353,7 +353,7 @@ and only then is the second address calculated.
 This feature can be used to determine the starting
 line for forward and backward searches.
 The second address of any two-address sequence
-must correspond to a line that follows, in the buffer, the line 
+must correspond to a line that follows, in the buffer, the line
 corresponding to the first address.
 .PP
 In the following list of
@@ -385,7 +385,7 @@ listed, numbered or printed, respectively).
 .TP
 .B \&.
 .PD
-Read the given 
+Read the given
 .I text
 and append it after the addressed line;
 \&\fB.\fP is left
@@ -394,7 +394,7 @@ were none, at the addressed line.
 Address 0 is legal for this command: it causes the "appended" text to be
 placed at the beginning of the buffer.
 The maximum number of characters that may be entered from a
-terminal is 256 per line (including the 
+terminal is 256 per line (including the
 .SM NEWLINE
  character).
 .TP
@@ -478,7 +478,7 @@ the given RE.  Then, for every such line, the given
 is executed with \fB.\fP initially set to that line.
 A single command or the first of a list of commands
 appears on the same line as the global command.
-All lines of a multiline list, except the last line, must end with a 
+All lines of a multiline list, except the last line, must end with a
 \fB\^\e\fP;
 .BR a ,
 .BR i ,
@@ -523,10 +523,10 @@ command (other than one of the
 .BR v ,
 and
 .B V
-commands) can be typed in for execution.  After the execution of that 
-command, the next marked line is printed, and so on; a 
+commands) can be typed in for execution.  After the execution of that
+command, the next marked line is printed, and so on; a
 .SM NEWLINE
-acts as a null command; an \fB&\fP causes the reexecution of the most 
+acts as a null command; an \fB&\fP causes the reexecution of the most
 recent command executed within the current invocation of
 .BR G .
 Note that the commands input as part of the execution of the
@@ -535,7 +535,7 @@ command may address and affect
 .I any
 lines in the buffer.  The
 .I G
-command can be terminated by an interrupt signal 
+command can be terminated by an interrupt signal
 (\s-1ASCII\s0 \s-1DEL\s0 or \s-1BREAK\s0).
 .TP
 .B h
@@ -548,7 +548,7 @@ the reason for the most recent \fB?\fP diagnostic.
 The
 .BR H elp
 command alternates
-between automatic diagnostic message, or the normal mode of 
+between automatic diagnostic message, or the normal mode of
 diagnositcs on request.  It will also explain the previous \fB?\fP if
 there was one.
 .TP
@@ -568,21 +568,21 @@ at the addressed line.  This command differs from the
 command in the placement of the input text.
 Address 0 is not legal for this command.
 The maximum number of characters that may be entered from a
-terminal is 256 per line (including the 
+terminal is 256 per line (including the
 .SM NEWLINE
 character).
 .TP
 .RB \u\s-3(\|.\|,\|.+1\|)\s0\d\| j
 The
 .BR j oin
-command joins contiguous lines by removing the appropriate 
+command joins contiguous lines by removing the appropriate
 .SM NEWLINE
 characters.  If exactly one address is given, this command does nothing.
 .HP
-.RB \u\s-3(\|.\|)\s0\d\| k 
+.RB \u\s-3(\|.\|)\s0\d\| k
 .I c
 .br
-The 
+The
 .RB mar k
 command marks the addressed line with
 name
@@ -632,8 +632,8 @@ falls within the range of moved lines;
 The
 .BR n umber
 command prints the addressed lines, preceding each line by its
-line number and a 
-.SM TAB 
+line number and a
+.SM TAB
 character; \&\fB.\fP is left at the last line printed.  The
 .B n
 command may be appended to any command other than
@@ -655,7 +655,7 @@ command may be appended to any command other than
 .BR r ,
 or
 .BR w .
-For example, \fBdp\fP deletes the current line and prints the new 
+For example, \fBdp\fP deletes the current line and prints the new
 current line.
 .TP
 .B P
@@ -692,8 +692,8 @@ command.
 The
 .BR r ead
 command reads in the given file after the addressed line.
-If no 
-.I file 
+If no
+.I file
 is named, the currently-remembered filename, if any, is used
 (see
 .B e
@@ -715,8 +715,8 @@ If
 is replaced by \fB!\fP, the rest of the line
 is taken to be a shell (\fIsh\fP\^(1))
 command whose output is to be read.
-For example, 
-.B "$r !ls" 
+For example,
+.B "$r !ls"
 appends current directory to the end of the file being edited.  A
 shell command is
 .I not
@@ -730,25 +730,25 @@ remembered as the current filename.
 The
 .BR s ubstitute
 command searches each addressed line for an occurrence of the specified
-RE.  In each line for which a match is found, all (non-overlapped) 
+RE.  In each line for which a match is found, all (non-overlapped)
 matched strings are replaced by the
 .I replacement
 if the global replacement indicator \fBg\fP appears after the command.
 If the global indicator does not appear, only the first occurrence
 of the matched string is replaced.
-If a number 
-.I n 
-appears after the command, only the 
-.IR n 'th 
+If a number
+.I n
+appears after the command, only the
+.IR n 'th
 occurrence of the matched string on each addressed line is replaced.
 It is an error for the substitution to fail on
 .I all
-addressed lines.  Any character other than 
+addressed lines.  Any character other than
 .SM SPACE
-or 
+or
 .SM NEWLINE
 can be used instead of \fB/\fP to delimit the RE and the
-.IR replacement 
+.IR replacement
 string.
 \&\fB.\fP is left at the last line on which a substitution occurred.
 .IP
@@ -767,7 +767,7 @@ regular subexpression of the specified RE
 enclosed between \fB\^\e(\fP and \fB\^\e)\fP.
 When nested parenthesized subexpressions are present,
 .I n
-is determined by counting occurrences of \fB\^\e(\fP starting from the 
+is determined by counting occurrences of \fB\^\e(\fP starting from the
 left.  When the character \fB%\fP is the only character in the
 .IR replacement ,
 the
@@ -779,10 +779,10 @@ The \fB%\fP loses its special meaning when it is
 in a replacement string of more than one
 character or is preceded by a backslash.
 .IP
-A line may be split by substituting a 
+A line may be split by substituting a
 .SM NEWLINE
 character into it.
-The 
+The
 .SM NEWLINE
 in the
 .I replacement
@@ -793,7 +793,7 @@ or
 .B v
 command-list.
 .HP
-.RB \u\s-3(\|.\|,\|.\|)\s0\d\| t 
+.RB \u\s-3(\|.\|,\|.\|)\s0\d\| t
 .I a
 .br
 This command acts just like the
@@ -843,7 +843,7 @@ match the RE.
 .br
 This command is the same as the interactive global command
 .B G
-except that the lines that are marked during the first step are those 
+except that the lines that are marked during the first step are those
 that do
 .I not
 match the RE.
@@ -892,7 +892,7 @@ Subsequent
 .BR e ,
 .BR r ,
 and
-.BR w 
+.BR w
 commands encrypt and decrypt the text with this key by the algorithm of
 .IR crypt (1).
 An explicitly empty key turns off encryption.
@@ -921,7 +921,7 @@ If any expansion is performed, the expanded line is echoed;
 \u\s-3(\|.+1\|)\s0\d\|
 .SM NEWLINE
 .br
-An address, alone on a line, prints the addressed line.  A 
+An address, alone on a line, prints the addressed line.  A
 .SM NEWLINE
 alone is equivalent to \fB.+1p\fP, which is useful
 for stepping forward through the buffer.
@@ -933,9 +933,9 @@ prints a \fB?\fP and returns to
 command level.
 .SS File Format Specification Support
 .PP
-Both 
+Both
 .I ed
-and 
+and
 .I red
 support the
 .IR fspec (4)
@@ -945,7 +945,7 @@ format specification as the first line of
 and invoking
 .I ed
 with your terminal in
-.B "stty\ \-tabs 
+.B "stty\ \-tabs
 or
 .B "stty\ tab3"
 mode (see
@@ -959,7 +959,7 @@ For example, if the first line of a file contained:
 .LP
 tab stops would be set at columns 5, 10, and 15, and a maximum line
 length of 72 would be imposed.
-While inserting text, however, tab characters are expanded to every 
+While inserting text, however, tab characters are expanded to every
 eighth column.
 .SH LIMITATIONS
 The following limitations apply:
@@ -980,7 +980,7 @@ When reading a file,
 discards
 .SM ASCII
 .SM NUL
-characters and all characters after the last 
+characters and all characters after the last
 .SM NEWLINE.
 Files
 (like
@@ -993,7 +993,7 @@ set (bit
 .PP
 If the closing delimiter of an RE or of a
 replacement string (such as \fB/\fP) would be the last
-character before a 
+character before a
 .SM NEWLINE,
 that delimiter may be omitted, in which case the addressed line
 is printed.  The following pairs of commands are equivalent:
@@ -1076,7 +1076,7 @@ shell (see
 .IR sh (1)).
 .LP
 The sequence \fB\^\en\fP in an RE does not
-match a 
+match a
 .SM NEWLINE
 character.
 .LP
@@ -1091,5 +1091,5 @@ command with the null key cannot be edited.
 .LP
 Characters are masked to 7 bits on input.
 .LP
-If the editor input is coming from a command file, the editor exits at 
+If the editor input is coming from a command file, the editor exits at
 the first failure of a command in that file.

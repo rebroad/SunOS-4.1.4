@@ -32,7 +32,7 @@ The driver returns an
 .SM ENOTTY
 error on unsupported ioctls.
 .LP
-The 
+The
 .B tm
 driver does not support the backspace file to beginning
 of file (MTNBSF n) command.
@@ -44,10 +44,10 @@ the retension ioctl.
 .SH FILES
 .PD 0
 .TP 20
-.B /dev/rmt*	
+.B /dev/rmt*
 rewinding
 .TP
-.B /dev/nrmt*	
+.B /dev/nrmt*
 non-rewinding
 .PD
 .SH SEE ALSO
@@ -70,9 +70,9 @@ The Tapemaster controller is not supported on Sun-4 systems.
 .LP
 The Tapemaster interface will not be supported in a future release.
 The Xylogics 472 controller and
-.B xt 
+.B xt
 driver replace the Tapemaster controller and
-.B tm 
+.B tm
 driver.
 .IX  "tm device"  ""  "\fLtm\fP \(em tapemaster 1/2-inch tape drive"  ""  PAGE END
 .IX  "tapemaster 1/2-inch tape drive"  ""  "tapemaster 1/2-inch tape drive \(em \fLtm\fP"  ""  PAGE END

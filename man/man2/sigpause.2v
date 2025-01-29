@@ -63,12 +63,12 @@ signal mask with the set of signals pointed to by
 and then suspends the process until delivery of a signal whose action
 is either to execute a signal-catching function or to terminate the
 process.
-If the action is to terminate the process, 
+If the action is to terminate the process,
 .B sigsuspend(\|)
 does not return.
 If the action is to execute a
-signal-catching function, 
-.B sigsuspend(\|) 
+signal-catching function,
+.B sigsuspend(\|)
 returns after the
 signal-catching function returns,
 with the signal mask restored to the
@@ -96,7 +96,7 @@ to indicate the error.
 .SH ERRORS
 .TP 15
 .SM EINTR
-A signal is caught by the calling process and control 
+A signal is caught by the calling process and control
 is returned from the signal-catching function.
 .SH SEE ALSO
 .BR sigblock (2),

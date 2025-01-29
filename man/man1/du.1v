@@ -45,7 +45,7 @@ directories within each specified directory or file
 .IR filename .
 If
 .I filename
-is missing, 
+is missing,
 .RB ` . '
 (the current directory) is used.
 .LP
@@ -78,11 +78,11 @@ option will cause
 to generate messages in such instances.
 .SH EXAMPLE
 .LP
-Here is an example of using 
+Here is an example of using
 .B du
 in a directory.  We used the
 .BR pwd (1)
-command to identify the directory, then used 
+command to identify the directory, then used
 .B du
 to show
 the usage of all the subdirectories in that directory.  The grand total

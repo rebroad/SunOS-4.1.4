@@ -9,7 +9,7 @@ ypserv, ypbind, ypxfrd \- NIS server and binder processes
 ]
 .LP
 .B /usr/etc/ypbind
-.RB [ \-s] 
+.RB [ \-s]
 .RB [ \-ypset \||\| \-ypsetme ]
 .LP
 .B ypxfrd
@@ -28,7 +28,7 @@ for information on how to install optional software.
 .IX  "ypbind"  ""  "\fLypbind\fP \(em NIS server process"
 .IX  "ypxfrd"  ""  "\fLypxfrd\fP \(em NIS server process"
 .LP
-The 
+The
 Network Information Service
 (\s-1NIS\s0)
 provides a simple network lookup service
@@ -40,7 +40,7 @@ These files are described in
 .BR ypfiles (5).
 The processes are
 .BR /usr/etc/ypserv ,
-the 
+the
 .SM NIS
 database lookup server, and
 .BR /usr/etc/ypbind ,
@@ -195,7 +195,7 @@ which the
 process is listening for service requests. This information
 is cached in the directory
 .B /var/yp/binding
-using a filename of 
+using a filename of
 .BR domainname.version .
 .LP
 The process of binding is driven
@@ -207,7 +207,7 @@ process that serves maps within that domain.  Since the binding is
 established by broadcasting, there must be at least one
 .B ypserv
 process on every net.
-If the client is running in C2 secure mode, then 
+If the client is running in C2 secure mode, then
 .B ypbind
 will only accept bindings to servers where the
 .B ypserv
@@ -269,7 +269,7 @@ When specified, only ypservers bound to a reserved port are used.
 This allows for a slight increase in security in
 completely controlled environments,
 where there are no computers
-operated by untrusted individuals. 
+operated by untrusted individuals.
 It offers no real increase in security.
 .TP
 .B \-v
@@ -305,7 +305,7 @@ The file(s)
 will be created to speed up the binding process.
 These files cache the last
 successful binding created for the given domain, when a binding is requested
-these files are checked for validity and then used. 
+these files are checked for validity and then used.
 .PD 0
 .TP 20
 .B /var/yp
@@ -332,21 +332,21 @@ these files are checked for validity and then used.
 .br
 .TX ADMIN
 .SH NOTES
-Both 
+Both
 .B ypbind
 and
 .B ypserv
 support multiple domains.
-The 
+The
 .B ypserv
-process determines the domains it serves by looking for directories of the 
+process determines the domains it serves by looking for directories of the
 same name in the directory
 .BR /var/yp .
 It will reply to all broadcasts
 requesting yp service for that domain.
-Additionally, the 
+Additionally, the
 .B ypbind
-process can maintain bindings to several domains and their servers, the 
+process can maintain bindings to several domains and their servers, the
 default domain is however the one specified by the
 .BR domainname (1)
 command at startup time.
@@ -354,7 +354,7 @@ command at startup time.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 The name Yellow Pages is a registered trademark in the United Kingdom

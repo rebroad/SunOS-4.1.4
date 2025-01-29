@@ -14,7 +14,7 @@ sundiag \- SunOS hardware diagnostic program
 [
 .BI "\-o" " option_file"
 ]
-[ 
+[
 .BI "\-b" " batch_file"
 ]
 .if t .ti +5n
@@ -43,7 +43,7 @@ sundiag \- SunOS hardware diagnostic program
 This program is in the
 diagnostics
 .RI ( "User_Diag" )
-software category of SunOS.  Refer to  
+software category of SunOS.  Refer to
 .I "Installing SunOS"
 for information on how to install optional software.
 .SH DESCRIPTION
@@ -61,27 +61,27 @@ the hardware it detects.
 If a hardware device connected
 to the system under test is
 .I not
-detected by 
+detected by
 .BR sundiag ,
 then it is not connected properly.
 .LP
-Only 
+Only
 super-user
 can use
-Sundiag . 
+Sundiag .
 .LP
 The Sundiag
 program
 consists of the
 .B sundiag
 window-based user interface,
-along with several binary modules and executable files 
+along with several binary modules and executable files
 containing the actual test code,
-all of which reside in 
+all of which reside in
 .BR /usr/diag/sundiag .
 .LP
 The Sundiag program can be run from the SunView window
-environment, from a 
+environment, from a
 .BR tty ,
 or
 individual tests can be run from the command line of
@@ -95,7 +95,7 @@ user interface yet.
 .SH OPTIONS
 .SS "Running Sundiag in SunView or tty Mode"
 .LP
-The following options are available when Sundiag is 
+The following options are available when Sundiag is
 run from the SunView window environment, or
 a
 .B tty
@@ -104,14 +104,14 @@ interface.
 .B \-C
 Redirect the console output from any existing console
 window to the
-.B sundiag 
+.B sundiag
 console sub-window. If you are using the
 .B tty
 interface, the console
-message is 
+message is
 displayed in the message line of the status screen.
 .TP
-.B \-m 
+.B \-m
 Create any missing device files for
 the devices found during the kernel probe.
 .B sundiag
@@ -127,20 +127,20 @@ specified, Sundiag only runs the user-defined tests it finds in
 .B \-q
 Automatically quit the
 Sundiag program when testing stops.  This option
-is 
+is
 designed for use in
 .BR sh (1)
 or
 .BR csh (1)
 shell scripts,
 and can only be issued from a
-command 
+command
 line.
 .TP
 .B \-t
 Run
 .B sundiag
-in 
+in
 .B tty
 mode.
 .TP
@@ -153,12 +153,12 @@ This argument is used in your
 file.
 .TP
 .B \-w
-Write the system hardware configuration to the 
+Write the system hardware configuration to the
 .B /usr/adm/sundiaglog/sundiag.conf
 file.
 .TP
 .BI \-a " hostname"
-Run 
+Run
 .B sundiag
 in automated test mode. This option requires special
 Sun automated test equipment and is intended for use
@@ -171,14 +171,14 @@ required; see the
 for details.
 .TP
 .BI \-o " options_file"
-Use the 
+Use the
 .I options_file
-to restore options. 
-The default option file is 
+to restore options.
+The default option file is
 .BR \.sundiag .
-.B \.sundiag 
+.B \.sundiag
 is used if the
-.B \-o 
+.B \-o
 option is not used and
 if the default file exists.
 .bp
@@ -201,18 +201,18 @@ in turn, relies on
 as the kernel name.
 .TP
 .I sunview_arguments
-Refer to 
+Refer to
 .BR sunview (1)
 for examples of generic tool arguments that may
 be used with
 .BR sundiag .
 .SS "Running Sundiag Tests from a Command Line"
 .LP
-The following options are available when running individual 
+The following options are available when running individual
 Sundiag tests from a command line (\(lqstandard arguments\(rq).
 .TP
 .B c
-Create a core dump file if the 
+Create a core dump file if the
 system under test
 crashes.
 .TP
@@ -232,47 +232,47 @@ exists.
 .B u
 Display information on how to run the
 test.  It shows three parts:
-command line usage, 
-standard arguments and routine specific arguments. 
+command line usage,
+standard arguments and routine specific arguments.
 .TP
 .B v
 Display verbose
 messages regarding the test. These
-messages tell you more 
+messages tell you more
 about the testing process that
 is going on.  This mode is more valuable
-for some 
+for some
 tests than others; graphics tests only return start and stop
 messages/failures.
 .TP
 .B d
 Display debug messages from the test. These messages
-provide more 
-sophisticated information (mainly useful for test programmers). 
+provide more
+sophisticated information (mainly useful for test programmers).
 .TP
 .B t
 Display messages which
 allow you to trace down function
-calls and the 
+calls and the
 sequences being used by the
 test code for some of the tests.
 .TP
 .BI "h" " hostname"
-Specify 
+Specify
 .I hostname
-to receive system messages regarding 
+to receive system messages regarding
 this test.
 .SH USAGE
 .SS "Running the Sundiag Program from SunView"
 When
 .B sundiag
 is started from the SunView window environment,
-it brings up its own window with four 
+it brings up its own window with four
 subwindows:
 .RS
 .TP 3
 \(bu
-A test status panel on the upper left of the 
+A test status panel on the upper left of the
 screen, which shows the test results.
 .TP
 \(bu
@@ -305,8 +305,8 @@ A console window on the lower right of the
 screen, which displays system and error messages.
 .RE
 .LP
-There are also some popup frames, 
-including a text frame for viewing 
+There are also some popup frames,
+including a text frame for viewing
 .B sundiag
 and system log files.
 .SS "Running the Sundiag Program from a tty Interface"
@@ -315,7 +315,7 @@ and system log files.
 can be run from a terminal,
 by specifying the
 .B "\-t"
-option 
+option
 .RB ( tty " mode)"
 when Sundiag is started.
 In
@@ -332,14 +332,14 @@ mode.
 Commands and options are shown in brackets at
 the top of the
 .B tty
-screen, and are typed in at the command line on the 
+screen, and are typed in at the command line on the
 bottom of the screen.
 .LP
-When executed from a terminal, 
-.B sundiag 
-uses 
+When executed from a terminal,
+.B sundiag
+uses
 .BR curses (3V)
-to simulate subwindows on the screen. 
+to simulate subwindows on the screen.
 .SS "Running Individual Sundiag Tests from a Command Line"
 .LP
 Sundiag tests can be run individually

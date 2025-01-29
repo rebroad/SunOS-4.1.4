@@ -22,50 +22,50 @@ nl_catd catd;
 .SH DESCRIPTION
 .IX "catopen" "" "\fLcatopen\fR \(em open a message catalog" ""
 .IX "catclose" "" "\fLcatclose\fR \(em close a message catalog" ""
-.LP 
-.B catopen(\|) 
+.LP
+.B catopen(\|)
 opens a message catalog and returns a catalog descriptor.
-.I name 
+.I name
 specifies the name of the message catalog to be opened.
 If
-.I name 
+.I name
 contains a
 .RB ` / '
-then 
-.I name 
+then
+.I name
 specifies a pathname for the message catalog.
 Otherwise, the environment variable
-.SB NLSPATH 
+.SB NLSPATH
 is used with
-.I name 
-substituted for 
+.I name
+substituted for
 .B %N
 (see
 .BR locale (5)).
 If
-.SB NLSPATH 
+.SB NLSPATH
 does not exist in the environment,
 or if a message catalog cannot be opened
 in any of the paths specified by
 .BR \s-1NLSPATH\s0 ,
-the 
+the
 .BI /etc/locale/\s-1LC_MESSAGES\s+1/ locale
 directory is searched for a message catalog with filename
 .IR name ,
-followed by the 
+followed by the
 .BI /usr/share/lib/locale/\s-1LC_MESSAGES\s+1/ locale
 directory. In both cases
 .I locale
-stands for the current setting of the 
+stands for the current setting of the
 .B \s-1LC_MESSAGES\s+1
 category of locale.
 .LP
-.I oflag 
+.I oflag
 is reserved for future use and should be set to 0 (zero).
 The results of setting this field to any other value
 are undefined.
 .LP
-.B catclose(\|) 
+.B catclose(\|)
 closes the message catalog identified by
 .IR catd .
 It invalidates any following references to the message catalog defined
@@ -106,9 +106,9 @@ Using
 and
 .B catclose(\|)
 in conjunction with
-.B gettext(\|) 
-or 
-.B textdomain(\|) 
+.B gettext(\|)
+or
+.B textdomain(\|)
 (see
 .BR gettext (3))
 is undefined.

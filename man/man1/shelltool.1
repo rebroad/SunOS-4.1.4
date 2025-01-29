@@ -19,13 +19,13 @@ shelltool \- run a shell (or other program) in a SunView terminal window
 .I generic-tool-arguments
 ]
 [
-.I program 
+.I program
 [
 .I arguments
 ] ]
 .SH AVAILABILITY
 This command is available with the
-.TX SVBG 
+.TX SVBG
 software installation option.  Refer to
 .TX INSTALL
 for information on how to install optional software.
@@ -37,7 +37,7 @@ for information on how to install optional software.
 is a standard SunView facility for shells or other programs
 that may use a standard tty-based interface.
 .LP
-When invoked, 
+When invoked,
 .B shelltool
 runs a program, (usually a shell) in an interactive terminal emulator
 based on a tty subwindow.
@@ -48,16 +48,16 @@ accepts commands and runs programs in the usual way.
 .BR cmdtool (1),
 which provides moused-based editing, logging, and scrolling
 capabilities, also supports shell-level programs.
-See 
+See
 .TX SVBG
 for more information.
 .LP
-To run graphics programs, use 
+To run graphics programs, use
 .BR gfxtool (1).
 .SH OPTIONS
 .TP 15
 .B \-C
-Redirect system console output to this 
+Redirect system console output to this
 .BR shelltool .
 .TP
 .BI \-B " boldstyle"
@@ -74,7 +74,7 @@ from 0 to 8, corresponding to the placement of the choice in the list.
 .BI \-I " command"
 Pass
 .I command
-to the shell. 
+to the shell.
 .SM SPACE
 characters within the command must be escaped.
 .TP
@@ -214,26 +214,26 @@ is typed pretend
 was output.
 .PD
 .RE
-.LP		       
-The only currently defined variable is 
+.LP
+The only currently defined variable is
 .BR pagemode .
 .I key
 is one of L1-L15, F1-F15, T1-T15, R1-R15,
 .SM LEFT\s0,
 or
-.SM RIGHT 
+.SM RIGHT
 (see note below).
 .I text
-may contain escapes such as \eE, \en, ^X, etc. 
+may contain escapes such as \eE, \en, ^X, etc.
 (\s-1ESC\s0,
 .SM RETURN\s0,
 and
 .SM CTRL-X\s0,
-respectively).  
-See 
-.BR termcap (5) 
+respectively).
+See
+.BR termcap (5)
 for the format of the string escapes that are recognized.
-Note: 
+Note:
 .B mapi
 and
 .B mapo
@@ -249,12 +249,12 @@ cannot be mapped in this way; they send special values
 to the tty subwindow.
 Also, when using the default kernel keyboard tables,
 L1-L10 are now used by SunView.
-See 
+See
 .BR input_from_defaults (1)
 and
-.BR kbd (4S) 
+.BR kbd (4S)
 for more information on how to change the behavior of the keyboard.
-.LP		
+.LP
 It is possible to have terminal-based programs drive
 the tool in which its tty subwindow resides by sending
 special escape sequences.
@@ -264,7 +264,7 @@ using the
 .B mapo
 function described above.
 The following functions pertain to the tool in which the tty
-subwindow resides, not the tty subwindow itself. 
+subwindow resides, not the tty subwindow itself.
 .LP
 .RS
 .PD 0
@@ -331,7 +331,7 @@ size (in characters)
 .TP
 .B \eE]ltext\eE\e
 \- set tool header to
-.RB text 
+.RB text
 .TP
 .B \eE]Ifile\eE\e
 \- set icon to the icon contained in
@@ -380,7 +380,7 @@ for an example of using this facility.
 .LP
 Terminal subwindows support a selection facility that allows you
 to capture a block of text, move it between windows, and
-replicate it. 
+replicate it.
 You can make a selection by clicking the left
 button on the mouse at the top-left character of the block to
 capture, and then clicking the middle
@@ -412,7 +412,7 @@ The selection is deselected if you type any key or new output
 is written to the window that holds the selection.
 .SS Menu
 To manipulate your selection, press the menu button over the terminal
-subwindow.  
+subwindow.
 A
 .I ttysw
 menu appears with the menu items discussed
@@ -448,13 +448,13 @@ alternative to
 .BR more (1).
 When page mode is on, the cursor changes to resemble a tiny stop-sign
 when ever a screenful of output is displayed.  To restart output, type
-any key, or select the 
+any key, or select the
 .B Continue
-menu item that temporarily replaces 
+menu item that temporarily replaces
 .BR "Enable Page Mode" .
 .TP
 .B Stuff
-is provided for backward compatibility.  It 
+is provided for backward compatibility.  It
 copies the selection to the insertion point (cursor)
 as though they had been typed from the keyboard.
 .B Stuff
@@ -464,7 +464,7 @@ can only handle selections made in a tty subwindow.
 .TP
 .B Flush Input
 Occasionally the input buffer fills up and the terminal emulator
-appears to freeze.  If this happens, the 
+appears to freeze.  If this happens, the
 .RB ` "Flush Input" '
 appears in the menu; choosing it clears the buffer and
 allows you to continue.

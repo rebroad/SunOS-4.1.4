@@ -144,8 +144,8 @@ This function is not supported by the underlying transport
 provider.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .br
 .ne 5

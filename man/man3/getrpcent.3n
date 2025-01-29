@@ -108,7 +108,7 @@ program number is found, or until end-of-file is encountered.
 .LP
 A
 .SM NULL
-pointer is returned on 
+pointer is returned on
 .SM EOF
 or error.
 .SH BUGS

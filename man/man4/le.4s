@@ -35,7 +35,7 @@ The
 .B lebuf
 and
 .B ledma
-device drivers, when present, support hardware-specific 
+device drivers, when present, support hardware-specific
 buffering and DMA for each
 .B le
 interface.

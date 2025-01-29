@@ -27,7 +27,7 @@ automount \- automatically mount NFS file systems
 ]
 .if n .ti +5n
 [
-.I directory\ \ 
+.I directory\ \
 .I map
 .RI [ " \-mount-options " ]
 ] .\|.\|.
@@ -96,11 +96,11 @@ the map that follows must be a
 map.
 A direct map is not associated with a single directory.
 Instead, the key for each entry is a full pathname that will
-itself appear to be a symbolic link to an 
-.SM NFS 
+itself appear to be a symbolic link to an
+.SM NFS
 mount point.
 .LP
-A map can be a file or a 
+A map can be a file or a
 Network Information Service
 (\s-1NIS\s0)
 map; if a file, the
@@ -115,7 +115,7 @@ options, preceded by a
 .RB ` \- '.
 If these options are supplied,
 they become the default mount options
-for all entries in the map. 
+for all entries in the map.
 Mount options provided within a map
 entry override these defaults.
 .SH OPTIONS
@@ -257,9 +257,9 @@ filesystems is available only at mount time.
 .LP
 If each
 .I location
-in the list shares the same 
+in the list shares the same
 .I pathname
-then a single 
+then a single
 .I location
 may be used with a comma-separated list of hostnames.
 .IP
@@ -385,7 +385,7 @@ A multiple mount entry takes the form:
 [
 .BI \- mount-options
 ]
-.I 
+.I
 location\ .\|.\|.
 ]
 \&.\|.\|.
@@ -460,7 +460,7 @@ and
 .BR \-null .
 The
 .B \-hosts
-map uses the 
+map uses the
 .SM NIS
 .B hosts.byname
 map to locate a remote host when the hostname is specified.
@@ -512,7 +512,7 @@ command, rather than mappings; unless
 .B \-f
 is in effect,
 .B automount
-does 
+does
 .I not
 look for an
 .B auto.master
@@ -594,26 +594,26 @@ will not allow an automount mount point to be created within
 an automounted filesystem.
 .LP
 .B automount
-must not be terminated with the 
-.SB SIGKILL 
-signal 
+must not be terminated with the
+.SB SIGKILL
+signal
 .RB ( "kill \-9" ).
-Without an opportunity to unmount itself, the 
+Without an opportunity to unmount itself, the
 .B automount
-mount points will appear to the kernel to belong to a non-responding 
-.SM NFS 
+mount points will appear to the kernel to belong to a non-responding
+.SM NFS
 server.
 The recommended way to terminate
 .B automount
-services is to send a 
-.SB SIGTERM 
-.RB ( "kill \-15" ) 
-signal to the daemon.  
+services is to send a
+.SB SIGTERM
+.RB ( "kill \-15" )
+signal to the daemon.
 This allows the automounter to catch the signal and unmount not
-only its daemon but also any mounts in 
+only its daemon but also any mounts in
 .BR /tmp_mnt .
-Mounts in 
-.B /tmp_mnt 
+Mounts in
+.B /tmp_mnt
 that are busy will not be unmounted.
 .LP
 Since each direct map entry results in a separate mount for the
@@ -631,7 +631,7 @@ does not cache map entries.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 .SH BUGS
@@ -645,7 +645,7 @@ Since
 is single-threaded, any request that is delayed by a slow or
 non-responding
 .SM NFS
-server will delay all subsequent automatic mount requests until it completes. 
+server will delay all subsequent automatic mount requests until it completes.
 .LP
 Programs that read
 .B /etc/mtab

@@ -58,20 +58,20 @@ Preserve symbols for use by
 .TP
 .BI \-A  " vmunix_file
 Specify the file that is passd to the linker to resolve module references to
-kernel symbols. 
-The default is 
-.BR /vmunix . 
+kernel symbols.
+The default is
+.BR /vmunix .
 The symbol file must be for the currently
 running kernel or the module is likely to crash the system.
 .TP
 .BI \-conf " config_file"
 Use this configuration file to configure the loadable driver being loaded.
-The commands in this file are the same as those that the 
+The commands in this file are the same as those that the
 .BR config (8)
 program recognizes.
-There are two additional commands recognized, 
+There are two additional commands recognized,
 .B blockmajor
-and 
+and
 .BR charmajor .
 See the
 .TX DRIVER
@@ -79,18 +79,18 @@ for information on these commands.
 .TP
 .BI \-entry " entry_point"
 Specify the module entry point.
-This is passed by 
-.B modload 
+This is passed by
+.B modload
 to
 .BR ld (1)
 when the module is linked.
-The default module entry point name is 
+The default module entry point name is
 \&`\fIxxx\|\fBinit\fR'.
 .TP
 .BI \-exec " exec_file"
-Specify the name of a shell script or executable image file that 
+Specify the name of a shell script or executable image file that
 will be executed
-if the module is successfully loaded. 
+if the module is successfully loaded.
 It is always passed the module id (in decimal)
 and module type (in hexadecimal)
 as the first two arguments.
@@ -98,13 +98,13 @@ Module types are listed in
 .BR /usr/include/sun/vddrv.h .
 For loadable drivers, the
 third and fourth arguments
-are the block major and character major numbers respectively. 
+are the block major and character major numbers respectively.
 For a loadable system call, the third argument is the system call number.
 .TP
 .BI \-o " output_file"
-Specify the name of the output file that is produced by the linker. 
+Specify the name of the output file that is produced by the linker.
 If this option
-is omitted, then the output file name is 
+is omitted, then the output file name is
 .I filename
 without the
 .RB ` .o '.

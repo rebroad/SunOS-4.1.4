@@ -12,7 +12,7 @@ cgtwo0 at vme24d16 ? csr 0x400000 priority 4 vector cgtwointr 0xa8
 .LP
 The
 .B cgtwo
-interface provides access to the 
+interface provides access to the
 color graphics controller board,
 which is normally supplied with a 19'' 66 Hz non-interlaced color
 monitor.

@@ -3,9 +3,9 @@
 .SH NAME
 mountd, rpc.mountd \- NFS mount request server
 .SH SYNOPSIS
-.B /usr/etc/rpc.mountd 
+.B /usr/etc/rpc.mountd
 [
-.B \-n 
+.B \-n
 ]
 .SH AVAILABILITY
 This program is available with the
@@ -35,10 +35,10 @@ command.
 .LP
 The
 .B mountd
-daemon is normally invoked by 
+daemon is normally invoked by
 .BR rc (8).
 .SH OPTIONS
-.TP 
+.TP
 .B \-n
 Do not check that the clients are root users. Though this option makes
 things slightly less secure, it does allow older versions (pre-3.0) of client

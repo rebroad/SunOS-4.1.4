@@ -32,7 +32,7 @@ for buffers referenced by the structure.
 .LP
 The structure to allocate is specified by
 .IR struct_type ,
-and can be one of the following (each of of these 
+and can be one of the following (each of of these
 structures may be used as an argument
 to one or more transport functions):
 .PD 0
@@ -56,13 +56,13 @@ Each of the above structures, except
 contains at least one field of type
 .RB ` "struct netbuf" '.
 The
-.IR maxlen , 
-.IR len , 
-and 
+.IR maxlen ,
+.IR len ,
+and
 .I buf
-members of the 
-.B netbuf 
-structure are described in 
+members of the
+.B netbuf
+structure are described in
 .BR t_accept (3N).
 For each field of this type, the user may specify that
 the buffer for that field should be allocated as well.
@@ -177,8 +177,8 @@ The specified file descriptor does not refer to a transport
 endpoint.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .br
 .ne 5

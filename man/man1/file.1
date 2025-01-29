@@ -4,27 +4,27 @@
 file \- determine the type of a file by examining its contents
 .SH SYNOPSIS
 .B file
-[ 
-.B \-f 
-.I ffile 
+[
+.B \-f
+.I ffile
 ]
-[ 
-.B \-cL 
+[
+.B \-cL
 ]
-[ 
+[
 .B \-m
-.I mfile 
+.I mfile
 ]
 .IR filename .\|.\|.
 .SH DESCRIPTION
 .IX "file command"  ""  "\fLfile\fP \(em get file type"
 .IX files  "determine type of"
 .B file
-performs a series of tests on each 
+performs a series of tests on each
 .I filename
 in an attempt to determine
-what it contains.  If the contents of a file appear to be 
-.SM ASCII 
+what it contains.  If the contents of a file appear to be
+.SM ASCII
 text,
 .B file
 examines the first 512 bytes and tries to guess its language.
@@ -46,7 +46,7 @@ No file type-checking is done under
 .BR \-c .
 .TP
 .BI \-f " ffile"
-Get a list of filenames to identify from 
+Get a list of filenames to identify from
 .I ffile.
 .TP
 .B \-L
@@ -55,11 +55,11 @@ rather than the link itself.
 .TP
 .BI \-m " mfile"
 Use
-.I mfile 
+.I mfile
 as the name of an alternate magic number file.
 .SH EXAMPLE
 .LP
-This example illustrates the use of 
+This example illustrates the use of
 .B file
 on all the files in a
 specific user's directory:
@@ -76,7 +76,7 @@ example% file  *
 .B code:
 .B mc68020 demand paged executable
 .TP
-.B code.c:	
+.B code.c:
 .B c program text
 .TP
 .B counts:
@@ -138,7 +138,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .SH FILES
@@ -155,5 +155,5 @@ locale.
 often makes mistakes.  In particular, it often suggests that command
 files are C programs.
 .LP
-Does not recognize Pascal or 
+Does not recognize Pascal or
 .SM LISP.

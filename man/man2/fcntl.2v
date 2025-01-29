@@ -39,7 +39,7 @@ which has the smallest value greater than or equal to
 It refers to the same object as the original descriptor,
 and has the same access mode (read, write or read/write).
 The new descriptor
-shares descriptor status flags with 
+shares descriptor status flags with
 .IR fd ,
 and if the object was a file, the same file pointer.
 It is also associated with a
@@ -58,7 +58,7 @@ Get the
 .IR fd .
 If the low-order bit is
 .BR 0 ,
-the file remains open after executing 
+the file remains open after executing
 .BR execve(\|) ,
 otherwise it is closed.
 .TP
@@ -114,7 +114,7 @@ and
 .SB FNDELAY
 are identical.
 .IP
-Descriptor status flag values set by 
+Descriptor status flag values set by
 .BR \s-1F_SETFL\s+1
 affects descriptors copied using
 .BR dup (2V),
@@ -148,10 +148,10 @@ structure pointed to by
 (see the definition of
 .B "struct flock"
 below).
-If a lock exists, 
+If a lock exists,
 The
 .B flock
-structure is overwritten with that lock's 
+structure is overwritten with that lock's
 description.  Otherwise, the structure
 is passed back with the lock type set to
 .SB F_UNLOCK
@@ -231,7 +231,7 @@ Are used by the
 network lock daemon,
 .BR lockd (8C),
 to communicate with the NFS server kernel
-to handle locks on the 
+to handle locks on the
 .SM NFS
 files.
 .PD
@@ -251,7 +251,7 @@ but if one process holds an exclusive
 lock on the segment, no other process may hold any lock on the segment
 until the exclusive lock is removed.
 .LP
-In order to claim a shared lock, a 
+In order to claim a shared lock, a
 descriptor must be opened with read access.
 Descriptors for exclusive locks must
 be opened with write access.
@@ -263,7 +263,7 @@ the appropriate lock type with a
 or
 .SB F_SETLKW
 .I cmd\fP.
-Before the previous lock is released and 
+Before the previous lock is released and
 the new lock applied, any other processes already in line must
 gain and release their locks.
 .LP
@@ -277,7 +277,7 @@ when another process holds an exclusive lock
 that overlaps the current request) the
 calling process is blocked until the lock may be acquired.
 These blocks may be interrupted by signals.
-Care should be taken to avoid deadlocks 
+Care should be taken to avoid deadlocks
 caused by
 multiple processes all blocking the same records.
 .LP
@@ -313,7 +313,7 @@ checking for locks using
 and voluntarily observing the indicated read and write restrictions.
 .LP
 The record to be locked or unlocked is described by the
-.B flock 
+.B flock
 structure defined in
 .B <fcntl.h>
 as follows:
@@ -375,9 +375,9 @@ with the function
 .BR flock (2).
 They are unrelated.
 .LP
-Locks may start or extend beyond the current EOF, 
+Locks may start or extend beyond the current EOF,
 but may not be negative relative to the beginning of the file.
-Setting 
+Setting
 .B l_len
 to zero (0) extends the lock to EOF.
 If
@@ -418,8 +418,8 @@ signal.
 .LP
 In order to maintain consistency in the network case, data must not
 be cached on client machines.  For this reason, file buffering for
-an 
-.SM NFS  
+an
+.SM NFS
 file is turned off when the first lock is attempted on the file.
 Buffering remains off as long as the file is open.
 Programs that do I/O buffering in the
@@ -604,7 +604,7 @@ locks (see
 .BR chmod (2V)).
 .SH BUGS
 .LP
-File locks obtained by 
+File locks obtained by
 .B fcntl(\|)
 do not interact with
 .B flock(\|)

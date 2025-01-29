@@ -21,10 +21,10 @@ reads the printer/plotter accounting files, accumulating the number
 of pages (the usual case) or feet (for raster devices)
 of paper consumed by each user, and printing out
 how much each user consumed in pages or feet and dollars.
-The accounting file is taken from the 
+The accounting file is taken from the
 .B af
-field of the 
-.B printcap 
+field of the
+.B printcap
 entry for the printer. If any
 .IR username s
 are specified, then statistics are only printed for those users;
@@ -52,15 +52,15 @@ appended to it.
 .BI \-P printer
 Do accounting for the named
 .IR printer .
-If this option is not used, the printer specified by the 
+If this option is not used, the printer specified by the
 .SM PRINTER
-environment variable will be used if it is present; 
+environment variable will be used if it is present;
 otherwise accounting is done for the default printer.
 .TP
 .BI \-p price
 Use the value
 .I price
-for the cost in dollars per page/foot instead of 
+for the cost in dollars per page/foot instead of
 the default value of 0.02.
 .SH FILES
 .PD 0

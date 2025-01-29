@@ -49,7 +49,7 @@ for information on how to install optional software.
 prints out the information about packets on the ethernet that
 match the boolean
 .IR expression .
-The short display, without the 
+The short display, without the
 .B \-v
 option, displays only the destination and src (with port numbers).
 When an Internet packet is
@@ -72,7 +72,7 @@ Do not convert host addresses and port numbers to names.
 .B \-p
 Normally, the selected interface is put
 into promiscuous mode, so that
-.B etherfind 
+.B etherfind
 has access to
 all packets on the ethernet.  However, when the
 .B \-p
@@ -85,7 +85,7 @@ mode: treat each packet as an
 .SM RPC
 message, printing
 the program and procedure numbers. Routing packets are also
-more fully decoded using this option, and 
+more fully decoded using this option, and
 Network Information Service
 (\s-1NIS\s0)
 and
@@ -109,7 +109,7 @@ packets.
 .B \-x
 Dump the packet in hex, in addition to the line
 printed for each packet by default.
-Use the 
+Use the
 .B \-l
 option to limit this printout.
 .TP
@@ -132,8 +132,8 @@ flag lists all the interfaces
 that a machine has.
 .TP
 .BI \-l " length"
-Use with the 
-.B \-x 
+Use with the
+.B \-x
 option to limit the number of bytes printed out.
 .TP
 .I expression
@@ -342,6 +342,6 @@ The syntax is painful.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

@@ -24,7 +24,7 @@ is a superset \(em it includes all of the
 functionality described in the
 .SM IEEE
 standard as well as most of the
-SunOS functionality.  See the 
+SunOS functionality.  See the
 .BR sunos(7)
 man page for a description of
 SunOS functionality.
@@ -41,7 +41,7 @@ If a user desires to work in a
 .SM POSIX.1
 (or
 System V) environment, the user
-should set the path variable to include 
+should set the path variable to include
 .B /usr/5bin
 before anything else.  The typical path is
 .BR "\s-1PATH\s0=/usr/5bin:/bin:/usr/bin:/usr/ucb" .
@@ -51,12 +51,12 @@ As a portability aid, Sun is providing a lint library
 that consists exclusively of
 .SM POSIX.1
 functions.  Users may lint
-their code with the 
+their code with the
 .B "\-n \-lposix"
-options to catch all non-\s-1POSIX.1\s0 features.  
+options to catch all non-\s-1POSIX.1\s0 features.
 .LP
 .SM POSIX.1
-is primarily an operating system interface. 
+is primarily an operating system interface.
 .SM POSIX.1
 also specifies a subset of the functions defined by
 .SM ANSI C\s0.
@@ -73,24 +73,24 @@ A portable application may want to lint with
 for the most complete coverage of functions.
 .LP
 .SM POSIX.1
-as with most other environments, continues to evolve.  The 
+as with most other environments, continues to evolve.  The
 .B \-lposix
 lint library will always refer to the most recent standard supported by Sun.
 Some applications may wish to port to a particular version of the standard; they
 may safely use the more specific name of
 .B \-lposix1-88
-(currently the same as 
+(currently the same as
 .BR \-lposix ).
 .LP
-Certain functions defined in the 
+Certain functions defined in the
 .B posix
 lint library are not available in the
-C library. 
+C library.
 In particular, math functions are made available only when the
 .B \-lm
 option is added to
 .BR cc (1V)
-or 
+or
 .BR ld (1)
 commands.
 .SH FILES

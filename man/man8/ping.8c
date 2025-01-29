@@ -105,7 +105,7 @@ the local host to verify that the local network interface is running.
 Loose source route. Use this option in the
 .SM IP
 header to send the packet to the given host and back again.
-Usually specified with the 
+Usually specified with the
 .B \-R
 option.
 .TP
@@ -128,9 +128,9 @@ of the packet inside the
 .SM IP
 header.  The contents of the record route
 will only be printed if the
-.B \-v 
+.B \-v
 option is given, and only be set on return packets if the target host
-preserves the record route option across echos, or the 
+preserves the record route option across echos, or the
 .B \-l
 option is given.
 .TP

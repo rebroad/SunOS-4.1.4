@@ -18,16 +18,16 @@ char	**valuep;
 .IX "suboptions" "parse"
 .IX "getopt()" "parse suboptions" "\fLgetopt()\fR" ""
 .LP
-.B getsubopt(\|) 
+.B getsubopt(\|)
 is a function to parse suboptions in a flag argument that was initially
-parsed by 
+parsed by
 .BR getopt(3) .
 These suboptions are separated by commas and may consist of either
 a single token,
-or a token-value pair separated by an equal sign. 
-Since commas delimit suboptions in the option string they are not allowed 
+or a token-value pair separated by an equal sign.
+Since commas delimit suboptions in the option string they are not allowed
 to be part of the suboption or the value of a suboption.
-An example command that uses this syntax is 
+An example command that uses this syntax is
 .BR mount(8) ,
 which allows
 you to specify mount parameters with the \fI-o\fP switch as follows :
@@ -48,13 +48,13 @@ a vector of possible tokens,
 and the address of a value string pointer.
 It returns the index of the token that matched the suboption in the
 input string or -1 if there was no match.
-If the option string at 
+If the option string at
 .I *optionp
 contains only one subobtion,
 .B getsubopt(\|)
-updates 
+updates
 .I *optionp
-to point to the NUL at the end of the string, 
+to point to the NUL at the end of the string,
 otherwise it isolates the suboption by replacing the comma seperator with
 a NUL,
 and updates
@@ -64,7 +64,7 @@ If the suboption has an associated value,
 .B getsubopt(\|)
 updates
 .I *valuep
-to point to the value's first character. 
+to point to the value's first character.
 Otherwise it sets
 .I *valuep
 to
@@ -73,12 +73,12 @@ to
 The token vector is organized as a series of pointers to null-terminated
 strings. The end of the token vector is identified by a
 .SM NULL
-pointer. 
+pointer.
 .LP
-When 
+When
 .B getsubopt(\|)
 returns,
-if 
+if
 .I *valuep
 is not
 .SM NULL\s0,
@@ -86,11 +86,11 @@ then the suboption processed included a value.
 The calling program may use this information to determine if the
 presence or lack of a value for this subobtion is an error.
 .LP
-Additionally, 
-when 
+Additionally,
+when
 .B getsubopt(\|)
-fails to match the suboption with the tokens in the 
-.I tokens 
+fails to match the suboption with the tokens in the
+.I tokens
 array,
 the calling program should decide if this is an error,
 or if the unrecognized option should be passed on to another
@@ -98,19 +98,19 @@ program.
 .SH DIAGNOSTICS
 .B getsubopt(\|)
 returns -1 when the token it is scanning is not in the token vector.
-The variable addressed by 
+The variable addressed by
 .I valuep
-contains a pointer to the first character of the 
+contains a pointer to the first character of the
 .I token
 that was not recognized rather than a pointer to a value for that token.
 .LP
 The variable addressed by
 .I optionp
-points to the next option to be parsed, 
+points to the next option to be parsed,
 or a NUL character if there are no more options.
 .SH EXAMPLE
-The following code fragment shows how you might process options to the 
-\fBmount(8)\fP command using 
+The following code fragment shows how you might process options to the
+\fBmount(8)\fP command using
 \fBgetsubopt(3)\fP.
 .LP
 .nf
@@ -145,11 +145,11 @@ main(argc, argv)
 			break;
 		case 'f':
 			ofile = optarg;
-			break; 
-		case '?': 
+			break;
+		case '?':
 			errflag++;
 			break;
-		case 'o': 
+		case 'o':
 			options = optarg;
 			while (*options != '\e0') {
 				switch(getsubopt(&options,myopts,&value) {
@@ -161,24 +161,24 @@ main(argc, argv)
 					if (value == \s-1NULL\s0) {
 						error_no_arg();
 						errflag++;
-					} else 
+					} else
 						write_size = atoi(value);
 					break;
 				case READSIZE : /* process rsize option */
 					if (value == \s-1NULL\s0) {
 						error_no_arg();
 						errflag++;
-					} else 
+					} else
 						read_size = atoi(value);
 					break;
-				default : 
+				default :
 					/* process unknown token */
 					error_bad_token(value);
 					errflag++;
 					break;
-			   	}
+				}
 			}
-		  	break;
+			break;
 		}
 	}
 	if (errflag) {
@@ -192,7 +192,7 @@ main(argc, argv)
 	.
 }
 .ft
-.fi 
+.fi
 .SH SEE ALSO
 .BR getopt (3)
 .SH NOTES

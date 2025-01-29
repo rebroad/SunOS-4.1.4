@@ -1,5 +1,5 @@
 '\" e
-.\" @(#)eqn.1 1.1 94/10/31 SMI; 
+.\" @(#)eqn.1 1.1 94/10/31 SMI;
 .EQ
 delim $$
 .EN
@@ -10,16 +10,16 @@ eqn, neqn, checkeq \- typeset mathematics
 .B eqn
 [
 .BI \-d xy
-] 
+]
 [
 .BI \-f n
-] 
+]
 [
 .BI \-p n
-] 
+]
 [
 .BI \-s n
-] 
+]
 [
 .I filename
 ] .\|.\|.
@@ -54,7 +54,7 @@ describing equations.
 .B eqn
 is a preprocessor for
 .BR troff (1)
-and is intended for devices that can print 
+and is intended for devices that can print
 .BR troff 's
 output.
 .B neqn
@@ -73,7 +73,7 @@ example% neqn \fIfilename\fP .\|.\|. | nroff
 .LP
 If no
 .IR filename s
-are specified, 
+are specified,
 .B eqn
 and
 .B neqn
@@ -156,7 +156,7 @@ characters.  Braces {\|} are used for grouping;
 generally speaking, anywhere a single character like
 .I x
 could appear, a
-complicated construction enclosed in braces may be used instead. 
+complicated construction enclosed in braces may be used instead.
 Tilde (\s+2\^~\^\s0) represents a full
 .SM SPACE
 in the output, circumflex (\s+2\^^\^\s0) half as much.
@@ -222,7 +222,7 @@ and \fB""\fR for nothing at all (useful for a right-side-only bracket).
 .br
 .ne 4
 .LP
-Vertical piles of things are made with 
+Vertical piles of things are made with
 .BR pile ,
 .BR lpile ,
 .BR cpile ,
@@ -231,7 +231,7 @@ and
 .RB ` "pile {a above b above c}" '
 produces
 $pile {a above b above c}$.
-There can be an arbitrary number of elements in a pile. 
+There can be an arbitrary number of elements in a pile.
 .B lpile
 left-justifies,
 .B pile

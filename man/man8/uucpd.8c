@@ -72,7 +72,7 @@ for the username.
 .SH FILES
 .PD 0
 .TP 20
-.B /var/adm/wtmp	
+.B /var/adm/wtmp
 accounting
 .TP
 .B /var/adm/lastlog

@@ -3,7 +3,7 @@
 .SH NAME
 mctl \- memory management control
 .SH SYNOPSIS
-.nf 
+.nf
 .ft B
 #include <sys/types.h>
 #include <sys/mman.h>
@@ -29,7 +29,7 @@ applies a variety of control functions over pages identified by the mappings
 established for the address range [\fIaddr, addr + len\fP\^).
 The function to be performed is identified by the argument
 .IR function .
-Legitimate functions are defined in 
+Legitimate functions are defined in
 .B <sys/mman.h>
 as follows.
 .TP 20
@@ -42,12 +42,12 @@ See the
 description for semantics and usage.
 .I arg
 is ignored, but must have the value 0.
-.TP 
+.TP
 .SB MC_LOCKAS
 Lock the pages in the address space in memory.
 This function is used to support
 .BR mlockall (3).
-See the 
+See the
 .BR mlockall (3)
 description for semantics and usage.
 .I addr
@@ -76,32 +76,32 @@ This function is used to support
 .BR msync (3).
 See the
 .BR msync (3)
-description for semantics and usage.  
+description for semantics and usage.
 .I arg
 is used to represent the
 .I flags
-argument to 
+argument to
 .BR msync (3).
 .TP
 .SB MC_UNLOCK
 Unlock the pages in the range.
 This function is used to support
 .BR mlock (3).
-See the 
+See the
 .BR mlock (3)
-description for semantics and usage.  
+description for semantics and usage.
 .I arg
 is ignored and must have the
 value 0.
 .TP
 .SB MC_UNLOCKAS
 Remove address space memory lock, and locks on all current mappings.
-This function is used to support 
+This function is used to support
 .BR mlockall (3).
 .I addr
-and 
+and
 .I len
-must have the value 0.  
+must have the value 0.
 .I arg
 is ignored and
 must have the value 0.

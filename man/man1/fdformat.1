@@ -1,7 +1,7 @@
 .\" @(#)fdformat.1 1.1 94/10/31 SMI;
 .TH FDFORMAT 1 "7 October 1990"
 .SH NAME
-fdformat \- format diskettes for use with SunOS 
+fdformat \- format diskettes for use with SunOS
 .SH SYNOPSIS
 .SS Sun386i Systems
 .B fdformat
@@ -28,7 +28,7 @@ fdformat \- format diskettes for use with SunOS
 This command is available on
 Sun386i, Sun-3/80, and Desktop \s-1SPARC\s0 systems only.
 .SH DESCRIPTION
-.IX "fdformat command" "format floppy" "\fLfdformat\fP \(em floppy format" 
+.IX "fdformat command" "format floppy" "\fLfdformat\fP \(em floppy format"
 .LP
 .B fdformat
 is a utility for formatting floppy diskettes.
@@ -36,18 +36,18 @@ All new blank diskettes must be
 formatted before they can be used.
 .B fdformat
 formats and verifies each track on the diskette, and terminates if
-it finds any bad sectors. 
+it finds any bad sectors.
 All existing data on the diskette, if any, is destroyed by formatting.
 .LP
-By default, 
-.B fdformat 
+By default,
+.B fdformat
 formats a high density diskette with a capacity of 1.44 megabytes.
 Use the
 .B \-L
 or
 .B \-l
 option to format low density diskettes (720K capacity).
-Note: it is not possible to put a low density 
+Note: it is not possible to put a low density
 format onto a high density floppy diskette.
 High density diskettes can be recognized by the high density
 detect hole in the lower right corner of the diskette, opposite the write
@@ -70,11 +70,11 @@ file system on the floppy diskette.
 On Sun386i systems, use the
 .B \-2
 option to format diskettes in the optional external 5 1/4" floppy drive.
-To format diskettes for use under 
+To format diskettes for use under
 .SM MS-DOS,
-use the 
+use the
 .SM MS-DOS FORMAT
-command in a 
+command in a
 .SM DOS
 window.
 .SH OPTIONS
@@ -91,7 +91,7 @@ Format a diskette in the optional external 5.25-inch floppy drive.
 Put a
 .B MS-DOS
 .I label
-on the disk after formatting it. This option is only meaningful when 
+on the disk after formatting it. This option is only meaningful when
 .B \-d
 is also set.
 .TP
@@ -158,8 +158,8 @@ Low density 5.25-inch floppy drive
 .ne 5
 .SH BUGS
 .LP
-Currently bad sector mapping is not supported on 
+Currently bad sector mapping is not supported on
 floppy diskettes.
-Therefore, a diskette is unusable if 
+Therefore, a diskette is unusable if
 .B fdformat
 finds an error (bad sector).

@@ -37,7 +37,7 @@ software installation option.  Refer to
 .TX INSTALL
 for information on how to install optional software.
 .SH "DESCRIPTION"
-.IX "tput command" "" "\fLtput\fR command"  
+.IX "tput command" "" "\fLtput\fR command"
 .LP
 .B tput
 uses the
@@ -183,7 +183,7 @@ capability.
 \-1
 The integer capability is not defined for this terminal type.
 .SH EXAMPLES
-.TP 20 
+.TP 20
 .B tput init
 Initialize the terminal according to the
 type of terminal in the environmental variable

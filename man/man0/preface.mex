@@ -3,7 +3,7 @@
 .UH M "Preface"
 .UH H \s-1OVERVIEW\s0
 .LP
-A man page is provided for both the naive user, and sophisticated user who is 
+A man page is provided for both the naive user, and sophisticated user who is
 familiar with the SunOS operating system and is in need of
 on-line information.
 A man page is intended to answer concisely the question
@@ -33,7 +33,7 @@ followed by a brief description of what they do.
 .LP
 This section is exclusive to Section 4.
 It lists the configuration file lines needed to
-install a driver into the kernel.  
+install a driver into the kernel.
 Where necessary, the configuration lines are presented separately
 for different hardware platforms.
 .UH H \s-1SYNOPSIS\s0
@@ -42,8 +42,8 @@ This section shows the syntax of commands or functions.
 When a command or file does not exist in the standard path,
 its full pathname is shown.
 Literal characters (commands and options)
-are in 
-.B bold 
+are in
+.B bold
 font and variables
 (arguments, parameters and substitution characters) are in
 .I "italic"
@@ -58,13 +58,13 @@ The following special characters are used in this section:
 .RS
 .IP [\|] 5
 The option or argument enclosed in these brackets is optional.
-If the brackets are omitted, the argument 
+If the brackets are omitted, the argument
 .I must
 be specified.
 .br
 .ne 8
 .IP .\|.\|. 5
-Ellipses.  
+Ellipses.
 Several values may be provided for the previous argument, or
 the previous argument can be specified multiple times,
 for example,
@@ -78,9 +78,9 @@ specified at time.
 .LP
 This section occurs only in subsection 3R
 to indicate the protocol description file.
-The protocol specification pathname is always 
-listed in 
-.B bold 
+The protocol specification pathname is always
+listed in
+.B bold
 font.
 .UH H \s-1AVAILABILITY\s0
 .LP
@@ -92,36 +92,36 @@ Software specific ones require certain installation options.
 .LP
 This section defines the functionality and behavior of the service.
 Thus it describes concisely what the command does.
-It does not discuss 
+It does not discuss
 \s-1OPTIONS \s0
-or cite 
+or cite
 \s-1EXAMPLES\s0.
 Interactive commands, subcommands, requests, macros,
-functions and such, are described under 
+functions and such, are described under
 \s-1USAGE\s0.
 .UH H \s-1IOCTLS\s0
 .LP
 This section appears on pages in Section 4 only.
-Only the device class 
-which supplies appropriate parameters to the 
+Only the device class
+which supplies appropriate parameters to the
 .BR ioctls (2)
-system call is called 
-.B ioctls 
-and generates its own heading.  
+system call is called
+.B ioctls
+and generates its own heading.
 \s-1IOCTLS \s0
-for a specific device 
-are listed alphabetically (on the man page for that specific device). 
-\s-1IOCTLS\s0 
-are used for a particular class of devices all which have an 
-.B io 
-ending, such as 
+for a specific device
+are listed alphabetically (on the man page for that specific device).
+\s-1IOCTLS\s0
+are used for a particular class of devices all which have an
+.B io
+ending, such as
 .BR mtio (4).
 .UH H \s-1OPTIONS\s0
 .LP
 This lists the command options with a concise summary
 of what each option does.
-The options are listed literally and in the order they appear in the 
-\s-1SYNOPSIS\s0 
+The options are listed literally and in the order they appear in the
+\s-1SYNOPSIS\s0
 section.
 Possible arguments to options are discussed under the option,
 and where appropriate,
@@ -159,8 +159,8 @@ This section is provided as a
 on use.
 This section lists special rules,
 features and commands that require in-depth explanations.
-The subsections 
-listed below are used to explain built-in functionality: 
+The subsections
+listed below are used to explain built-in functionality:
 .nf
 .ft B
 	Commands
@@ -174,11 +174,11 @@ listed below are used to explain built-in functionality:
 .LP
 This section provides examples of usage or of how to use a
 command or function.
-Wherever possible a complete example including 
+Wherever possible a complete example including
 command line entry and machine response is shown.
 Whenever an example is given, the prompt is shown as
 .IP
-.B example% 
+.B example%
 .LP
 or if the user must be super-user,
 .IP
@@ -189,10 +189,10 @@ variable substitution rules, or returned values.
 Most examples illustrate concepts from the
 \s-1SYNOPSIS\s0,
 \s-1DESCRIPTION\s0,
-\s-1OPTIONS\s0 
-and 
-\s-1USAGE\s0 
-sections.  
+\s-1OPTIONS\s0
+and
+\s-1USAGE\s0
+sections.
 .UH H \s-1ENVIRONMENT\s0
 .LP
 This section lists any environment variables that the
@@ -202,7 +202,7 @@ of the effect.
 .LP
 This section lists all filenames referred to by the man page,
 files of interest, and files created or required by commands.
-Each is followed by a descriptive summary or explanation. 
+Each is followed by a descriptive summary or explanation.
 .br
 .ne 5
 .UH H "\s-1SEE ALSO\s0"
@@ -214,21 +214,21 @@ and outside publications.
 This section lists diagnostic messages with a brief explanation
 of the condition causing the error.
 Messages appear in
-.B bold 
+.B bold
 font with the exception of variables,
 which are in
-.I "italic" 
+.I "italic"
 font.
 .UH H \s-1WARNINGS\s0
 .LP
-This section lists warnings about special conditions which could seriously 
+This section lists warnings about special conditions which could seriously
 affect your working conditions \(em this is not a list of diagnostics.
 .UH H \s-1NOTES\s0
 .LP
 This section lists additional information
 that does not belong anywhere else on the page.
-It takes the form of an 
-.I aside 
+It takes the form of an
+.I aside
 to the user, covering points of special interest.
 Critical information is never covered here.
 .UH H \s-1BUGS\s0

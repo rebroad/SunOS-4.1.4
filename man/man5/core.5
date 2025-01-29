@@ -29,7 +29,7 @@ file is limited by
 .BR getrlimit (2)).
 Files which would be larger than the limit are not created.
 .LP
-The core file consists of a 
+The core file consists of a
 .B core
 structure, as defined in the
 .B <sys/core.h>
@@ -39,8 +39,8 @@ The
 structure includes
 the program's header, the size of the text, data, and stack
 segments, the name of the program and the number of the signal
-that terminated the process.  The program's 
-header is described by the 
+that terminated the process.  The program's
+header is described by the
 .B exec
 structure defined in the
 .B <sys/exec.h>
@@ -79,7 +79,7 @@ as defined in
 .B c_len
 The length of the
 .B core
-structure in the core file.  This need not be equal to the current size of a 
+structure in the core file.  This need not be equal to the current size of a
 .B core
 structure as defined in
 .BR <sys/core.h> ,

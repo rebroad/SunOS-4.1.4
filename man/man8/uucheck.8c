@@ -33,7 +33,7 @@ It also checks for some obvious errors in the
 file
 .RB ( /usr/lib/uucp/Permissions ).
 .LP
-Note: 
+Note:
 .B uucheck
 can only be used by the super-user or
 .BR uucp .

@@ -12,41 +12,41 @@ Dynamically linked executables created by
 contain data structures used by the dynamic link editor
 to finish link-editing the program during program execution.
 These data
-structures are described with a 
-.B link_dynamic 
+structures are described with a
+.B link_dynamic
 structure, as defined in the
 .B link.h
-file.  
+file.
 .B ld
 always identifies the location of this structure in the executable file with
 the symbol
 .BR _\^_DYNAMIC .
-This symbol is 
+This symbol is
 .BR ld -defined
-and if referenced in an executable that does not require dynamic linking 
+and if referenced in an executable that does not require dynamic linking
 will have the value zero.
 .LP
 The program stub linked with ``main'' programs by compiler drivers such as
 .BR cc (1V)
-(called 
+(called
 .BR crt0 )
 tests the definition of
 .B _\^_DYNAMIC
 to determine whether or not the dynamic link editor should be invoked.
-Programs supplying a substitute for 
+Programs supplying a substitute for
 .B crt0
 must either duplicate this functionality or else require that the programs with
-which they are linked be linked 
+which they are linked be linked
 .IR statically .
 Otherwise, such replacement
 .BR crt0 's
 must open and map in the executable
 .B /usr/lib/ld.so
-using 
+using
 .BR mmap (2).
 Care should be taken to ensure that the expected mapping relationship between
 the ``text'' and ``data'' segments of the executable is maintained in the
-same manner that the 
+same manner that the
 .BR execve (2V)
 system call does.
 The first location following the
@@ -78,31 +78,31 @@ struct {
 The members of the structure are:
 .TP 15
 .B crt_ba
-The address at which 
+The address at which
 .B /usr/lib/ld.so
 has been mapped.
-.TP 
+.TP
 .B crt_dzfd
-An open file descriptor for 
+An open file descriptor for
 .BR /dev/zero .
 .B ld.so
 will close this file descriptor before returning.
-.TP 
+.TP
 .B crt_ldfd
-The file descriptor used to map 
+The file descriptor used to map
 .BR /usr/lib/ld.so .
 .B ld.so
 will close this file descriptor before returning.
-.TP 
+.TP
 .B crt_dp
 A pointer to the label
 .B _\^_DYNAMIC
-in the executable which is calling 
+in the executable which is calling
 .BR ld.so .
-.TP 
+.TP
 .B crt_ep
 A pointer to the environment strings provided to the program.
-.TP 
+.TP
 .B crt_bp
 A location in the executable which contains an instruction that will
 be executed after the call to

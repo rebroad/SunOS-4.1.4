@@ -35,9 +35,9 @@ transaction with the client.
 .LP
 The
 .SB SVCXPRT
-data structure is defined in the 
+data structure is defined in the
 .SM RPC/XDR
-Library Definitions of the 
+Library Definitions of the
 .TX NETP .
 .LP
 .ft B
@@ -72,8 +72,8 @@ void svcerr_decode(xprt)
 .ft R
 .IP
 Called by a service dispatch routine that cannot successfully
-decode the remote parameters. See 
-.B svc_getargs(\|) 
+decode the remote parameters. See
+.B svc_getargs(\|)
 in
 .BR rpc_svc_reg (3N).
 .br

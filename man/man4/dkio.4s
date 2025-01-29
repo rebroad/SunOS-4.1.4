@@ -4,13 +4,13 @@
 dkio \- generic disk control operations
 .SH DESCRIPTION
 .IX  "dkio device"  ""  "\fLdkio\fP \(em disk control operations"
-.IX  disk "control operations \(em \fLdkio\fP" 
+.IX  disk "control operations \(em \fLdkio\fP"
 .IX  "generic disk control operations"  ""  "generic disk control operations \(em \fLdkio\fP"
 .LP
 All Sun disk drivers support a set of
 .BR ioctl (2)
 requests for disk formatting and labeling operations.
-Basic to these 
+Basic to these
 .B ioctl(\|)
 requests are the definitions in
 .BR /usr/include/sun/dkio.h :

@@ -51,7 +51,7 @@ These requests are defined in
 struct openpromio {
         u_int   oprom_size;			/* real size of following array */
         char    oprom_array[1];		/* For property names and values */
-					/* NB: Adjacent, Null terminated */
+                                        /* NB: Adjacent, Null terminated */
 };
 #define OPROMMAXPARAM   1024	/* max size of array */
 

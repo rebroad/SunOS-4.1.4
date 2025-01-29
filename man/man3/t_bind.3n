@@ -50,13 +50,13 @@ structure containing the following members:
 .RE
 .LP
 The
-.IR maxlen , 
-.IR len , 
-and 
+.IR maxlen ,
+.IR len ,
+and
 .I buf
-members of the 
-.I netbuf 
-structure are described in 
+members of the
+.I netbuf
+structure are described in
 .BR t_accept (3N).
 The
 .I addr
@@ -245,8 +245,8 @@ The transport provider could not allocate an address.
 The function was issued in the wrong sequence.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .br
 .ne 5

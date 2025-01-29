@@ -9,9 +9,9 @@ ypgroup \- NIS group file
 Available only on Sun 386i systems running a SunOS 4.0.\fIx\fR
 release or earlier.  Not a SunOS 4.1 release feature.
 .SH DESCRIPTION
-.IX "ypgroup" "" "\fLypgroup\fP\(em NIS group file" "" 
+.IX "ypgroup" "" "\fLypgroup\fP\(em NIS group file" ""
 .LP
-Create the 
+Create the
 Network Information Service
 (\s-1NIS\s0)
 group map with this text file.
@@ -20,11 +20,11 @@ This file has the same format as the
 file described in
 .BR group (5).
 .LP
-The text file for the 
+The text file for the
 .SM NIS
 group map is stored in the
 .B /etc/group
-file on the 
+file on the
 .SM NIS
 master of an
 .SM NIS
@@ -38,7 +38,7 @@ The local file is accessed first by programs such as
 .BR groups (1),
 and if it contains a line beginning with the character
 .RB ` + ',
-the 
+the
 .SM NIS
 map will be accessed.
 The local
@@ -46,14 +46,14 @@ The local
 file can specify groups
 that are not available on a network-wide basis.
 .LP
-This implies that the 
+This implies that the
 .SM NIS
 master cannot use the local
 .B /etc/group
 file to specify groups that are to be known only to the local system.
 Sun386i systems allow the
 .B /etc/group
-file on the 
+file on the
 .SM NIS
 master to be used locally, creating the
 .SM NIS
@@ -88,7 +88,7 @@ text file.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 The name Yellow Pages is a registered trademark in the United Kingdom

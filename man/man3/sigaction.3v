@@ -1,7 +1,7 @@
 .\" @(#)sigaction.3v 1.1 94/10/31 SMI; new for 4.1, POSIX
 .TH SIGACTION 3V "21 January 1990"
 .SH NAME
-sigaction \- examine and change signal action 
+sigaction \- examine and change signal action
 .SH SYNOPSIS
 .LP
 .nf
@@ -18,21 +18,21 @@ struct sigaction *act, *oact;
 .ft R
 .fi
 .SH DESCRIPTION
-.LP 
+.LP
 .IX "sigaction()" "" "\fLsigaction()\fR \(em examine and change signal action" ""
 .IX "signal" "examine and change signal action"
 .LP
 .B sigaction(\|)
-allows the calling process to examine and specify  
+allows the calling process to examine and specify
 (or both) the action to be associated with a specific signal.
 .I sig
 specifies the signal.  Acceptable values are defined in
 .BR <signal.h> .
 .LP
-The structure 
+The structure
 .BR sigaction(\|) ,
-used to describe an action to be taken, is defined in 
-the header 
+used to describe an action to be taken, is defined in
+the header
 .B <signal.h>
 as follows:
 .LP
@@ -72,45 +72,45 @@ struct sigaction {
 .LP
 If
 .B act
-is not 
+is not
 .SB NULL,
-it points to a structure specifying the action to be associated with the 
+it points to a structure specifying the action to be associated with the
 specified signal.  If
 .B oact
-is not 
+is not
 .SB NULL,
 the action previously associated with the signal is stored in the location
-pointed to by the 
-.B oact.  
+pointed to by the
+.B oact.
 If
-.B act 
-is 
+.B act
+is
 .SM NULL\s0,
 signal handling is unchanged by this function.  Thus, the call can be
-used to enquire about the current handling of a given signal.  The 
+used to enquire about the current handling of a given signal.  The
 .B sa_handler
-field of the 
+field of the
 .B sigaction
-structure identifies the action to be associated with the specified signal.  
-If the 
+structure identifies the action to be associated with the specified signal.
+If the
 .B sa_handler
-field specifies a signal-catching function, the 
+field specifies a signal-catching function, the
 .B sa_mask
 field identifies a set of signals that shall be added to the process's signal
-mask before the signal-catching function mask is invoked.  The 
-.SB SIGKILL 
-and 
+mask before the signal-catching function mask is invoked.  The
+.SB SIGKILL
+and
 .SB SIGSTOP
 signals shall not be added to the signal mask using this mechanism;
 this restriction shall be enforced by the system without causing an error
 to be indicated.
 .LP
-The 
-.B sa_flags 
-field can be used to modify the behavior of the specified signal.  The 
-following flag bit, defined in the header 
+The
+.B sa_flags
+field can be used to modify the behavior of the specified signal.  The
+following flag bit, defined in the header
 .BR <signal.h> ,
-can be set in 
+can be set in
 .B sa_flags:
 .LP
 .RS
@@ -148,29 +148,29 @@ can be set in
 .fi
 .RE
 .LP
-If 
+If
 .I sig
-is 
+is
 .SB SIGCHILD
-and the 
+and the
 .SB SA_NOCLDSTOP
-flag is not set in 
+flag is not set in
 .BR sa_flags ,
-and the implementation supports the 
+and the implementation supports the
 .SB SIGCHILD
-signal, a 
+signal, a
 .SB SIGCHILD
 signal shall
 be generated for the calling process whenever any of its child processes stop.
-If 
+If
 .I sig
-is 
+is
 .SB SIGCHILD
-and the 
+and the
 .SB SA_NOCLDSTOP
-flag is set in 
+flag is set in
 .BR sa_flags ,
-the implementation shall not generate a 
+the implementation shall not generate a
 .SB SIGCHILD
 signal in this way.
 .LP
@@ -225,36 +225,36 @@ hence it should not be used if backward compatibility is needed.
 .LP
 When a signal is caught by a signal-catching function installed by
 .B sigaction(\|)
-a new signal mask is calculated and installed for the duration 
+a new signal mask is calculated and installed for the duration
 of the signal-catching function (or until a call to either
 .B sigprocmask(\|)
 or
 .BR sigsuspend(\|) ).
-This mask is formed by taking the union of the current 
-signal mask and the value of the 
+This mask is formed by taking the union of the current
+signal mask and the value of the
 .B sa_mask
 for the signal being delivered, and then including the signal being delivered.  If and when the user's signal handler returns normally, the original signal
 mask is restored.
 .LP
-Once an action is installed for a specific signal, it remains installed 
+Once an action is installed for a specific signal, it remains installed
 until another action is explicitly requested (by another call to
 .B sigaction(\|) ),
-or until one of the 
+or until one of the
 .B exec
 functions is called.
 .LP
-If the previous action for 
+If the previous action for
 .I sig
 had been established by
 .B signal(\|)
-defined in the C standard, the values of the fields returned in the 
-structure pointed to by the 
+defined in the C standard, the values of the fields returned in the
+structure pointed to by the
 .B oact
 are unspecified, and in particular
-.B oact\->sv_handler 
+.B oact\->sv_handler
 is not necessarily the same value passed to
 .BR signal(\|) .
-However, if a pointer to the same structure or a copy thereof 
+However, if a pointer to the same structure or a copy thereof
 is passed to a subsequent call to
 .B sigaction(\|)
 using
@@ -265,7 +265,7 @@ were repeated.
 .LP
 If
 .B sigaction(\|)
-fails, no new signal handler is installed.  
+fails, no new signal handler is installed.
 .SH RETURN VALUES
 .LP
 .B sigaction(\|)
@@ -285,7 +285,7 @@ to indicate the error.
 is an invalid or unsupported signal number.
 .IP
 An attempt was made
-to catch a signal that cannot be ignored.  See 
+to catch a signal that cannot be ignored.  See
 .BR <signal.h> .
 .SH SEE ALSO
 .BR kill (2V),

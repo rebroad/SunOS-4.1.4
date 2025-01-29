@@ -36,7 +36,7 @@ See
 .LP
 If password aging is enabled and the password corresponding to the user
 name has expired, the user will be prompted for a new password.
-The user has to successfully modify his password for login to proceed. 
+The user has to successfully modify his password for login to proceed.
 See
 .BR passwd (1).
 .LP
@@ -149,10 +149,10 @@ otherwise the previous environment is discarded.
 .SH FILES
 .PD 0
 .TP 20
-.B /etc/utmp	
+.B /etc/utmp
 accounting
 .TP
-.B /var/adm/wtmp	
+.B /var/adm/wtmp
 accounting
 .TP
 .B /var/adm/lastlog
@@ -214,12 +214,12 @@ Ask your system administrator for assistance.
 .LP
 The following options are undocumented, and not intended
 for the user.
-The 
+The
 .B \-r
 option is used by the remote login server,
 .BR rlogind (8C)
 to force
-.B login 
+.B login
 to enter into an initial connection protocol.
 .B \-h
 is used by
@@ -229,16 +229,16 @@ received.
 .br
 .ne 10v
 .LP
-The following warnings apply when 
+The following warnings apply when
 .B login
 account names contain characters outside
 the range of 7-bit
 .SM ASCII\s0:
 .TP 3
 \(bu
-A user cannot 
+A user cannot
 .B rlogin
-to 
+to
 .I account-name
 containing 8-bit characters from a system
 that does not handle 8-bit characters.
@@ -247,7 +247,7 @@ that does not handle 8-bit characters.
 A user cannot log in to
 .I account-name
 containing 8-bit characters
-from a 7-bit 
+from a 7-bit
 .SM ASCII
 terminal (through a modem, for example).
 .TP 3

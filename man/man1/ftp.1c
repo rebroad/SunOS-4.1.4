@@ -4,9 +4,9 @@
 ftp \- file transfer program
 .SH SYNOPSIS
 .B ftp
-[ 
+[
 .B \-dgintv
-] 
+]
 [
 .I hostname
 ]
@@ -28,7 +28,7 @@ standard File Transfer Protocol (\s-1FTP\s0).
 .B ftp
 transfers files to and from a remote network site.
 .LP
-The client host with which 
+The client host with which
 .B ftp
 is to communicate may be specified on the command line.
 If this is done,
@@ -36,16 +36,16 @@ If this is done,
 immediately attempts to establish a connection to an
 .SM FTP
 server on that host;
-otherwise, 
+otherwise,
 .B ftp
 enters its command interpreter and awaits instructions
-from the user.  When 
+from the user.  When
 .B ftp
 is awaiting commands from the user, it
 displays the prompt
-.RB ` ftp> '.  
+.RB ` ftp> '.
 .SH OPTIONS
-Options may be specified at the command line, or to the 
+Options may be specified at the command line, or to the
 command interpreter.
 .TP
 .B \-d
@@ -59,7 +59,7 @@ Turn off interactive prompting during multiple file transfers.
 .TP
 .B \-n
 Do not attempt \*(lqauto-login\*(rq upon initial connection.
-If auto-login is enabled, 
+If auto-login is enabled,
 .B ftp
 checks the
 .B \&.netrc
@@ -87,7 +87,7 @@ is running interactively with its input coming from the user's terminal.
 Run
 .I command
 as a shell command on the local machine.
-If no 
+If no
 .I command
 is given, invoke an interactive shell.
 .HP
@@ -163,7 +163,7 @@ local directory with the letters mapped
 to lower case.
 .TP
 .BI cd " remote-directory"
-Change the working directory on the remote machine to 
+Change the working directory on the remote machine to
 .IR remote-directory .
 .TP
 .B cdup
@@ -171,7 +171,7 @@ Change the remote machine working directory to the parent of the
 current remote machine working directory.
 .TP
 .B close
-Terminate the 
+Terminate the
 .SM FTP
 session with the remote server, and
 return to the command interpreter.
@@ -217,7 +217,7 @@ on the remote machine.
 .B debug
 .RI [ " debug-value " ]
 .br
-Toggle debugging mode. 
+Toggle debugging mode.
 If an optional
 .I debug-value
 is specified it is used to set the debugging level.
@@ -262,7 +262,7 @@ which corresponds to the default \*(lqnon-print\*(rq subtype.
 .BI get " remote-file"
 .RI [ " local-file " ]
 .br
-Retrieve the 
+Retrieve the
 .I remote-file
 and store it on the local machine.  If the local
 file name is not specified, it is given the same
@@ -278,7 +278,7 @@ The current settings for \*(lqrepresentation type\*(rq,
 are used while transferring the file.
 .TP
 .B glob
-Toggle filename expansion, or \*(lqglobbing\*(rq,  
+Toggle filename expansion, or \*(lqglobbing\*(rq,
 for
 .BR mdelete ,
 .B mget
@@ -305,7 +305,7 @@ server, and can be previewed by doing
 .RB ` "mls\ \fIremote-files\fP\ \-" '.
 .IP
 .B mget
-and 
+and
 .B mput
 are not meant to transfer
 entire directory subtrees of files.  You can do this by
@@ -317,7 +317,7 @@ archive of the subtree (using a
 command).
 .TP
 .B hash
-Toggle hash-sign 
+Toggle hash-sign
 .RB ( # )
 printing for each data block transferred.
 .HP
@@ -326,7 +326,7 @@ printing for each data block transferred.
 .br
 Print an informative message about the meaning of
 .IR command .
-If no argument is given, 
+If no argument is given,
 .B ftp
 prints a list of the known commands.
 .HP
@@ -334,7 +334,7 @@ prints a list of the known commands.
 .RI [ " directory " ]
 .br
 Change the working directory on the local machine.
-If no 
+If no
 .I directory
 is specified, the user's home directory is used.
 .HP
@@ -345,7 +345,7 @@ Print an abbreviated listing of the contents of a
 directory on the remote machine.  If
 .I remote-directory
 is left unspecified, the current working directory
-is used.  If no local file is specified, 
+is used.  If no local file is specified,
 or if
 .I local-file
 is
@@ -615,21 +615,21 @@ Establish a connection to the specified
 .I host
 .SM FTP
 server.
-An optional port number may be supplied, in which case, 
+An optional port number may be supplied, in which case,
 .B ftp
-will attempt to contact an 
+will attempt to contact an
 .SM FTP
 server at that port.
-If the 
+If the
 .I auto-login
-option is on (default), 
+option is on (default),
 .B ftp
-will also attempt to automatically log the user in to the 
+will also attempt to automatically log the user in to the
 .SM FTP
 server (see below).
 .TP
 .B prompt
-Toggle interactive prompting. 
+Toggle interactive prompting.
 Interactive prompting
 occurs during multiple file transfers to allow the
 user to selectively retrieve or store files.
@@ -643,10 +643,10 @@ will transfer all files, and any
 will delete all files.
 .TP
 .BI proxy " ftp-command"
-Execute an 
+Execute an
 .SM FTP
 command on a secondary control connection.
-This command allows simultaneous connection to two remote 
+This command allows simultaneous connection to two remote
 .SM FTP
 servers for transferring files between the two servers.
 The first
@@ -656,7 +656,7 @@ command should be an
 to establish the secondary control connection.
 Enter the command
 .RB ` "proxy ?" '
-to see other 
+to see other
 .SM FTP
 commands executable on the secondary connection.
 .br
@@ -687,7 +687,7 @@ command by the server on the secondary control connection.
 .BI put " local-file"
 .RI [ " remote-file" ]
 .br
-Store a local file on the remote machine.  If 
+Store a local file on the remote machine.  If
 .I remote-file
 is left unspecified, the local file name is used
 after processing according to any
@@ -707,9 +707,9 @@ A synonym for
 .BR bye .
 .TP
 .BI quote " arg1 arg2\fR .\|.\|."
-Send the arguments specified, verbatim, to the remote 
+Send the arguments specified, verbatim, to the remote
 .SM FTP
-server.  A single 
+server.  A single
 .SM FTP
 reply code is expected in return.
 .HP
@@ -722,10 +722,10 @@ A synonym for
 .B remotehelp
 .RI [ " command-name " ]
 .br
-Request help from the remote 
+Request help from the remote
 .SM FTP
 server.
-If a 
+If a
 .I command-name
 is specified it is supplied to the server as well.
 .TP
@@ -740,7 +740,7 @@ Clear reply queue.
 This command re-synchronizes command/reply sequencing with the remote
 .SM FTP
 server.
-Resynchronization may be necessary following a violation of the 
+Resynchronization may be necessary following a violation of the
 .SM FTP
 protocol
 by the remote server.
@@ -765,7 +765,7 @@ If this process continues up to
 .RB ` \&.99 ',
 an error message is printed, and the transfer does not take place.
 The generated unique filename will be reported.
-Note: 
+Note:
 .B runique
 will not affect local files generated from a shell command
 (see below).
@@ -780,7 +780,7 @@ A synonym for
 .B sendport
 Toggle the use of
 .SB PORT
-commands.  By default, 
+commands.  By default,
 .B ftp
 will attempt to use a
 .SB PORT
@@ -791,15 +791,15 @@ The use of
 commands can prevent delays
 when performing multiple file transfers. If the
 .SB PORT
-command fails, 
+command fails,
 .B ftp
-will use the default data port. 
+will use the default data port.
 When the use of
 .SB PORT
 commands is disabled, no attempt will be made to use
 .SB PORT
 commands for each data transfer.  This is useful
-when connected to certain 
+when connected to certain
 .SM FTP
 implementations that ignore
 .SB PORT
@@ -826,7 +826,7 @@ which corresponds to the default \*(lqfile\*(rq structure.
 .TP
 .B sunique
 Toggle storing of files on remote machine under unique file names.
-The remote 
+The remote
 .SM FTP
 server must support the
 .SB STOU
@@ -870,13 +870,13 @@ is printed.  The default type is \*(lqnetwork
 .BI user " user-name"
 .RI [ " password " "] [ " account " ]"
 .br
-Identify yourself to the remote 
+Identify yourself to the remote
 .SM FTP
-server. 
+server.
 If the password is not specified and the server requires it,
 .B ftp
 will prompt the user for it (after disabling local echo).
-If an account field is not specified, and the 
+If an account field is not specified, and the
 .SM FTP
 server requires it, the user will be prompted for it.
 If an account field is specified, an account command will
@@ -886,18 +886,18 @@ for logging in.
 Unless
 .B ftp
 is invoked with \*(lqauto-login\*(rq disabled, this
-process is done automatically on initial connection to the 
+process is done automatically on initial connection to the
 .SM FTP
 server.
 .TP
 .B verbose
 Toggle verbose mode.
-In verbose mode, all responses from the 
+In verbose mode, all responses from the
 .SM FTP
 server are displayed to the user.
 In addition,
 if verbose mode is on, when a file transfer completes, statistics
-regarding the efficiency of the transfer are reported. 
+regarding the efficiency of the transfer are reported.
 By default, verbose mode is on if
 .BR ftp 's
 commands are coming from a terminal, and off otherwise.
@@ -959,11 +959,11 @@ is specified, the standard input (for reading) or standard output
 .ne 6
 .TP
 2)
-If the first character of the file name is 
+If the first character of the file name is
 .RB ` | ',
 the remainder of the argument is interpreted as a shell command.
 .B ftp
-then forks a shell, using 
+then forks a shell, using
 .BR popen (3S)
 with the argument supplied, and reads (writes) from the standard output
 (standard input) of that shell.  If the shell command includes
@@ -976,11 +976,11 @@ A particularly useful example of this mechanism is:
 3)
 Failing the above checks, if \*(lqglobbing\*(rq is enabled,
 local file names are expanded
-according to the rules used in the 
+according to the rules used in the
 .BR csh (1);
 see the
 .B glob
-command. 
+command.
 If the
 .B ftp
 command expects a single local file (for example,
@@ -1020,7 +1020,7 @@ The resulting filename may then be altered by the remote server if
 .B sunique
 is on.
 .SH "FILE TRANSFER PARAMETERS"
-The 
+The
 .SM FTP
 specification specifies many parameters which may
 affect a file transfer.
@@ -1032,7 +1032,7 @@ may be one of \*(lqnetwork
 or \*(lqlocal byte size\*(rq with a specified
 byte size (for
 .SM PDP\s0-10's
-and 
+and
 .SM PDP\s0-20's
 mostly).  The \*(lqnetwork
 .SM ASCII\s0\*(rq

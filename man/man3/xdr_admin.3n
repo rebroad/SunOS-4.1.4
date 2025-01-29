@@ -90,7 +90,7 @@ The routine returns a pointer
 to a contiguous piece of the stream's buffer;
 .I len
 is the byte length of the desired buffer.
-Note: 
+Note:
 A pointer is cast to
 .BR "long *" .
 .IP
@@ -121,10 +121,10 @@ streams created by
 The data in the output buffer is marked as a completed
 record, and the output buffer is optionally written out if
 .I sendnow
-is non-zero. 
-This routine returns 
+is non-zero.
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -145,7 +145,7 @@ streams created by
 (see
 .BR xdr_create (3N)).
 After consuming the rest of the current record in the stream,
-this routine returns 
+this routine returns
 .SM TRUE
 if the stream has no more input,
 .SM FALSE
@@ -168,12 +168,12 @@ streams created by
 .B xdrrec_create(\|)
 (see
 .BR xdr_create (3N)).
-It attempts to read 
+It attempts to read
 .I nbytes
 bytes from the
-.SM XDR 
-stream into the buffer pointed to by 
-.I addr. 
+.SM XDR
+stream into the buffer pointed to by
+.I addr.
 On success it returns the number of bytes read.
 Returns \-1 on failure.
 A return value of 0 indicates an end of record.
@@ -197,9 +197,9 @@ It tells the
 .SM XDR
 implementation that the rest of the current record
 in the stream's input buffer should be discarded.
-This routine returns 
+This routine returns
 .SM TRUE
-if it succeeds, 
+if it succeeds,
 .SM FALSE
 otherwise.
 .br
@@ -228,7 +228,7 @@ This routine returns 1 if the
 stream could be repositioned,
 and 0 otherwise.
 .IP
-Warning: 
+Warning:
 It is difficult to reposition some types of
 .SM XDR
 streams, so this routine may fail with one

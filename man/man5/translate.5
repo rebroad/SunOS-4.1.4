@@ -1,4 +1,4 @@
-.\" @(#)translate.5 1.1 94/10/31 SMI; 
+.\" @(#)translate.5 1.1 94/10/31 SMI;
 .TH TRANSLATE 5 "19 February 1988"
 .SH NAME
 translate \- input and output files for system message translation
@@ -9,14 +9,14 @@ release or earlier.  Not a SunOS 4.1 release feature.
 .SH DESCRIPTION
 .IX  "translate"  ""  "\fLtranslate\fP \(em input and output files for system message translation"
 .LP
-These files are used by 
-.BR syslogd (8) 
+These files are used by
+.BR syslogd (8)
 to translate systems messages.
 The input file is used to map system messages
 (in
 .BR printf (3V)
 format strings) to numbers.
-This number is then used 
+This number is then used
 to locate a new string in the output file.
 .LP
 An initial part of each line in the input file may specify
@@ -37,10 +37,10 @@ Note that the message suppression specification is optional.
 If not present, the message is not suppressed.
 .LP
 Each line in the output file translates the numbers
-from the input file into the desired error messages, and also 
-specifies the format to be used to 
+from the input file into the desired error messages, and also
+specifies the format to be used to
 output each message.
-The order of parameters passed from the input message can be changed, 
+The order of parameters passed from the input message can be changed,
 by replacing
 the
 .B %

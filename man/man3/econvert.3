@@ -139,10 +139,10 @@ If the sign of the result is negative, the word pointed to by
 .I sign
 is nonzero; otherwise it is zero.  The least significant digit is rounded.
 .LP
-.BR fconvert " works much like " econvert", 
+.BR fconvert " works much like " econvert",
 except that the correct digit
-has been rounded as if for 
-.B sprintf(%w.nf) 
+has been rounded as if for
+.B sprintf(%w.nf)
 output with
 .IR n = ndigit
 digits to the right of the radix character.
@@ -169,10 +169,10 @@ and returns a pointer to
 It produces
 .I ndigit
 significant digits in fixed-decimal format,
-like 
-.BR sprintf(%w.nf) , 
+like
+.BR sprintf(%w.nf) ,
 if possible, and otherwise in
-floating-decimal format, like 
+floating-decimal format, like
 .BR sprintf(%w.ne) ;
 in either case
 .I buf
@@ -189,11 +189,11 @@ The result corresponds to that obtained by
 .LP
 If
 .IR trailing "= 0,"
-trailing zeros and a trailing point are suppressed, as in 
+trailing zeros and a trailing point are suppressed, as in
 .BR sprintf(%g) .
 If
 .IR trailing "!= 0,"
-trailing zeros and a trailing point are retained, as in 
+trailing zeros and a trailing point are retained, as in
 .BR sprintf(%#g) .
 .LP
 .BR seconvert ,
@@ -232,7 +232,7 @@ for Infinity.  The longer form is produced when
 The radix character is determined by the current setting of the program's locale
 (category
 .BR \s-1LC_NUMERIC\s0 ).
-In the 
+In the
 \fB"C"\fR
 locale or if the locale is undefined,
 the readix character defaults to a period

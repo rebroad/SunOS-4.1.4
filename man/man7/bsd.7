@@ -21,7 +21,7 @@ functionality described in the
 4.3 documentation.
 See
 .BR sunos (7)
-for an overview of SunOS functionality.  
+for an overview of SunOS functionality.
 .LP
 Note:  there may be some cases where the
 coexistence of another environment overrides the
@@ -47,7 +47,7 @@ without the \*(lqV\*(rq section suffix.
 By default, the user will get a superset of the
 .SM BSD
 4.3 environment.  No path modifications
-should be necessary.  The typical path is 
+should be necessary.  The typical path is
 .BR "set path = ( /usr/ucb /bin /usr/bin )"
 .SH LINT
 .LP
@@ -55,23 +55,23 @@ As a portability aid, Sun is providing a lint library
 that consists exclusively of
 .SM BSD
 4.3 functions.  Users may lint
-their code with the 
+their code with the
 .B "\-n \-lbsd"
 options to catch all non-\s-1BSD\s0 4.3 features.
 .LP
 .SM BSD\s0,
 as with most other environments, continues to evolve.  The
 .B \-lbsd
-lint library will always refer to the most 
+lint library will always refer to the most
 recent
 .SM BSD
 release supported by Sun.  Some applications may
 wish to port to a particular release of
 .SM BSD\s0.
 They may safely
-use the more specific name of 
+use the more specific name of
 .B \-l4.3bsd
-(currently the same as 
+(currently the same as
 .BR \-lbsd ).
 Lint libraries for
 .SM BSD

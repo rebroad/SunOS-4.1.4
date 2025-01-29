@@ -11,7 +11,7 @@ newkey \- create a new key in the publickey database
 .SH DESCRIPTION
 .IX "newkey command" "" "\fLnewkey\fP command"
 .LP
-.B newkey 
+.B newkey
 is normally run by the network administrator on the
 Network Information Service
 (\s-1NIS\s0)
@@ -24,22 +24,22 @@ or secure
 .LP
 .B newkey
 will prompt for the login password of the given username and then
-create a new public/secret key pair in 
+create a new public/secret key pair in
 .B /etc/publickey
 encrypted with the login password of the given user.
 .LP
 Use of this program is
-not required: users may create their own keys using 
+not required: users may create their own keys using
 .BR chkey (1).
 .SH OPTIONS
 .TP 12
 .BI \-h " hostname"
-Create a new public key for the super-user at the given hostname. 
+Create a new public key for the super-user at the given hostname.
 Prompts for the root password of the given hostname.
 .TP
 .BI \-u " username"
 Create a new public key for the given username.
-Prompts for the 
+Prompts for the
 .SM NIS
 password of the given username.
 .SH "SEE ALSO"
@@ -52,6 +52,6 @@ password of the given username.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

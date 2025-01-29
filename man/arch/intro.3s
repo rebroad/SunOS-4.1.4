@@ -17,7 +17,7 @@ intro, stdio \- standard buffered input/output package
 .B FILE
 .B *stderr;
 .SH DESCRIPTION
-.IX  introduction  "standard I/O library functions"  
+.IX  introduction  "standard I/O library functions"
 .IX  "standard I/O library functions, introduction to"
 .IX  "buffered I/O library functions, introduction to"
 .IX  "library functions"  "introduction to standard I/O"
@@ -149,7 +149,7 @@ data.
 .LP
 For purposes of efficiency, this implementation of the standard library
 has been changed to line buffer output to a terminal by default and attempts
-to do this transparently by flushing the output whenever a 
+to do this transparently by flushing the output whenever a
 .IR read (2V)
 from the standard input is necessary.  This is almost always transparent,
 but may cause confusion or malfunctioning of programs which use

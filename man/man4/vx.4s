@@ -6,10 +6,10 @@ Accelerator
 .SH "CONFIG \- SUN-4 SYSTEMS"
 .ft B
 .nf
-device vx0 at vme32d32 3 csr 0x30000000 priority 4 
-					    vector vxintr 0xaa cgvxintr 0xab
+device vx0 at vme32d32 3 csr 0x30000000 priority 4
+											vector vxintr 0xaa cgvxintr 0xab
 device vx0 at vme32d32 4 csr 0x30000000 priority 4
-					    vector vxintr 0xaa cgvxintr 0xab
+											vector vxintr 0xaa cgvxintr 0xab
 .ft R
 .fi
 .sp
@@ -29,7 +29,7 @@ An MVX can only be used in combination with a VX.
 .SH DESCRIPTION
 .IX "vx device" "" "\fLvx\fP device"
 .LP
-The 
+The
 .B vx
 interface supports the optional
 .SM VX/MVX
@@ -51,7 +51,7 @@ and a full color frame buffer accelerated by the processing node.
 .LP
 The low-end graphics accelerator is nearly identical to the
 .B cgsix
-or 
+or
 .B GX
 device.
 It has a 2 MByte 8-bit color frame buffer and provides
@@ -79,7 +79,7 @@ Each node is identical to the processing node on the
 .BR VX
 board and each has 4 Mbytes of program/data memory.
 .LP
-Programs can be downloaded for execution on the 
+Programs can be downloaded for execution on the
 .SM VX/MVX
 directly, they can be executed by the host processor, or
 the host processor and the
@@ -101,7 +101,7 @@ the programming tools, and the support libraries for the
 .\".TP
 .\".B /usr/lib/vx1
 .\".PD
-.SH SEE ALSO 
+.SH SEE ALSO
 .BR mmap(2),
 .BR fbio(4S),
 .BR cgsix(4)

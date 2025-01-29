@@ -54,7 +54,7 @@ The
 file can also have line beginning with a
 .RB ` + '
 (plus sign), which means to incorporate
-entries from the 
+entries from the
 Network Information Service
 (\s-1NIS\s0).
 There are three styles of
@@ -62,14 +62,14 @@ There are three styles of
 entries: all by itself,
 .RB ` + '
 means to insert the entire contents
-of the 
+of the
 .SM NIS
 .B passwd.adjunct
 file at that point;
 .BI + name
 means to insert the entry (if any) for
 .I name
-from the 
+from the
 .SM NIS
 service at that point;
 .BI +@ name
@@ -80,7 +80,7 @@ at that point.  If a
 .RB ` + '
 entry has a non-null
 password, it will override what is contained
-in the 
+in the
 .SM NIS
 service.
 .SH EXAMPLE
@@ -131,7 +131,7 @@ except that successful administrative
 operations are not audited.  The user
 .B fred
 will have the labels and audit flags that are specified
-in the 
+in the
 .SM NIS
 .B passwd.adjunct
 file.
@@ -165,6 +165,6 @@ it does not have general read permission.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

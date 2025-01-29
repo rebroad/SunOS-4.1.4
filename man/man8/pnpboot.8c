@@ -17,8 +17,8 @@ release or earlier.  Not a SunOS 4.1 release feature.
 is a level 2 boot program that requests actions necessary to set up a
 diskless workstation on the network.
 .LP
-The 
-.SM PNP 
+The
+.SM PNP
 diskless boot service is used by diskless workstations at installation
 time to locate a server that will configure the diskless client.
 .LP
@@ -26,7 +26,7 @@ The last steps of the level 1 boot (from the PROM)
 are to load the level 2 program
 through
 .BR rarpd (8C)
-and 
+and
 .BR tftpd (8C).
 The first step in the boot sequence is
 .SM RARP
@@ -38,7 +38,7 @@ program file needed for the client's architecture.  A
 .SB PNP_ACQUIRE
 .SM RPC
 is then broadcast to locate a server willing to configure the diskless
-client.  
+client.
 .LP
 A
 .SB PNP_SETUP
@@ -66,10 +66,10 @@ step and a system name will have been assigned.
 .B /tftpboot/pnp.sun*
 .PD
 .SH SEE ALSO
-.BR bootparam (3R), 
+.BR bootparam (3R),
 .BR bootparams (5)
 .BR boot (8S),
-.BR bootparamd (8), 
+.BR bootparamd (8),
 .BR ipallocd (8C),
 .BR netconfig (8C),
 .BR pnpd (8C),

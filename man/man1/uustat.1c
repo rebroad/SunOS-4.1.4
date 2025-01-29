@@ -26,10 +26,10 @@ software  installation  option.   Refer to
 .TX INSTALL
 for information on how to install optional software.
 .SH DESCRIPTION
-.IX "uustat command" "" "\fLuustat\fR command"  
+.IX "uustat command" "" "\fLuustat\fR command"
 .LP
 .B uustat
-displays the status of, or cancels, previously specified 
+displays the status of, or cancels, previously specified
 .BR uucp (1C)
 commands.
 It also reports the status of
@@ -111,7 +111,7 @@ Rejuvenate
 .IR jobid .
 The files associated with
 .I jobid
-are touched so that 
+are touched so that
 their modification time is set to the current time.
 This prevents the cleanup daemon
 from deleting the job until the jobs modification

@@ -8,9 +8,9 @@ bin-mail, binmail \- an early program for processing mail messages
 .B \-ipq
 ]
 [
-.B \-f 
+.B \-f
 .I filename
-] 
+]
 .I address
 .br
 .B /usr/bin/mail
@@ -63,7 +63,7 @@ See
 for details.
 The message is preceded by
 the sender's name and a postmark.
-Lines that look like postmarks are prepended with 
+Lines that look like postmarks are prepended with
 .RB ` > '.
 A
 .I recipient
@@ -82,15 +82,15 @@ or the daemon
 .B biff
 tell you about mail that arrives while you are logged in.
 .LP
-To forward mail automatically, add the addresses of additional 
-recipients to the 
+To forward mail automatically, add the addresses of additional
+recipients to the
 .B .forward
 file in your home directory.  Note: forwarding addresses
 must be valid, or the messages will bounce.  You cannot, for
 instance, reroute your mail to a new host by forwarding it to
-your new address if it is not yet listed in the 
+your new address if it is not yet listed in the
 Network Information Service
-(\s-1NIS\s0) 
+(\s-1NIS\s0)
 aliases domain.
 .\".SH OPTIONS
 .\".LP
@@ -107,7 +107,7 @@ aliases domain.
 Ignore interrupts.
 .TP
 .B \-p
-Print messages without prompting for commands.  Exit 
+Print messages without prompting for commands.  Exit
 immediately upon receiving an interrupt.
 .TP
 .B \-q
@@ -201,9 +201,9 @@ to identify sender and locate address
 incoming mail for user *
 .TP
 .B /usr/ucb/mail
-routes input through daemon to 
+routes input through daemon to
 .IR recipient s
-.TP 
+.TP
 .B mbox
 saved mail
 .TP
@@ -221,7 +221,7 @@ list of forwarding recipients
 .PD
 .SH "SEE ALSO"
 .LP
-.BR biff (1), 
+.BR biff (1),
 .BR csh (1),
 .BR des (1),
 .BR login (1),
@@ -239,7 +239,7 @@ Race conditions sometimes result in a failure to remove a lock file.
 .LP
 The super-user can read your mail, unless it is encrypted by
 .BR des (1),
-.BR xsend (1),  
+.BR xsend (1),
 or
 .BR crypt (3).
 Even if you encrypt it, the super-user can delete it.
@@ -248,6 +248,6 @@ Even if you encrypt it, the super-user can delete it.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

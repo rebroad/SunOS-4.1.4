@@ -66,7 +66,7 @@ call is made.
 .B getnetgrent(\|)
 returns 1 if it succeeded in obtaining another
 member of the network group, 0 if it has reached the
-end of the group.  
+end of the group.
 .LP
 .B getnetgrent(\|)
 establishes the network group from which
@@ -111,7 +111,7 @@ in which case it signifies a wild card.
 The Network Information Service
 (\s-1NIS\s0)
 must be running when using
-.B getnetgrent(\|), 
+.B getnetgrent(\|),
 since it
 only inspects the
 .SM NIS
@@ -121,6 +121,6 @@ netgroup map, never the local files.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

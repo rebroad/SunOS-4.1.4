@@ -18,7 +18,7 @@ struct t_call *call;
 .ft R
 .fi
 .SH DESCRIPTION
-.IX "t_snddis()" "" "\fLt_snddis()\fR \(em send user-initiated disconnect request" "" 
+.IX "t_snddis()" "" "\fLt_snddis()\fR \(em send user-initiated disconnect request" ""
 .IX transport "send user-initiated disconnect request"
 .IX send "user-initiated disconnect request"
 .LP
@@ -147,8 +147,8 @@ The function was issued in the wrong sequence.
 The transport provider's outgoing queue may be flushed, so data may be lost.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .BR intro (3),

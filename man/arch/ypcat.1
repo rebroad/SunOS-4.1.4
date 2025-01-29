@@ -1,4 +1,4 @@
-.\" @(#)ypcat.1 1.1 94/10/31 SMI; 
+.\" @(#)ypcat.1 1.1 94/10/31 SMI;
 .TH YPCAT 1 "8 July 1985"
 .SH NAME
 ypcat - print values in a YP data base
@@ -6,13 +6,13 @@ ypcat - print values in a YP data base
 .B ypcat
 [
 .B \-k
-] 
+]
 [
 .B \-t
-] 
+]
 [
 .B \-d
-.I  domainname 
+.I  domainname
 ]
 .I  mname
 .br
@@ -23,17 +23,17 @@ ypcat - print values in a YP data base
 .IX  "yellow pages"  "print values from database"  ""  "print values from database \(em \fLypcat\fP"
 .SH DESCRIPTION
 .I ypcat
-prints out values in a yellow pages (YP) map specified by 
+prints out values in a yellow pages (YP) map specified by
 .IR mname ,
 which may be either a
 .I mapname
-or a map 
+or a map
 .IR nickname .
 Since
 .I ypcat
 uses the YP network services, no YP server is specified.
 .LP
-To look at the network-wide password database, 
+To look at the network-wide password database,
 .IR passwd.byname ,
 (with the nickname
 .IR passwd ).
@@ -52,9 +52,9 @@ or the key is not part of the value.
 .I /etc
 fall into this class.)
 .IP \fB\-t\fR
-Inhibit translation of 
-.I mname 
-to 
+Inhibit translation of
+.I mname
+to
 .I mapname.
 For example,
 .I "ypcat \-t passwd"
@@ -69,7 +69,7 @@ Specify a domain other that the default domain.
 The default domain is returned by
 .IR domainname.
 .IP \fB\-x\fR
-Display the map nickname table.  
+Display the map nickname table.
 This lists the nicknames (\fImnames\fR\|)
 the command knows of, and indicates the
 .I mapname

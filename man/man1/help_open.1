@@ -21,47 +21,47 @@ release or earlier.  Not a SunOS 4.1 release feature.
 .IX "commands"  "help_open command"  ""  "\fLhelp_open\fP \(em open help_viewer file"
 .LP
 .B help_open
-is used to cause a running 
+is used to cause a running
 .BR help_viewer (1)
 to open a file.
 .I filename
-is typically the name of a 
-.B help_viewer 
-file.  A call is made to 
+is typically the name of a
 .B help_viewer
-using the same 
+file.  A call is made to
+.B help_viewer
+using the same
 .SM RPC
 mechanism as is used by Spot Help.
 .LP
 If
 .I filename
-is relative, 
-.B help_viewer 
-looks for it relative to the default help directory (as defined 
+is relative,
+.B help_viewer
+looks for it relative to the default help directory (as defined
 in the user's
 .B \&.defaults
-database).  Otherwise, 
-.B help_viewer 
+database).  Otherwise,
+.B help_viewer
 treats
 .I filename
 as an absolute pathname.
 .LP
-If the 
+If the
 .SM RPC
-call to 
+call to
 .B help_viewer
-fails, 
+fails,
 .B help_open
-attempts to spawn 
-.BR  help_viewer , 
+attempts to spawn
+.BR  help_viewer ,
 with
 .I filename
-as a command line argument.  If the 
+as a command line argument.  If the
 .B \-a
 command line option was given, then
 .I filename
 is first converted to an absolute pathname, as described in
-.SM OPTIONS\s0, 
+.SM OPTIONS\s0,
 below.
 .SH OPTIONS
 .TP
@@ -69,20 +69,20 @@ below.
 Convert
 .I filename
 to an absolute pathname.
-This option causes 
-.B help_open 
+This option causes
+.B help_open
 to get the current working directory and append it to the front of
 .I filename
 (thus creating an absolute pathname) before passing
 .I filename
 on to
-.BR help_viewer . 
+.BR help_viewer .
 This allows
 .B  help_open
 to be used with other processes, such as Sun Organizer (see
 .BR organizer (1)),
-which deal in relative pathnames.  The 
-.B \-a 
+which deal in relative pathnames.  The
+.B \-a
 option has no effect if
 .I filename
 begins with the character '/'.
@@ -98,7 +98,7 @@ directory (as defined in the user's
 database).
 If the default help directory is set to
 .BR /vol/help/language/\s-1USA\s0-English ,
-this is 
+this is
 .BR /vol/help/language/\s-1USA\s0-English/help/Help_Basics .
 .RS
 .PP
@@ -108,7 +108,7 @@ this is
 .fi
 .RE
 .PP
-The second example is the same as the first, but it opens 
+The second example is the same as the first, but it opens
 .B Help_Basics
 to page 3.
 .RS
@@ -119,7 +119,7 @@ to page 3.
 .fi
 .RE
 .PP
-In the next example, 
+In the next example,
 .B help_viewer
 opens
 .B somefile
@@ -133,8 +133,8 @@ using the absolute pathname,
 .fi
 .RE
 .PP
-In the last example, 
-.B help_viewer 
+In the last example,
+.B help_viewer
 opens
 .BR /home/ahinkle/anotherfile .
 .RS

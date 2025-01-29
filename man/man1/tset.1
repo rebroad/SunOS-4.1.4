@@ -17,8 +17,8 @@ tset, reset  \- establish or restore terminal characteristics
 .BI \-k c
 ] [
 .B \-m
-.RI [ port "\-ID" 
-.if n .ti +0.5i 
+.RI [ port "\-ID"
+.if n .ti +0.5i
 [
 .IR baudrate "] : " type
 .RI "] .\|.\|. ] [" type ]
@@ -35,7 +35,7 @@ tset, reset  \- establish or restore terminal characteristics
 ]
 [
 .B \-n
-] 
+]
 .if n .ti +0.5i
 [
 .B \-Q
@@ -95,9 +95,9 @@ it is given an appropriate generic identifier such as
 .BR dialup .
 .LP
 .B reset
-clears the terminal settings by turning off 
+clears the terminal settings by turning off
 .SM CBREAK
-and 
+and
 .SM RAW
 modes, output delays and parity checking, turns on
 .SM NEWLINE
@@ -178,13 +178,13 @@ option under
 \s-1OPTIONS\s0
 for more information.
 .\".LP
-.\"A 
+.\"A
 .\".I baudrate
 .\"is specified as with
 .\".IR stty ,
 .\"and is compared with the
 .\"speed of the diagnostic output (which should be the control terminal).
-.\"The 
+.\"The
 .\".I test
 .\"portion of the optional
 .\".I baudrate
@@ -387,7 +387,7 @@ and
 .B
 .SM TERMCAP\s0\fR.
 This can be used with
-.RS 
+.RS
 .RS
 .nf
 .ft B
@@ -425,7 +425,7 @@ and
 .B
 .SM TERMCAP\s0\fR,
 respectively, and can be used as follows:
-.RS 
+.RS
 .RS
 .nf
 .ft B
@@ -522,7 +522,7 @@ exclamation points should be preceded by a backslash (\e).
 .RE
 .SH EXAMPLES
 .LP
-These examples all use the 
+These examples all use the
 .RB ` \- '
 option.  A typical use of
 .B tset

@@ -10,11 +10,11 @@ svdtab \- SunView device table
 .LP
 The
 .B /etc/svdtab
-contains information that is used by 
+contains information that is used by
 the window system
 (for example,
 .BR sunview (1))
-to change the owner, group, and permissions of the window devices 
+to change the owner, group, and permissions of the window devices
 .RB ( /dev/win* )
 upon startup.
 By default
@@ -27,7 +27,7 @@ and start up the window system again:
 .IP
 .B #0600
 .LP
-If 
+If
 .B /etc/svdtab
 contains an entry,
 the owner and group of the
@@ -58,9 +58,9 @@ owner, group and permissions of
 will be set to the user's username, the user's group and
 .BR 0600 ,
 respectively.
-Upon exiting the window system, the owner and group of 
+Upon exiting the window system, the owner and group of
 .BR /dev/win* ,
-will be reset to 
+will be reset to
 .BR root ,
 and
 .BR wheel .

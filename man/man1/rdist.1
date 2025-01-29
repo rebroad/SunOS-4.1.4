@@ -213,8 +213,8 @@ on the named host. (Relative filenames are taken as relative to your
 home directory.)
 If the
 \fR`\fIlogin\fB\|@\fR'
-prefix is given, the update is performed with the user ID of 
-.IR login .  
+prefix is given, the update is performed with the user ID of
+.IR login .
 If the
 \fR`\fB:\fIdestpath\fR'
 is  given, the remote file is installed as that pathname.
@@ -273,9 +273,9 @@ is one of the
 .B rdist
 primitive listed under
 .IR Primitives ,
-below.  If there is only one 
+below.  If there is only one
 .I pathname
-or 
+or
 .IR hostname ,
 the surrounding parentheses can be omitted.  A
 .I hostname
@@ -363,7 +363,7 @@ The shell meta-characters:
 and
 .B ?
 are recognized and expanded (on the local host only) just as
-they are with 
+they are with
 .BR csh (1).
 Metacharacters can be escaped by prepending a backslash.
 .LP
@@ -387,7 +387,7 @@ The following primitives can be used to specify actions
 .B rdist
 is to take when updating remote copies of each file.
 .HP
-.B install 
+.B install
 [
 .B \-b
 ]
@@ -463,9 +463,9 @@ Omit from updates the filenames that match each regular-expression
 (see
 .BR ed (1)
 for more information on regular expressions.
-Note that 
+Note that
 .B \e
-and 
+and
 .B $
 characters must be escaped in the distfile.
 Shell variables can also be used within a pattern, however
@@ -480,11 +480,11 @@ Specify a Bourne shell,
 command line to execute on the remote host after each named file is updated.
 If no
 .I filename
-argument is present, the 
+argument is present, the
 .I command-line
 is performed for every updated file, with the shell variable
 .SB FILE
-set to the file's name on the local host.  The quotation marks allow 
+set to the file's name on the local host.  The quotation marks allow
 .I command-line
 to span input lines in the distfile; multiple shell commands must be
 separated by semicolons
@@ -508,7 +508,7 @@ On
 .BR magus ,
 commands are executed as root.
 .B rdist
-notifies 
+notifies
 .B merlin@druid
 whenever it discovers that a local file has changed relative to
 a timestamp file.
@@ -567,7 +567,7 @@ of otherwise identical files is also needed.
 .SH WARNINGS
 .LP
 .B root
-does not have its accustomed access privileges on NFS mounted 
+does not have its accustomed access privileges on NFS mounted
 file systems.  Using
 .B rdist
 to copy to such a file system may fail, or the copies may be

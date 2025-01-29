@@ -46,7 +46,7 @@ long options;	/* max number of bytes of protocol-specific options */
 long tsdu;	/* max size of a transport service data unit (\s-1TSDU\s+1) */
 long etsdu;	/* max size of an expedited transport service data unit (\s-1ETSDU\s+1) */
 long connect;	/* max amount of data allowed on connection establishment
-	                functions */
+						functions */
 long discon;	/* max amount of data allowed on \fIt_snddis\fR and \fIt_rcvdis\fB functions */
 long servtype;	/* service type supported by the transport provider */
 .fi
@@ -178,8 +178,8 @@ The specified file descriptor does not refer to a transport
 endpoint.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .BR t_open (3N)

@@ -46,14 +46,14 @@ Any change made to a file that
 is being shared from a public filesystem will cause that file to be copied
 into the private filesystem, where the modification will be performed.
 .LP
-A directory in a 
+A directory in a
 .SM TFS
 filesystem consists of a number
 of stacked directories.
 The searchpath
 .SM TFS
 uses to look up
-a file in a directory corresponds to the stacking order: the 
+a file in a directory corresponds to the stacking order: the
 .SM TFS
 will search the
 \*(lqfrontmost\*(rq directory first, then the directory behind it, and
@@ -85,7 +85,7 @@ command lists whiteout entries.
 .SM TFS
 filesystems are served by the
 .BR tfsd (8).
-A 
+A
 .SM TFS
 filesystem is mounted on a directory by making a
 .SB TFS_MOUNT

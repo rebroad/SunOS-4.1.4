@@ -1,4 +1,4 @@
-.\" @(#)set_alarm.1 1.1 94/10/31 SMI; 
+.\" @(#)set_alarm.1 1.1 94/10/31 SMI;
 .TH SET_ALARM 1 "30 September 1989"
 .SH NAME
 set_alarm, get_alarm, ring_alarm \- SunView programmable alarms
@@ -8,12 +8,12 @@ set_alarm, get_alarm, ring_alarm \- SunView programmable alarms
 [
 .B \-b
 .I number
-] 
+]
 [
 .B \-f
 .I number
-] 
-[ 
+]
+[
 .B \-d
 .I duration
 ]
@@ -28,7 +28,7 @@ This command is available with the
 software installation option.
 Refer to
 .TX INSTALL
-for more information on how to 
+for more information on how to
 install optional software.
 .SH DESCRIPTION
 .IX "set_alarm" "" "\fLset_alarm\fR \(em SunView programmable alarms"
@@ -51,7 +51,7 @@ in the form:
 .B ring_alarm
 performs the actual beeping and flashing of the alarm.
 Note: the
-occurrence of the alarm is controlled by the 
+occurrence of the alarm is controlled by the
 .B SunView/Visible_Bell
 and
 .B SunView/Audible_Bell
@@ -59,7 +59,7 @@ settings in
 .BR defaultsedit (1).
 If either of these is disabled,
 the respective feature of the alarm will not occur,
-regardless of how it is specified by 
+regardless of how it is specified by
 .BR \s-1WINDOW_ALARM\s0 .
 .LP
 In the C shell,
@@ -76,7 +76,7 @@ echos the following:
 .IP
 .BI "export \s-1WINDOW_ALARM;WINDOW_ALARM\s0=" setting ;
 .LP
-Consequently, 
+Consequently,
 .B set_alarm
 is should be used as follows:
 .IP
@@ -101,7 +101,7 @@ The SunView programmable alarms use the
 environment variable to define the characteristics of the alarm.
 The variable is set with a string argument of the following form:
 .IP
-.BI :beeps= b :flashes= f :dur= t\fB: 
+.BI :beeps= b :flashes= f :dur= t\fB:
 .SH SEE ALSO
 .BR csh (1),
 .BR defaultsedit (1),
@@ -128,6 +128,6 @@ Attempted to ring the alarm when
 SunView is not running.
 .SH BUGS and LIMITATIONS
 .LP
-The user must be running SunView 
+The user must be running SunView
 in order to ring the alarm; consequently,
 the alarms cannot be used with Open Windows.

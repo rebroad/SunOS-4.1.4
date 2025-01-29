@@ -117,7 +117,7 @@ It is not set by changes of owner,
 group, link count, or mode.
 .TP 12
 .B st_ctime
-Time when file status was last changed. 
+Time when file status was last changed.
 It is set both both by writing
 and changing the file status information, such as
 changes of owner, group, link count, or mode.

@@ -142,8 +142,8 @@ void twalk(\|);
 char *tsearch(\|);
 .sp .5
 struct node {		/* pointers to these are stored in the tree */
-	char *string;
-	int count;
+		char *string;
+		int count;
 };
 .sp .5
 #define \s-1MAXNODES\s0	12
@@ -156,63 +156,63 @@ struct node *root = \s-1NULL\s0;		/* this points to the root */
 .sp .5
 main(\|)
 {
-	char *strptr = string_space;
-	int maxstrlen = \s-1MAXSTRING\s0;
-	struct node *nodeptr = node_space;
-	int node_compare(\|);
-	void print_node(\|);
-	struct node **found;
-	int length;
+		char *strptr = string_space;
+		int maxstrlen = \s-1MAXSTRING\s0;
+		struct node *nodeptr = node_space;
+		int node_compare(\|);
+		void print_node(\|);
+		struct node **found;
+		int length;
 .sp .5
-	while (fgets(strptr, maxstrlen, stdin) != \s-1NULL\s0) {
-		/* remove the trailing newline */
-		length = strlen(strptr);
-		strptr[length-1] = 0;
-		/* set node */
-		nodeptr->string = strptr;
-		/* locate node into the tree */
-		found = (struct node **)
-		    tsearch((char *) nodeptr, (char **) &root, node_compare);
-		/* bump the count */
-		(*found)->count++;
+		while (fgets(strptr, maxstrlen, stdin) != \s-1NULL\s0) {
+				/* remove the trailing newline */
+				length = strlen(strptr);
+				strptr[length-1] = 0;
+				/* set node */
+				nodeptr->string = strptr;
+				/* locate node into the tree */
+				found = (struct node **)
+					tsearch((char *) nodeptr, (char **) &root, node_compare);
+				/* bump the count */
+				(*found)->count++;
 .sp .5
-		if (*found == nodeptr) {
-			/* node was inserted, so get a new one */
-			strptr += length;
-			maxstrlen -= length;
-			if (maxstrlen < \s-1MINSTRING\s0)
-				break;
-			if (++nodeptr >= &node_space[\s-1MAXNODES\s0])
-				break;
+				if (*found == nodeptr) {
+						/* node was inserted, so get a new one */
+						strptr += length;
+						maxstrlen -= length;
+						if (maxstrlen < \s-1MINSTRING\s0)
+								break;
+						if (++nodeptr >= &node_space[\s-1MAXNODES\s0])
+								break;
+				}
 		}
-	}
-	twalk((char *)root, print_node);
+		twalk((char *)root, print_node);
 }
 .sp .5
 .ne 10
 /*
-     This routine compares two nodes, based on an
-     alphabetical ordering of the string field.
+	 This routine compares two nodes, based on an
+	 alphabetical ordering of the string field.
 */
 .sp .5
 int node_compare(node1, node2)
-	struct node *node1, *node2;
+		struct node *node1, *node2;
 {
-	return strcmp(node1->string, node2->string);
+		return strcmp(node1->string, node2->string);
 }
 .sp .5
 /* Print out nodes in alphabetical order */
 /*\s-1ARGSUSED2\s0*/
 void
 print_node(node, order, level)
-	struct node **node;
-	\s-1VISIT\s0 order;
-	int level;
+		struct node **node;
+		\s-1VISIT\s0 order;
+		int level;
 {
-	if (order == postorder || order == leaf) {
-		(void) printf("string = %20s,  count = %d\n",
-		    (*node)->string, (*node)->count);
-	}
+		if (order == postorder || order == leaf) {
+				(void) printf("string = %20s,  count = %d\n",
+					(*node)->string, (*node)->count);
+		}
 }
 .fi
 .ft R

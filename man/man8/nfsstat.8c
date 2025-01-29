@@ -52,7 +52,7 @@ information only.
 Display statistics for each
 .SM NFS
 mounted file system.
-This includes the server name and address, 
+This includes the server name and address,
 mount flags, current read and write sizes, the
 retransmission count, and the timers used for
 dynamic retransmission.
@@ -61,7 +61,7 @@ The
 value contains the smoothed round trip time, the
 .B dev
 value contains the estimated deviation,
-and the 
+and the
 .B cur
 value is the current backed-off retransmission value.
 .TP
@@ -128,7 +128,7 @@ calls with a length shorter than a minimum-sized
 call.
 .TP
 .B xdrcall
-The number of 
+The number of
 .SM RPC
 calls whose header could not be
 .SM XDR
@@ -137,23 +137,23 @@ decoded.
 .LP
 The server
 .SM NFS
-display shows the number of 
+display shows the number of
 .SM NFS
-calls received 
+calls received
 .RB ( calls )
 and rejected
 .RB ( badcalls ),
 and the counts and percentages for the various calls that were
 made.
 .LP
-The client 
+The client
 .SM RPC
 display includes the following fields:
 .RS
 .TP 10
 .B calls
 .PD 0
-The total number of 
+The total number of
 .SM RPC
 calls made.
 .TP

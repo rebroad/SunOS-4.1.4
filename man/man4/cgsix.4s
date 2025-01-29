@@ -23,8 +23,8 @@ device-driver cgsix
 .SH DESCRIPTION
 .IX  "cgsix device"  ""  "\fLcgsix\fP \(em accelerated 8-bit color frame buffer"  ""  PAGE START
 .IX  "color graphics interface"  "cgsix"  ""  "\fLcgsix\fP \(em accelerated 8-bit color frame buffer"  PAGE START
-.LP  
-The 
+.LP
+The
 .B cgsix
 is a low-end graphics accelerator designed to enhance vector and polygon
 drawing performance.

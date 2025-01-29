@@ -3,7 +3,7 @@
 .TH UGID_ALLOC.RANGE 5 "25 September 1989"
 .SH NAME
 ugid_alloc.range \- range of user IDs and group IDs to allocate
-.SH SYNOPSIS 
+.SH SYNOPSIS
 .B /etc/ugid_alloc.range
 .SH AVAILABILITY
 .LP
@@ -43,7 +43,7 @@ or group
 .SM ID\s0s
 are allocated out of that range in any case.
 If the local
-.SM NIS 
+.SM NIS
 domain is not listed in this file, no user
 .SM ID\s0s
 or group
@@ -102,7 +102,7 @@ The first token on the line is an
 .SM NIS
 domain name.
 It is separated from the second token by white space (\s-1SPACE
-or 
+or
 .SM TAB
 characters).
 The second token is either
@@ -118,7 +118,7 @@ The third token is a comma-separated list of user or group
 .SM ID
 ranges in that domain.
 These ranges take two forms:
-a single number specifies just that 
+a single number specifies just that
 .SM ID\s0,
 and two numbers separated by a dash specify all
 .SM ID\s0s
@@ -169,13 +169,13 @@ YP.admin.company.com	group	100-60000
 .LP
 There is a limit of forty ranges for each domain;
 more ranges are silently ignored.
-.br 
+.br
 .ne 4
 .SH NOTES
 .LP
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

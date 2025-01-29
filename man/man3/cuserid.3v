@@ -87,13 +87,13 @@ releases and all System V releases calls the
 .B getlogin(\|)
 function, and if it fails uses the
 .B getpwuid(\|)
-function to try to return a name associated with the real user 
+function to try to return a name associated with the real user
 .SM ID
 associated with the calling process.
 .SM POSIX.1
 requires that the
 .B cuserid(\|)
-function try to return a name associated with the effective user 
+function try to return a name associated with the effective user
 .SM ID
 associated with the calling process.
 Although this usually yields the same results,

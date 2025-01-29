@@ -26,7 +26,7 @@ int incr;
 .LP
 .B brk(\|)
 sets the system's idea of the lowest data segment
-location not used by the program (called the 
+location not used by the program (called the
 .IR break )
 to
 .I addr
@@ -121,12 +121,12 @@ and
 system calls and
 .B malloc(\|)
 will not work.
-Many library routines use 
+Many library routines use
 .B malloc(\|)
 internally, so use
 .B brk(\|)
 and
-.B sbrk(\|) 
+.B sbrk(\|)
 only when you know that
 .B malloc(\|)
 definitely will not be used by any library routine.

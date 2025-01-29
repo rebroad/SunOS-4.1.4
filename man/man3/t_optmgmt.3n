@@ -200,8 +200,8 @@ will be discarded.
 The function was issued in the wrong sequence.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH "SEE ALSO"
 .BR intro (3),

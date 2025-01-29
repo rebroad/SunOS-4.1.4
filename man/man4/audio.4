@@ -42,7 +42,7 @@ to determine the current audio hardware associated with
 .LP
 Digital audio data represents a quantized approximation of an analog audio
 signal waveform. In the simplest case, these quantized numbers represent
-the amplitude of the input waveform at particular sampling intervals. 
+the amplitude of the input waveform at particular sampling intervals.
 In order to achieve the best approximation of an input signal, the highest
 possible sampling frequency and precision should be used.
 However, increased accuracy comes at a cost of increased
@@ -69,7 +69,7 @@ other formats provide higher data compression. Applications may convert
 audio data to and from these formats when recording or playing.
 .SS Sample Rate
 .LP
-Sample rate is a number that represents the sampling frequency 
+Sample rate is a number that represents the sampling frequency
 (in samples per second) of the audio data.
 .SS Encodings
 .LP
@@ -139,7 +139,7 @@ can open the device at a time. However, two processes may simultaneously
 access the device: if one opens it read-only, then another may open
 it write-only.
 .LP
-When a process cannot open 
+When a process cannot open
 .B /dev/audio
 because the requested access mode is busy:
 .RS
@@ -178,7 +178,7 @@ audio device to become available.
 Upon the initial
 .B open(\|)
 of the audio device, the
-data format of the audio device is reset to the default state of 
+data format of the audio device is reset to the default state of
 8-bit, 8Khz, mono \(*m-law data.
 Audio applications should explicitly set the encoding
 characteristics to match the audio data requirements,
@@ -513,11 +513,11 @@ field controls the level of this feedback path.
 The
 .I play.port
 field controls the output path for the audio device.  It can be set to either
-.SB AUDIO_SPEAKER 
-(built-in speaker), 
-.SB AUDIO_HEADPHONE 
-(headphone jack), or 
-.SB AUDIO_LINE_OUT 
+.SB AUDIO_SPEAKER
+(built-in speaker),
+.SB AUDIO_HEADPHONE
+(headphone jack), or
+.SB AUDIO_LINE_OUT
 (line-out port).
 For some devices, it may be set to a combination of these ports.
 The
@@ -720,7 +720,7 @@ This command may be issued for either
 .B /dev/audio
 or
 .BR /dev/audioctl .
-The current state of the 
+The current state of the
 .B /dev/audio
 device is returned in the structure.
 .\" XXX - temporary page break to keep the paragraph with the ioctl command

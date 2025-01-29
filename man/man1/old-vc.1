@@ -11,12 +11,12 @@ old-vc \- version control
 .IR c " ]"
 .RI [ " keyword" = value ].\|.\|.
 .SH DESCRIPTION
-.IX "vc command" "" "\fLvc\fR command"  
+.IX "vc command" "" "\fLvc\fR command"
 .LP
 The
 .B vc
 command copies lines from the standard input to the
-standard output under control of its 
+standard output under control of its
 .I arguments
 and the
 .I "control statements"
@@ -58,20 +58,20 @@ If the
 precedes a control statement, the leading text is discarded.
 .TP
 .BI \-c c
-Specify an alternate control character to use instead of 
+Specify an alternate control character to use instead of
 .RB ` : '.
 .SH USAGE
 .LP
 .B vc
-distinguishes between text input lines and version control statement 
+distinguishes between text input lines and version control statement
 lines.  A version control statement (control statement) is a single
 line beginning with a control character.  The default control character
-is colon 
-.RB ( : ), 
+is colon
+.RB ( : ),
 except as modified by the
 .BI \-c c
-option.  Input lines beginning with a backslash 
-.RB ( \|\e\| ), 
+option.  Input lines beginning with a backslash
+.RB ( \|\e\| ),
 and followed by a control character, are not control lines and are copied
 to the standard output as text with the backslash removed.  Lines
 beginning with a backslash, but not followed by a control character,
@@ -80,8 +80,8 @@ are copied in their entirety.
 .LP
 A keyword is composed of 9 or less alphanumeric characters;
 the first must be alphabetic.  A value
-is any printable 
-.SM ASCII 
+is any printable
+.SM ASCII
 character or character string.
 An unsigned string of digits is treated as a numeric value in
 control operations.  Keyword values may not contain any
@@ -98,11 +98,11 @@ option forces replacement of keywords in
 .I all
 lines of text.
 An uninterpreted control character may be included in a value by
-preceding it with 
-.RB ` \|\e\| '. 
-If a literal 
+preceding it with
+.RB ` \|\e\| '.
+If a literal
 .RB ` \|\e\| '
-is desired, then it too must be preceded by a 
+is desired, then it too must be preceded by a
 .RB ` \|\e\| '.
 .SS "Version Control Statements"
 .HP
@@ -133,7 +133,7 @@ Keywords declared, but not assigned values, have null values.
 .TP
 .B :end
 .PD
-Skip lines of the standard input.  When 
+Skip lines of the standard input.  When
 .I condition
 is
 .SM TRUE\s0 ,
@@ -142,7 +142,7 @@ all lines between the
 statement and
 the matching
 .B end
-statement are 
+statement are
 .I copied
 to the standard output.
 Otherwise, the intervening lines are discarded and ignored,
@@ -150,7 +150,7 @@ Otherwise, the intervening lines are discarded and ignored,
 intervening control statements.
 Intervening
 .B if
-and 
+and
 .B end
 control statements are recognized solely for the purpose of
 maintaining the proper
@@ -193,15 +193,15 @@ less than (numeric)
 .LP
 For instance, the line:
 .IP
-.B :if 
-.I xxx 
-.B != 
+.B :if
+.I xxx
+.B !=
 .I yyy
 .LP
-tests to see whether the string 
-.RI ` xxx ' 
-is not equal to 
-.RI ` yyy ', 
+tests to see whether the string
+.RI ` xxx '
+is not equal to
+.RI ` yyy ',
 which is
 true; subsequent intervening lines are therefore included.
 .LP
@@ -233,13 +233,13 @@ For instance, the line
 .LP
 is true because either comparison will make it true, while
 .IP
-.B :if 
-.I xxx 
-.B = 
-.I yyy 
-.B & 
-.I xxx 
-.B != 
+.B :if
+.I xxx
+.B =
+.I yyy
+.B &
+.I xxx
+.B !=
 .I yyy
 .LP
 is false, because in this case, both comparisons must be true.
@@ -248,13 +248,13 @@ is false, because in this case, both comparisons must be true.
 .BI :: text
 Force keyword replacement on lines that are copied to the standard
 output, independent from the
-.B \-a 
+.B \-a
 option.  The two leading control characters are removed,
 and keywords surrounded by control characters in text are replaced
 by their value before the line is copied to the
 output file.
 .TP
-.B :on 
+.B :on
 .PD 0
 .TP
 .B :off
@@ -274,13 +274,13 @@ on the diagnostic output.
 Print the given message, followed by:
 .RS
 .IP
-.SB ERROR\s0: err statement on line .\|.\|. 
+.SB ERROR\s0: err statement on line .\|.\|.
 .B (915)
 .RE
 .IP
 on the diagnostic output;
 .B vc
-halts execution, and returns an exit code of 
+halts execution, and returns an exit code of
 .BR 1 .
 .SH "SEE ALSO"
 .BR sccs-help (1)

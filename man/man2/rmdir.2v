@@ -85,7 +85,7 @@ points outside the process's allocated address space.
 .SM EINVAL
 The directory referred to by
 .I path
-is the current directory, 
+is the current directory,
 .RB ` . '.
 .TP
 .SM EIO

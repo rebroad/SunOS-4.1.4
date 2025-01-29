@@ -1,4 +1,4 @@
-.\" @(#)cmdtool.1 1.1 94/10/31 SMI; 
+.\" @(#)cmdtool.1 1.1 94/10/31 SMI;
 .TH CMDTOOL 1 "19 July 1989"
 .SH NAME
 cmdtool \- run a shell (or program) using the SunView text facility
@@ -20,7 +20,7 @@ cmdtool \- run a shell (or program) using the SunView text facility
 ]
 [
 .I program
-[ 
+[
 .I program-arguments
 ]
 ]
@@ -43,7 +43,7 @@ When invoked,
 runs a program (usually a shell) in a text-based command subwindow.
 Characters typed on the keyboard are inserted at the caret.  If the
 program is a shell, that shell accepts and runs commands in the
-usual manner.  
+usual manner.
 .B cmdtool
 also supports programs that perform cursor motions directly, such
 as
@@ -64,11 +64,11 @@ independent views of the log.
 .SH OPTIONS
 .TP 15
 .B \-C
-Console 
+Console
 .BR cmdtool .
 Display console messages in this
 .BR cmdtool ,
-which might otherwise appear in unexpected places on the 
+which might otherwise appear in unexpected places on the
 workstation screen.  Since a
 .B cmdtool
 window can be scrolled, console error messages can be recorded for
@@ -114,7 +114,7 @@ by default.
 .LP
 Refer to
 .TX SVBG
-for details on how to use 
+for details on how to use
 .BR cmdtool .
 .SS Defaults Options
 .LP
@@ -128,7 +128,7 @@ When set to
 (the standard default) only command lines can be edited.
 .SB FALSE
 allows the entire log to be edited.
-(See also the description of 
+(See also the description of
 .B Enable Edit
 below.)
 .TP
@@ -139,15 +139,15 @@ editing caret.
 .PD 0
 .TP 18
 .B Same_as_for_text
-Use the setting specified in the defaults for the 
+Use the setting specified in the defaults for the
 .B Text
 category (the standard default).
 .TP
 .B If_auto_scroll
 If the caret is showing, and an inserted
 .SM NEWLINE
-would position it below the bottom of the screen 
-(as determined by 
+would position it below the bottom of the screen
+(as determined by
 .BR /Text/Lower_context ),
 the text is scrolled to keep the caret showing.
 The number of lines scrolled is determined by the
@@ -180,7 +180,7 @@ counts as an editing operation.
 At each checkpoint, an updated copy of the log is saved in a
 file with a name that is constructed by appending two percent signs
 .RB ( %%  )
-to the name of the log file. 
+to the name of the log file.
 By default, the log file has a name of the form
 .BI /tmp/tty.txt. pid
 .RI ( pid
@@ -195,7 +195,7 @@ the corresponding checkpoint file has a name of the form
 If set to
 .B 0
 (the standard default) no wrap-around takes place; the log file
-grows without a specified limit. 
+grows without a specified limit.
 For values greater than zero,
 wrap-around occurs whenever the indicated number of characters have
 been written to the log since the last wrap-around.
@@ -203,7 +203,7 @@ Characters that are pushed over the top are replaced by the
 message:
 .RS
 .IP
-.B 
+.B
 *** Text is lost because the maximum edit log size has been exceeded. ***
 .RE
 .TP
@@ -216,12 +216,12 @@ the
 .RB ` "stty erase" '
 command has no effect.
 Text-based tools refer only to the defaults database key settings.
-The default is 
+The default is
 .SM DELETE\s0.
 .TP
 .B /Text/Edit_back_word
 Set the character for erasing the word to the left of the caret.
-The standard default is 
+The standard default is
 .SM CTRL-W\s0.
 .TP
 .B /Text/Edit_back_line
@@ -230,7 +230,7 @@ the caret.  Note:
 .RB ` "stty kill" '
 has no effect in
 .BR cmdtool .
-The standard default is 
+The standard default is
 .SM CTRL-U\s0.
 .SS The Command Subwindow
 .LP
@@ -240,7 +240,7 @@ which is described in
 It uses the same pop-up menu as the text facility, but
 with an additional pull-right
 .RB ` "Cmd Modes" '
-menu, which contains the 
+menu, which contains the
 .RB ` "Enable Editing" '
 and
 .RB ` "Disable Scrolling" '
@@ -270,7 +270,7 @@ Programs written using the
 library package will work in a command subwindow, but programs
 hard-coded for
 .BR sun -type
-terminals may not. 
+terminals may not.
 When supporting a program that performs
 cursor motions, the command subwindow automatically takes on the
 characteristics of a tty subwindow (as with
@@ -283,7 +283,7 @@ supports programs that use
 .SM CBREAK
 and
 .SM NO ECHO
-terminal modes. 
+terminal modes.
 This support is normally invisible to the user.
 However, programs that use
 .SM RAW
@@ -331,23 +331,23 @@ Toggle to allow or disallow editing on the log.
 .B Enable Scrolling
 .PD
 Toggle between a scrollable, editable window, or a display that
-supports cursor motions.  Note: for well-behaved programs (such as 
+supports cursor motions.  Note: for well-behaved programs (such as
 .BR vi (1))
 this switching is performed automatically (so this menu item is
 seldom needed).
 .SS Accelerators
 .LP
 Text facility accelerators that are especially useful in
-command subwindows are described here.  See 
+command subwindows are described here.  See
 .br
 .BR textedit (1)
 for more information.
 .TP 18
 .SM CTRL-RETURN
 Position the caret at the bottom, and scroll it into view
-as determined by 
+as determined by
 .BR /Text/Lower_context .
-.TP 
+.TP
 .SM META-P
 Choose the
 .RB ` "Copy, then Paste" '
@@ -386,7 +386,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .PD
@@ -421,7 +421,7 @@ log file
 .SH BUGS
 .LP
 Typing ahead while
-.B cmdtool 
+.B cmdtool
 changes between its scrollable and cursor motion modes
 will sometimes freeze
 .B cmdtool .

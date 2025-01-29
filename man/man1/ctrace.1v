@@ -5,7 +5,7 @@ ctrace \- generate a C program execution trace
 .SH SYNOPSIS
 .B ctrace
 [
-.B \-f 
+.B \-f
 .I functions
 ] [
 .B \-v
@@ -46,15 +46,15 @@ for information on how to install optional software.
 .IX  "debug tools"  ctrace  ""  "\fLctrace\fP \(em display program trace"
 .LP
 .B ctrace
-allows you to follow the execution of a 
-.B C 
+allows you to follow the execution of a
+.B C
 program, statement by statement.
 The effect is similar to executing a shell procedure with the
 .B \-x
 option.
 .B ctrace
-reads the 
-.B C 
+reads the
+.B C
 program in
 .I filename
 (or from standard
@@ -66,8 +66,8 @@ variables referenced or modified,
 and writes the modified program to the standard output.
 You must put the output of
 .B ctrace
-into a temporary file because the 
-.BR cc (1V) 
+into a temporary file because the
+.BR cc (1V)
 command does not allow the use of a pipe.
 You then compile and execute this file.
 .LP
@@ -82,7 +82,7 @@ within the loop is executed.
 .LP
 A warning message is printed every 1000 times through the loop to
 help you detect infinite loops.
-The trace output goes to the standard output so you 
+The trace output goes to the standard output so you
 can put it into a file for examination with an editor or the
 .BR tail (1)
 command.
@@ -103,7 +103,7 @@ Pointers to character arrays are printed as
 strings if appropriate.
 .BR char ,
 .BR short ,
-and 
+and
 .B int
 variables are printed as signed integers and, if
 appropriate, as characters.
@@ -139,23 +139,23 @@ default of 20.  Use 0 to get all the trace output from loops.
 .B \-s
 Suppress redundant trace output from simple assignment statements and
 string copy function calls.
-This option can hide a bug caused by use of the 
-.B = 
+This option can hide a bug caused by use of the
+.B =
 operator in place of the
-.B =\|= 
+.B =\|=
 operator.
 .TP
 .BI \-t " n"
 Trace
 .I n
 variables per statement instead of the default of 10
-(the maximum number is 20).  The 
-.SM DIAGNOSTICS 
+(the maximum number is 20).  The
+.SM DIAGNOSTICS
 section explains when to use this option.
 .TP
 .B \-P
-Run the 
-.B C 
+Run the
+.B C
 preprocessor on the input before tracing it.  You can also use the
 .BR \-D ,
 .BR \-I ,
@@ -283,8 +283,8 @@ functions directly, such as
 .LP
 If the file
 .B lc.\|c
-contains this 
-.B C 
+contains this
+.B C
 program:
 .RS
 .ft B
@@ -393,7 +393,7 @@ Also note the
 .B return
 comment added by
 .B ctrace
-at the end of the 
+at the end of the
 trace output.
 This shows the implicit return at the
 terminating brace in the function.
@@ -405,9 +405,9 @@ line 7, but in line 8 it has the value '\\n'.
 Once your attention is drawn to this
 .B if
 statement,
-you will probably realize that you used the assignment operator 
+you will probably realize that you used the assignment operator
 .B =
-in place of the equal operator 
+in place of the equal operator
 .BR =\|= .
 You can easily miss this error during code reading.
 .SH FILES
@@ -440,11 +440,11 @@ You can get
 .BR cc
 error messages in some rare cases, all of which can be avoided.
 .LP
-.SS From ctrace 
+.SS From ctrace
 .B "warning: some variables are not traced in this statement"
 .RS
-Only 10 variables are traced in a statement to prevent the 
-.B C 
+Only 10 variables are traced in a statement to prevent the
+.B C
 compiler
 .RB ` "out of tree space; simplify expression" '
 error.  Use the
@@ -462,8 +462,8 @@ Make sure that you are using tabs to indent your code, not spaces.
 .RS
 This is usually caused by
 .B #ifdef/#endif
-preprocessor statements in the middle of a 
-.B C 
+preprocessor statements in the middle of a
+.B C
 statement, or by a semicolon at the end of a #define
 preprocessor statement.
 .RE
@@ -544,23 +544,23 @@ You will get a
 syntax error if you omit the semicolon at the end of the last element
 declaration in a structure or union, just before the right brace
 .RB ( \|} ).
-This is optional in some 
-.B C 
+This is optional in some
+.B C
 compilers.
-.LP	
+.LP
 Defining a function with the same name as a system function
 may cause a syntax error if the number of arguments is
 changed.  Just use a different name.
 .LP
 .B ctrace
-assumes that 
-.SM BADMAG 
+assumes that
+.SM BADMAG
 is a preprocessor macro, and that
 .SM EOF
 and
 .SM NULL
-are 
-.B #defined 
+are
+.B #defined
 constants.
 Declaring any of these to be variables, for example,
 .RB ` "int \s-1EOF\s0;" ',
@@ -570,7 +570,7 @@ will cause a syntax error.
 does not know about the components of aggregates like structures,
 unions, and arrays.  It cannot choose a format to print all the
 components of an aggregate when an assignment is made to the entire
-aggregate. 
+aggregate.
 .B ctrace
 may choose to print the address of an aggregate
 or use the wrong format (for example,

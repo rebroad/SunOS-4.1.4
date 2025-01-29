@@ -44,7 +44,7 @@ source files consist of a number of comma-separated fields.
 White space after each comma is ignored.
 The first line of each terminal description in the
 .B terminfo
-database gives the name by which 
+database gives the name by which
 .B terminfo
 knows the terminal, separated by pipe
 .RB ( \||\| )
@@ -122,7 +122,7 @@ In the table below, the
 is the name by which the C programmer (at the
 .B terminfo
 level) accesses the capability.
-The 
+The
 .B capname
 is the short name for this variable used in the text of the database.
 It is used by a person updating the database and by the
@@ -518,39 +518,39 @@ xon_character	xonc	XN	X-on character
 .sp
 \fI\ \ Boolean\fP
 .sp .5
-auto_left_margin	bw	bw	\fBcub\fR1 wraps from column 0 to 
+auto_left_margin	bw	bw	\fBcub\fR1 wraps from column 0 to
 			last column
 auto_right_margin	am	am	Terminal has automatic margins
 no_esc_ctlc	xsb	xb	Beehive (f1=ESC, f2=^C)
-ceol_standout_glitch	xhp	xs	Standout not erased by 
+ceol_standout_glitch	xhp	xs	Standout not erased by
 			overwriting (Hewlett-Packard)
-eat_newline_glitch	xenl	xn	NEWLINE ignored after 80 cols 
+eat_newline_glitch	xenl	xn	NEWLINE ignored after 80 cols
 			(Concept)
 erase_overstrike	eo	eo	Can erase overstrikes with a blank
-generic_type	gn	gn	Generic line type (for example, 
+generic_type	gn	gn	Generic line type (for example,
 			dialup, switch).
 hard_copy	hc	hc	Hardcopy terminal
 hard_cursor	chts	HC	Cursor is hard to see.
-has_meta_key	km	km	Has a meta key (shift, sets 
+has_meta_key	km	km	Has a meta key (shift, sets
 			parity bit)
 has_status_line	hs	hs	Has extra \*(lqstatus line\*(rq
 insert_null_glitch	in	in	Insert mode distinguishes nulls
-memory_above	da	da	Display may be retained above 
+memory_above	da	da	Display may be retained above
 			the screen
-memory_below	db	db	Display may be retained below 
+memory_below	db	db	Display may be retained below
 			the screen
 move_insert_mode	mir	mi	Safe to move while in insert mode
 move_standout_mode	msgr	ms	Safe to move in standout modes
-needs_xon_xoff	nxon	nx	Padding will not work, xon/xoff 
+needs_xon_xoff	nxon	nx	Padding will not work, xon/xoff
 			required
 non_rev_rmcup	nrrmc	NR	\fBsmcup\fR does not reverse \fBrmcup\fR
 no_pad_char	npc	NP	Pad character does not exist
-over_strike	os	os	Terminal overstrikes on hard-copy 
+over_strike	os	os	Terminal overstrikes on hard-copy
 			terminal
 prtr_silent	mc5i	5i	Printer will not echo on screen.
-status_line_esc_ok	eslok	es	Escape can be used on the 
+status_line_esc_ok	eslok	es	Escape can be used on the
 			status line
-dest_tabs_magic_smso	xt	xt	Destructive TAB characters, magic 
+dest_tabs_magic_smso	xt	xt	Destructive TAB characters, magic
 			\fBsmso\fR char (Teleray 1061)
 tilde_glitch	hz	hz	Hazeltine; cannot print tildes(\s+2~\s-2)
 transparent_underline	ul	ul	Underline character overstrikes
@@ -563,48 +563,48 @@ init_tabs	it	it	tab stops initially every # spaces.
 label_height	lh	lh	Number of rows in each label
 label_width	lw	lw	Number of cols in each label
 lines	lines	li	Number of lines on screen or page
-lines_of_memory	lm	lm	Lines of memory if > \fBlines\fR; 
+lines_of_memory	lm	lm	Lines of memory if > \fBlines\fR;
 			\fB0\fR means varies
-magic_cookie_glitch	xmc	sg	Number blank chars left by \fBsmso\fR 
+magic_cookie_glitch	xmc	sg	Number blank chars left by \fBsmso\fR
 			or \fBrmso\fR
-num_labels	nlab	Nl	Number of labels on screen 
+num_labels	nlab	Nl	Number of labels on screen
 			(start at 1)
-padding_baud_rate	pb	pb	Lowest baud rate where padding 
+padding_baud_rate	pb	pb	Lowest baud rate where padding
 			needed
-virtual_terminal	vt	vt	Virtual terminal number (not 
+virtual_terminal	vt	vt	Virtual terminal number (not
 			supported on all systems)
 width_status_line	wsl	ws	Number of columns in status line
 .sp
 \fI\ \ String\fP
 .sp .5
-acs_chars	acsc	ac	Graphic charset pairs aAbBcC - 
+acs_chars	acsc	ac	Graphic charset pairs aAbBcC -
 			def=VT100
 back_tab	cbt	bt	Back tab
 bell	bel	bl	Audible signal (bell)
 carriage_return	cr	cr	\s-1RETURN\s0 (\(**)
-change_scroll_region	csr	cs	Change to lines #1 through #2 
+change_scroll_region	csr	cs	Change to lines #1 through #2
 			(VT100) (G)
 char_padding	rmp	rP	Like \fBip\fR but when in replace mode
 clear_all_tabs	tbc	ct	Clear all tab stops
 clear_margins	mgc	MC	Clear left and right soft margins
 clear_screen	clear	cl	Clear screen and home cursor (\(**)
-clr_bol	el1	cb	Clear to beginning of line, 
+clr_bol	el1	cb	Clear to beginning of line,
 			inclusive
 clr_eol	el	ce	Clear to end of line
 clr_eos	ed	cd	Clear to end of display (\(**)
 column_address	hpa	ch	Horizontal position absolute (G)
-command_character	cmdch	CC	Terminal settable command char 
+command_character	cmdch	CC	Terminal settable command char
 			in prototype
 cursor_address	cup	cm	Cursor motion to row #1 col #2 (G)
 cursor_down	cud1	do	Down one line
 cursor_home	home	ho	Home cursor (if no \fBcup\fR)
 cursor_invisible	civis	vi	Make cursor invisible
 cursor_left	cub1	le	Move cursor left one \s-1SPACE\s0.
-cursor_mem_address	mrcup	CM	Memory relative cursor 
+cursor_mem_address	mrcup	CM	Memory relative cursor
 			addressing (G)
-cursor_normal	cnorm	ve	Make cursor appear normal (undo 
+cursor_normal	cnorm	ve	Make cursor appear normal (undo
 			\fBcvvis/civis\fR)
-cursor_right	cuf1	nd	Non-destructive space (cursor 
+cursor_right	cuf1	nd	Non-destructive space (cursor
 			right)
 cursor_to_ll	ll	ll	Last line, first column (if no \fBcup\fR)
 cursor_up	cuu1	up	Upline (cursor up)
@@ -612,21 +612,21 @@ cursor_visible	cvvis	vs	Make cursor very visible
 delete_character	dch1	dc	Delete character (\(**)
 delete_line	dl1	dl	Delete line (\(**)
 dis_status_line	dsl	ds	Disable status line
-down_half_line	hd	hd	Half-line down (forward 1/2 
+down_half_line	hd	hd	Half-line down (forward 1/2
 			\s-1LINEFEED\s0)
 ena_acs	enacs	eA	Enable alternate char set
 enter_alt_charset_mode	smacs	as	Start alternate character set
 enter_am_mode	smam	SA	Turn on automatic margins
 enter_blink_mode	blink	mb	Turn on blinking
 enter_bold_mode	bold	md	Turn on bold (extra bright) mode
-enter_ca_mode	smcup	ti	String to begin programs that use 
+enter_ca_mode	smcup	ti	String to begin programs that use
 			\fBcup\fR
 enter_delete_mode	smdc	dm	Delete mode (enter)
 enter_dim_mode	dim	mh	Turn on half-bright mode
 enter_insert_mode	smir	im	Insert mode (enter);
 enter_protected_mode	prot	mp	Turn on protected mode
 enter_reverse_mode	rev	mr	Turn on reverse video mode
-enter_secure_mode	invis	mk	Turn on blank mode (chars 
+enter_secure_mode	invis	mk	Turn on blank mode (chars
 			invisible)
 enter_standout_mode	smso	so	Begin standout mode
 enter_underline_mode	smul	us	Start underscore mode
@@ -647,45 +647,45 @@ from_status_line	fsl	fs	Return from status line
 init_1string	is1	i1	Terminal initialization string
 init_2string	is2	is	Terminal initialization string
 init_3string	is3	i3	Terminal initialization string
-init_file	if	if	Name of initialization file 
+init_file	if	if	Name of initialization file
 			containing \fBis\fR
 init_prog	iprog	iP	Path name of program for init.
 insert_character	ich1	ic	Insert character
 insert_line	il1	al	Add new blank line (\(**)
-insert_padding	ip	ip	Insert pad after character 
+insert_padding	ip	ip	Insert pad after character
 			inserted (\(**)
 key_a1	ka1	K1	\s-1KEY_A\s01, 0534, Upper left of keypad
 key_a3	ka3	K3	\s-1KEY_A\s03, 0535, Upper right of keypad
 key_b2	kb2	K2	\s-1KEY_B\s02, 0536, Center of keypad
-key_backspace	kbs	kb	\s-1KEY_BACKSPACE\s0, 0407, Sent by 
+key_backspace	kbs	kb	\s-1KEY_BACKSPACE\s0, 0407, Sent by
 			BACKSPACE key
-key_beg	kbeg	@1	\s-1KEY_BEG\s0, 0542, Sent by 
+key_beg	kbeg	@1	\s-1KEY_BEG\s0, 0542, Sent by
 			beg(inning) key
-key_btab	kcbt	kB	\s-1KEY_BTAB\s0, 0541, Sent by back-tab 
+key_btab	kcbt	kB	\s-1KEY_BTAB\s0, 0541, Sent by back-tab
 			key
 key_c1	kc1	K4	\s-1KEY_C\s01, 0537, Lower left of keypad
 key_c3	kc3	K5	\s-1KEY_C\s03, 0540, Lower right of keypad
-key_cancel	kcan	@2	\s-1KEY_CANCEL\s0, 0543, Sent by cancel 
+key_cancel	kcan	@2	\s-1KEY_CANCEL\s0, 0543, Sent by cancel
 			key
 key_catab	ktbc	ka	\s-1KEY_CATAB\s0, 0526, Sent by clear-all-
 			tabs key
 key_clear	kclr	kC	\s-1KEY_CLEAR\s0, 0515, Sent by clear
 			-screen or erase key
 key_close	kclo	@3	\s-1KEY_CLOSE\s0, 0544, Sent by close key
-key_command	kcmd	@4	\s-1KEY_COMMAND\s0, 0545, Sent by cmd 
+key_command	kcmd	@4	\s-1KEY_COMMAND\s0, 0545, Sent by cmd
 			(command) key
 key_copy	kcpy	@5	\s-1KEY_COPY\s0, 0546, Sent by copy key
-key_create	kcrt	@6	\s-1KEY_CREATE\s0, 0547, Sent by create 
+key_create	kcrt	@6	\s-1KEY_CREATE\s0, 0547, Sent by create
 			key
-key_ctab	kctab	kt	\s-1KEY_CTAB\s0, 0525, Sent by clear-tab 
+key_ctab	kctab	kt	\s-1KEY_CTAB\s0, 0525, Sent by clear-tab
 			key
 key_dc	kdch1	kD	\s-1KEY_DC\s0, 0512, Sent by delete-
 			character key
-key_dl	kdl1	kL	\s-1KEY_DL\s0, 0510, Sent by delete-line 
+key_dl	kdl1	kL	\s-1KEY_DL\s0, 0510, Sent by delete-line
 			key
-key_down	kcud1	kd	\s-1KEY_DOWN\s0, 0402, Sent by terminal 
+key_down	kcud1	kd	\s-1KEY_DOWN\s0, 0402, Sent by terminal
 			down-arrow key
-key_eic	krmir	kM	\s-1KEY_EIC\s0, 0514, Sent by \fBrmir\fR or 
+key_eic	krmir	kM	\s-1KEY_EIC\s0, 0514, Sent by \fBrmir\fR or
 			\fBsmir\fR in insert mode
 key_end	kend	@7	\s-1KEY_END\s0, 0550, Sent by end key
 key_enter	kent	@8	\s-1KEY_ENTER\s0, 0527, Sent by enter/
@@ -695,245 +695,245 @@ key_eol	kel	kE	\s-1KEY_EOL\s0, 0517, Sent by clear-to-
 key_eos	ked	kS	\s-1KEY_EOS\s0, 0516, Sent by clear-to-
 			end- of-screen key
 key_exit	kext	@9	\s-1KEY_EXIT\s0, 0551, Sent by exit key
-key_f0	kf0	k0	\s-1KEY_F\s0(0), 0410, Sent by function 
+key_f0	kf0	k0	\s-1KEY_F\s0(0), 0410, Sent by function
 			key f0
-key_f1	kf1	k1	\s-1KEY_F\s0(1), 0411, Sent by function 
+key_f1	kf1	k1	\s-1KEY_F\s0(1), 0411, Sent by function
 			key f1
-key_f2	kf2	k2	\s-1KEY_F\s0(2), 0412, Sent by function 
+key_f2	kf2	k2	\s-1KEY_F\s0(2), 0412, Sent by function
 			key f2
-key_f3	kf3	k3	\s-1KEY_F\s0(3), 0413, Sent by function 
+key_f3	kf3	k3	\s-1KEY_F\s0(3), 0413, Sent by function
 			key f3
-key_f4	kf4	k4	\s-1KEY_F\s0(4), 0414, Sent by function 
+key_f4	kf4	k4	\s-1KEY_F\s0(4), 0414, Sent by function
 			key f4
-key_f5	kf5	k5	\s-1KEY_F\s0(5), 0415, Sent by function 
+key_f5	kf5	k5	\s-1KEY_F\s0(5), 0415, Sent by function
 			key f5
-key_f6	kf6	k6	\s-1KEY_F\s0(6), 0416, Sent by function 
+key_f6	kf6	k6	\s-1KEY_F\s0(6), 0416, Sent by function
 			key f6
-key_f7	kf7	k7	\s-1KEY_F\s0(7), 0417, Sent by function 
+key_f7	kf7	k7	\s-1KEY_F\s0(7), 0417, Sent by function
 			key f7
-key_f8	kf8	k8	\s-1KEY_F\s0(8), 0420, Sent by function 
+key_f8	kf8	k8	\s-1KEY_F\s0(8), 0420, Sent by function
 			key f8
-key_f9	kf9	k9	\s-1KEY_F\s0(9), 0421, Sent by function 
+key_f9	kf9	k9	\s-1KEY_F\s0(9), 0421, Sent by function
 			key f9
-key_f10	kf10	k;	\s-1KEY_F\s0(10), 0422, Sent by function 
+key_f10	kf10	k;	\s-1KEY_F\s0(10), 0422, Sent by function
 			key f10
-key_f11	kf11	F1	\s-1KEY_F\s0(11), 0423, Sent by function 
+key_f11	kf11	F1	\s-1KEY_F\s0(11), 0423, Sent by function
 			key f11
-key_f12	kf12	F2	\s-1KEY_F\s0(12), 0424, Sent by function 
+key_f12	kf12	F2	\s-1KEY_F\s0(12), 0424, Sent by function
 			key f12
-key_f13	kf13	F3	\s-1KEY_F\s0(13), 0425, Sent by function 
+key_f13	kf13	F3	\s-1KEY_F\s0(13), 0425, Sent by function
 			key f13
-key_f14	kf14	F4	\s-1KEY_F\s0(14), 0426, Sent by function 
+key_f14	kf14	F4	\s-1KEY_F\s0(14), 0426, Sent by function
 			key f14
-key_f15	kf15	F5	\s-1KEY_F\s0(15), 0427, Sent by function 
+key_f15	kf15	F5	\s-1KEY_F\s0(15), 0427, Sent by function
 			key f15
-key_f16	kf16	F6	\s-1KEY_F\s0(16), 0430, Sent by function 
+key_f16	kf16	F6	\s-1KEY_F\s0(16), 0430, Sent by function
 			key f16
-key_f17	kf17	F7	\s-1KEY_F\s0(17), 0431, Sent by function 
+key_f17	kf17	F7	\s-1KEY_F\s0(17), 0431, Sent by function
 			key f17
-key_f18	kf18	F8	\s-1KEY_F\s0(18), 0432, Sent by function 
+key_f18	kf18	F8	\s-1KEY_F\s0(18), 0432, Sent by function
 			key f18
-key_f19	kf19	F9	\s-1KEY_F\s0(19), 0433, Sent by function 
+key_f19	kf19	F9	\s-1KEY_F\s0(19), 0433, Sent by function
 			key f19
-key_f20	kf20	FA	\s-1KEY_F\s0(20), 0434, Sent by function 
+key_f20	kf20	FA	\s-1KEY_F\s0(20), 0434, Sent by function
 			key f20
-key_f21	kf21	FB	\s-1KEY_F\s0(21), 0435, Sent by function 
+key_f21	kf21	FB	\s-1KEY_F\s0(21), 0435, Sent by function
 			key f21
-key_f22	kf22	FC	\s-1KEY_F\s0(22), 0436, Sent by function 
+key_f22	kf22	FC	\s-1KEY_F\s0(22), 0436, Sent by function
 			key f22
-key_f23	kf23	FD	\s-1KEY_F\s0(23), 0437, Sent by function 
+key_f23	kf23	FD	\s-1KEY_F\s0(23), 0437, Sent by function
 			key f23
-key_f24	kf24	FE	\s-1KEY_F\s0(24), 0440, Sent by function 
+key_f24	kf24	FE	\s-1KEY_F\s0(24), 0440, Sent by function
 			key f24
-key_f25	kf25	FF	\s-1KEY_F\s0(25), 0441, Sent by function 
+key_f25	kf25	FF	\s-1KEY_F\s0(25), 0441, Sent by function
 			key f25
-key_f26	kf26	FG	\s-1KEY_F\s0(26), 0442, Sent by function 
+key_f26	kf26	FG	\s-1KEY_F\s0(26), 0442, Sent by function
 			key f26
-key_f27	kf27	FH	\s-1KEY_F\s0(27), 0443, Sent by function 
+key_f27	kf27	FH	\s-1KEY_F\s0(27), 0443, Sent by function
 			key f27
-key_f28	kf28	FI	\s-1KEY_F\s0(28), 0444, Sent by function 
+key_f28	kf28	FI	\s-1KEY_F\s0(28), 0444, Sent by function
 			key f28
-key_f29	kf29	FJ	\s-1KEY_F\s0(29), 0445, Sent by function 
+key_f29	kf29	FJ	\s-1KEY_F\s0(29), 0445, Sent by function
 			key f29
-key_f30	kf30	FK	\s-1KEY_F\s0(30), 0446, Sent by function 
+key_f30	kf30	FK	\s-1KEY_F\s0(30), 0446, Sent by function
 			key f30
-key_f31	kf31	FL	\s-1KEY_F\s0(31), 0447, Sent by function 
+key_f31	kf31	FL	\s-1KEY_F\s0(31), 0447, Sent by function
 			key f31
-key_f32	kf32	FM	\s-1KEY_F\s0(32), 0450, Sent by function 
+key_f32	kf32	FM	\s-1KEY_F\s0(32), 0450, Sent by function
 			key f32
-key_f33	kf33	FN	\s-1KEY_F\s0(13), 0451, Sent by function 
+key_f33	kf33	FN	\s-1KEY_F\s0(13), 0451, Sent by function
 			key f13
-key_f34	kf34	FO	\s-1KEY_F\s0(34), 0452, Sent by function 
+key_f34	kf34	FO	\s-1KEY_F\s0(34), 0452, Sent by function
 			key f34
-key_f35	kf35	FP	\s-1KEY_F\s0(35), 0453, Sent by function 
+key_f35	kf35	FP	\s-1KEY_F\s0(35), 0453, Sent by function
 			key f35
-key_f36	kf36	FQ	\s-1KEY_F\s0(36), 0454, Sent by function 
+key_f36	kf36	FQ	\s-1KEY_F\s0(36), 0454, Sent by function
 			key f36
-key_f37	kf37	FR	\s-1KEY_F\s0(37), 0455, Sent by function 
+key_f37	kf37	FR	\s-1KEY_F\s0(37), 0455, Sent by function
 			key f37
-key_f38	kf38	FS	\s-1KEY_F\s0(38), 0456, Sent by function 
+key_f38	kf38	FS	\s-1KEY_F\s0(38), 0456, Sent by function
 			key f38
-key_f39	kf39	FT	\s-1KEY_F\s0(39), 0457, Sent by function 
+key_f39	kf39	FT	\s-1KEY_F\s0(39), 0457, Sent by function
 			key f39
-key_f40	kf40	FU	\s-1KEY_F\s0(40), 0460, Sent by function 
+key_f40	kf40	FU	\s-1KEY_F\s0(40), 0460, Sent by function
 			key f40
-key_f41	kf41	FV	\s-1KEY_F\s0(41), 0461, Sent by function 
+key_f41	kf41	FV	\s-1KEY_F\s0(41), 0461, Sent by function
 			key f41
-key_f42	kf42	FW	\s-1KEY_F\s0(42), 0462, Sent by function 
+key_f42	kf42	FW	\s-1KEY_F\s0(42), 0462, Sent by function
 			key f42
-key_f43	kf43	FX	\s-1KEY_F\s0(43), 0463, Sent by function 
+key_f43	kf43	FX	\s-1KEY_F\s0(43), 0463, Sent by function
 			key f43
-key_f44	kf44	FY	\s-1KEY_F\s0(44), 0464, Sent by function 
+key_f44	kf44	FY	\s-1KEY_F\s0(44), 0464, Sent by function
 			key f44
-key_f45	kf45	FZ	\s-1KEY_F\s0(45), 0465, Sent by function 
+key_f45	kf45	FZ	\s-1KEY_F\s0(45), 0465, Sent by function
 			key f45
-key_f46	kf46	Fa	\s-1KEY_F\s0(46), 0466, Sent by function 
+key_f46	kf46	Fa	\s-1KEY_F\s0(46), 0466, Sent by function
 			key f46
-key_f47	kf47	Fb	\s-1KEY_F\s0(47), 0467, Sent by function 
+key_f47	kf47	Fb	\s-1KEY_F\s0(47), 0467, Sent by function
 			key f47
-key_f48	kf48	Fc	\s-1KEY_F\s0(48), 0470, Sent by function 
+key_f48	kf48	Fc	\s-1KEY_F\s0(48), 0470, Sent by function
 			key f48
-key_f49	kf49	Fd	\s-1KEY_F\s0(49), 0471, Sent by function 
+key_f49	kf49	Fd	\s-1KEY_F\s0(49), 0471, Sent by function
 			key f49
-key_f50	kf50	Fe	\s-1KEY_F\s0(50), 0472, Sent by function 
+key_f50	kf50	Fe	\s-1KEY_F\s0(50), 0472, Sent by function
 			key f50
-key_f51	kf51	Ff	\s-1KEY_F\s0(51), 0473, Sent by function 
+key_f51	kf51	Ff	\s-1KEY_F\s0(51), 0473, Sent by function
 			key f51
-key_f52	kf52	Fg	\s-1KEY_F\s0(52), 0474, Sent by function 
+key_f52	kf52	Fg	\s-1KEY_F\s0(52), 0474, Sent by function
 			key f52
-key_f53	kf53	Fh	\s-1KEY_F\s0(53), 0475, Sent by function 
+key_f53	kf53	Fh	\s-1KEY_F\s0(53), 0475, Sent by function
 			key f53
-key_f54	kf54	Fi	\s-1KEY_F\s0(54), 0476, Sent by function 
+key_f54	kf54	Fi	\s-1KEY_F\s0(54), 0476, Sent by function
 			key f54
-key_f55	kf55	Fj	\s-1KEY_F\s0(55), 0477, Sent by function 
+key_f55	kf55	Fj	\s-1KEY_F\s0(55), 0477, Sent by function
 			key f55
-key_f56	kf56	Fk	\s-1KEY_F\s0(56), 0500, Sent by function 
+key_f56	kf56	Fk	\s-1KEY_F\s0(56), 0500, Sent by function
 			key f56
-key_f57	kf57	Fl	\s-1KEY_F\s0(57), 0501, Sent by function 
+key_f57	kf57	Fl	\s-1KEY_F\s0(57), 0501, Sent by function
 			key f57
-key_f58	kf58	Fm	\s-1KEY_F\s0(58), 0502, Sent by function 
+key_f58	kf58	Fm	\s-1KEY_F\s0(58), 0502, Sent by function
 			key f58
-key_f59	kf59	Fn	\s-1KEY_F\s0(59), 0503, Sent by function 
+key_f59	kf59	Fn	\s-1KEY_F\s0(59), 0503, Sent by function
 			key f59
-key_f60	kf60	Fo	\s-1KEY_F\s0(60), 0504, Sent by function 
+key_f60	kf60	Fo	\s-1KEY_F\s0(60), 0504, Sent by function
 			key f60
-key_f61	kf61	Fp	\s-1KEY_F\s0(61), 0505, Sent by function 
+key_f61	kf61	Fp	\s-1KEY_F\s0(61), 0505, Sent by function
 			key f61
-key_f62	kf62	Fq	\s-1KEY_F\s0(62), 0506, Sent by function 
+key_f62	kf62	Fq	\s-1KEY_F\s0(62), 0506, Sent by function
 			key f62
-key_f63	kf63	Fr	\s-1KEY_F\s0(63), 0507, Sent by function 
+key_f63	kf63	Fr	\s-1KEY_F\s0(63), 0507, Sent by function
 			key f63
 key_find	kfnd	@0	\s-1KEY_FIND\s0, 0552, Sent by find key
 key_help	khlp	%1	\s-1KEY_HELP\s0, 0553, Sent by help key
 key_home	khome	kh	\s-1KEY_HOME\s0, 0406, Sent by home key
 key_ic	kich1	kI	\s-1KEY_IC\s0, 0513, Sent by ins-char/
 			enter ins-mode key
-key_il	kil1	kA	\s-1KEY_IL\s0, 0511, Sent by insert-line 
+key_il	kil1	kA	\s-1KEY_IL\s0, 0511, Sent by insert-line
 			key
-key_left	kcub1	kl	\s-1KEY_LEFT\s0, 0404, Sent by terminal 
+key_left	kcub1	kl	\s-1KEY_LEFT\s0, 0404, Sent by terminal
 			left-arrow key
 key_ll	kll	kH	\s-1KEY_LL\s0, 0533, Sent by home-down key
 key_mark	kmrk	%2	\s-1KEY_MARK\s0, 0554, Sent by mark key
-key_message	kmsg	%3	\s-1KEY_MESSAGE\s0, 0555, Sent by message 
+key_message	kmsg	%3	\s-1KEY_MESSAGE\s0, 0555, Sent by message
 			key
 key_move	kmov	%4	\s-1KEY_MOVE\s0, 0556, Sent by move key
 key_next	knxt	%5	\s-1KEY_NEXT\s0, 0557, Sent by next-
 			object key
-key_npage	knp	kN	\s-1KEY_NPAGE\s0, 0522, Sent by next-page 
+key_npage	knp	kN	\s-1KEY_NPAGE\s0, 0522, Sent by next-page
 			key
 key_open	kopn	%6	\s-1KEY_OPEN\s0, 0560, Sent by open key
-key_options	kopt	%7	\s-1KEY_OPTIONS\s0, 0561, Sent by options 
+key_options	kopt	%7	\s-1KEY_OPTIONS\s0, 0561, Sent by options
 			key
 key_ppage	kpp	kP	\s-1KEY_PPAGE\s0, 0523, Sent by
 			previous-page key
-key_previous	kprv	%8	\s-1KEY_PREVIOUS\s0, 0562, Sent by 
+key_previous	kprv	%8	\s-1KEY_PREVIOUS\s0, 0562, Sent by
 			previous- object key
-key_print	kprt	%9	\s-1KEY_PRINT\s0, 0532, Sent by print or 
+key_print	kprt	%9	\s-1KEY_PRINT\s0, 0532, Sent by print or
 			copy key
 key_redo	krdo	%0	\s-1KEY_REDO\s0, 0563, Sent by redo key
-key_reference	kref	&1	\s-1KEY_REFERENCE\s0, 0564, Sent by 
+key_reference	kref	&1	\s-1KEY_REFERENCE\s0, 0564, Sent by
 			ref(erence) key
-key_refresh	krfr	&2	\s-1KEY_REFRESH\s0, 0565, Sent by refresh 
+key_refresh	krfr	&2	\s-1KEY_REFRESH\s0, 0565, Sent by refresh
 			key
-key_replace	krpl	&3	\s-1KEY_REPLACE\s0, 0566, Sent by replace 
+key_replace	krpl	&3	\s-1KEY_REPLACE\s0, 0566, Sent by replace
 			key
-key_restart	krst	&4	\s-1KEY_RESTART\s0, 0567, Sent by restart 
+key_restart	krst	&4	\s-1KEY_RESTART\s0, 0567, Sent by restart
 			key
-key_resume	kres	&5	\s-1KEY_RESUME\s0, 0570, Sent by resume 
+key_resume	kres	&5	\s-1KEY_RESUME\s0, 0570, Sent by resume
 			key
-key_right	kcuf1	kr	\s-1KEY_RIGHT\s0, 0405, Sent by terminal 
+key_right	kcuf1	kr	\s-1KEY_RIGHT\s0, 0405, Sent by terminal
 			right-arrow key
 key_save	ksav	&6	\s-1KEY_SAVE\s0, 0571, Sent by save key
-key_sbeg	k\s-1BEG\s0	&9	\s-1KEY_SBEG\s0, 0572, Sent by shifted 
+key_sbeg	k\s-1BEG\s0	&9	\s-1KEY_SBEG\s0, 0572, Sent by shifted
 			beginning key
-key_scancel	k\s-1CAN\s0	&0	\s-1KEY_SCANCEL\s0, 0573, Sent by shifted 
+key_scancel	k\s-1CAN\s0	&0	\s-1KEY_SCANCEL\s0, 0573, Sent by shifted
 			cancel key
-key_scommand	k\s-1CMD\s0	\(**1	\s-1KEY_SCOMMAND\s0, 0574, Sent by 
+key_scommand	k\s-1CMD\s0	\(**1	\s-1KEY_SCOMMAND\s0, 0574, Sent by
 			shifted command key
-key_scopy	k\s-1CPY\s0	\(**2	\s-1KEY_SCOPY\s0, 0575, Sent by shifted 
+key_scopy	k\s-1CPY\s0	\(**2	\s-1KEY_SCOPY\s0, 0575, Sent by shifted
 			copy key
-key_screate	k\s-1CRT\s0	\(**3	\s-1KEY_SCREATE\s0, 0576, Sent by 
+key_screate	k\s-1CRT\s0	\(**3	\s-1KEY_SCREATE\s0, 0576, Sent by
 			shifted create key
-key_sdc	kDC	\(**4	\s-1KEY_SDC\s0, 0577, Sent by shifted 
+key_sdc	kDC	\(**4	\s-1KEY_SDC\s0, 0577, Sent by shifted
 			delete- char key
-key_sdl	kDL	\(**5	\s-1KEY_SDL\s0, 0600, Sent by shifted 
+key_sdl	kDL	\(**5	\s-1KEY_SDL\s0, 0600, Sent by shifted
 			delete-line key
-key_select	kslt	\(**6	\s-1KEY_SELECT\s0, 0601, Sent by select 
+key_select	kslt	\(**6	\s-1KEY_SELECT\s0, 0601, Sent by select
 			key
-key_send	k\s-1END\s0	\(**7	\s-1KEY_SEND\s0, 0602, Sent by 
+key_send	k\s-1END\s0	\(**7	\s-1KEY_SEND\s0, 0602, Sent by
 			shifted end key
-key_seol	k\s-1EOL\s0	\(**8	\s-1KEY_SEOL\s0, 0603, Sent by 
+key_seol	k\s-1EOL\s0	\(**8	\s-1KEY_SEOL\s0, 0603, Sent by
 			shifted clear-line key
-key_sexit	k\s-1EXT\s0	\(**9	\s-1KEY_SEXIT\s0, 0604, Sent by shifted 
+key_sexit	k\s-1EXT\s0	\(**9	\s-1KEY_SEXIT\s0, 0604, Sent by shifted
 			exit key
 key_sf	kind	kF	\s-1KEY_SF\s0, 0520, Sent by scroll-
 			forward/down key
-key_sfind	k\s-1FND\s0	\(**0	\s-1KEY_SFIND\s0, 0605, Sent by shifted 
+key_sfind	k\s-1FND\s0	\(**0	\s-1KEY_SFIND\s0, 0605, Sent by shifted
 			find key
-key_shelp	k\s-1HLP\s0	#1	\s-1KEY_SHELP\s0, 0606, Sent by shifted 
+key_shelp	k\s-1HLP\s0	#1	\s-1KEY_SHELP\s0, 0606, Sent by shifted
 			help key
-key_shome	k\s-1HOM\s0	#2	\s-1KEY_SHOME\s0, 0607, Sent by shifted 
+key_shome	k\s-1HOM\s0	#2	\s-1KEY_SHOME\s0, 0607, Sent by shifted
 			home key
-key_sic	kIC	#3	\s-1KEY_SIC\s0, 0610, Sent by shifted 
+key_sic	kIC	#3	\s-1KEY_SIC\s0, 0610, Sent by shifted
 			input key
-key_sleft	k\s-1LFT\s0	#4	\s-1KEY_SLEFT\s0, 0611, Sent by shifted 
+key_sleft	k\s-1LFT\s0	#4	\s-1KEY_SLEFT\s0, 0611, Sent by shifted
 			left-arrow key
-key_smessage	k\s-1MSG\s0	%a	\s-1KEY_SMESSAGE\s0, 0612, Sent by shifted 
+key_smessage	k\s-1MSG\s0	%a	\s-1KEY_SMESSAGE\s0, 0612, Sent by shifted
 			message key
-key_smove	k\s-1MOV\s0	%b	\s-1KEY_SMOVE\s0, 0613, Sent by shifted 
+key_smove	k\s-1MOV\s0	%b	\s-1KEY_SMOVE\s0, 0613, Sent by shifted
 			move key
-key_snext	k\s-1NXT\s0	%c	\s-1KEY_SNEXT\s0, 0614, Sent by shifted 
+key_snext	k\s-1NXT\s0	%c	\s-1KEY_SNEXT\s0, 0614, Sent by shifted
 			next key
-key_soptions	k\s-1OPT\s0	%d	\s-1KEY_SOPTIONS\s0, 0615, Sent by 
+key_soptions	k\s-1OPT\s0	%d	\s-1KEY_SOPTIONS\s0, 0615, Sent by
 			shifted options key
 key_sprevious	k\s-1PRV\s0	%e	\s-1KEY_SPREVIOUS\s0, 0616, Sent by
 			shifted prev key
-key_sprint	k\s-1PRT\s0	%f	\s-1KEY_SPRINT\s0, 0617, Sent by shifted 
+key_sprint	k\s-1PRT\s0	%f	\s-1KEY_SPRINT\s0, 0617, Sent by shifted
 			print key
 key_sr	kri	kR	\s-1KEY_SR\s0, 0521, Sent by scroll-
 			backward/up key
-key_sredo	k\s-1RDO\s0	%g	\s-1KEY_SREDO\s0, 0620, Sent by shifted 
+key_sredo	k\s-1RDO\s0	%g	\s-1KEY_SREDO\s0, 0620, Sent by shifted
 			redo key
-key_sreplace	k\s-1RPL\s0	%h	\s-1KEY_SREPLACE\s0, 0621, Sent by shifted 
+key_sreplace	k\s-1RPL\s0	%h	\s-1KEY_SREPLACE\s0, 0621, Sent by shifted
 			replace key
-key_sright	k\s-1RIT\s0	%i	\s-1KEY_SRIGHT\s0, 0622, Sent by shifted 
+key_sright	k\s-1RIT\s0	%i	\s-1KEY_SRIGHT\s0, 0622, Sent by shifted
 			right-arrow key
-key_srsume	k\s-1RES\s0	%j	\s-1KEY_SRSUME\s0, 0623, Sent by shifted 
+key_srsume	k\s-1RES\s0	%j	\s-1KEY_SRSUME\s0, 0623, Sent by shifted
 			resume key
-key_ssave	k\s-1SAV\s0	!1	\s-1KEY_SSAVE\s0, 0624, Sent by shifted 
+key_ssave	k\s-1SAV\s0	!1	\s-1KEY_SSAVE\s0, 0624, Sent by shifted
 			save key
-key_ssuspend	k\s-1SPD\s0	!2	\s-1KEY_SSUSPEND\s0, 0625, Sent by shifted 
+key_ssuspend	k\s-1SPD\s0	!2	\s-1KEY_SSUSPEND\s0, 0625, Sent by shifted
 			suspend key
 key_stab	khts	kT	\s-1KEY_STAB\s0, 0524, Sent by set-tab key
-key_sundo	k\s-1UND\s0	!3	\s-1KEY_SUNDO\s0, 0626, Sent by shifted 
+key_sundo	k\s-1UND\s0	!3	\s-1KEY_SUNDO\s0, 0626, Sent by shifted
 			undo key
-key_suspend	kspd	&7	\s-1KEY_SUSPEND\s0, 0627, Sent by suspend 
+key_suspend	kspd	&7	\s-1KEY_SUSPEND\s0, 0627, Sent by suspend
 			key
 key_undo	kund	&8	\s-1KEY_UNDO\s0, 0630, Sent by undo key
-key_up	kcuu1	ku	\s-1KEY_UP\s0, 0403, Sent by terminal 
+key_up	kcuu1	ku	\s-1KEY_UP\s0, 0403, Sent by terminal
 			up-arrow key
 keypad_local	rmkx	ke	Out of \*(lqkeypad-transmit\*(rq mode
-keypad_xmit	smkx	ks	Put terminal in \*(lqkeypad-transmit\*(rq 
+keypad_xmit	smkx	ks	Put terminal in \*(lqkeypad-transmit\*(rq
 			mode
 lab_f0	lf0	l0	Labels on function key f0 if not f0
 lab_f1	lf1	l1	Labels on function key f1 if not f1
@@ -945,13 +945,13 @@ lab_f6	lf6	l6	Labels on function key f6 if not f6
 lab_f7	lf7	l7	Labels on function key f7 if not f7
 lab_f8	lf8	l8	Labels on function key f8 if not f8
 lab_f9	lf9	l9	Labels on function key f9 if not f9
-lab_f10	lf10	la	Labels on function key f10 if not 
+lab_f10	lf10	la	Labels on function key f10 if not
 			f10
 label_off	rmln	LF	Turn off soft labels
 label_on	smln	LO	Turn on soft labels
 meta_off	rmm	mo	Turn off \*(lqmeta mode\*(rq
 meta_on	smm	mm	Turn on \*(lqmeta mode\*(rq (8th bit)
-newline	nel	nw	\s-1NEWLINE\s0 (behaves like \fBcr\fR followed 
+newline	nel	nw	\s-1NEWLINE\s0 (behaves like \fBcr\fR followed
 			by \fBlf\fR)
 pad_char	pad	pc	Pad character (rather than null)
 parm_dch	dch	DC	Delete #1 chars (G\(**)
@@ -965,7 +965,7 @@ parm_right_cursor	cuf	RI	Move cursor right #1 spaces. (G\(**)
 parm_rindex	rin	SR	Scroll backward #1 lines. (G)
 parm_up_cursor	cuu	UP	Move cursor up #1 lines. (G\(**)
 pkey_key	pfkey	pk	Prog funct key #1 to type string #2
-pkey_local	pfloc	pl	Prog funct key #1 to execute 
+pkey_local	pfloc	pl	Prog funct key #1 to execute
 			string #2
 pkey_xmit	pfx	px	Prog funct key #1 to xmit string #2
 plab_norm	pln	pn	Prog label #1 to show string #2
@@ -975,34 +975,34 @@ prtr_off	mc4	pf	Turn off the printer
 prtr_on	mc5	po	Turn on the printer
 repeat_char	rep	rp	Repeat char #1 #2 times (G\(**)
 req_for_input	rfi	RF	Send next input char (for ptys)
-reset_1string	rs1	r1	Reset terminal completely to sane 
+reset_1string	rs1	r1	Reset terminal completely to sane
 			modes
-reset_2string	rs2	r2	Reset terminal completely to sane 
+reset_2string	rs2	r2	Reset terminal completely to sane
 			modes
-reset_3string	rs3	r3	Reset terminal completely to sane 
+reset_3string	rs3	r3	Reset terminal completely to sane
 			modes
-reset_file	rf	rf	Name of file containing reset 
+reset_file	rf	rf	Name of file containing reset
 			string
-restore_cursor	rc	rc	Restore cursor to position of last 
+restore_cursor	rc	rc	Restore cursor to position of last
 			\fBsc\fR
 row_address	vpa	cv	Vertical position absolute (G)
 save_cursor	sc	sc	Save cursor position.
 scroll_forward	ind	sf	Scroll text up
 scroll_reverse	ri	sr	Scroll text down
-set_attributes	sgr	sa	Define the video attributes 
+set_attributes	sgr	sa	Define the video attributes
 			#1-#9 (G)
 set_left_margin	smgl	ML	Set soft left margin
 set_right_margin	smgr	MR	Set soft right margin
-set_tab	hts	st	Set a tab stop in all rows, 
+set_tab	hts	st	Set a tab stop in all rows,
 			current column.
-set_window	wind	wi	Current window is lines #1-#2 
+set_window	wind	wi	Current window is lines #1-#2
 			cols #3-#4 (G)
-tab	ht	ta	Move the cursor to the next 8 space 
+tab	ht	ta	Move the cursor to the next 8 space
 			hardware tab stop.
 to_status_line	tsl	ts	Go to status line, col #1 (G)
-underline_char	uc	uc	Underscore one char and move 
+underline_char	uc	uc	Underscore one char and move
 			past it
-up_half_line	hu	hu	Half-line up (reverse 1/2 
+up_half_line	hu	hu	Half-line up (reverse 1/2
 			line-feed)
 xoff_character	xoffc	XF	X-off character
 xon_character	xonc	XN	X-on character
@@ -1194,7 +1194,7 @@ map to
 .SM ESC
 .TP
 .B ^X
-maps to 
+maps to
 .SM CTRL-\fIX\fR
 for any appropriate character
 .I X
@@ -1442,7 +1442,7 @@ is described as
 .ft B
 .DT
 adm3\||\|lsi adm3,
-	am, bel=^G, clear=^Z, cols#80, cr=^M, cub1=^H, 
+	am, bel=^G, clear=^Z, cols#80, cr=^M, cub1=^H,
 	cud1=^J, ind=^J, lines#24,
 .fi
 .ft R
@@ -1529,11 +1529,11 @@ push
 .B %+ %\- %\(** %/ %m
 arithmetic
 .RB ( %m
-is mod): 
+is mod):
 .B push(pop(\|) op pop(\|))
 .TP
 .B %& %| %^
-bit operations: 
+bit operations:
 .B push(pop(\|) op pop(\|))
 .TP
 .B %= %> %<
@@ -1544,7 +1544,7 @@ logical operations:
 logical operations:  and, or
 .TP
 .B %! %~
-unary operations: 
+unary operations:
 .B push(op pop(\|))
 .TP
 .B %i
@@ -1555,7 +1555,7 @@ terminals)
 .RS
 .nf
 add 1 to first parm, if one parm present,
-or first two parms, if more than one 
+or first two parms, if more than one
 parm present
 .fi
 .RE
@@ -1697,7 +1697,7 @@ leaving the cursor where it is, this should be given as
 .BR el1 .
 If the terminal can clear from the current position to the end of the
 display, then this should be given as
-.BR ed . 
+.BR ed .
 .B ed
 is only defined from the first column of a line.
 (Thus, it can be simulated by a request to delete a large number of lines,
@@ -2730,8 +2730,8 @@ is in effect.
 .LP
 The working model used by
 .B terminfo
-fits most terminals reasonably well.  
-However, some terminals do not completely match that model, 
+fits most terminals reasonably well.
+However, some terminals do not completely match that model,
 requiring special support by
 .BR terminfo .
 These are not meant to be construed as

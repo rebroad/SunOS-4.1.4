@@ -81,8 +81,8 @@ The specified file descriptor does not refer to a transport endpoint.
 The transport provider is undergoing a state change.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .BR t_open (3N)

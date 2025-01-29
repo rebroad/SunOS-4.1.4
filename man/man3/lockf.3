@@ -44,7 +44,7 @@ checking for locks using
 and voluntarily observing the indicated read and write restrictions.
 .LP
 A locking call
-on an already locked file section 
+on an already locked file section
 fails, returning an error value
 or putting the call
 to sleep until that
@@ -134,7 +134,7 @@ Sections locked with
 or
 .SB F_TLOCK
 may contain all or part of an already locked section.
-They may also be partially or completely contained by 
+They may also be partially or completely contained by
 an already locked section.
 Where these overlapping or adjacent locked sections occur,
 they are combined into a single section.
@@ -145,7 +145,7 @@ fails and an error value is returned.
 .SB F_LOCK
 and
 .SB F_TLOCK
-differ only in their response to 
+differ only in their response to
 requests for unavailable resources.
 If a section is already locked,
 .SB F_LOCK
@@ -166,7 +166,7 @@ request releases part of a section with overlapping
 locks, the remaining section or sections retain the lock.
 If
 .SB F_ULOCK
-removes the 
+removes the
 center of a locked section, the two separate
 locked sections remain, but
 an additional element is

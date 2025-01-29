@@ -100,11 +100,11 @@ remain, the excess
 .IR arg s
 are simply ignored.
 .LP
-Each conversion specification is introduced by either the 
-.B % 
-character or by the character sequence 
+Each conversion specification is introduced by either the
+.B %
+character or by the character sequence
 .BI % digit\c
-.BR $ , 
+.BR $ ,
 after which the following appear in sequence:
 .LP
 .RS
@@ -437,9 +437,9 @@ are printed as if
 .BR putc (3S)
 had been called.
 .LP
-All forms of the 
+All forms of the
 .B printf(\|)
-functions allow for the insertion of a language dependent radix character in 
+functions allow for the insertion of a language dependent radix character in
 the output string.
 The radix character is defined by the program's locale (category
 .BR \s-1LC_NUMERIC\s0 ).
@@ -449,41 +449,41 @@ locale, or in a locale where the radix character is not defined,
 the radix character defaults to
 .RB ` . '.
 .LP
-Conversions can be applied to the 
+Conversions can be applied to the
 .IR n th
 argument in the argument list, rather than the next unused argument.
-In this case, the conversion character 
+In this case, the conversion character
 .B %
 is replaced by the sequence
 .BI % digit\c
 .BR $ ,
-where 
+where
 .I digit
-is a decimal integer 
+is a decimal integer
 .I n
 in the range [1,9],
 giving the position of the argument in the argument list.
-This feature provides for the definition of format strings that 
+This feature provides for the definition of format strings that
 select arguments in an order appropriate to specific languages.
 .LP
-In format strings containing the 
+In format strings containing the
 .BI % digit $
 form of a conversion specification, a field
-width or precision may be indicated by the sequence 
+width or precision may be indicated by the sequence
 .BI * digit\c
 .BR $ ,
-where 
+where
 .I digit
 is a decimal integer in the range [1,9] giving the position in the
 argument list of an integer
 .I arg
-containing the field width or precision. 
+containing the field width or precision.
 .LP
-The 
+The
 format string
 can contain either numbered argument specifications (that is,
 .BI % digit $
-and 
+and
 .BI * digit\c
 .BR $ ),
 or unnumbered argument specifications (that is
@@ -548,7 +548,7 @@ printf(format, weekday, month, day, hour, min);
 .fi
 .RE
 .LP
-In American usage, 
+In American usage,
 .I format
 could be a pointer to the string:
 .LP
@@ -568,7 +568,7 @@ Sunday, July 3,10:02
 .fi
 .RE
 .LP
-Whereas for German usage, 
+Whereas for German usage,
 .I format
 could be a pointer to the string:
 .LP

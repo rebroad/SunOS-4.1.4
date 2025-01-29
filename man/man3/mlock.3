@@ -21,7 +21,7 @@ size_t len;
 .ft R
 .fi
 .IX mlock() "" "\fLmlock()\fP \(em lock pages in memory"
-.IX "memory management" mlock() "" \fLmlock()\fP 
+.IX "memory management" mlock() "" \fLmlock()\fP
 .IX "lock memory pages \(em \fLmlock()\fP"
 .IX munlock() "" "\fLmunlock()\fP \(em unlock pages in memory"
 .IX "memory management" munlock() "" \fLmunlock()\fP
@@ -32,8 +32,8 @@ size_t len;
 uses the mappings established for the address range [\fIaddr, addr + len\fP\^)
 to identify memory object pages to be locked in memory.
 If the page identified by a mapping changes, such as occurs when a copy of a
-writable 
-.SB MAP_PRIVATE 
+writable
+.SB MAP_PRIVATE
 page is made upon the first store, the lock will be transferred to the
 newly copied private page.
 .LP
@@ -45,7 +45,7 @@ A given page may be locked multiple times by executing an
 .B mlock(\|)
 through different mappings.  That is, if two different processes lock the same
 page then the page will remain locked until both processes remove their locks.
-However, within a given mapping, page locks do not nest \- multiple 
+However, within a given mapping, page locks do not nest \- multiple
 .B mlock(\|)
 operations on the same address in the same process will all be removed with a
 single
@@ -54,7 +54,7 @@ Of course, a page locked in one process and mapped in another (or visible
 through a different mapping in the locking process) is still locked in memory.
 This fact can be used to create applications that do nothing other than
 lock important data
-in memory, thereby avoiding page 
+in memory, thereby avoiding page
 I/O faults on references from other processes in
 the system.
 .LP
@@ -62,21 +62,21 @@ If the mapping through which an
 .B mlock(\|)
 has been performed is removed, an
 .B munlock(\|)
-is implicitly performed.  An 
+is implicitly performed.  An
 .B munlock(\|)
 is also performed implicitly when a page is deleted through file removal or
 truncation.
 .LP
 Locks established with
 .B mlock(\|)
-are not inherited by a child process after a 
+are not inherited by a child process after a
 .BR fork (2V).
 .LP
 Due to the impact on system resources, the use of
 .B mlock(\|)
-and 
+and
 .B munlock(\|)
-is restricted to the super-user. Attempts to 
+is restricted to the super-user. Attempts to
 .B mlock(\|)
 more memory than a system-specific limit will fail.
 .SH RETURN VALUES

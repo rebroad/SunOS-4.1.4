@@ -8,7 +8,7 @@ getopt \- parse command options in shell scripts
 .B $*`
 .br
 .B set argv = (`getopt
-.I opstring 
+.I opstring
 .B $*`)
 .SH AVAILABILITY
 This command is available with the

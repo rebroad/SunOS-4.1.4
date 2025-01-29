@@ -1,23 +1,23 @@
 .\" @(#)cat.1v 1.1 94/10/31 SMI; from UCB 4.2 BSD and S5r2
 .TH CAT 1V "19 July 1989"
 .SH NAME
-cat \- concatenate and display 
+cat \- concatenate and display
 .SH SYNOPSIS
 .B cat
 [
 .B \-
-] 
+]
 [
 .B \-benstuv
-] 
-[ 
+]
+[
 .IR filename .\|.\|.
 ]
 .SH SYSTEM V SYNOPSIS
 .B /usr/5bin/cat
 [
 .B \-
-] 
+]
 [
 .B \-estuv
 ]
@@ -58,7 +58,7 @@ If no filename argument is given, or if the argument
 is given,
 .B cat
 reads from the standard input.  If the standard input is
-a terminal, input is terminated by an 
+a terminal, input is terminated by an
 .SM EOF
 condition.
 .SH OPTIONS
@@ -86,8 +86,8 @@ Display non-printing characters, as
 .BR \-v ,
 and in addition display
 .SM TAB
-characters as 
-.B ^\|I 
+characters as
+.B ^\|I
 (\s-1CTRL-I\s0).
 .TP
 \-u
@@ -103,7 +103,7 @@ Display non-printing characters (with the exception of
 and
 .SM NEWLINE
 characters)
-so that they are visible.  Control characters print like 
+so that they are visible.  Control characters print like
 .B ^\|X
 for
 .SM CTRL-X\s0;
@@ -111,7 +111,7 @@ the
 .SM DEL
 character (octal 0177) print as
 .RB ` ^\|? '.
-Non-\s-1ASCII\s0 characters (with the high bit set) are displayed as 
+Non-\s-1ASCII\s0 characters (with the high bit set) are displayed as
 .BI M\- x
 where
 .B M\-
@@ -125,7 +125,7 @@ is the character specified by the seven low order bits.
 .B \-e
 If the
 .B \-v
-option is specified, display a 
+option is specified, display a
 .B $
 character at the end of each line.
 .TP
@@ -137,7 +137,7 @@ If the
 .B \-v
 option is specified, display
 .SM TAB
-characters as 
+characters as
 .B ^\|I
 (\s-1CTRL-I\s0) and
 .SM FORMFEED
@@ -180,7 +180,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .br

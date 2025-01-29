@@ -100,7 +100,7 @@ on its command line, or interpret commands from a script.
 .IX  "C shell" "argument list processing"
 .TP
 .B \-b
-Force a \*(lqbreak\*(rq from option processing. 
+Force a \*(lqbreak\*(rq from option processing.
 Subsequent command-line arguments are not interpreted as C shell options.
 This allows the passing of options to a script without confusion.
 The shell does not run a set-user-\s-1ID\s0 script unless this option
@@ -118,7 +118,7 @@ Exit if a command terminates abnormally or yields a nonzero exit
 status.
 .TP
 .B \-f
-Fast start. 
+Fast start.
 Read neither the
 .B \&.cshrc
 file, nor the
@@ -126,7 +126,7 @@ file, nor the
 file (if a login shell) upon startup.
 .TP
 .B \-i
-Forced interactive. 
+Forced interactive.
 Prompt for command-line input, even if the standard
 input does not appear to be a terminal (character-special device).
 .TP
@@ -138,15 +138,15 @@ This option can be used to check C shell scripts for syntax errors.
 Take commands from the standard input.
 .TP
 .B \-t
-Read and execute a single command line. 
-A 
+Read and execute a single command line.
+A
 .RB ` \e '
 (backslash) can be used to escape each
 .SM NEWLINE
 for continuation of the command line onto subsequent input lines.
 .TP
 .B \-v
-Verbose. 
+Verbose.
 Set the
 .B verbose
 predefined variable; command input is
@@ -221,7 +221,7 @@ You can exclude files with certain suffixes by listing those
 suffixes in the variable
 .BR fignore .
 If, however, the only possible completion includes a suffix in
-the list, it is not ignored. 
+the list, it is not ignored.
 .B fignore
 does not affect the
 listing of filenames by the
@@ -336,7 +336,7 @@ the pipeline.
 .LP
 Pipelines can be separated by semicolons
 .RB (\| ; \|),
-in which case they are executed sequentially. 
+in which case they are executed sequentially.
 Pipelines that are separated by
 .B &&
 or
@@ -403,7 +403,7 @@ or
 .BR ( .
 .TP
 .B !!
-Refer to the previous command. 
+Refer to the previous command.
 By itself, this substitution
 repeats the previous command.
 .TP
@@ -432,7 +432,7 @@ Insulate a history reference from adjacent characters (if necessary).
 A
 .RB ` : '
 (colon)
-separates the event specification from the word designator. 
+separates the event specification from the word designator.
 It can be omitted if the word designator begins with a
 .BR \*^ ,
 .BR $ ,
@@ -450,7 +450,7 @@ both refer to the first word of the previous command, while
 .B !!$
 and
 .B !$
-both refer to the last word in the previous command. 
+both refer to the last word in the previous command.
 Word designators include:
 .RS
 .TP
@@ -571,10 +571,10 @@ A backslash quotes the delimiter character.
 The character
 .BR & ,
 in the right hand side, is replaced by the text
-from the left-hand-side. 
+from the left-hand-side.
 The
 .B &
-can be quoted with a backslash. 
+can be quoted with a backslash.
 A null
 .I l
 uses the previous string either from a
@@ -626,11 +626,11 @@ actual command-line arguments when the alias is used.
 If no
 history substitution is called for, the arguments remain unchanged.
 .LP
-Aliases can be nested. 
+Aliases can be nested.
 That is, an alias definition can contain
 the name of another alias.
 Nested aliases are expanded before any
-history substitutions is applied. 
+history substitutions is applied.
 This is useful in pipelines such as
 .IX \e!* "" "\fL\e!*\fR\ \ \ \(em alias substitution, include command-line arguments \(em \fLcsh\fR"
 .IP
@@ -644,7 +644,7 @@ through
 .BR more (1).
 .LP
 Except for the first word, the name of the alias may not appear in its
-definition, nor in any alias referred to by its definition. 
+definition, nor in any alias referred to by its definition.
 Such loops are detected, and cause an error message.
 .SS I/O Redirection
 .IX "I/O redirection in the C shell"
@@ -749,7 +749,7 @@ Variable substitution can be suppressed by preceding the
 .B $
 with a
 .BR \e ,
-except within double-quotes where it always occurs. 
+except within double-quotes where it always occurs.
 Variable substitution is suppressed inside of single-quotes.
 A
 .B $
@@ -764,7 +764,7 @@ Variables can be created, displayed, or destroyed using the
 .B set
 and
 .B unset
-commands. 
+commands.
 Some variables are maintained or used by the shell.
 For instance, the
 .B argv
@@ -939,7 +939,7 @@ in a subshell, after I/O redirection is performed.
 .LP
 A command enclosed by backquotes
 .RB (\| \` \|.\|.\|.\| \` \|)
-is performed by a subshell. 
+is performed by a subshell.
 Its standard output is broken into separate words at each
 .SM SPACE
 character,
@@ -948,7 +948,7 @@ and
 .SM NEWLINE\s0;
 null words are discarded.
 This text replaces the backquoted
-string on the current command line. 
+string on the current command line.
 Within double-quotes, only
 .SM NEWLINE
 characters force new words;
@@ -989,7 +989,7 @@ Match any single character.
 .TP
 .BR [ " .\|.\|. " ]
 Match any single character in the enclosed list(s) or range(s).
-A list is a string of characters. 
+A list is a string of characters.
 A range is two characters separated by a minus-sign
 .RB ( \- ),
 and includes all the characters in between in the
@@ -1180,7 +1180,7 @@ Also available are file inquiries:
 .PD 0
 .TP 10
 .BI \-r " filename"
-Return true, or 1 if the user has read access. 
+Return true, or 1 if the user has read access.
 Otherwise it returns false, or 0.
 .TP
 .BI \-w " filename"
@@ -1304,7 +1304,7 @@ in the name of the script and there is an alias for the word
 .BR shell ,
 the expansion of the
 .B shell
-alias is prepended (without modification), to the command line. 
+alias is prepended (without modification), to the command line.
 The system attempts to execute the first word of this special
 (late-occurring) alias, which should be a full pathname.
 Remaining words of the alias's definition, along with the text of the
@@ -1963,7 +1963,7 @@ Hours (for
 .TP
 .IB n k
 .I n
-kilobytes. 
+kilobytes.
 This is the default for all but
 .BR cputime .
 .TP
@@ -2653,12 +2653,12 @@ once in the
 .B \&.cshrc
 or
 .B \&.login
-file. 
+file.
 The environment variable
 .SB PWD
 is set from
 .B cwd
-whenever the latter changes. 
+whenever the latter changes.
 The following shell variables have predefined meanings:
 .TP 18
 .B argv
@@ -2819,7 +2819,7 @@ is initialized from the environment variable
 which the C shell updates whenever
 .B path
 changes.
-A null word specifies the current directory. 
+A null word specifies the current directory.
 The default is typically:
 .BR "(. /usr/ucb /usr/bin)" .
 If
@@ -2891,7 +2891,7 @@ all other built-in commands set status to 0.
 Control automatic timing of commands.  Can be supplied with one or two
 values.  The first is the reporting threshold in
 .SM CPU
-seconds. 
+seconds.
 The second is a string of tags and text indicating which resources
 to report on.
 A tag is a percent sign
@@ -2934,7 +2934,7 @@ E (elapsed) time.
 .TP
 .B %S
 Number of seconds of
-.SM CPU 
+.SM CPU
 time consumed by the kernel on behalf of the
 user's process.
 .TP
@@ -2996,7 +2996,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 .IX  "C shell variables"  ""  ""  ""  PAGE END
@@ -3122,7 +3122,7 @@ substitution is allowed.
 The
 .B g
 (global) flag in history substitutions applies only to the first
-match in each word, rather than all matches in all words. 
+match in each word, rather than all matches in all words.
 The standard text editors consistently do the latter when given the
 .B g
 flag in a substitution command.
@@ -3131,7 +3131,7 @@ Quoting conventions are confusing.  Overriding the
 escape character to force variable substitutions within double
 quotes is counterintuitive and inconsistent with the Bourne shell.
 .LP
-Symbolic links can fool the shell. 
+Symbolic links can fool the shell.
 Setting the
 .B hardpaths
 variable alleviates this.

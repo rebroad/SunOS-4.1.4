@@ -13,9 +13,9 @@ char *lang;
 .SH DESCRIPTION
 .IX "nl_init()" "" "\fLnl_init()\fR \(em initialize NLS operation" ""
 .LP
-.B nl_init(\|) 
-initializes 
-.SM NLS 
+.B nl_init(\|)
+initializes
+.SM NLS
 operation for the language identified by
 .IR lang ,
 which is a pointer to a string containing settings of
@@ -28,9 +28,9 @@ as defined for the
 environment variable (see
 .B environ (5V)).
 .LP
-Typically, 
+Typically,
 .B nl_init(\|)
-is used to bind program operation to the user's specified 
+is used to bind program operation to the user's specified
 language requirements, that is
 .LP
 .RS
@@ -43,16 +43,16 @@ A call to
 .B nl_init(\|)
 will fail if the string pointed to by
 .I lang
-does not identify a valid 
+does not identify a valid
 .IR language / territory / codeset
 combination.
-If 
+If
 .B nl_init(\|)
 has already been called successfully,
 operation will continue for the language identified on the last
 successful call.
 Otherwise, if
-.B nl_init(\|) 
+.B nl_init(\|)
 has not already been called successfully,
 the various
 .SM NLS
@@ -69,11 +69,11 @@ otherwise, \-1 is returned.
 .BR environ (5V)
 .SH APPLICATION USAGE
 .LP
-An internationalized application program will not provide the 
+An internationalized application program will not provide the
 correct language operation until
 .B nl_init(\|)
 has been called successfully.
 Subsequent calls to
 .B nl_init(\|)
-can be used to switch operation from one 
+can be used to switch operation from one
 supported language to another.

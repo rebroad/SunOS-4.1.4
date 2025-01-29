@@ -219,8 +219,8 @@ to indicate the error.
 .SH ERRORS
 .TP 15
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .BR open (2V),

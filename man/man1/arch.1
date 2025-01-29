@@ -2,7 +2,7 @@
 .\" @(#)arch.1 1.1 94/10/31 SMI; from UCB 4.1
 .TH ARCH 1 "29 April 1992"
 .SH NAME
-arch \- display the architecture of the current host 
+arch \- display the architecture of the current host
 .SH SYNOPSIS
 .B arch
 .br
@@ -24,19 +24,19 @@ which define what executables will run
 on which machines.
 A distinction can be made between
 .I kernel architecture
-and 
+and
 .I application architecture
 (or, commonly, just \*(lqarchitecture\*(rq).
 Machines that run different kernels due to underlying
 hardware differences may be able to run the same
-application programs. 
+application programs.
 For example, the MC68020-based
 Sun-3/160 system
 and the MC68030-based Sun-3/80 system run different
 Sun\s-1OS\s+1 kernels,
 but can execute the same applications.
 These machines could be described as having \*(lqthe
-same application architecture\*(rq but 
+same application architecture\*(rq but
 \*(lqdifferent kernel architectures.\*(rq
 .LP
 Executing
@@ -92,7 +92,7 @@ _
 sun386;sun386;386i/150, 386i/250
 .sp 3p
 .TE
-.IG 
+.IG
 .\"  ========= end troff version of table =========
 .\"  ========= begin nroff version of table =======
 .if t .ig IG
@@ -143,7 +143,7 @@ that depend on the kernel explicitly (for example,
 etc.).
 .TP
 .I archname
-Return \*(lqtrue\*(rq (exit status 0) if 
+Return \*(lqtrue\*(rq (exit status 0) if
 .I application
 binaries for
 .I archname

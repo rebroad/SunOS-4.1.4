@@ -139,7 +139,7 @@ would look like this:
      x    |    y
      a         a
      b    <
-     c    < 
+     c    <
      d         d
           >    c
 .fi

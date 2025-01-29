@@ -25,7 +25,7 @@ tape st1 at sc0 drive 050 flags 1
 .LP
 The first two
 .B controller
-lines above specify the first and second 
+lines above specify the first and second
 .SM SCSI
 host adapters for Sun-3, Sun-3/400, Sun-4,
 and \s-1SPARC\s0system 400
@@ -38,7 +38,7 @@ host adapter on Sun-3/50 and Sun-3/60 systems.
 .LP
 Following the
 .B controller
-specification lines are eight lines which define the available 
+specification lines are eight lines which define the available
 .B tape
 devices,
 .BR st0 \- st7 .
@@ -49,7 +49,7 @@ devices,
 are on the first
 .BR controller ,
 .BR si0 .
-The next four 
+The next four
 .B tape
 devices,
 .BR st4 \- st7
@@ -97,8 +97,8 @@ logical unit number.
 Note the drive number is displayed in octal and not decimal as was
 done in earlier releases.
 For boot proms, this unit number must be specified in hex rather than decimal;
-for example, 
-.B st4 
+for example,
+.B st4
 is unit 20, not 32 (decimal) or 040 (octal).
 .LP
 The next configuration block, following
@@ -134,7 +134,7 @@ For small configurations, only the on-board controller,
 is used.  For larger configurations, a second controller,
 .BR si1 ,
 is added.
-This configuration follows the same rules described above in 
+This configuration follows the same rules described above in
 the first
 .SM CONFIG
 section.
@@ -223,7 +223,7 @@ tape st4 at sm0 drive 020 flags 1
 .ft R
 .fi
 .LP
-Sun-3/80 systems use an on-board 
+Sun-3/80 systems use an on-board
 .SM SCSI
 host adapter,
 .BR sm0 ,
@@ -309,7 +309,7 @@ the
 and
 the Exabyte EXB-8200/8500 8mm cartridge tape subsystem.
 .B st
-provides a standard interface to these various devices; see 
+provides a standard interface to these various devices; see
 .BR mtio (4)
 for details.
 .LP
@@ -317,7 +317,7 @@ The driver can be opened with either rewind on close
 .RB ( /dev/rst* )
 or no rewind on close
 .RB ( /dev/nrst* )
-options. 
+options.
 A maximum of four tape formats per device are supported
 (see
 .SM FILES
@@ -355,13 +355,13 @@ Note: if the
 .B /dev/*st[0\-7]
 format is used, no indication is given that the driver has
 overridden the user selected format.
-Other formats issue a warning message 
+Other formats issue a warning message
 to inform the user of an overridden format selection.
 Some devices automatically perform
 this function and do not require driver support
 (1/2\*(rq reel and
 .SM QIC\s0\-150
-tape drives, for example).  
+tape drives, for example).
 .SS Write Operation
 .LP
 Writing from the beginning of tape is performed
@@ -378,9 +378,9 @@ thus it is not possible to write past \s-1EOT\s0.
 All other drives have a logical end of tape (\s-1LEOT\s0) before
 .SM PEOT
 to guarantee flushing the data onto the tape.
-The amount of storage between 
-.SM LEOT 
-and 
+The amount of storage between
+.SM LEOT
+and
 .SM PEOT
 varies from less than a megabyte to about 20 megabytes depending on the tape
 drive.  Further writing, except for trailer records, is inhibited to
@@ -398,9 +398,9 @@ at which time it is possible to write trailer records
 after first writing an \s-1EOF\s0.
 .LP
 The Desktop SPARCsystems tape driver differs in EOT handling and
-supports writing trailer records without first writing an \s-1EOF\s0. 
+supports writing trailer records without first writing an \s-1EOF\s0.
 The first write that encounters EOT will return a short count or zero.
-If a short count is returned, then the next write will return zero. 
+If a short count is returned, then the next write will return zero.
 After a zero count is returned, the next write returns a full count or
 short count. A following write will return zero again.
 .LP
@@ -409,11 +409,11 @@ small as possible to prevent data loss.  For this reason,
 this practice is not recommended.
 .LP
 Reading past logical
-.SM EOT 
+.SM EOT
 is transparent to the user.  Reading is only stopped by reading \s-1EOF\s0's.
 For 1/2\*(rq reel devices, it is possible to read off the end of the reel
 if you read past the two file marks which mark the end of recorded media.
-All other devices have safeguards to eliminate this problem. 
+All other devices have safeguards to eliminate this problem.
 .SS Ioctls
 .LP
 The behavior of
@@ -421,8 +421,8 @@ The behavior of
 tape positioning ioctls
 is the same across all devices which support them.
 However, not all devices support all ioctls.
-The driver returns an 
-.SM ENOTTY 
+The driver returns an
+.SM ENOTTY
 error on unsupported ioctls.
 .LP
 The retension ioctl only applies to 1/4\*(rq cartridge tape devices.
@@ -430,18 +430,18 @@ It is used to restore tape tension, thus improving the tape's soft error rate
 after extensive start-stop operations
 or long-term storage.
 .LP
-Note: the error status is reset by the 
-.SB MTIOCGET 
+Note: the error status is reset by the
+.SB MTIOCGET
 get status ioctl call or
 the next read, write, or other ioctl operation.
 If no error has occurred (sense key is zero), the current
 file and record position is returned.
-.SH ERRORS 
+.SH ERRORS
 .TP 12
 .SM EACCES
 The driver is opened for write access and the tape is
 write protected.  For writing with
-.SM QIC\s0\-150 
+.SM QIC\s0\-150
 tape drives, this error is also reported if the wrong tape media
 is used for writing.
 .TP
@@ -456,7 +456,7 @@ The number of bytes read or written is not a multiple
 of the physical record size (fixed-length tape
 devices only).
 .TP
-.SM EIO\ \ 
+.SM EIO\ \
 During opening, the tape device is not ready because either
 no tape is in the drive, or the drive is not on-line.  Once open,
 this error is returned if the requested I/O
@@ -477,86 +477,86 @@ drive cannot be used until the other system releases it.
 .br
 .ne 7
 .SH FILES
-.LP 
+.LP
 For 1/2\*(rq reel tape devices (\s-1HP\s0-88780):
 .PD 0
 .TP 20
-.B /dev/rst[0\-7]\ \ 	
+.B /dev/rst[0\-7]\ \
 800 \s-1BPI\s0 density
 .TP
-.B /dev/rst[8\-15]\ 	
+.B /dev/rst[8\-15]\
 1600 \s-1BPI\s0 density
 .TP
-.B /dev/rst[16\-23]	
+.B /dev/rst[16\-23]
 6250 \s-1BPI\s0 density
 .TP
-.B /dev/rst[24\-31]	
+.B /dev/rst[24\-31]
 data compression
 .TP
-.B /dev/nrst[0\-7] 	
+.B /dev/nrst[0\-7]
 non\-rewinding 800 \s-1BPI\s0 density
 .TP
-.B /dev/nrst[8\-15]	
+.B /dev/nrst[8\-15]
 non\-rewinding 1600 \s-1BPI\s0 density
 .TP
-.B /dev/nrst[16\-23]	
+.B /dev/nrst[16\-23]
 non\-rewinding 6250 density
 .TP
-.B /dev/nrst[24\-31]	
+.B /dev/nrst[24\-31]
 non\-rewinding data compression
 .sp .5
 .LP
-For helical-scan tape devices (Exabyte): 
+For helical-scan tape devices (Exabyte):
 .TP 20
-.B /dev/rst[0\-7]\    	
+.B /dev/rst[0\-7]\
 Standard EXB-8200 (2GB) Format
 .TP
-.B /dev/rst[8\-15] 	
+.B /dev/rst[8\-15]
 EXB-8500 (5GB) Format
 .TP
-.B /dev/rst[16\-23]	
+.B /dev/rst[16\-23]
 Compressed Format (EXB-8500 only)
 .TP
-.B /dev/rst[24\-31]	
+.B /dev/rst[24\-31]
 Compressed Format (EXB-8500 only)
 .TP
-.B /dev/nrst[0\-7] 	
+.B /dev/nrst[0\-7]
 non-rewinding Standard  EXB-8200 (2GB)Format
 .TP
-.B /dev/nrst[8\-15]	
+.B /dev/nrst[8\-15]
 non-rewinding EXB-8500 (5GB) Format
 .TP
-.B /dev/nrst[16\-23]	
+.B /dev/nrst[16\-23]
 non-rewinding Compressed Format (EXB-8500 only)
 .TP
-.B /dev/nrst[24\-31]	
+.B /dev/nrst[24\-31]
 non-rewinding Compressed Format (EXB-8500 only)
 .sp .5
 .LP
 For \s-1QIC\s0\-150 tape devices (Archive Viper):
 .TP 20
-.B /dev/rst[0\-7]\    	
+.B /dev/rst[0\-7]\
 \s-1QIC\s0\-150 Format
 .TP
-.B /dev/rst[8\-15] 	
+.B /dev/rst[8\-15]
 \s-1QIC\s0\-150 Format
 .TP
-.B /dev/rst[16\-23]	
+.B /dev/rst[16\-23]
 \s-1QIC\s0\-150 Format
 .TP
-.B /dev/rst[24\-31]	
+.B /dev/rst[24\-31]
 \s-1QIC\s0\-150 Format
 .TP
-.B /dev/nrst[0\-7] 	
+.B /dev/nrst[0\-7]
 non-rewinding \s-1QIC\s0\-150 Format
 .TP
-.B /dev/nrst[8\-15]	
+.B /dev/nrst[8\-15]
 non-rewinding \s-1QIC\s0\-150 Format
 .TP
-.B /dev/nrst[16\-23]	
+.B /dev/nrst[16\-23]
 non-rewinding \s-1QIC\s0\-150 Format
 .TP
-.B /dev/nrst[24\-31]	
+.B /dev/nrst[24\-31]
 non-rewinding \s-1QIC\s0\-150 Format
 .sp .2
 .LP
@@ -566,35 +566,35 @@ Note: The drive will automatically read both \s-1QIC\s0\-11 and
 .LP
 For \s-1QIC\s0\-24 tape devices (Emulex \s-1MT\s0\-02 and Sysgen \s-1SC\s04000):
 .TP 20
-.B /dev/rst[0\-7]\    	
+.B /dev/rst[0\-7]\
 \s-1QIC\s0\-11 Format
 .TP
-.B /dev/rst[8\-15] 	
+.B /dev/rst[8\-15]
 \s-1QIC\s0\-24 Format
 .TP
-.B /dev/rst[16\-23]	
+.B /dev/rst[16\-23]
 \s-1QIC\s0\-24 Format
 .TP
-.B /dev/rst[24\-31]	
+.B /dev/rst[24\-31]
 \s-1QIC\s0\-24 Format
 .TP
-.B /dev/nrst[0\-7] 	
+.B /dev/nrst[0\-7]
 non-rewinding \s-1QIC\s0\-11 Format
 .TP
-.B /dev/nrst[8\-15]	
+.B /dev/nrst[8\-15]
 non-rewinding \s-1QIC\s0\-24 Format
 .TP
-.B /dev/nrst[16\-23]	
+.B /dev/nrst[16\-23]
 non-rewinding \s-1QIC\s0\-24 Format
 .TP
-.B /dev/nrst[24\-31]	
+.B /dev/nrst[24\-31]
 non-rewinding \s-1QIC\s0\-24 Format
 .sp .2
 .LP
-Note:  
+Note:
 .SM QIC\s0\-24
 is the preferred format for all systems except Sun-2's.
-For Sun-2 systems, 
+For Sun-2 systems,
 .SM QIC\s0\-11 is preferred.
 .sp 1
 .LP
@@ -605,11 +605,11 @@ names.
 .PD
 .SH SEE ALSO
 .BR cpio (1),
-.BR mt (1), 
-.BR tar (1), 
-.BR mtio (4), 
-.BR dump (8), 
-.BR restore (8) 
+.BR mt (1),
+.BR tar (1),
+.BR mtio (4),
+.BR dump (8),
+.BR restore (8)
 .br
 .ne 6
 .SH DIAGNOSTICS
@@ -703,7 +703,7 @@ st?:  warning, The tape may be wearing out or the head may need cleaning.
 .in +5m
 The number of allowable records re-read or re-written
 (e.g. soft errors) has exceeded the specified limit for
-the tape media.  This indicates the tape media is 
+the tape media.  This indicates the tape media is
 wearing out.  No data loss has occurred on the tape yet.  This
 message is an early warning that continued usage will result
 in unrecoverable errors.  Continued usage of this
@@ -791,8 +791,8 @@ st?:  tape synchronization lost
 .ft R
 .fi
 .in +5m
-The user hit 
-.SM CTRL\-C 
+The user hit
+.SM CTRL\-C
 while a tape operation was in progress, causing the tape position
 to be lost.  The tape will be rewound on the next open to
 resynchronize.  Note:  other signals may also have a similar
@@ -831,7 +831,7 @@ Foreign tape devices which do not return a
 status during tape
 loading prevent user commands from being held
 until the device is ready.  The user must delay
-issuing any tape operations until the tape device is 
+issuing any tape operations until the tape device is
 ready.  This is not a problem for Sun-supplied tape
 devices.
 .LP
@@ -839,7 +839,7 @@ Foreign tape devices which do not report a blank check
 error at the end of recorded media cause
 file positioning operations to fail.
 Some tape drives, for example, mistakenly report media error
-instead of blank check error. 
+instead of blank check error.
 .LP
 Systems using the older
 .B sc0
@@ -847,7 +847,7 @@ host adapter or the
 Sysgen
 .SM SC\s04000
 tape controller prevent disk I/O
-over the 
+over the
 .SM SCSI
 bus while the tape is in use (during a rewind, for example).
 This problem is caused by the fact that they do not
@@ -865,6 +865,6 @@ format.  This can be determined using
 .BR mt (1).
 .SH WARNINGS
 .LP
-The Sysgen 
-.SM SC\s04000 
+The Sysgen
+.SM SC\s04000
 tape controller is being obsoleted.

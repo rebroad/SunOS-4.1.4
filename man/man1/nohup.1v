@@ -55,9 +55,9 @@ or input from the next user.
 Processes run by
 .B nohup
 are immune to
-.SM HUP 
+.SM HUP
 (hangup)
-and 
+and
 .SM QUIT
 (quit)
 signals;

@@ -6,25 +6,25 @@ error \- categorize compiler error messages, insert at responsible source file l
 .B error
 [
 .B \-n
-] 
+]
 [
 .B \-s
-] 
+]
 [
 .B \-q
-] 
+]
 [
 .B \-v
-] 
+]
 [
 .B \-t
 .I suffixlist
-] 
+]
 .if n .ti 0.5i
 [
 .B \-I
 .I ignorefile
-] 
+]
 [
 .I filename
 ]
@@ -41,7 +41,7 @@ and permits error messages and source
 code to be viewed simultaneously.
 .LP
 .B error
-looks at error messages, either from the specified file 
+looks at error messages, either from the specified file
 .I filename
 or from the standard input, and:
 .IP \(bu 2
@@ -69,7 +69,7 @@ standard error file; others put their
 messages on the standard output.
 Hence, both error sources should be piped together into
 .B error.
-For example, when using the 
+For example, when using the
 .B csh
 syntax,
 .IP
@@ -138,7 +138,7 @@ and
 .RB ` * '
 wildcards work.  Thus the suffix list:
 .RS
-.IP 
+.IP
 .B .c.y.f*.h
 .RE
 .IP
@@ -167,7 +167,7 @@ does one of six things with error messages.
 .B synchronize
 Some language processors produce short errors describing
 which file they are processing.
-.B Error 
+.B Error
 uses these to determine the file name for languages that
 don't include the file name in each error message.
 These synchronization messages are consumed entirely by
@@ -233,7 +233,7 @@ at the beginning of the error, and
 at the end of the error.
 This makes pattern searching for errors
 easier with an editor, and allows
-the messages to be easily removed. 
+the messages to be easily removed.
 In addition, each error message contains
 the source line number for the line
 the message refers to.  A reasonably
@@ -253,7 +253,7 @@ same line as the end of a comment.
 .PD 0
 .TP 20
 .B ~/.errorrc
-function names to ignore for 
+function names to ignore for
 .B lint
 error messages
 .TP
@@ -279,7 +279,7 @@ Source files with links make a new copy of the file with
 only one link to it.
 .LP
 Changing a language processor's error message format
-may cause 
+may cause
 .B error
 to not understand the error message.
 .LP

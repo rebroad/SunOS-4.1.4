@@ -47,19 +47,19 @@ or if
 is specified, unexport all of the currently exported pathnames.
 .TP
 .B \-i
-Ignore the options in 
-.BR /etc/exports. 
-Normally, 
-.B exportfs 
+Ignore the options in
+.BR /etc/exports.
+Normally,
+.B exportfs
 will consult
-.BR /etc/exports 
+.BR /etc/exports
 for the options associated with the exported pathname.
 .TP
 .B \-u
 Unexport the indicated pathnames.
 .TP
 .B \-v
-Verbose. 
+Verbose.
 Print each directory or filename as it is exported or unexported.
 .TP
 .BI \-o " options"
@@ -95,7 +95,7 @@ The default value for this option is the
 of the user \*(lqnobody\*(rq.
 If the user \*(lqnobody\*(rq does not exist
 then the value 65534 is used.
-Setting the value of \*(lqanon\*(rq to 65535 disables anonymous access. 
+Setting the value of \*(lqanon\*(rq to 65535 disables anonymous access.
 Note: by default secure
 .SM NFS
 accepts insecure requests as anonymous,
@@ -130,7 +130,7 @@ accessing the directory.
 .SH FILES
 .PD 0
 .TP 20
-.B /etc/exports  
+.B /etc/exports
 static export information
 .TP
 .B /etc/xtab

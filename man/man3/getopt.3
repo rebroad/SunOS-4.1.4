@@ -112,7 +112,7 @@ which requires an option argument:
 				if (aflg)
 					errflg++;
 				else
- 					bproc (\|);
+					bproc (\|);
 				break;
 			case 'o':
 				ofile = optarg;
@@ -122,7 +122,7 @@ which requires an option argument:
 			}
 		if (errflg) {
 			(void)fprintf(stderr, "usage: . . . ");
- 			exit (2);
+			exit (2);
 		}
 		for (; optind < argc; optind++) {
 			if (access(argv[optind], 4)) {

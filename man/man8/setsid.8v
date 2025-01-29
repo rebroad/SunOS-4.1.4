@@ -38,13 +38,13 @@ this option will not be supported in future releases.
 Components of two SunLink products,
 .B /usr/sunlink/dni/dnilogind
 (the
-.SM DECNET 
+.SM DECNET
 analog of
 .BR rlogind (8C)
 and
 .B /usr/sunlink/x25/x29
-(the 
-.SM OSI 
+(the
+.SM OSI
 analog of
 .BR rlogind ),
 are known to need this wrapper.

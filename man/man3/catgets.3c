@@ -30,21 +30,21 @@ int buflen;
 .fi
 .SH DESCRIPTION
 .IX "catgets" "" "\fLcatgets\fR \(em read a program message" ""
-.LP 
-.B catgets(\|) 
-reads the message 
+.LP
+.B catgets(\|)
+reads the message
 .IR msg_num ,
 in set
 .IR set_num ,
-from the message catalog identified by 
-.IR catd . 
-.I catd 
+from the message catalog identified by
+.IR catd .
+.I catd
 is a catalog descriptor returned
-from an earlier call to 
-.BR catopen (3C). 
+from an earlier call to
+.BR catopen (3C).
 .I s
-points to a default message string which will be returned by 
-.B catgets(\|) 
+points to a default message string which will be returned by
+.B catgets(\|)
 if the identified message catalog is not currently available.
 The message-text is contained in an internal buffer
 area and should be copied by the application if it is
@@ -76,7 +76,7 @@ a pointer to
 .I s
 if it fails because the message catalog
 specified by
-.I catd 
+.I catd
 is not currently available.
 Otherwise,
 .B catgets(\|)

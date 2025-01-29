@@ -41,10 +41,10 @@ There is no signal control (no
 or
 .RB ` $i '),
 although the keyboard facilities
-(\s-1CTRL\-C\s0, 
-.SM CTRL\-S, 
+(\s-1CTRL\-C\s0,
+.SM CTRL\-S,
 and
-.SM CTRL\-Q\s0) 
+.SM CTRL\-Q\s0)
 are simulated.
 .LP
 While the kernel is running under
@@ -74,9 +74,9 @@ lB lB
 l lB .
 System	Monitor Command
 .sp .5
-Sun-2	g fd00000 
-Sun-3	g fd00000 
-Sun386i	g fe005000 
+Sun-2	g fd00000
+Sun-3	g fd00000
+Sun386i	g fe005000
 Sun-4	g ffc00000
 Sun-4c	go ffc00000
 Sun-4m	go ffc00000
@@ -98,9 +98,9 @@ Most
 commands function in
 .B kadb
 as expected.  Typing an abort sequence in response to
-the prompt (use 
-.B $q 
-on 
+the prompt (use
+.B $q
+on
 .B Sun-4m
 ) returns you to the
 .SM PROM
@@ -113,7 +113,7 @@ The
 .SM PROM
 monitor command
 .B c
-(or 
+(or
 .B go
 on Sun-4c/4m)
 will return control to
@@ -162,7 +162,7 @@ From here, you can enter a boot sequence line to load a
 standalone program.  Boot flags entered in response to this prompt
 are included with those already set
 and passed to the program.
-If you type a 
+If you type a
 .SM RETURN
 only,
 .B kadb
@@ -222,38 +222,38 @@ to start up the program.
 .\" Sun386i
 .SS Sun386i System Commands
 .LP
-The Sun386i system version of 
+The Sun386i system version of
 .B kadb
 has the following additional commands.
-Note, for the general syntax of 
+Note, for the general syntax of
 .B adb
-commands, see 
+commands, see
 .BR adb (1).
 .RS
 .TP 12
 .B :i
-Read a byte (with the 
-.SM INB 
-instruction) in from the port at 
+Read a byte (with the
+.SM INB
+instruction) in from the port at
 .IR address .
 .TP
 .BI :o
-Send a byte (with the 
+Send a byte (with the
 .SM OUTB
-instruction) containing 
+instruction) containing
 .I count
 out through the port at
 .IR address .
 .TP
 .BI :p
-Like 
+Like
 .B :b
-in 
+in
 .BR adb (1),
 but sets a breakpoint using the hardware debug register
 instead of the breakpoint instruction.  The advantage of
-using 
-.B :p 
+using
+.B :p
 is that when setting breakpoints with the debug
 register it is not necessary to have write access to
 the breakpoint location.  Four (4) breakpoints can be set with the hardware
@@ -263,20 +263,20 @@ debug registers.
 Switch I/O from the console to the serial port or vice versa.
 .TP
 .BI [
-Like 
-.B :e 
+Like
+.B :e
 in
 .BR adb (1),
-but requires only one keystroke and no 
+but requires only one keystroke and no
 .SM RETURN
 character.
 .TP
 .BI ]
-Like 
+Like
 .B :s
-in 
+in
 .BR adb (1),
-but requires only one keystroke and no 
+but requires only one keystroke and no
 .SM RETURN
 character.
 .RE

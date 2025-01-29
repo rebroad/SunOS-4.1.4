@@ -25,10 +25,10 @@ struct timeval *timeout;
 .LP
 .nf
 .ft B
-\s-1FD_SET\s0 (fd, &fdset)	
-\s-1FD_CLR\s0 (fd, &fdset)	
-\s-1FD_ISSET\s0 (fd, &fdset)	
-\s-1FD_ZERO\s0 (&fdset)	
+\s-1FD_SET\s0 (fd, &fdset)
+\s-1FD_CLR\s0 (fd, &fdset)
+\s-1FD_ISSET\s0 (fd, &fdset)
+\s-1FD_ZERO\s0 (&fdset)
 int fd;
 fd_set fdset;
 .fi
@@ -167,7 +167,7 @@ acceptable range:
 must be between 0 and
 .if t 10\u\s-38\s0\d,
 .if n 10^8,
-inclusive.  
+inclusive.
 .B t_usec
 must be greater than or equal to 0, and less than
 .if t 10\u\s-36\s0\d.

@@ -88,7 +88,7 @@ ln	str	^V	\*(lqliteral next\*(rq character
 lo	str	/usr/bin/login	program to exec when name obtained
 .br
 .ne 3
-ms	str	\s-1NULL\s0	list of terminal modes to set or clear 
+ms	str	\s-1NULL\s0	list of terminal modes to set or clear
 m0	str	\s-1NULL\s0	set modes that apply at the same time as those set by f0
 m1	str	\s-1NULL\s0	set modes that apply at the same time as those set by f1
 m2	str	\s-1NULL\s0	set modes that apply at the same time as those set by f2
@@ -127,21 +127,21 @@ c c l l
 cfB l l l .
 \fIName	Type	Default	Description\fP
 .sp .5
-ab	bool	false	read a \er first and guess the 
+ab	bool	false	read a \er first and guess the
 			baud rate from it
-ap	bool	false	terminal uses 7 bits, 
+ap	bool	false	terminal uses 7 bits,
 			any parity
 bd	num	0	backspace delay
-bk	str	0377	alternate end of line 
+bk	str	0377	alternate end of line
 			character (input break)
 cb	bool	false	use crt backspace mode
 cd	num	0	carriage-return delay
 ce	bool	false	use crt erase algorithm
 ck	bool	false	use crt kill algorithm
 cl	str	\s-1NULL\s0	screen clear sequence
-co	bool	false	console - add \s-1NEWLINE\s0 after 
+co	bool	false	console - add \s-1NEWLINE\s0 after
 			login prompt
-de	num	0	delay before first prompt is 
+de	num	0	delay before first prompt is
 			printed (seconds)
 ds	str	^Y	delayed suspend character
 dx	bool	false	set \s-1DECCTLQ\s0
@@ -151,21 +151,21 @@ ep	bool	false	terminal uses 7 bits, even
 er	str	^?	erase character
 et	str	^D	end of text (\s-1EOF\s0) character
 ev	str	\s-1NULL\s0	initial environment
-f0	num	unused	tty mode flags to write 
+f0	num	unused	tty mode flags to write
 			messages
-f1	num	unused	tty mode flags to read login 
+f1	num	unused	tty mode flags to read login
 			name
-f2	num	unused	tty mode flags to leave 
+f2	num	unused	tty mode flags to leave
 			terminal as
-fd	num	0	form-feed (vertical motion) 
+fd	num	0	form-feed (vertical motion)
 			delay
 fl	str	^O	output flush character
-hc	bool	false	do \s-1NOT\s0 hangup line on 
+hc	bool	false	do \s-1NOT\s0 hangup line on
 			last close
 he	str	\s-1NULL\s0	hostname editing string
 hn	str	hostname	hostname
 ht	bool	false	terminal has real tabs
-ig	bool	false	ignore garbage characters 
+ig	bool	false	ignore garbage characters
 			in login name
 im	str	\s-1NULL\s0	initial (banner) message
 in	str	^C	interrupt character
@@ -174,38 +174,38 @@ kl	str	^U	kill character
 lc	bool	false	terminal has lower case
 lm	str	login:	login prompt
 ln	str	^V	\*(lqliteral next\*(rq character
-lo	str	/usr/bin/login	program to exec when name 
+lo	str	/usr/bin/login	program to exec when name
 			obtained
 .br
 .ne 3
 ms	str	\s-1NULL\s0	list of terminal modes
-			to set or clear 
-m0	str	\s-1NULL\s0	set modes that apply at the same 
+			to set or clear
+m0	str	\s-1NULL\s0	set modes that apply at the same
 			time as those set by \fBf0\fR
-m1	str	\s-1NULL\s0	set modes that apply at the same 
+m1	str	\s-1NULL\s0	set modes that apply at the same
 			time as those set by \fBf1\fR
-m2	str	\s-1NULL\s0	set modes that apply at the same 
+m2	str	\s-1NULL\s0	set modes that apply at the same
 			time as those set by \fBf2\fR
 nd	num	0	\s-1NEWLINE\s0 (\s-1LINEFEED\s0) delay
-nl	bool	false	terminal has (or might have) 
+nl	bool	false	terminal has (or might have)
 			a \s-1NEWLINE\s0 character
-nx	str	default	next table (for auto speed 
+nx	str	default	next table (for auto speed
 			selection)
-op	bool	false	terminal uses 7 bits, 
+op	bool	false	terminal uses 7 bits,
 			odd parity
 os	num	unused	output speed
-p8	bool	false	terminal uses 8 bits, no 
+p8	bool	false	terminal uses 8 bits, no
 			parity
 pc	str	\\0	pad character
-pe	bool	false	use printer (hard copy) erase 
+pe	bool	false	use printer (hard copy) erase
 			algorithm
-pf	num	0	delay between first prompt 
+pf	num	0	delay between first prompt
 			and following flush (seconds)
-ps	bool	false	line connected to a \s-1MICOM\s0 
+ps	bool	false	line connected to a \s-1MICOM\s0
 			port selector
 qu	str	^\\	quit character
 rp	str	^R	line retype character
-rw	bool	false	do \s-1NOT\s0 use \s-1RAW\s0 for input, 
+rw	bool	false	do \s-1NOT\s0 use \s-1RAW\s0 for input,
 			use \s-1CBREAK\s0
 sp	num	0	line speed (input and output)
 su	str	^Z	suspend character
@@ -213,7 +213,7 @@ tc	str	none	table continuation
 td	num	0	tab delay
 to	num	0	timeout (seconds)
 tt	str	\s-1NULL\s0	terminal type (for environment)
-ub	bool	false	do unbuffered output (of 
+ub	bool	false	do unbuffered output (of
 			prompts etc)
 uc	bool	false	terminal is known upper case only
 we	str	^W	word erase character
@@ -300,7 +300,7 @@ The modes specified by
 .BR ms ,
 .BR m0 ,
 .BR m1 ,
-and 
+and
 .B m2
 are applied
 .I after
@@ -325,7 +325,7 @@ The
 .B cl
 screen clear string may be preceded by a (decimal) number of
 milliseconds of delay required
-(as with 
+(as with
 .BR termcap (5)).
 This delay is simulated
 by repeated use of the pad character

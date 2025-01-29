@@ -4,22 +4,22 @@
 cpio \- copy file archives in and out
 .SH SYNOPSIS
 .B "cpio \-o"
-[ 
-.B aBcv 
+[
+.B aBcv
 ]
 .br
 .B "cpio \-i"
-[ 
-.B bBcdfmrsStuv6 
-]  
-[ 
+[
+.B bBcdfmrsStuv6
+]
+[
 .I patterns
 ]
 .br
 .B "cpio \-p"
-[ 
+[
 .B adlmuv
-]  
+]
 .I directory
 .SH DESCRIPTION
 .IX  cpio  ""  "\fLcpio\fP \(em copy archives"
@@ -27,8 +27,8 @@ cpio \- copy file archives in and out
 .IX  archive  "cpio command"  "" "\fLcpio\fP \(em copy archive"
 .IX  copy  archives
 .B cpio
-copies files in to and out from a 
-.B cpio 
+copies files in to and out from a
+.B cpio
 copy archive.  The archive (built by
 .RB ` "cpio \-o" ')
 contains pathname and status information, along with the
@@ -36,7 +36,7 @@ contents of one or more archived files.
 .SH OPTIONS
 .TP
 .B \-o
-Copy out an archive.  Read the standard input for a list of 
+Copy out an archive.  Read the standard input for a list of
 pathnames, then copy the named files to the standard
 output in archive form \(em including pathname and status
 information.
@@ -47,7 +47,7 @@ Reset the access times of input files after they have been copied.
 .TP
 .B B
 Output is to be blocked at 5120 bytes to the record.  This does
-not apply to the 
+not apply to the
 .I pass
 option.  This option is only meaningful with data directed to
 raw magnetic devices, such as
@@ -61,9 +61,9 @@ information in
 character form for portability.
 .TP
 .B v
-Verbose. A list of filenames is displayed.  When used with the 
+Verbose. A list of filenames is displayed.  When used with the
 .B t
-option, the table of contents looks like the output of an 
+option, the table of contents looks like the output of an
 .RB ` "ls \-l" '
 command (see
 .BR ls (1V)).
@@ -82,19 +82,19 @@ or
 .BR csh (1),
 save that
 within
-.BR cpio , 
-the metacharacters 
-.RB ` ? ', 
+.BR cpio ,
+the metacharacters
+.RB ` ? ',
 .RB ` * '
 and
-.RB ` "[ " .\|.\|.\| " ]" ' 
+.RB ` "[ " .\|.\|.\| " ]" '
 also match the
 .RB ` / '
-(slash) 
+(slash)
 character.  If no
 .I patterns
-are specified, the default is 
-.B * 
+are specified, the default is
+.B *
 (select all files).
 .RS
 .TP
@@ -103,7 +103,7 @@ Swap both bytes and half-words after reading in data.
 .TP
 .B B
 Input is to be blocked at 5120 bytes to the record.  This does
-not apply to the 
+not apply to the
 .I pass
 option.  This option is only meaningful with data received from
 raw magnetic devices, such as
@@ -140,23 +140,23 @@ of the input archive.  No files are created.
 .TP
 .B u
 Copy unconditionally.
-Normally, an older file will not replace a newer file with the same 
+Normally, an older file will not replace a newer file with the same
 name.
 .TP
 .B 6
 Process
-.SM UNIX 
-Version-6 files.  
+.SM UNIX
+Version-6 files.
 .RE
 .TP
 .B \-p
-One pass.  Copy in and out in a single operation.  Destination 
+One pass.  Copy in and out in a single operation.  Destination
 pathnames are interpreted relative to the named
 .IR directory .
 .RS
 .TP
 .B l
-Whenever possible, link files rather than copying them.  
+Whenever possible, link files rather than copying them.
 .RE
 .SH EXAMPLES
 .LP
@@ -168,7 +168,7 @@ To read a cpio archive from a tape drive:
 .IP
 .B "example% cpio -icdB < /dev/rmt0"
 .LP
-To duplicate the 
+To duplicate the
 .B olddir
 directory hierarchy in the
 .B newdir
@@ -199,7 +199,7 @@ can be handled more efficiently by:
 archive tapes from other sites may have bytes swapped
 within the archive.  Although the
 .B \-is
-option only 
+option only
 swaps the data bytes and not those in the header
 .B cpio
 recognizes tapes like this and swaps the bytes in the header
@@ -218,7 +218,7 @@ automatically.
 does not support multiple volume tapes.
 .LP
 Pathnames are restricted to 128 characters.  If there are too many
-unique linked files, 
+unique linked files,
 .B cpio
 runs out of memory and linking information is lost
 thereafter.  Only the super-user can copy special files.

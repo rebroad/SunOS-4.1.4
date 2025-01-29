@@ -108,12 +108,12 @@ main( )
 	struct info \(**info_ptr = info_space;
 	\s-1ENTRY\s+1 item, \(**found_item, \(**hsearch( );
 	/\(** name to look for in table \(**/
-	char name_to_find[30];	
+	char name_to_find[30];
 	int i = 0;
 	/\(** create table \(**/
 	(void) hcreate(\s-1NUM_EMPL\s+1);
 	while (scanf("%s%d%d", str_ptr, &info_ptr\(mi>age,
-	       &info_ptr\(mi>room) !=
+		   &info_ptr\(mi>room) !=
 \s-1EOF\s0 && i++ <
 \s-1NUM_EMPL\s0) {
 		/\(** put info in structure, and structure in item \(**/
@@ -128,17 +128,17 @@ main( )
 	/\(** access table \(**/
 	item.key = name_to_find;
 	while (scanf("%s", item.key) != \s-1EOF\s0) {
-	    if ((found_item = hsearch(item,
+		if ((found_item = hsearch(item,
 \s-1FIND\s0)) != \s-1NULL\s0) {
 		/\(** if item is in the table \(**/
 		 (void)printf("found %s, age = %d, room = %d\en",
 			found_item\(mi>key,
 			((struct info \(**)found_item\(mi>data)\(mi>age,
 			((struct info \(**)found_item\(mi>data)\(mi>room);
-	    } else {
+		} else {
 		 (void)printf("no such employee %s\en",
 			name_to_find);
-	    }
+		}
 	}
 }
 .ft R

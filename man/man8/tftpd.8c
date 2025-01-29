@@ -36,11 +36,11 @@ This server is normally started by
 and operates at the port indicated in the
 .B tftp
 Internet service description in the
-.BR /etc/inetd.conf 
+.BR /etc/inetd.conf
 file; see
 .BR inetd.conf (5)
 for details.
-The default 
+The default
 .B /etc/inetd.conf
 file starts this server in secure mode, that is, with the
 .B \-s
@@ -50,7 +50,7 @@ To run unsecure
 modify this file and remove the
 .B \-s
 option.
-.LP 
+.LP
 Before responding to a request, the server attempts to change its
 current directory to
 .IR homedir ;
@@ -61,29 +61,29 @@ The
 .B tftpd
 daemon
 acts as described above, except that it will perform certain filename
-mapping operations unless instructed otherwise by the 
+mapping operations unless instructed otherwise by the
 .B \-p
 command line argument
 or when operating in a secure environment.
 This mapping affects only
 .SM TFTP
-boot requests and will not affect requests 
+boot requests and will not affect requests
 for existing files.
 .LP
 The semantics of the changes are as follows. Only filenames of the format
 .I ip-address
 or
 .IB ip-address .  arch,
-where 
+where
 .I ip-address
-is the IP address in hex, and 
+is the IP address in hex, and
 .I arch
 is the hosts's architecture (as returned by the
 .BR arch (1)
 command),
 that do not correspond to files in
 .BR /tftpboot ,
-are mapped. 
+are mapped.
 If the address is known through a
 Network Information Service
 (\s-1NIS\s0)
@@ -92,15 +92,15 @@ lookup, any file of the form
 (with or without a suffix) is returned. If there are multiple such files,
 any one may be returned. If the
 .I ip-address
-is unknown (that is if the 
+is unknown (that is if the
 .B ipalloc  (8C)
 service says the name service does not know the address), the filename
-is mapped as follows: Names without the 
-.I arch 
+is mapped as follows: Names without the
+.I arch
 suffix are mapped into the name
-.BR pnp.\s-1SUN3\s0 , 
-and names with the suffix are mapped into 
-\fBpnp. \fIarch\fR. 
+.BR pnp.\s-1SUN3\s0 ,
+and names with the suffix are mapped into
+\fBpnp. \fIarch\fR.
 That file is returned if it exists.
 .SH OPTIONS
 .TP
@@ -113,7 +113,7 @@ This option is set in the default
 file.
 .IP
 The use of
-.B tftp  
+.B tftp
 does not require an account or password on the remote system.
 Due to the lack of authentication information,
 .B tftpd
@@ -123,7 +123,7 @@ this extends the concept of \*(lqpublic\*(rq to include all users on all
 hosts that can be reached through the network; this may not be
 appropriate on all systems, and its implications should be considered
 before enabling this service.
-.PP 
+.PP
 .B tftpd
 runs with the user
 .SM ID
@@ -133,8 +133,8 @@ and group
 (\s-1GID\s0)
 set to
 .BR \-2 ,
-under the assumption that no files exist with that owner or group. 
-However, nothing checks this assumption or enforces this restriction. 
+under the assumption that no files exist with that owner or group.
+However, nothing checks this assumption or enforces this restriction.
 .SH Sun386i OPTIONS
 .TP
 .B \-p
@@ -149,7 +149,7 @@ filenames are IP addresses
 .BR ipallocd (8C),
 .BR netconfig (8C),
 .LP
-Sollins, K.R., 
+Sollins, K.R.,
 .IR "The \s-1TFTP\s0 Protocol (Revision 2)" ,
 .SM RFC\s0 783,
 Network Information Center,
@@ -163,7 +163,7 @@ June 1981.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 .SH "Sun386i WARNINGS"
@@ -173,5 +173,5 @@ A request for an
 from a Sun-4 can be satisfied by a file named
 .IB ip-address .386
 for compatibility with some early Sun-4
-.SM PROM 
+.SM PROM
 monitors.

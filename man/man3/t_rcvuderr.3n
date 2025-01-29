@@ -120,8 +120,8 @@ No unit data error indication currently exists on the specified
 transport endpoint.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .br
 .ne 5

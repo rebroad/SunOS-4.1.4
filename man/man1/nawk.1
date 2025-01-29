@@ -15,7 +15,7 @@ nawk \- pattern scanning and processing language
 ]
 [
 .I variable
-.BI = value\fR 
+.BI = value\fR
 \&.\|.\|. ]
 [
 .IR filename \.\|.\|.\|]
@@ -47,7 +47,7 @@ and the enhanced,
 .\"
 .LP
 .B nawk
-scans each input 
+scans each input
 .I filename
 for lines that match any of a set of patterns specified in
 .IR program .
@@ -58,7 +58,7 @@ to protect it from the shell.
 For each pattern in
 .I program
 there may be an associated action performed
-when a line of a 
+when a line of a
 .I filename
 matches the pattern.
 The set of pattern-action statements may appear literally as
@@ -75,7 +75,7 @@ Specify the contents of
 as the source for the program.
 .TP
 .BI \-F " c"
-Set the input field separator to 
+Set the input field separator to
 .IR c .
 If the field separator is longer than one character,
 it is taken to be a regular expression, and should
@@ -84,11 +84,11 @@ from the shell.
 .TP
 .IB variable = value
 Set a built-in variable to
-.I value 
-before the first record of the next 
+.I value
+before the first record of the next
 .I filename
 is read.
-See 
+See
 .B Built-in Variables
 below for a complete list of available variables.
 .SH USAGE
@@ -148,10 +148,10 @@ A relational expression is one of the following:
 .fi
 .RE
 .LP
-where 
+where
 .I relop
 is any of the six relational operators in C,
-and 
+and
 .I matchop
 is either
 \fB~\f1
@@ -174,7 +174,7 @@ and
 .SM END
 may be used to capture control before the first input line has been read
 and after the last input line has been read respectively.
-They are the only patterns that require an 
+They are the only patterns that require an
 .I action
 statement.
 These keywords do not combine with any other patterns.
@@ -251,26 +251,26 @@ not necessarily numeric;
 this allows for a form of associative memory.
 String constants are quoted (\f3"\fP).
 .LP
-The 
+The
 .B print
 statement prints its arguments on the standard output,
 or on a file if
 .BI > expression
 is present,
-or on a pipe if 
+or on a pipe if
 .RB ` "| \fIcmd\fP" '
 is present.
 The arguments are separated by the current output field separator
 and terminated by the output record separator.
-The 
+The
 .B printf
 statement formats its expression list according to the format
-(see 
+(see
 .BR printf (3V)).
 .SS Built-in Variables
 .LP
 A regular expression may be used to separate fields by
-using the 
+using the
 .B \-F " c"
 option or by assigning the expression to
 the built-in variable
@@ -338,13 +338,13 @@ The arithmetic functions are:
 \f2sqrt\f1,
 and
 \f2srand\f1.
-\f2int\f1 
+\f2int\f1
 truncates its argument to an integer.
 \f2rand\f1
 returns a random number between 0 and 1.
 \f2srand\f1 ( expr )
 sets the seed value for
-\f2rand\f1 to \f2expr\f1 
+\f2rand\f1 to \f2expr\f1
 or uses the time of day if
 \f2expr\f1
 is omitted.
@@ -585,7 +585,7 @@ Print file, filling in page numbers starting at 5:
 .RS
 .ft B
 /Page/ { $2 = n++; }
-       { print }
+	   { print }
 .ft R
 .RE
 .IP

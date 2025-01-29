@@ -82,8 +82,8 @@ Problem finding the working directory.
 .TP
 .B can't locate mount point
 Problem finding current file system.
-.B RPC: Authentication error 
-The server requires des authentication and you 
+.B RPC: Authentication error
+The server requires des authentication and you
 do not have a secret key registered with keyserv.
 Perhaps you logged in without a password.
 Try to keylogin.  If that fails try to

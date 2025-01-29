@@ -61,7 +61,7 @@ in subsequent
 .B kvm_read(\|)
 and
 .B kvm_write(\|)
-calls to be the space belonging to 
+calls to be the space belonging to
 .IR proc .
 .LP
 .B kvm_getcmd(\|)

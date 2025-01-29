@@ -31,7 +31,7 @@ and
 .I discon
 points to a
 .B t_discon
-structure defined in 
+structure defined in
 .B <nettli/tiuser.>
 as:
 .LP
@@ -134,8 +134,8 @@ This function is not supported by the underlying transport
 provider.
 .TP
 .SM TSYSERR
-The function failed due to a system error and set 
-.B errno 
+The function failed due to a system error and set
+.B errno
 to indicate the error.
 .SH SEE ALSO
 .BR intro (3),

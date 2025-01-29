@@ -35,7 +35,7 @@ should be called from the
 .SB T_UNBND
 state (see
 .BR t_getstate (3N)).
-However, 
+However,
 .B t_close(\|)
 does not check state information,
 so it may be called from any state to close a transport endpoint.

@@ -26,7 +26,7 @@ char *addr2;
 .ft R
 .fi
 .SH DESCRIPTION
-.IX  ptrace()  ""  \fLptrace()\fP 
+.IX  ptrace()  ""  \fLptrace()\fP
 .IX  "processes and protection"  ptrace()  ""  \fLptrace()\fP
 .IX  process "tracing \(em \fLptrace()\fP"
 .IX  "trace process ptrace()"  ""  "trace process \(em \fLptrace()\fP"
@@ -192,7 +192,7 @@ Attach to the process identified by the
 .I pid
 argument and begin tracing it.
 .SB PTRACE_ATTACH
-causes a 
+causes a
 .SB SIGSTOP
 to be sent to process
 .IR pid .
@@ -211,7 +211,7 @@ must match.
 Detach the process being traced.
 Process
 .I pid
-is no longer being traced and continues its execution. 
+is no longer being traced and continues its execution.
 The
 .I data
 argument is taken as a signal number and the process continues at location
@@ -253,9 +253,9 @@ describes the data that are returned.
 The
 .B fp_state
 .\" Sun386i
-structure defined in 
+structure defined in
 .B <machine/fp.h>
-describes the data that are returned on 
+describes the data that are returned on
 a Sun386i system.
 .TP
 .SB PTRACE_SETFPREGS

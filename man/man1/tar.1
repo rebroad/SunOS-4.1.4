@@ -135,12 +135,12 @@ Use the next argument as the name of the
 .IR tarfile .
 If
 .B f
-is omitted, use the device indicated by the 
+is omitted, use the device indicated by the
 .SB TAPE
 environment variable, if set.  Otherwise, use
-.BR /dev/rmt8 
+.BR /dev/rmt8
 by default.
-If 
+If
 .I tarfile
 is given as
 .RB ` \- ',
@@ -362,7 +362,7 @@ home directory on a tape mounted on drive
 .RS
 .sp .5
 .nf
-.B example% cd	
+.B example% cd
 .B example% tar cvf /dev/rmt0 .
 .IB "messages from " tar
 .fi
@@ -408,7 +408,7 @@ You can extract files from the archive like this:
 .RE
 .LP
 If there are multiple archive files on a tape, each is separated
-from the following one by an 
+from the following one by an
 .SM EOF
 marker.
 .B tar
@@ -565,7 +565,7 @@ tape interface
 .SH ENVIRONMENT
 .TP 10
 .SB TAPE
-If specified, in the environment, the value of 
+If specified, in the environment, the value of
 .SB TAPE
 indicates the default tape device.
 .SH SEE ALSO

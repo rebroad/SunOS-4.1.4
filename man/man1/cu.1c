@@ -18,7 +18,7 @@ cu \- connect to remote system
 [
 .BI \-s " speed"
 ]
-.I phone-number 
+.I phone-number
 .LP
 .B cu
 [
@@ -68,7 +68,7 @@ is specified, it is the
 .SM UUCP
 name of a the system to be dialed; in this case,
 .B cu
-will obtain an appropriate direct line or 
+will obtain an appropriate direct line or
 telephone number from
 .BR /etc/uucp/Systems .
 Note: the
@@ -101,7 +101,7 @@ which expect terminals to be set to half-duplex mode.
 .TP
 .B \-n
 For added security, prompt the user to provide the telephone number to be
-dialed rather than taking it from the command line. 
+dialed rather than taking it from the command line.
 .TP
 .B \-t
 Perform appropriate mapping of
@@ -121,14 +121,14 @@ Generate odd parity for data sent to the remote system.
 .TP
 .RI \-l " line"
 Specify a device name to use as the communication line.
-This can be 
+This can be
 used to override the search that would otherwise take place
 for the first available line having the right speed.
 When the
 .B \-l
 option is used without the
 .B \-s
-option, the speed of a line is taken from the 
+option, the speed of a line is taken from the
 .B /etc/uucp/Devices
 file.
 When the
@@ -143,19 +143,19 @@ file to check if the requested speed for the
 requested line is available.
 If so, the connection will be made at the
 requested speed; otherwise an error message will be printed and the call
-will not be made. 
+will not be made.
 The specified device is generally a directly connected asynchronous line
 (for example,
 .BI /dev/tty ab\fR)
-in which case a telephone number 
+in which case a telephone number
 .RI ( phone-number )
 is not required.
 The specified device need not be in the
 .B /dev
 directory.
 If the specified device
-is associated with an auto dialer, a telephone number must be 
-provided. 
+is associated with an auto dialer, a telephone number must be
+provided.
 Use of this option with
 .I systemname
 rather than
@@ -277,7 +277,7 @@ Send the line
 to the remote system.
 .TP
 .B ~%break
-Send a 
+Send a
 .SM BREAK
 to the remote system (which can also be specified as
 .BR ~%b ).
@@ -322,7 +322,7 @@ to a file when a line from the remote begins with
 Data from the remote is diverted (or appended, if
 .B >>
 is used) to
-.I file 
+.I file
 on the local system.
 The trailing
 .B ~>
@@ -357,7 +357,7 @@ characters are to be copied without expansion to
 .SM SPACE
 characters.
 .LP
-When  
+When
 .B cu
 is used on system X to connect to system Y and
 subsequently used on system Y to connect to
@@ -399,14 +399,14 @@ cu \-l ttyXX
 To dial a system with the specific line and a specific speed:
 .RS
 .ft B
-cu  \-s1200  \-l  ttyXX 
+cu  \-s1200  \-l  ttyXX
 .ft R
 .RE
 .LP
 To dial a system using a specific line associated with an auto dialer:
 .RS
 .ft B
-cu  \-l  culXX  9=12015551212 
+cu  \-l  culXX  9=12015551212
 .ft R
 .RE
 .LP

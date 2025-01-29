@@ -59,7 +59,7 @@ you can browse through files interactively without making any changes.
 .LP
 .B vedit
 runs
-.B vi 
+.B vi
 with the
 .B report
 flag set to 1,
@@ -77,11 +77,11 @@ easier for beginners to learn
 .SH OPTIONS
 .TP 12
 .B \-C
-Encryption option; the same as the 
+Encryption option; the same as the
 .B \-x
-option, except that all input text is assumed to have already been 
+option, except that all input text is assumed to have already been
 encrypted.
-This guarantees decryption in the cases where the 
+This guarantees decryption in the cases where the
 .B \-x
 option incorrectly determines that the input file is not already encrypted
 (this is extremely rare, and will only occur in conjunction with the use
@@ -99,12 +99,12 @@ List the names of all files saved as the result of an editor or system crash.
 Edit files in read only state.  This has the same effect as the
 .B view
 command.
-.TP 
+.TP
 .B \-V
 Verbose. Any non-tty input will be echoed on standard error.
 .TP
 .B \-x
-Prompt for a key to be used in encrypting the file being edited. 
+Prompt for a key to be used in encrypting the file being edited.
 When used in conjunction with a pre-existing file,
 .I ex
 will make an educated guess to determine whether or not the input text file is already encrypted.
@@ -112,7 +112,7 @@ will make an educated guess to determine whether or not the input text file is a
 .BI \-c " command"
 Start the editing session by executing the editor command
 .IR command .
-If 
+If
 .I command
 contains spaces, it must be surrounded by double quotess, see
 .SM EXAMPLES
@@ -178,7 +178,7 @@ classification rules of
 .BR \s-1LC_CTYPE\s0 .
 When none of the values is valid,
 the shell character
-classification defaults to the 
+classification defaults to the
 .SM POSIX.1 \*(lqC\*(rq
 locale.
 In the \*(lqC\*(rq locale, all 8-bit
@@ -194,8 +194,8 @@ example%  vi \-c\ ":r test" tested
 .RE
 .LP
 will read in the file
-.B test 
-at the end of the 
+.B test
+at the end of the
 .B tested
 file.
 .SH SEE ALSO
@@ -223,7 +223,7 @@ insert and delete character operations in the terminal.
 The
 .B wrapmargin
 option can be fooled since it looks at output columns when blanks are
-typed.  When insert mode pushes an existing word through the margin and onto 
+typed.  When insert mode pushes an existing word through the margin and onto
 the next line without a break, the line will not be broken.
 .LP
 Insert/delete within a line can be slow if

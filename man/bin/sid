@@ -1,4 +1,4 @@
-case $1 in 
+case $1 in
 -i)	shift ; inter=1
 ;;
 esac

@@ -1,4 +1,4 @@
-.\" @(#)basename.1v 1.1 94/10/31 SMI; 
+.\" @(#)basename.1v 1.1 94/10/31 SMI;
 .TH BASENAME 1V "17 September 1989"
 .SH NAME
 basename, dirname \- display portions of pathnames and filenames

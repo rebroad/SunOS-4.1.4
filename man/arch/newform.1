@@ -5,7 +5,7 @@ newform \- change the format of a text file
 .SH SYNOPSIS
 .B newform
 [
-.BI  \-s 
+.BI  \-s
 ]
 [
 .BI  \-i tabspec
@@ -26,7 +26,7 @@ newform \- change the format of a text file
 .BI  \-a n
 ]
 [
-.BI  \-f 
+.BI  \-f
 ]
 [
 .BI  \-c char
@@ -36,9 +36,9 @@ newform \- change the format of a text file
 ]
 .I filename .\|.\|.
 .SH DESCRIPTION
-.I newform 
-reads lines from the named files (or the standard input if 
-.I filename 
+.I newform
+reads lines from the named files (or the standard input if
+.I filename
 is omitted) and reproduces in formatted form on the standard output.
 Lines are formatted accroding to the command-line options in effect.
 .LP
@@ -59,7 +59,7 @@ will yield results different from
 Options are applied to all
 .IR filename s
 on the command line.
-.TP 
+.TP
 .BI \-i tabspec
 Input tab specification.  Expands tabs to spaces, according to
 the tab specifications given.
@@ -90,7 +90,7 @@ of
 .B \-0
 expects no tabs; if any are found, they are treated as
 .BR \-1 .
-.TP 
+.TP
 .BI \-o tabspec
 Output tab specification:
 replaces spaces by tabs, according to the tab specifications given.
@@ -124,7 +124,7 @@ Note that tabs and backspaces are considered to be one character
 (use
 .B \-i
 to expand tabs to spaces).
-.TP 
+.TP
 .BI \-b n
 Truncate
 .I n
@@ -153,20 +153,20 @@ Set the effective line length shorter than any existing
 line in the file, thus activating the
 .B \-b
 option.
-.TP 
+.TP
 .BI \-e n
 Same as
 .BI \-b n
 except that characters are truncated
 from the end of the line.
-.TP 
+.TP
 .BI \-c k
 Change the prefix/append character to
 .IR k .
 Default character for
 .I k
 is a space.
-.TP 
+.TP
 .BI \-p n
 Prefix
 .I n
@@ -177,13 +177,13 @@ line when the line length is less than the effective
 line length.
 Default is to prefix the number of characters necessary
 to obtain the effective line length.
-.TP 
+.TP
 .BI \-a n
-Same as 
+Same as
 .BI \-p n
 except characters are
 appended to the end of a line.
-.TP 
+.TP
 .B \-f
 Write the tab specification format
 line on the standard output before
@@ -199,7 +199,7 @@ If no
 option is specified, the line which is printed will
 contain the default specification of
 .BR \-8 .
-.TP 
+.TP
 .B \-s
 Shears off leading characters on each line up to the first tab and
 places up to 8 of the sheared characters at the end of the line.
@@ -226,7 +226,7 @@ newform\ \|\-s\ \|\-i\ \|\-l\ \|\-a\ \|\-e\ \|file-name
 .RE
 .SH DIAGNOSTICS
 .LP
-usage: \ \|.\|.\|. 
+usage: \ \|.\|.\|.
 .IP
 .I newform
 was called with a bad option.
@@ -256,14 +256,14 @@ A
 read from a file (or
 standard input) may not contain a
 .I tabspec
-referencing another 
+referencing another
 file (or standard input).
 .SH "SEE ALSO"
 csplit(1), fspec(5)
 .SH BUGS
 .I newform
 normally only keeps track of physical characters;
-however, for the 
+however, for the
 .B \-i
 and
 .B \-o
@@ -276,9 +276,9 @@ to line up tabs in the appropriate logical columns.
 will not prompt the user if a
 .I tabspec
 is to be read from the
-standard input (by use of 
+standard input (by use of
 .B \-i\-\-
-or 
+or
 .BR \-o\-\- ).
 .PP
 If the

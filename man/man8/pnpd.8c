@@ -2,7 +2,7 @@
 .TH PNPD 8C "25 February 1988"
 .SH NAME
 pnpd \- PNP daemon
-.SH SYNOPSIS 
+.SH SYNOPSIS
 .B /usr/etc/rpc.pnpd
 .SH AVAILABILITY
 .LP
@@ -14,7 +14,7 @@ release or earlier.  Not a SunOS 4.1 release feature.
 .LP
 .B pnpd
 is used during routine booting of systems to determine their network
-configuration, and by new systems to configure themselves on a network. 
+configuration, and by new systems to configure themselves on a network.
 .B pnpd
 adds and removes diskless clients of the boot server on which it is
 running.
@@ -43,14 +43,14 @@ swap size.
 .TP
 .BI /export/exec/ arch
 symbolic link to
-.BI /export/exec/ arch.release 
+.BI /export/exec/ arch.release
 .TP
-.BI /export/exec/ arch.release 
+.BI /export/exec/ arch.release
 symbolic link to
 .B /usr
 for the architecture
 .TP
-.BI /export/exec/ arch.release /boot 
+.BI /export/exec/ arch.release /boot
 root binaries
 .PD
 .SH SEE ALSO
@@ -64,6 +64,6 @@ root binaries
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

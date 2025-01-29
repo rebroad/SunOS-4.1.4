@@ -107,8 +107,8 @@ is enormous.
 A loopback mount entry in
 .BR /etc/fstab
 must be placed after the mount points of both
-directories it depends on.  This is most easily accomplished by 
-making the loopback mount entry the last in 
+directories it depends on.  This is most easily accomplished by
+making the loopback mount entry the last in
 .BR /etc/fstab ,
 though see
 .BR mount (8)

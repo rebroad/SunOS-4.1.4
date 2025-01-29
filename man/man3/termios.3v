@@ -115,7 +115,7 @@ A more detailed overview of the terminal interface can be found in
 .BR termio (4).
 That section also describes an
 .B ioctl(\|)
-interface 
+interface
 that can be used to access the same functionality.
 However, the function interface described here is the
 preferred user interface.
@@ -135,7 +135,7 @@ This structure contains the following members:
 		tcflag_t	c_iflag;		/* input modes */
 		tcflag_t	c_oflag;		/* output modes */
 		tcflag_t	c_cflag;		/* control modes */
- 		tcflag_t	c_lflag;		/* local modes */
+		tcflag_t	c_lflag;		/* local modes */
 		cc_t	c_cc[NCCS];	/* control chars */
 .fi
 .ft
@@ -182,7 +182,7 @@ the change occurs after all output
 written to
 .I fd
 has been transmitted.
-This function should be used 
+This function should be used
 when changing parameters that affect output.
 .TP
 \(bu
@@ -247,14 +247,14 @@ read, depending on the value of
 \(bu
 If
 .I queue_selector
-is 
+is
 .BR \s-1TCIFLUSH\s0,
 it flushes data received but not read.
 .TP
 \(bu
 If
 .I queue_selector
-is 
+is
 .BR \s-1TCOFLUSH\s0,
 it flushes data written but not
 transmitted.
@@ -262,7 +262,7 @@ transmitted.
 \(bu
 If
 .I queue_selector
-is 
+is
 .BR \s-1TCIOFLUSH\s0,
 it flushes both data received but not
 read, and data written but not transmitted.
@@ -293,12 +293,12 @@ If action is
 it suspends output.
 .TP
 \(bu
-If action is 
+If action is
 .BR \s-1TCOON\s0,
 it restarts suspended output.
 .TP
 \(bu
-If action is 
+If action is
 .BR \s-1TCIOFF\s0,
 the system transmits a
 .SM STOP
@@ -308,7 +308,7 @@ transmitting data to the system.
 .BR termio (4).)
 .TP
 \(bu
-If action is 
+If action is
 .BR \s-1TCION\s0,
 the system transmits a
 .SM START
@@ -502,7 +502,7 @@ to:
 The device does not support
 .BR tcflush(\|) .
 .IP
-The 
+The
 .I queue_selector
 argument is not a proper value.
 .LP

@@ -42,7 +42,7 @@ exp, expm1, exp2, exp10, log, log1p, log2, log10, pow, compound, annuity \- expo
 .SH DESCRIPTION
 .LP
 .B exp(\|)
-returns the exponential function 
+returns the exponential function
 .IR e**x .
 .IX  "exp()"  ""  "\fLexp()\fP \(em exponential function"
 .IX  "expm1()"  ""  "\fLexpm1()\fP \(em exponential function"
@@ -60,10 +60,10 @@ accurately even for tiny
 .B exp2(\|)
 and
 .B exp10(\|)
-return 
-.I 2**x 
-and 
-.I 10**x 
+return
+.I 2**x
+and
+.I 10**x
 respectively.
 .LP
 .B log(\|)
@@ -102,20 +102,20 @@ as discussed in the
 .IX  "power function pow"  ""  "power function \(em \fLpow\fP"
 .LP
 .B compound(\|)
-and 
+and
 .B annuity(\|)
 are functions important in financial computations of the
-effect of interest at periodic rate 
+effect of interest at periodic rate
 .I r
 over
 .I n
 periods.
 .BI compound( r , " n" )
-computes 
-.IR (1+r)**n , 
+computes
+.IR (1+r)**n ,
 the compound interest factor.
 Given an initial principal
-.I P0, 
+.I P0,
 its value after
 .I n
 periods is just
@@ -123,33 +123,33 @@ periods is just
 .BI , " n" )\c
 \&.
 .BI annuity( r , " n" )
-computes 
+computes
 .I (1 \- (1+r)**\-n)/r,
 the present value of annuity factor.
 Given an initial principal
-.I P0, 
+.I P0,
 the equivalent periodic payment is just
 .BI "p =" " P0" " / annuity(" r\c
 .BI , " n" )\c
 \&.
 .B compound(\|)
-and 
+and
 .B annuity(\|)
-are computed using 
-.B log1p(\|) 
+are computed using
+.B log1p(\|)
 and
 .B expm1(\|)
 to avoid gratuitous inaccuracy for small-magnitude
 .IR r .
 .B compound(\|)
-and 
+and
 .B annuity(\|)
-are not defined for 
-.I r 
+are not defined for
+.I r
 <= \-1.
 .LP
 Thus a principal amount
-.I P0 
+.I P0
 placed at 5% annual interest compounded quarterly
 for 30 years would yield
 .LP

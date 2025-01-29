@@ -58,7 +58,7 @@ form the key, and the rest of the line is the data.
 If a line ends with
 .RB ` \e ',
 then the data for that record is continued on to the next line.
-It is left for the clients of the 
+It is left for the clients of the
 Network Information Service
 (\s-1NIS\s0)
 to interpret
@@ -73,7 +73,7 @@ in which case the standard input is read.
 .B makedbm
 is meant to be used in generating
 .B dbm
-files for the 
+files for the
 .SM NIS
 service,
 and it generates a special entry with the key
@@ -87,7 +87,7 @@ is
 .SH OPTIONS
 .TP
 .B \-b
-Interdomain. 
+Interdomain.
 Propagate a map to all servers using the interdomain
 name server
 .BR named (8C).
@@ -100,7 +100,7 @@ or lower case distinctions.
 .TP
 .B \-s
 Secure map.
-Accept connections from secure 
+Accept connections from secure
 .SM NIS
 networks only.
 .TP
@@ -115,14 +115,14 @@ Create a special entry with the key
 .BI \-d " yp_domain_name"
 Create a special entry with the key
 .IR yp_domain_name .
-.TP 
+.TP
 .BI \-m " yp_master_name"
 Create a special entry with the key
 .IR yp_master_name .
 If no master host name is specified,
 .IR yp_master_name
 will be set to the local host name.
-.TP 
+.TP
 .BI \-u " dbmfilename"
 Undo a
 .B dbm
@@ -154,7 +154,7 @@ takes the
 .B /etc/passwd
 file and converts it to a form that can be read by
 .B makedbm
-to make the 
+to make the
 .SM NIS
 file
 .BR passwd.byname .
@@ -171,6 +171,6 @@ file.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

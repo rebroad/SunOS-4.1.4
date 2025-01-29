@@ -9,7 +9,7 @@ rarpd \- TCP/IP Reverse Address Resolution Protocol server
 .I hostname
 ]
 .LP
-.B /usr/etc/rarpd 
+.B /usr/etc/rarpd
 .B \-a
 .SH AVAILABILITY
 .LP
@@ -49,17 +49,17 @@ address.
 issues no reply when it fails to locate an
 .SM IP
 address.
-The \*(lqethers\*(rq and \*(lqhosts\*(rq databases may be contained 
-either in files under 
-.B /etc 
-or in 
+The \*(lqethers\*(rq and \*(lqhosts\*(rq databases may be contained
+either in files under
+.B /etc
+or in
 Network Information Service
 (\s-1NIS\s0)
 maps.
 .LP
 In the first synopsis, the
-.I interface 
-parameter names the network interface upon which 
+.I interface
+parameter names the network interface upon which
 .B rarpd
 is to listen for requests.
 The
@@ -68,10 +68,10 @@ parameter takes the \*(lqname unit\*(rq form used by
 .BR ifconfig (8C).
 The second argument,
 .IR hostname ,
-is used to obtain the 
+is used to obtain the
 .SM IP
 address of that interface.
-An 
+An
 .SM IP
 address in \*(lqdecimal dot\*(rq notation may be used for
 .IR hostname .
@@ -100,7 +100,7 @@ and starts a daemon process for each one that supports \s-1RARP\s0.
 .PD 0
 .TP 20
 .B /etc/ethers
-.\" .TP 
+.\" .TP
 .\" .BI /var/yp/ domainname /ethers.byaddr.*
 .\" .TP
 .\" .BI /var/yp/ domainname /ethers.byname.*
@@ -131,6 +131,6 @@ June 1984.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.

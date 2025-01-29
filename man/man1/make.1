@@ -457,7 +457,7 @@ does not export macros defined in the makefile.
 If an environment variable is set, and a macro with the same name
 is defined on the command line,
 .B make
-exports its value as defined on the command line. 
+exports its value as defined on the command line.
 Unless
 .B \-e
 is in effect, macro definitions within
@@ -481,7 +481,7 @@ The macros
 and
 .SM
 .BR TARGET_MACH
-are special cases. 
+are special cases.
 See
 .B Special-Purpose Macros
 below, for details.
@@ -575,7 +575,7 @@ is a macro reference, it is expanded.
 .B :
 Target list terminator.
 Words following the colon are
-added to the dependency list for the target or targets. 
+added to the dependency list for the target or targets.
 If a target is named in more than one colon-terminated target entry,
 the dependencies for all its entries are added to form that
 target's complete dependency list.
@@ -590,7 +590,7 @@ the double-colon allows a target
 to be checked and updated with respect
 to alternate dependency lists.  When the target is out-of-date
 with respect to dependencies listed in the first alternate, it is built
-according to the rule for that entry. 
+according to the rule for that entry.
 When out-of-date with respect to dependencies in another alternate,
 it is built according the rule in that other entry.
 Implicit rules do not apply to double-colon targets;
@@ -654,7 +654,7 @@ by replacing it with the macro's value.
 .B ( )
 .TP
 .B { }
-Macro-reference name delimiters. 
+Macro-reference name delimiters.
 A parenthesized or bracketed word appended to a
 .B $
 is taken as the name of the macro being referred to.
@@ -704,7 +704,7 @@ and replace the reference with the output of that command (see
 .ne 3
 .SS \fIRules\fR
 .TP
-.B \- 
+.B \-
 .B make
 ignores any nonzero error code returned by a command line for which the
 first non-\s-1TAB\s0 character is a
@@ -738,7 +738,7 @@ Command lines starting with this
 character are not subject to command dependency checking.
 .TP
 .B !
-Force command-dependency checking. 
+Force command-dependency checking.
 Command-dependency checking
 is applied to command lines for which it
 would otherwise be suppressed.
@@ -795,7 +795,7 @@ ignores any dependencies for this target.
 If defined in the makefile,
 .B make
 processes this target and its dependencies
-after all other targets are built.  This target is also performed 
+after all other targets are built.  This target is also performed
 when
 .B make
 halts with an error, unless the
@@ -878,7 +878,7 @@ add an entry for this target with an empty rule to your makefile.
 .ne 3
 .TP
 .SB \&.SILENT:
-Run silently. 
+Run silently.
 When this target appears in the makefile,
 .B make
 does not echo commands before executing them.
@@ -907,8 +907,8 @@ you can clear the definition of the following special targets by
 supplying entries for them with no dependencies and no rule:
 .LP
 .RS
-.BR \s-1.DEFAULT\s0 ,\ 
-.BR \s-1.SCCS_GET\s0 ,\ 
+.BR \s-1.DEFAULT\s0 ,\
+.BR \s-1.SCCS_GET\s0 ,\
 and
 .SB .SUFFIXES
 .ps
@@ -1349,47 +1349,47 @@ Library 	\s-1AR\s0	ar
 Archives	\s-1ARFLAGS\s0	rv
 _
 Assembler	\s-1AS\s0	as
-Commands	\s-1ASFLAGS\s0	
+Commands	\s-1ASFLAGS\s0
 	\s-1COMPILE\s0.s	$(\s-1AS\s0)\ \ $(\s-1ASFLAGS\s0)\ \ $(\s-1TARGET_MACH\s0)
 	\s-1COMPILE\s0.S	$(\s-1CC\s0)\ \ $(\s-1ASFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ $(\s-1TARGET_MACH\s0) \-c
 _
 C Compiler	\s-1CC\s0	cc
-Commands	\s-1CFLAGS\s0	
-	\s-1CPPFLAGS\s0	
+Commands	\s-1CFLAGS\s0
+	\s-1CPPFLAGS\s0
 	\s-1COMPILE\s0.c	$(\s-1CC\s0)\ \ $(\s-1CFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ \-target\ \ $(\s-1TARGET_ARCH\s0:\-%=%)\ \ \-c
 	\s-1LINK\s0.c    	$(\s-1CC\s0) $(\s-1CFLAGS\s0) $(\s-1CPPFLAGS\s0) $(\s-1LDFLAGS\s0) \-target $(\s-1TARGET_ARCH\s0:\-%=%)
 _
 \s-1FORTRAN\s0 77	\s-1FC\s0	f77
-Compiler	\s-1FFLAGS\s0	
+Compiler	\s-1FFLAGS\s0
 Commands	\s-1COMPILE\s0.f	$(\s-1FC\s0)\ \ $(\s-1FFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0) \-c
 	\s-1LINK\s0.f    	$(\s-1FC\s0)\ \ $(\s-1FFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0)\ \ $(\s-1LDFLAGS\s0)
 	\s-1COMPILE.F\s0	$(\s-1FC\s0)\ \ $(\s-1FFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0) \-c
-	\s-1LINK.F\s0    	$(\s-1FC\s0)\ \ $(\s-1FFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ $(\s-1LDFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0) 
+	\s-1LINK.F\s0    	$(\s-1FC\s0)\ \ $(\s-1FFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ $(\s-1LDFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0)
 _
 Link Editor	\s-1LD\s0	ld
-Command	\s-1LDFLAGS\s0	
+Command	\s-1LDFLAGS\s0
 _
 lex 	\s-1LEX\s0	lex
-Command	\s-1LFLAGS\s0	
+Command	\s-1LFLAGS\s0
 	\s-1LEX\s0.l    	$(\s-1LEX\s0)\ \ $(\s-1LFLAGS\s0) \-t
 _
 lint	\s-1LINT\s0	lint
-Command	\s-1LINTFLAGS\s0	
+Command	\s-1LINTFLAGS\s0
 	\s-1LINT\s0.c	$(\s-1LINT\s0)\ \ $(\s-1LINTFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0)
 _
 Modula 2	\s-1M2C\s0	m2c
-Commands	\s-1M2FLAGS\s0	
-	\s-1MODFLAGS\s0	
-	\s-1DEFFLAGS\s0	
+Commands	\s-1M2FLAGS\s0
+	\s-1MODFLAGS\s0
+	\s-1DEFFLAGS\s0
 	\s-1COMPILE\s0.def	$(\s-1M2C\s0)\ \ $(\s-1M2FLAGS\s0)\ \ $(\s-1DEFFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0)
 	\s-1COMPILE\s0.mod	$(\s-1M2C\s0)\ \ $(\s-1M2FLAGS\s0)\ \ $(\s-1MODFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0)
 _
 Pascal  	\s-1PC\s0	pc
-Compiler	\s-1PFLAGS\s0	
+Compiler	\s-1PFLAGS\s0
 Commands	\s-1COMPILE\s0.p	$(\s-1PC\s0)\ \ $(\s-1PFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0) \-c
 	\s-1LINK\s0.p	$(\s-1PC\s0)\ \ $(\s-1PFLAGS\s0)\ \ $(\s-1CPPFLAGS\s0)\ \ $(\s-1LDFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0)
 _
-Ratfor  	\s-1RFLAGS\s0	
+Ratfor  	\s-1RFLAGS\s0
 Compilation	\s-1COMPILE\s0.r	$(\s-1FC\s0)\ \ $(\s-1FFLAGS\s0)\ \ $(\s-1RFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0) \-c
 Commands	\s-1LINK\s0.r	$(\s-1FC\s0)\ \ $(\s-1FFLAGS\s0)\ \ $(\s-1RFLAGS\s0)\ \ $(\s-1TARGET_ARCH\s0)\ \ $(\s-1LDFLAGS\s0)
 _
@@ -1400,7 +1400,7 @@ sccs	\s-1SCCSFLAGS\s0
 Command	\s-1SCCSGETFLAGS\s0	\-s
 _
 yacc	\s-1YACC\s0	yacc
-Command       	\s-1YFLAGS\s0	
+Command       	\s-1YFLAGS\s0
 	\s-1YACC\s0.y	$(\s-1YACC\s0)\ \ $(\s-1YFLAGS\s0)
 _
 Suffixes	\s-1SUFFIXES\s0	T{
@@ -1433,7 +1433,7 @@ Assembler     AS           as
 Commands      ASFLAGS
 \&              COMPILE.s    $(AS) $(ASFLAGS) $(TARGET_MACH)
 \&              COMPILE.S    $(CC) $(ASFLAGS) $(CPPFLAGS) $(TARGET_MACH) -c
-.sp 
+.sp
 C   Compiler  CC           cc
 Commands      CFLAGS
 \&              CPPFLAGS
@@ -1441,7 +1441,7 @@ Commands      CFLAGS
 \&                                $(TARGET_ARCH:-%=%) -c
 \&              LINK.c       $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
 \&                                -target $(TARGET_ARCH:-%=%)
-.sp 
+.sp
 FORTRAN 77    FC           f77
 Compiler      FFLAGS
 Commands      COMPILE.f    $(FC) $(FFLAGS) $(TARGET_ARCH) -c
@@ -1544,10 +1544,10 @@ dynamic macros as placeholders for the target and dependency names.
 Other, regular dependencies may occur in the
 dependency list.  An entry of the form:
 .IP
-\fItp\|\fB%\fIts\fB\|:\ \ 
-\fR[\fIdependency .\|.\|.\fR\|]\ \ 
-\fIdp\|\fB%\fIds\fR\ \ 
-\fR[\fIdependency .\|.\|.\fR\|] \ \ 
+\fItp\|\fB%\fIts\fB\|:\ \
+\fR[\fIdependency .\|.\|.\fR\|]\ \
+\fIdp\|\fB%\fIds\fR\ \
+\fR[\fIdependency .\|.\|.\fR\|] \ \
 .br
 	\fIrule\fP
 .LP
@@ -2060,10 +2060,10 @@ unless that target is in the dependency list for
 .\"Options can be specified for each host of the form
 .\".I option
 .\"or
-.\".IR option = value . 
+.\".IR option = value .
 .\"The only option now available is
 .\".B max
-.\"whose value indicates the maximum number of simultaneous 
+.\"whose value indicates the maximum number of simultaneous
 .\"builds to run on that host.
 .\"The default value is 2.
 .\"The load of each host is monitored by
@@ -2091,7 +2091,7 @@ unless that target is in the dependency list for
 .\"This is to prevent the output of multiple builds from becoming intermixed.
 .\"There is no guarantee that the output parallel builds will come out
 .\"in the normal serial order; targets that appear later in the
-.\"makefile may finish ahead of ``earlier'' ones. 
+.\"makefile may finish ahead of ``earlier'' ones.
 .\"This means that no output will be seen from the
 .\"rule until it completes.
 .\".br
@@ -2113,7 +2113,7 @@ unless that target is in the dependency list for
 .\".B make
 .\"in parallel, it would be possible for two nested invocations of
 .\".B make
-.\"to end up in the same directory building the same targets. 
+.\"to end up in the same directory building the same targets.
 .\"To avoid this possibility, all nested invocations of
 .\".B make
 .\"are run serially.
@@ -2384,9 +2384,9 @@ simultaneously satisfy both dependency relationships, it is conflicted.
 .\"\s-1\fB.NO_PARALLEL\s0\fP.
 .SH BUGS
 .LP
-Some commands return nonzero status inappropriately; 
+Some commands return nonzero status inappropriately;
 to overcome this difficulty, prefix the offending command line in
-the rule with a 
+the rule with a
 .RB ` \- '.
 .LP
 Filenames with the characters
@@ -2485,7 +2485,7 @@ Unlike previous versions, this version of
 strips a leading
 .RB ` ./ '
 .\" The `/' really does belong in the previous line.
-from the value of the 
+from the value of the
 .RB ` $@ '
 dynamic macro.
 .LP

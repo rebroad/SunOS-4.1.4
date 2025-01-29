@@ -111,13 +111,13 @@ for
 .RB ' $ '
 or
 .RB ' % '
-in its 
-usual prompt (except if you will be running 
+in its
+usual prompt (except if you will be running
 .BR sh (1)
-and 
+and
 .SB PS1
-is set - 
-in this case, 
+is set -
+in this case,
 the prompt will not be modified).
 If
 .IR arg s
@@ -200,7 +200,7 @@ does not accept 8-bit user
 .SM ID\s0s.
 See
 .BR login (1)
-for explanations about why 
+for explanations about why
 8-bit
 .B login
 names are not acceptable.

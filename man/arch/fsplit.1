@@ -4,8 +4,8 @@
 fsplit \- split a multi-routine FORTRAN file into individual files
 .SH SYNOPSIS
 .B fsplit
-[ 
-.B \-e 
+[
+.B \-e
 .IR efile " ] .\|.\|. [ " file " ]"
 .SH DESCRIPTION
 .IX "fsplit command"  ""  "\fLfsplit\fP \(em split FORTRAN file"
@@ -28,10 +28,10 @@ For unnamed main programs the name has the form
 If there is an error in classifying a program unit, or if
 .I name.f
 already exists,
-the program unit will be put in a file of the form 
+the program unit will be put in a file of the form
 .I zzzNNN.f
-where 
-.I zzzNNN.f 
+where
+.I zzzNNN.f
 does not already exist.
 .PP
 Normally each subprogram unit is split into a separate file.  When the
@@ -45,18 +45,18 @@ files.  E.g.:
 .fi
 will split readit and doit into separate files.
 .SH DIAGNOSTICS
-If names specified via the 
+If names specified via the
 .I -e
-option are not found, a diagnostic is written to 
-.I standard 
+option are not found, a diagnostic is written to
+.I standard
 .I error.
 .SH BUGS
 .I Fsplit
 assumes the subprogram name is on the first noncomment line of the subprogram
-unit.  Nonstandard source formats may confuse 
+unit.  Nonstandard source formats may confuse
 .I fsplit.
 .PP
-It is hard to use 
+It is hard to use
 .B \-e
-for unnamed main programs and block data subprograms since you must 
+for unnamed main programs and block data subprograms since you must
 predict the created file name.

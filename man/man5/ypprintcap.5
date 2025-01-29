@@ -11,7 +11,7 @@ release or earlier.  Not a SunOS 4.1 release feature.
 .SH DESCRIPTION
 .IX "ypprintcap" "" "\fLypprintcap\fP\(em NIS printer capability database" ""
 .LP
-Create the 
+Create the
 Network Information Service
 (\s-1NIS\s0)
 printcap map with this text file to
@@ -23,15 +23,15 @@ file has the same format as the
 file described in
 .BR printcap (5).
 .LP
-The text file for the 
+The text file for the
 .SM NIS
 printcap map is stored in the
 .B /etc/printcap
-file on the 
+file on the
 .SM NIS
 master of an
 .SM NIS
-domain. 
+domain.
 Other systems in a domain (besides the
 .SM NIS
 master) can also have a local
@@ -41,7 +41,7 @@ The local file is accessed first by programs such as
 .BR lpr (1),
 and if it contains a line beginning with the character
 .RB ` + ',
-the 
+the
 .SM NIS
 map will be accessed.
 .LP
@@ -49,7 +49,7 @@ The local
 .B /etc/printcap
 file can specify printers that are not available on a
 network-wide basis.
-This implies that the 
+This implies that the
 .SM NIS
 master cannot use the local
 .B /etc/printcap
@@ -57,11 +57,11 @@ file to specify printers that are to be
 known only to the local system.
 Sun386i systems allow the
 .B /etc/printcap
-file on the 
+file on the
 .SM NIS
 master to be used locally, using the
 .B /etc/ypprintcap
-file to create the 
+file to create the
 .SM NIS
 printcap map.
 .SH FILES
@@ -95,7 +95,7 @@ printcap map.
 The Network Information Service
 (\s-1NIS\s0)
 was formerly known as Sun Yellow Pages
-(\s-1YP\s0). 
+(\s-1YP\s0).
 The functionality of the two remains the same;
 only the name has changed.
 The name Yellow Pages is a registered trademark in the United Kingdom

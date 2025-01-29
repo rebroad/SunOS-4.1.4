@@ -8,7 +8,7 @@ xdr \- library routines for external data representation
 .SM XDR
 routines allow C programmers to describe
 arbitrary data structures in a machine-independent fashion.
-Data for remote procedure calls 
+Data for remote procedure calls
 (\s-1RPC\s0) are encoded and decoded using these
 routines.
 See
@@ -64,7 +64,7 @@ xdr_wrapstring(\|)
 .RE
 .TP
 .BR xdr_create (3N)
-Library routines for creating 
+Library routines for creating
 .SM XDR
 streams.
 The routines documented on this page include:
