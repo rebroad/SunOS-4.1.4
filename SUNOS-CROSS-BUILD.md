@@ -27,6 +27,8 @@ modern-toolchain incompatibility.
 Compiler output is retained in
 `/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/kernel-build.log`; the
 driver prints only a success line or concise failure diagnostics.
+The configuration utility's output is retained separately in
+`/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/config-run.log`.
 
 The generated kernel directory is:
 

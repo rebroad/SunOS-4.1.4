@@ -15,7 +15,7 @@ set -euo pipefail
     --without=HSFS --without=NFSCLIENT --without=NFSSERVER \
     >/build/config-generate.log 2>&1
 cd /build/sys/sun4m/conf
-/build/usr.etc/config/config -n SUN4M_IDLE
+/build/usr.etc/config/config -n SUN4M_IDLE >/build/config-run.log 2>&1
 cd /build/sys/sun4m/SUN4M_IDLE
 
 # The historical configuration always lists these NFS lock-manager objects,
