@@ -157,14 +157,14 @@ main()
 	printf("#define\tU_LOFAULT 0x%x\n", &up->u_lofault);
 	printf("#define\tU_PROCP 0x%x\n", &up->u_procp);
 #ifdef SUNDBE
-		printf("#define\tU_ERROR 0x%x\n", &up->u_error);
-		printf("#define\tU_EOSYS 0x%x\n", &up->u_eosys);
-		printf("#define\tU_AP 0x%x\n", &up->u_ap);
-		printf("#define\tU_QSAVE 0x%x\n", &up->u_qsave);
-		printf("#define\tU_RU_NIVCSW 0x%x\n", &up->u_ru.ru_nivcsw);
-		printf("#define\tU_PROF_SCALE 0x%x\n", &up->u_prof.pr_scale);
-		printf("#define\tU_RU_STIME_SEC 0x%x\n", &up->u_ru.ru_stime.tv_sec);
-		printf("#define\tU_RU_STIME_USEC 0x%x\n", &up->u_ru.ru_stime.tv_usec);
+        printf("#define\tU_ERROR 0x%x\n", &up->u_error);
+        printf("#define\tU_EOSYS 0x%x\n", &up->u_eosys);
+        printf("#define\tU_AP 0x%x\n", &up->u_ap);
+        printf("#define\tU_QSAVE 0x%x\n", &up->u_qsave);
+        printf("#define\tU_RU_NIVCSW 0x%x\n", &up->u_ru.ru_nivcsw);
+        printf("#define\tU_PROF_SCALE 0x%x\n", &up->u_prof.pr_scale);
+        printf("#define\tU_RU_STIME_SEC 0x%x\n", &up->u_ru.ru_stime.tv_sec);
+        printf("#define\tU_RU_STIME_USEC 0x%x\n", &up->u_ru.ru_stime.tv_usec);
 #endif SUNDBE
 	printf("#define\tUSIZE 0x%x\n", sizeof (struct user));
 	printf("#define\tPCB_REGS 0x%x\n", &up->u_pcb.pcb_regs);
@@ -192,8 +192,8 @@ main()
 	printf("#define\tREGSIZE %d\n", sizeof (struct regs));
 
 	/*
-	 * note that these PTEs don't have their cacheable bits set.
-	 */
+ 	 * note that these PTEs don't have their cacheable bits set.
+ 	 */
 	printf("#define\tKL1PT_SIZE 0x%x\n", sizeof (union ptpe));
 	printf("#define\tKL2PT_SIZE 0x%x\n", sizeof (union ptpe));
 	printf("#define\tHAT_PFNMASK 0x%x\n", HAT_L1PFNMASK);
@@ -230,9 +230,9 @@ main()
 	printf("#define\tAUD_CHIP_DR 0x%x\n", &chip->dr);
 	printf("#define\tAUD_CHIP_BBRB 0x%x\n", &chip->bbrb);
 	printf("#define\tAUD_CHIP_INIT_REG 0x%x\n",
-		AUDIO_UNPACK_REG(AUDIO_INIT_INIT));
+	    AUDIO_UNPACK_REG(AUDIO_INIT_INIT));
 	printf("#define\tAUD_CHIP_DISABLE 0x%x\n",
-		AUDIO_INIT_BITS_ACTIVE | AUDIO_INIT_BITS_INT_DISABLED);
+	    AUDIO_INIT_BITS_ACTIVE | AUDIO_INIT_BITS_INT_DISABLED);
 #endif	notdef
 	printf("#define\tOP_MAGIC 0x%x\n", &romp->op_magic);
 	printf("#define\tOP_ROMVEC_VERSION 0x%x\n", &romp->op_romvec_version);
