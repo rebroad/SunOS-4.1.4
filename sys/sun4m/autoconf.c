@@ -68,6 +68,9 @@ extern int no_vme;
 #endif
 
 extern int swap_present;
+static void	add_drv_layer();
+static void	add_a_device();
+static void	rem_a_device();
 /*
  * The following several variables are related to
  * the configuration process, and are used in initializing
@@ -1675,9 +1678,6 @@ extern u_short	*doprobe();
 #ifndef SAS
 static int	mouseconfig();
 #endif
-static void	add_drv_layer();
-static void	add_a_device();
-static void	rem_a_device();
 
 /*
  * These structures are used in locore.s to jump to device interrupt routines.
