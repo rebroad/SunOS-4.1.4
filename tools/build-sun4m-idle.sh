@@ -55,6 +55,7 @@ sed -i -E "s/(fd_asm|sr|st_conf|st)\\.(o|L) //g" Makefile
 # The Sun linker accepted -p here; GNU ld rejects it.  -N retains the required
 # OMAGIC/non-page-aligned link mode for this kernel.
 sed -i "s/ -p / /" Makefile
+sed -i "s/-T F0004000/-Ttext 0xF0004000/" Makefile
 
 if ! make -j1 all \
     CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
