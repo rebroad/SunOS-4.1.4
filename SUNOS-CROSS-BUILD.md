@@ -29,6 +29,8 @@ Compiler output is retained in
 driver prints only a success line or concise failure diagnostics.
 The configuration utility's output is retained separately in
 `/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/config-run.log`.
+The standalone PROM-library output is retained in
+`/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/promlib-build.log`.
 
 The generated kernel directory is:
 
@@ -42,7 +44,9 @@ keyboard/mouse devices (`bwtwo`, `cgthree`, `cgsix`, `cgtwelve`, `gt`, `tcx`,
 also omits the unused SCSI optical/tape targets (`sr`, `st_conf`, and `st`)
 and floppy assembly. SCSI disk, Ethernet, and UART support remain enabled;
 the generic device sources remain available for a future full-hardware
-configuration.
+configuration. The historical lock-manager objects remain in the build
+because the UFS lock code references their entry points even when NFS clients
+are off.
 The generated `vmunix` must be installed only into a throwaway VM disk until
 the QEMU idle, clock, sleep, networking, and clean-shutdown tests pass.
 

@@ -49,10 +49,6 @@ fi
 
 cd /build/sys/sun4m/SUN4M_IDLE
 
-# The historical configuration always lists these NFS lock-manager objects,
-# even when both NFS options are disabled.
-sed -i "s/klm_kprot.o klm_lockmgr.o //" Makefile
-
 # The VM has one SCSI hard disk and no floppy, optical, or tape device.
 sed -i -E "s/(fd_asm|sr|st_conf|st)\\.(o|L) //g" Makefile
 
@@ -62,8 +58,8 @@ sed -i "s/ -p / /" Makefile
 sed -i "s/-T F0004000/-Ttext 0xF0004000/" Makefile
 
 if ! make -j1 all \
-    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -fleading-underscore -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
-    HOSTCC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
+    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -fcommon -m32 -mno-v8plus -mcpu=v8 -fno-pie -fleading-underscore -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
+    HOSTCC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -fcommon -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
     HOSTRUN="QEMU_LD_PREFIX=/build/sparc32root qemu-sparc32plus ./a.out" \
     AS=/src/tools/sparc-as-wrapper.sh \
     LD=sparc-linux-gnu-ld AR=sparc-linux-gnu-ar \
