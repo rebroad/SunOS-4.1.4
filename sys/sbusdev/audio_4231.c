@@ -2596,7 +2596,7 @@ audio_4231_pollpipe(unitp)
 		x++;
 	}
 
-	unitp->chip->dmaregs.dmacsr | = APC_CMI;
+	unitp->chip->dmaregs.dmacsr |= APC_CMI;
 }
 
 void
@@ -2611,7 +2611,7 @@ audio_4231_poll_ppipe(unitp)
 		x++;
 	}
 
-	unitp->chip->dmaregs.dmacsr | = APC_PMI;
+	unitp->chip->dmaregs.dmacsr |= APC_PMI;
 }
 
 void
