@@ -38,6 +38,8 @@
 extern	int cache;
 #endif defined(sun4m) && defined(IOMMU)
 
+static void m_unfree();
+
 /*
  * The way the code stands, MCLBYTES must be a power of 2
  * and type MCL_LOANED cluster mbufs, if swappable, must
@@ -850,7 +852,8 @@ m_reclaim()
 /*
  * remove the given cluster from the free list
  */
-static m_unfree(m0)
+static void
+m_unfree(m0)
 	register struct mbuf *m0;
 {
 	register struct mbuf *m;
