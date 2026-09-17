@@ -21,8 +21,10 @@ if (($# == 0)); then
     set -- GENERIC_SMALL
 fi
 cpp_options=()
+disabled_options=()
 for option in "$@"; do
     case "$option" in
+        --without=*) disabled_options+=("${option#--without=}") ;;
         -*) cpp_options+=("$option") ;;
         *) cpp_options+=("-D${option}=__${option}__") ;;
     esac
@@ -77,4 +79,7 @@ fi
 
 sed 's/^%#/CONFIG_HASH /; s/^CONFIG_HASH /#/; s/^=$//' "$tmp" > "$output"
 rm -f "$tmp"
+for option in "${disabled_options[@]}"; do
+    sed -i "/^options[[:space:]]\+$option[[:space:]]/d" "$output"
+done
 printf '%s: %s lines\n' "$output" "$(wc -l < "$output")"
