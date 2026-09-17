@@ -22,7 +22,7 @@ cd /build/sys/sun4m/conf
 
 # The kernel makefile links the standalone PROM library but does not build it.
 cd /build/sys/boot/lib/sun4m
-if ! make -j1 all \
+if ! make -j1 ../../../sun4m/libprom.a \
     CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
     AS=/src/tools/sparc-as-wrapper.sh \
     AR=sparc-linux-gnu-ar LD=sparc-linux-gnu-ld \
