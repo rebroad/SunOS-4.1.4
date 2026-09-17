@@ -34,6 +34,8 @@ static	char sccsid[] = "@(#)mem.c 1.1 94/10/31 SMI";
 #include <os/atom.h>
 
 extern struct memlist *availmemory;
+static int mmpeekio();
+static int mmeeprom();
 
 /*
  * SBUS space layout information
@@ -403,7 +405,7 @@ fault:
 	return (EFAULT);
 }
 
-static
+static int
 mmpeekio(uio, rw, addr, len, xfersize)
 	struct uio *uio;
 	enum uio_rw rw;
@@ -480,7 +482,7 @@ mmpeekio(uio, rw, addr, len, xfersize)
  * Since reading the clock also requires writing the EEPROM, we
  * splclock() to prevent interference.
  */
-static
+static int
 mmeeprom(uio, rw, addr, len)
 	struct uio *uio;
 	enum uio_rw rw;
