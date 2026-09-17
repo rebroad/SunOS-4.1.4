@@ -30,7 +30,7 @@ if ! make -j1 all \
     LD=sparc-linux-gnu-ld AR=sparc-linux-gnu-ar \
     >/build/kernel-build.log 2>&1; then
     echo "SunOS kernel build failed; relevant diagnostics:"
-    rg -n 'error:|fatal error:|make:' /build/kernel-build.log | tail -40 || true
+    rg -n "error:|fatal error:|make:" /build/kernel-build.log | tail -40 || true
     echo "Last build output:"
     tail -40 /build/kernel-build.log
     exit 1
