@@ -69,6 +69,7 @@
 #endif
 
 extern	char	DVMA[];
+static int	lecoll();
 
 #ifdef	OPENPROMS
 
