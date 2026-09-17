@@ -22,8 +22,7 @@
 #define	_IOC_IN		0x80000000	/* copy in parameters */
 #define	_IOC_INOUT	(_IOC_IN|_IOC_OUT)
 
-#define _IOC_CHAR(x) _IOC_CHAR_1(x)
-#define _IOC_CHAR_1(x) _IOC_CHAR_##x
+#define _IOC_CHAR(x) _IOC_CHAR_##x
 #define _IOC_CHAR_A 'A'
 #define _IOC_CHAR_B 'B'
 #define _IOC_CHAR_F 'F'
