@@ -68,7 +68,7 @@ struct zsops *zs_proto[] = { 0 };
 
 int bit();
 
-main()
+int main()
 {
 	register struct proc *p = (struct proc *)0;
 	register struct vmmeter *vm = (struct vmmeter *)0;
@@ -245,7 +245,7 @@ main()
 	exit(0);
 }
 
-bit(mask)
+int bit(mask)
 	register long mask;
 {
 	register int i;
