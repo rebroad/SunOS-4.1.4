@@ -32,6 +32,8 @@ ARCHF=-U$(USER) -D$(ARCH)
 #
 CPP=	/lib/cpp -undef -Dsparc -Dsun $(ARCHF)
 CC=	cc -sparc $(ARCHF)
+HOSTCC=${CC}
+HOSTRUN=./a.out
 AS=	as
 LD=	ld
 AWK=	awk
@@ -221,14 +223,14 @@ locore.o: assym.s percpu.s
 
 assym.s: ${MACHINE}/genassym.c
 	${CC} -E ${CPPOPTS} ${MACHINE}/genassym.c > ./a.out.c
-	cc ${COPTS} ./a.out.c
-	./a.out >assym.s
+	${HOSTCC} ${COPTS} ./a.out.c
+	${HOSTRUN} >assym.s
 	rm -f ./a.out ./a.out.c
 
 percpu.h percpu_str.h percpu_def.h percpu.s: ${SYSDIR}/sys/genpercpu.c Makefile
 	${CC} -E ${CPPOPTS} ${SYSDIR}/sys/genpercpu.c > ./a.out.c
-	cc ${COPTS} ./a.out.c
-	./a.out >percpu.s
+	${HOSTCC} ${COPTS} ./a.out.c
+	${HOSTRUN} >percpu.s
 	rm -f ./a.out ./a.out.c
 
 Locore.L:
@@ -259,4 +261,3 @@ param.L:
 %RULES
 
 # DO NOT DELETE THIS LINE -- make depend uses it
-
