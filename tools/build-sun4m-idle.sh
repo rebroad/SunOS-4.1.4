@@ -22,11 +22,20 @@ cd /build/sys/sun4m/conf
 
 # The kernel makefile links the standalone PROM library but does not build it.
 cd /build/sys/boot/lib/sun4m
-if ! make -j1 ../../../sun4m/libprom.a \
-    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
-    AS=/src/tools/sparc-as-wrapper.sh \
-    AR=sparc-linux-gnu-ar LD=sparc-linux-gnu-ld \
-    >/build/promlib-build.log 2>&1; then
+if ! (
+    rm -f *.o ../../../sun4m/libprom.a
+    for prom_src in ../promlib/prom_*.c; do
+        prom_obj=${prom_src##*/}
+        prom_obj=${prom_obj%.c}.o
+        sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus \
+            -mcpu=v8 -fno-pie -Dsun -Dsun4m -Dprintf=prom_printf \
+            -Dputchar=prom_putchar -DSTANDALONE \
+            -I.. -I../.. -I../../../sun4m -I../../../ -I../promlib \
+            -c "$prom_src" -o "$prom_obj"
+    done
+    sparc-linux-gnu-ar rcs ../../../sun4m/libprom.a *.o
+    sparc-linux-gnu-ranlib ../../../sun4m/libprom.a
+) >/build/promlib-build.log 2>&1; then
     echo "PROM library build failed; relevant diagnostics:"
     rg -n "error:|fatal error:|make:" /build/promlib-build.log | tail -40 || true
     echo "Last PROM library output:"
