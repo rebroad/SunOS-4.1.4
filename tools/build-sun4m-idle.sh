@@ -28,7 +28,8 @@ if ! (
         prom_obj=${prom_src##*/}
         prom_obj=${prom_obj%.c}.o
         sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus \
-            -mcpu=v8 -fno-pie -Dsun -Dsun4m -Dprintf=prom_printf \
+            -mcpu=v8 -fno-pie -fleading-underscore -Dsun -Dsun4m \
+            -Dprintf=prom_printf \
             -Dputchar=prom_putchar -DSTANDALONE \
             -I.. -I../.. -I../../../sun4m -I../../../ -I../promlib \
             -c "$prom_src" -o "$prom_obj"
@@ -58,8 +59,8 @@ sed -i "s/ -p / /" Makefile
 sed -i "s/-T F0004000/-Ttext 0xF0004000/" Makefile
 
 if ! make -j1 all \
-    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
-    HOSTCC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
+    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -fleading-underscore -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
+    HOSTCC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -fleading-underscore -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
     HOSTRUN="QEMU_LD_PREFIX=/build/sparc32root qemu-sparc32plus ./a.out" \
     AS=/src/tools/sparc-as-wrapper.sh \
     LD=sparc-linux-gnu-ld AR=sparc-linux-gnu-ar \
