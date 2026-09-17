@@ -38,9 +38,11 @@ The configuration omits HSFS and NFS because the test VM boots from its local
 disk and does not need those optional subsystems. Networking remains enabled.
 The serial-console idle configuration omits SunView, framebuffer, audio, and
 keyboard/mouse devices (`bwtwo`, `cgthree`, `cgsix`, `cgtwelve`, `gt`, `tcx`,
-`audioamd`, `dbri`, `audiocs`, `win256`, `dtop4`, `ms`, `kb`, and `fd`). SCSI
-disk, Ethernet, and UART support remain enabled; the generic device sources
-remain available for a future full-hardware configuration.
+`audioamd`, `dbri`, `audiocs`, `win256`, `dtop4`, `ms`, `kb`, and `fd`). It
+also omits the unused SCSI optical/tape targets (`sr`, `st_conf`, and `st`)
+and floppy assembly. SCSI disk, Ethernet, and UART support remain enabled;
+the generic device sources remain available for a future full-hardware
+configuration.
 The generated `vmunix` must be installed only into a throwaway VM disk until
 the QEMU idle, clock, sleep, networking, and clean-shutdown tests pass.
 
