@@ -1647,30 +1647,37 @@ char	busname_svec[] = "SBus ";
 char	busname_vvec[] = "VME ";
 char	busname_vec[] = "";
 
+#define	AUTOCONF_CAT1(a, b)	a##b
+#define	AUTOCONF_CAT(a, b)	AUTOCONF_CAT1(a, b)
+
 #define	OVECTOR(n)		\
-int	olvl/**/n/**/_spurious;	\
-struct autovec olvl/**/n[NVECT]
+int	AUTOCONF_CAT(AUTOCONF_CAT(olvl, n), _spurious);	\
+struct autovec AUTOCONF_CAT(olvl, n)[NVECT]
 
 #define	SVECTOR(n)		\
-int	slvl/**/n/**/_spurious;	\
-struct autovec slvl/**/n[NVECT]
+int	AUTOCONF_CAT(AUTOCONF_CAT(slvl, n), _spurious);	\
+struct autovec AUTOCONF_CAT(slvl, n)[NVECT]
 
 #define	VVECTOR(n)		\
-int	vlvl/**/n/**/_spurious;	\
-struct autovec vlvl/**/n[NVECT]
+int	AUTOCONF_CAT(AUTOCONF_CAT(vlvl, n), _spurious);	\
+struct autovec AUTOCONF_CAT(vlvl, n)[NVECT]
 
 #define	XVECTOR(n)		\
-struct autovec xlvl/**/n[NVECT]
+struct autovec AUTOCONF_CAT(xlvl, n)[NVECT]
 
 #define	VECTOR(n)		\
-int	level/**/n/**/_spurious;	\
-struct autovec level/**/n[NVECT]
+int	AUTOCONF_CAT(AUTOCONF_CAT(level, n), _spurious);	\
+struct autovec AUTOCONF_CAT(level, n)[NVECT]
 
 typedef int (*func)();
 
 extern int	softint();
 extern int	process_aflt();
 extern int	hardlevel10();
+extern u_short	*doprobe();
+#ifndef SAS
+static int	mouseconfig();
+#endif
 
 /*
  * These structures are used in locore.s to jump to device interrupt routines.
@@ -2624,7 +2631,7 @@ kbddone:
 }
 
 #ifndef SAS
-static
+static int
 mouseconfig(msdev)
 	dev_t msdev;
 {
@@ -3182,7 +3189,6 @@ mbconfctrl(mc, mdr)
 	u_short		 *reg;
 	int		     err = 0;
 	int		     stat;
-	u_short		 *doprobe();
 	struct dev_info *dev = NULL;
  
 	if ((reg = doprobe((u_long)mc->mc_addr, (u_long)mc->mc_space,
