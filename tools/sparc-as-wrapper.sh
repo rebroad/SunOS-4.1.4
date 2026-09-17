@@ -3,6 +3,7 @@ set -euo pipefail
 
 as_args=()
 cpp_args=(-m32 -mno-v8plus -mcpu=v8 -E -P -traditional-cpp -undef
+    -Wno-endif-labels
     -Dsparc -Dsun -DKERNEL -x assembler-with-cpp)
 source_file=
 for arg in "$@"; do
