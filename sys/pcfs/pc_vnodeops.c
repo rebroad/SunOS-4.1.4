@@ -53,6 +53,7 @@ static int pcfs_fsync();
 static int pcfs_inactive();
 static int pcfs_getpage();
 static int pcfs_putpage();
+static int rwpcp();
 static int pcfs_map();
 static int pcfs_cmp();
 static int pcfs_realvp();
