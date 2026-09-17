@@ -52,7 +52,7 @@ sed -i "s/klm_kprot.o klm_lockmgr.o //" Makefile
 # The VM has one SCSI hard disk and no floppy, optical, or tape device.
 sed -i -E "s/(fd_asm|sr|st_conf|st)\\.(o|L) //g" Makefile
 
-# Sun's linker accepted -p here; GNU ld rejects it.  -N retains the required
+# The Sun linker accepted -p here; GNU ld rejects it.  -N retains the required
 # OMAGIC/non-page-aligned link mode for this kernel.
 sed -i "s/ -p / /" Makefile
 
