@@ -72,7 +72,8 @@ extern	char	DVMA[];
 
 #ifdef	OPENPROMS
 
-int	leidentify(), leattach(), leintr();
+static int	leidentify(), leattach();
+int	leintr();
 struct	dev_ops le_ops = {
 	1,
 	leidentify,
@@ -688,7 +689,7 @@ leinit(unit)
 			if (iommu_info.ccoher == 0) {
 				for (kp = es->es_membase;
 				    (u_int) kp < ((u_int) es->es_membase
-				    + LEBUFSIZE); (u_int)kp += MMU_PAGESIZE) {
+					+ LEBUFSIZE); kp += MMU_PAGESIZE) {
 					ptpe = hat_ptefind(&kas, kp);
 					pp = ptetopp(&ptpe->pte);
 					(void) hat_pagecache(pp, 1);
@@ -1595,7 +1596,7 @@ leintr()
 	return (serviced);
 }
 
-static
+static int
 lecoll(coll)
 int	coll;
 {
