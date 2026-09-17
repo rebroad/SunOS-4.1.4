@@ -40,6 +40,20 @@ struct dirtemplate mastertemplate = {
 
 int dirchk = 0;
 
+static int dircheckforname();
+static int dirrename();
+static int dirfixdotdot();
+static int diraddentry();
+static int dirprepareentry();
+static int dirmakeinode();
+static int dirmakedirect();
+static int blkatoff();
+static int dirmangled();
+static int dirbad();
+static int dirbadname();
+static int dirempty();
+static int dircheckpath();
+
 /*
  * Look for a certain name in a directory
  * On successful return, *ipp will point to the (locked) inode.
