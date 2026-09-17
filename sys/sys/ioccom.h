@@ -54,14 +54,14 @@
 #define _IOC_CHAR_x 'x'
 
 /* the 0x20000000 is so we can distinguish new ioctl's from old */
-#define	_IO(x,y)	(_IOC_VOID|(_IOC_CHAR(x)<<8)|y)
-#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR(x)<<8)|y)
-#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR(x)<<8)|y)
-#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR(x)<<8)|y)
-#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR(x)<<8)|y)
+#define	_IO(x,y)	(_IOC_VOID|(_IOC_CHAR_##x<<8)|y)
+#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
 /* this should be _IORW, but stdio got there first */
-#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR(x)<<8)|y)
-#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR(x)<<8)|y)
+#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
 
 /*
  * Registry of ioctl characters, culled from system sources
