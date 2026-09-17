@@ -63,6 +63,7 @@ int	arptab_size = ARPTAB_SIZE;	/* for arp command */
 struct ether_addr etherbroadcastaddr = {{ 0xff, 0xff, 0xff, 0xff, 0xff, 0xff }};
 #endif lint
 extern struct ifnet loif;
+static void arpcomflush();
 
 /*
  * Timeout routine.  Age arp_tab entries once a minute.
@@ -465,7 +466,7 @@ arpioctl(cmd, data)
 	return (0);
 }
 
-static
+static void
 arpcomflush(sin)
 struct	sockaddr_in	*sin;
 {
