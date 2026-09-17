@@ -324,7 +324,7 @@ swift_pte_offon(ptpe, aval, oval)
 	        pte = &ptpe->pte;
 	        vaddr = ptetovaddr(pte);
 		if (vaddr > (addr_t)&etext) {
-			aval | = 0x80;
+				aval |= 0x80;
 			oval &= ~0x80;
 		}
 	}
