@@ -13,9 +13,8 @@
 
 /* Reiser cpp concatenation macros */
 #ifndef _CAT
-#undef	_IDENT
-#define _IDENT(x)	x
-#define	_CAT(a,b)	_IDENT(a)b
+#define	_CAT1(a,b)	a##b
+#define	_CAT(a,b)	_CAT1(a,b)
 #endif
 
 /*
