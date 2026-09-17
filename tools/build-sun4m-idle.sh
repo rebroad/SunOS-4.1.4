@@ -14,6 +14,9 @@ set -euo pipefail
 /src/tools/generate-sun4m-config.sh SUN4M_IDLE GENERIC_SMALL \
     --without=HSFS --without=NFSCLIENT --without=NFSSERVER \
     >/build/config-generate.log 2>&1
+sed -i -E \
+    "/^(device-driver|pseudo-device) (bwtwo|cgthree|cgsix|cgtwelve|gt|tcx|audioamd|dbri|audiocs|win256|dtop4|ms|kb)( |$)/d" \
+    /build/sys/sun4m/conf/SUN4M_IDLE
 cd /build/sys/sun4m/conf
 /build/usr.etc/config/config -n SUN4M_IDLE >/build/config-run.log 2>&1
 cd /build/sys/sun4m/SUN4M_IDLE
@@ -21,11 +24,6 @@ cd /build/sys/sun4m/SUN4M_IDLE
 # The historical configuration always lists these NFS lock-manager objects,
 # even when both NFS options are disabled.
 sed -i "s/klm_kprot.o klm_lockmgr.o //" Makefile
-
-# The idle-test kernel uses the serial console, not SunView framebuffer
-# raster operations.  Leave the generic pixrect sources intact, but do not
-# pull these unrelated legacy macro-heavy objects into this kernel.
-sed -i -e "s/gt_rop.o //" -e "s/mem_rop.o //" Makefile
 
 if ! make -j1 all \
     CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
