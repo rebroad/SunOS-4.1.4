@@ -15,6 +15,10 @@
 #ifndef _sys_mbuf_h
 #define _sys_mbuf_h
 
+#ifdef sun4m
+#include <machine/pte.h>
+#endif
+
 /*
  * Constants related to memory allocator.
  *
