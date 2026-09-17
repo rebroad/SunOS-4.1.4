@@ -20,7 +20,7 @@
 #define FAS100A_BUG
 
 #ifdef FAS100A_BUG
-esp_step567 = 0;
+static int esp_step567 = 0;
 #endif
 
 /*
@@ -98,6 +98,9 @@ static int esp_ustart(), esp_startcmd(), esp_reset_recovery(), esp_istart();
 static int esp_abort_curcmd(), esp_abort_allcmds(), esp_reset_bus();
 static int esp_handle_selection();
 static int esp_dopoll();
+static int esp_onebyte_msg();
+static int esp_twobyte_msg();
+static int esp_multibyte_msg();
 
 #ifdef	VECTORED_INTERRUPTS
 static int esp_intr();
