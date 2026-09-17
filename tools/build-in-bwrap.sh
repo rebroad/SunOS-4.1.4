@@ -19,6 +19,15 @@ if (($# == 0)); then
     set -- /bin/bash
 fi
 
+# qemu-sparc32plus needs the 32-bit SPARC loader, while the Debian cross
+# package keeps it under the sparc64 sysroot.  This link is generated build
+# state, not source content, and is recreated whenever the build tree is
+# synchronized.
+mkdir -p "$build_root/sparc32root"
+if [[ ! -e "$build_root/sparc32root/lib" ]]; then
+    ln -s /usr/sparc64-linux-gnu/lib32 "$build_root/sparc32root/lib"
+fi
+
 exec /usr/bin/bwrap \
     --die-with-parent \
     --unshare-all \
