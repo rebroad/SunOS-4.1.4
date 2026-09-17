@@ -28,7 +28,7 @@ exec /usr/bin/bwrap \
     --ro-bind /lib /lib \
     --ro-bind /lib64 /lib64 \
     --ro-bind /etc /etc \
-    --ro-bind /dev /dev \
+    --dev /dev \
     --proc /proc \
     --ro-bind /sys /sys \
     --ro-bind "$source_root" /src \
