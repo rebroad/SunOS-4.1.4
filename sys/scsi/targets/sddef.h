@@ -51,7 +51,7 @@
 #define	SCBP(pkt)	((struct scsi_status *)(pkt)->pkt_scbp)
 #define	SCBP_C(pkt)	((*(pkt)->pkt_scbp) & STATUS_MASK)
 #define	CDBP(pkt)	((union scsi_cdb *)(pkt)->pkt_cdbp)
-#define	BP_PKT(bp)	((struct scsi_pkt *)bp->av_back)
+#define	BP_PKT(bp)	((bp)->av_back)
 
 #define	Tgt(devp)	(devp->sd_address.a_target)
 #define	Lun(devp)	(devp->sd_address.a_lun)

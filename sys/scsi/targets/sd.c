@@ -55,7 +55,8 @@ static char *diskokay = "disk okay";
 /*
  * Forward reference definitions
  */
-extern char *sd_cmds[];
+static char *sd_cmds[];
+extern char *strcpy();
 
 /*
  * Configuration Data
@@ -106,6 +107,9 @@ static int sd_unit_ready();
 static void sdprintf(), sdlog();
 static void sd_setlink();
 static int sd_testlink(), sd_maptouscsi();
+static void sd_uselabel();
+static int sdrw(), sdioctl_cmd();
+static int sd_handle_incomplete(), sd_handle_sense(), sd_check_error();
 #ifdef	ADAPTEC
 static void sdintr_adaptec();
 #endif	/* ADAPTEC */
