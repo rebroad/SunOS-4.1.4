@@ -65,7 +65,7 @@ label_t	panic_regs;
 int	noprintf = 0;	/* patch to non-zero to suppress kernel printf's */
 
 void prf();
-void fnprn();
+static void fnprn();
 void fnprf();
 char *sprintf();
 
