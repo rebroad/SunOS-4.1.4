@@ -47,7 +47,7 @@ the generic device sources remain available for a future full-hardware
 configuration. The historical lock-manager objects remain in the build
 because the UFS lock code references their entry points even when NFS clients
 are off.
-The generated `vmunix` must be installed only into a throwaway VM disk until
+The generated `vmunix_small` must be installed only into a throwaway VM disk until
 the QEMU idle, clock, sleep, networking, and clean-shutdown tests pass.
 
 Do not edit generated files in `.build` as a permanent fix: put build fixes in

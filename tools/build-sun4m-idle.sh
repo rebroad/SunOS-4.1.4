@@ -73,6 +73,6 @@ if ! make -j1 all \
 fi
 
 echo "SunOS kernel build succeeded:"
-ls -lh /build/sys/sun4m/SUN4M_IDLE/vmunix
+ls -lh /build/sys/sun4m/SUN4M_IDLE/vmunix_small
 echo "Full build log: /build/kernel-build.log"
 '
