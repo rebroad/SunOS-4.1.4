@@ -6,6 +6,8 @@
 
 #include <promcommon.h>
 
+extern char *prom_stdoutpath();
+
 /*
  * Kernel only promlib functions.  Don't even think about it in other SA's.
  */

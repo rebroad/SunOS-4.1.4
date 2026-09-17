@@ -32,7 +32,7 @@ if ! (
             -Dprintf=prom_printf \
             -Dputchar=prom_putchar -DSTANDALONE \
             -I.. -I../.. -I../../../sun4m -I../../../ -I../promlib \
-            -c "$prom_src" -o "$prom_obj"
+            -c "$prom_src" -o "$prom_obj" || exit 1
     done
     sparc-linux-gnu-ar rcs ../../../sun4m/libprom.a *.o
     sparc-linux-gnu-ranlib ../../../sun4m/libprom.a
