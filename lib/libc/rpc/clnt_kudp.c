@@ -29,11 +29,12 @@
 
 struct mbuf	*ku_recvfrom();
 int		ckuwakeup();
+extern int	wakeup();
 
 enum clnt_stat	clntkudp_callit();
 void		clntkudp_abort();
 void		clntkudp_error();
-bool_t		clntkudp_freeres();
+static bool_t	clntkudp_freeres();
 bool_t		clntkudp_control();
 void		clntkudp_destroy();
 
