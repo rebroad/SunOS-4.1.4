@@ -35,8 +35,8 @@
 #include "audiodebug.h"
 
 #if defined(SUN4M_35) && defined(IOMMU)
-#include <machine/cpu.h
-#include <machine/iommu.h
+#include <machine/cpu.h>
+#include <machine/iommu.h>
 #endif
 
 /* Local declarations */
@@ -44,8 +44,8 @@ dbri_dev_t	*Dbri_devices = NULL;	/* device ctrlr array */
 int		Ndbri = 0;		/* number of devices found up to now */
 int		Curdbri = 0;		/* current dbri attach unit */
 
-int	dbri_identify();
-int	dbri_attach();
+static int	dbri_identify();
+static int	dbri_attach();
 addr_t	map_regs();
 void	report_dev();
 
