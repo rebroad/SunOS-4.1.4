@@ -35,7 +35,7 @@ static char sccsid[] = "@(#)trap.c 1.1 94/10/31";
 
 #include <os/atom.h>
 
-extern u_int cpuid;
+extern int cpuid;
 static int getkureg();
 
 #ifdef  SUNDBE
