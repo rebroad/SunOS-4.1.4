@@ -22,6 +22,11 @@ cd /build/sys/sun4m/SUN4M_IDLE
 # even when both NFS options are disabled.
 sed -i "s/klm_kprot.o klm_lockmgr.o //" Makefile
 
+# The idle-test kernel uses the serial console, not SunView framebuffer
+# raster operations.  Leave the generic pixrect sources intact, but do not
+# pull these unrelated legacy macro-heavy objects into this kernel.
+sed -i -e "s/gt_rop.o //" -e "s/mem_rop.o //" Makefile
+
 if ! make -j1 all \
     CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
     HOSTCC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \

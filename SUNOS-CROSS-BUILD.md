@@ -36,6 +36,9 @@ The generated kernel directory is:
 
 The configuration omits HSFS and NFS because the test VM boots from its local
 disk and does not need those optional subsystems. Networking remains enabled.
+The serial-console idle configuration also omits the SunView framebuffer
+raster-operation objects `gt_rop.o` and `mem_rop.o`; the generic pixrect
+sources remain available for a future framebuffer configuration.
 The generated `vmunix` must be installed only into a throwaway VM disk until
 the QEMU idle, clock, sleep, networking, and clean-shutdown tests pass.
 
