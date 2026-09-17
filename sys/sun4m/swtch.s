@@ -248,6 +248,11 @@ _testq:
 	ldub	[%g1 + %lo(_qrunflag)], %g1
 	tst	%g1
 #ifndef SAS
+	#ifdef QEMU_IDLE_POWERDOWN
+	! Tell a SPARC implementation with wrpowerdown to sleep until an interrupt.
+	! This is emitted only after the idle path has enabled interrupts.
+	wr	%g0, %g0, %asr19
+	#endif QEMU_IDLE_POWERDOWN
 	bz	_idle			! no
 	nop
 #else	SAS
