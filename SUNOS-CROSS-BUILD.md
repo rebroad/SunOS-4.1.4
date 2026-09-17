@@ -17,6 +17,13 @@ The driver synchronizes the source into the external build tree, runs the old
 kernel serially. Serial execution is required because the historical Makefile
 uses a shared `a.out.c` temporary file.
 
+The compiler command suppresses only `-Wendif-labels`, whose thousands of
+instances are historical `#endif NAME` annotations. Other warnings remain
+visible: return-type mismatches, integer overflows, malformed guards, and
+ABI-related diagnostics must be reviewed rather than hidden. A warning that
+blocks the build is fixed in the source tree when it represents a real
+modern-toolchain incompatibility.
+
 The generated kernel directory is:
 
 `/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE`
