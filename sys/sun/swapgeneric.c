@@ -58,6 +58,9 @@ static int bootpath_debug = 1;		/* Non-zero for debug messages */
 dev_t	rootdev;
 struct vnode *rootvp;
 
+static int chkopenable();
+static int build_bdevlist();
+
 /*
  * Flags in bdevlist/cdevlist.
  * This stuff moved outside the "ifdef OPENPROM" for building
@@ -1115,7 +1118,7 @@ found:
 /*
  * check if dev is openable, 0 no, 1 yes
  */
-static
+static int
 chkopenable(dev)
 	dev_t	dev;
 {
