@@ -25,6 +25,8 @@
 #endif
 #include <machine/clock.h>
 
+extern int procset;
+
 #include <vm/hat.h>
 #include <vm/as.h>
 #include <vm/rm.h>
