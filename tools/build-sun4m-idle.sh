@@ -19,6 +19,21 @@ sed -i -E \
     /build/sys/sun4m/conf/SUN4M_IDLE
 cd /build/sys/sun4m/conf
 /build/usr.etc/config/config -n SUN4M_IDLE >/build/config-run.log 2>&1
+
+# The kernel makefile links the standalone PROM library but does not build it.
+cd /build/sys/boot/lib/sun4m
+if ! make -j1 libprom.a \
+    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
+    AS=/src/tools/sparc-as-wrapper.sh \
+    AR=sparc-linux-gnu-ar LD=sparc-linux-gnu-ld \
+    >/build/promlib-build.log 2>&1; then
+    echo "PROM library build failed; relevant diagnostics:"
+    rg -n "error:|fatal error:|make:" /build/promlib-build.log | tail -40 || true
+    echo "Last PROM library output:"
+    tail -40 /build/promlib-build.log
+    exit 1
+fi
+
 cd /build/sys/sun4m/SUN4M_IDLE
 
 # The historical configuration always lists these NFS lock-manager objects,
