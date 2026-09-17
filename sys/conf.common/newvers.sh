@@ -22,7 +22,7 @@ echo $VERS `basename \`pwd\`` `cat $1` | \
 awk '	{	version = $1; sysname = $2; release = $3; }\
 END	{	printf "char version[] = \"SunOS Release %s (%s) #%d: ", release, sysname, version >> "vers.c";\
 		printf "%d\n", version > "version"; }' 
-printf '%s\nCopyright (c) 1983-1993, Sun Microsystems, Inc.\n";\n' "`date`" >> vers.c
+printf '%s\\nCopyright (c) 1983-1993, Sun Microsystems, Inc.\\n";\n' "`date`" >> vers.c
 
 echo >> vers.c
 
