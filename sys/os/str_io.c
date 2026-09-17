@@ -43,6 +43,8 @@
 
 #define	HZ		hz
 
+extern int wakeup();
+
 /*
  * id value used to distinguish between different ioctl messages
  */
