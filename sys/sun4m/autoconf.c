@@ -945,7 +945,6 @@ add_drv(dev_ops)
 {
 	struct add_drv_info	adi;
 	register struct add_drv_info	*adip = &adi;
-	static void		add_drv_layer();
 	register struct new_devlist *ndp;
 	int	attached = 0;
 
@@ -1004,7 +1003,6 @@ add_drv_layer(dev, adip)
 	struct dev_info	*dev;
 	struct add_drv_info	*adip;
 {
-	static void	add_a_device();
 
 	walk_layer(dev,
 		(int (*)()) add_a_device, (caddr_t) &new_devlist_head);
@@ -1065,7 +1063,6 @@ void
 rem_drv(dev_ops)
 	struct dev_ops *dev_ops;
 {
-	static void	rem_a_device();
 
 	walk_devs(top_devinfo,
 		(int (*)()) rem_a_device, (caddr_t) dev_ops);
@@ -1678,6 +1675,9 @@ extern u_short	*doprobe();
 #ifndef SAS
 static int	mouseconfig();
 #endif
+static void	add_drv_layer();
+static void	add_a_device();
+static void	rem_a_device();
 
 /*
  * These structures are used in locore.s to jump to device interrupt routines.
