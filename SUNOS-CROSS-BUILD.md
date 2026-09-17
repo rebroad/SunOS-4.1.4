@@ -24,6 +24,10 @@ ABI-related diagnostics must be reviewed rather than hidden. A warning that
 blocks the build is fixed in the source tree when it represents a real
 modern-toolchain incompatibility.
 
+Compiler output is retained in
+`/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/kernel-build.log`; the
+driver prints only a success line or concise failure diagnostics.
+
 The generated kernel directory is:
 
 `/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE`

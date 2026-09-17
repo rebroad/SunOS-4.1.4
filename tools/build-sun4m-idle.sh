@@ -22,11 +22,21 @@ cd /build/sys/sun4m/SUN4M_IDLE
 # even when both NFS options are disabled.
 sed -i "s/klm_kprot.o klm_lockmgr.o //" Makefile
 
-make -j1 all \
+if ! make -j1 all \
     CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
     HOSTCC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
     HOSTRUN="QEMU_LD_PREFIX=/build/sparc32root qemu-sparc32plus ./a.out" \
     AS=/src/tools/sparc-as-wrapper.sh \
     LD=sparc-linux-gnu-ld AR=sparc-linux-gnu-ar \
-    2>&1 | tee /build/kernel-build.log
+    >/build/kernel-build.log 2>&1; then
+    echo "SunOS kernel build failed; relevant diagnostics:"
+    rg -n 'error:|fatal error:|make:' /build/kernel-build.log | tail -40 || true
+    echo "Last build output:"
+    tail -40 /build/kernel-build.log
+    exit 1
+fi
+
+echo "SunOS kernel build succeeded:"
+ls -lh /build/sys/sun4m/SUN4M_IDLE/vmunix
+echo "Full build log: /build/kernel-build.log"
 '
