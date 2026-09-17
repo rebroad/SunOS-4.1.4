@@ -39,6 +39,9 @@ static int ufs_sync();
 static int ufs_vget();
 static int ufs_mountroot();
 static int ufs_badop();
+static int mountfs();
+static int unmount1();
+static int getmdev();
 
 struct vfsops ufs_vfsops = {
 	ufs_mount,
