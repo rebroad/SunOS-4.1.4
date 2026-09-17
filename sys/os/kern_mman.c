@@ -26,6 +26,9 @@
 #include <vm/seg_vn.h>
 #include <machine/seg_kmem.h>
 
+static void sbrk1();
+static int sstk1();
+
 /*
  * Adjust UNIX break by incr, returning the old break value.
  */
@@ -44,7 +47,7 @@ sbrk()
  * Common routine for sbrk() and brk().  Sets error in
  * u.u_error on error and adjusts p->p_dsize if successful.
  */
-static
+static void
 sbrk1(d)
 	register int d;
 {
@@ -379,7 +382,7 @@ mctl()
 		}
 		break;
 	case MC_ADVISE:
-		switch (arg) {
+		switch ((int)arg) {
 		case MADV_WILLNEED:
 			fc = as_faulta(u.u_procp->p_as, addr, len);
 			if (fc) {
