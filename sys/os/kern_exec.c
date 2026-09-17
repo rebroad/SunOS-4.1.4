@@ -53,6 +53,8 @@ extern int	cpuid;
 #define	PREREAD(size) \
 	((int)btopr(size) < (int)(freemem - minfree) && btopr(size) < pgthresh)
 
+static int getxfile();
+
 int pgthresh = btopr(PGTHRESH);		/* maximum preread size */
 
 #define	ARG_HUNKSIZE	0x4000
