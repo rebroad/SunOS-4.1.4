@@ -34,6 +34,16 @@ extern void mmu_flushall();
 extern int report_ce_console;
 static int unmap_to_end_rgn();
 
+char *
+memcpy(dst, src, len)
+	char *dst;
+	char *src;
+	int len;
+{
+	bcopy((caddr_t)src, (caddr_t)dst, (u_int)len);
+	return (dst);
+}
+
 /*Placeholder when UFS isn't included, like for DL kernels.*/
 int ufs_lock_released;
 

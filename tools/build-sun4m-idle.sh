@@ -17,6 +17,9 @@ set -euo pipefail
 sed -i -E \
     "/^(device-driver|pseudo-device) (bwtwo|cgthree|cgsix|cgtwelve|gt|tcx|audioamd|dbri|audiocs|win256|dtop4|ms|kb|fd)( |$)/d" \
     /build/sys/sun4m/conf/SUN4M_IDLE
+sed -i -E \
+    "/^(disk|tape) (sr|st)[0-9]+( |$)/d" \
+    /build/sys/sun4m/conf/SUN4M_IDLE
 cd /build/sys/sun4m/conf
 /build/usr.etc/config/config -n SUN4M_IDLE >/build/config-run.log 2>&1
 
