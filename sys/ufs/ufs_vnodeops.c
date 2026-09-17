@@ -83,6 +83,11 @@ static  int ufs_cmp();
 static  int ufs_realvp();
 static	int ufs_cntl();
 static	int ufs_badop();
+static	int rwip();
+static	int chown1();
+static	int ufs_fiolfs();
+static	int ufs_fioffs();
+static	int ufs_fiolfss();
 
 /*
  * ulockfs intercepts
