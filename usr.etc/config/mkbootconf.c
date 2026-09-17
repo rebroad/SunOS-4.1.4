@@ -56,7 +56,7 @@ doconf(fp, fl, name)
 {
 	fprintf(fp, "\nstruct bootobj %s = {\n", name);
 	if (fl) {
-		fprintf(fp, "\t{ \"");
+		fprintf(fp, "\t\"");
 		if (fl->f_fstype) {
 			fprintf(fp, "%s", fl->f_fstype);
 		}
@@ -64,9 +64,9 @@ doconf(fp, fl, name)
 		if (fl->f_fn) {
 			fprintf(fp, "%s", fl->f_fn);
 		}
-		fprintf(fp, "\",\t0, %d, (struct vnode *)0 },\n", fl->f_size);
+		fprintf(fp, "\",\t0, %d, (struct vnode *)0,\n", fl->f_size);
 	} else {
-		fprintf(fp, "\t{ \"\",\t\"\",\t0, 0, (struct vnode *)0 },\n");
+		fprintf(fp, "\t\"\",\t\"\",\t0, 0, (struct vnode *)0,\n");
 	}
 	fprintf(fp, "};\n");
 }
