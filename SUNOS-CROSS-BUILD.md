@@ -50,5 +50,11 @@ are off.
 The generated `vmunix_small` must be installed only into a throwaway VM disk until
 the QEMU idle, clock, sleep, networking, and clean-shutdown tests pass.
 
+The stock `usr.bin/sleep` is intentionally unchanged. It calls the standard
+SunOS `sleep()` interface; the kernel places the calling process on a sleep
+queue and switches processes. The QEMU idle change belongs in the
+multiprocessor `idlework()` polling loop, where the rebuilt kernel emits the
+sun4m `POWERDOWN` instruction when no runnable work exists.
+
 Do not edit generated files in `.build` as a permanent fix: put build fixes in
 the source tree, commit them, and rerun the single driver command.
