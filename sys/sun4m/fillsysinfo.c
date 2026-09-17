@@ -54,21 +54,21 @@ struct memlist *availmemory = 0;
 struct memlist *physmemory = 0;
 struct memlist *virtmemory = 0;
 
-struct machinfo		mach_info 		= 0;
+struct machinfo		mach_info 		= { 0, };
 #ifdef	VME
-struct vmeinfo 		vme_info 		= 0;
+struct vmeinfo 		vme_info 		= { 0, };
 #endif	VME
-struct iommuinfo	iommu_info 		= 0;
-struct mmcinfo 		mmc_info 		= 0;
-struct modinfo 		mod_info[NMODULES] 	= 0;
+struct iommuinfo	iommu_info 		= { 0, };
+struct mmcinfo 		mmc_info 		= { 0, };
+struct modinfo 		mod_info[NMODULES] 	= { 0, };
 
 char   sysname[MAXSYSNAME] 			= 0; /* system name */
 char   modname[NMODULES][MAXSYSNAME] 		= 0; /* module names */
 char   mcname[MAXSYSNAME] 			= 0; /* mmc name (if any) */
 
-struct dev_reg  obpctx	= 0; /* obp's context table info, reg struc */
+struct dev_reg  obpctx	= { 0, }; /* obp's context table info, reg struc */
 
-struct dev_reg	obp_mailbox = 0; /* obp's mailbox phy addr, each cpu
+struct dev_reg	obp_mailbox = { 0, }; /* obp's mailbox phy addr, each cpu
 				    have different mail box address.
 				    however, they are all within the
 				    same page.  This is used when
