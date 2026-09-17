@@ -33,6 +33,25 @@ tmp="$output.tmp"
 errors="$output.cpp.err"
 
 mkdir -p "$config_dir"
+mkdir -p "$build_root/sys/sun4m/$config_name"
+
+# The old generator programs include SunOS's stdio.h.  Keep this small host
+# compatibility declaration in the generated tree rather than polluting the
+# source tree or allowing host libc declarations to collide with SunOS ones.
+cat > "$build_root/sys/sun4m/$config_name/stdio.h" <<'EOF'
+#ifndef _SUNOS_BUILD_STDIO_H
+#define _SUNOS_BUILD_STDIO_H
+typedef struct _sun_build_FILE FILE;
+FILE *fopen(const char *, const char *);
+int fclose(FILE *);
+int fprintf(FILE *, const char *, ...);
+int printf(const char *, ...);
+int time(int *);
+char *ctime(const int *);
+int strcmp(const char *, const char *);
+void exit(int);
+#endif
+EOF
 
 set -o pipefail
 awk '
