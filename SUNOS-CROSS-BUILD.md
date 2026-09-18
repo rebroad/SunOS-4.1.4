@@ -95,6 +95,20 @@ its checksum. It intentionally does not replace `/vmunix`; use the PROM to boot
 the test image only after checking the reported checksum. The launcher must be
 run with `--throwaway`, and the VM must be shut down cleanly after testing.
 
+For a native-build comparison, push the same source archive into the guest
+over the existing serial connection. This keeps the transfer host-to-guest
+only and avoids opening a guest-to-host TFTP or FTP data path:
+
+```sh
+git archive HEAD | gzip -9 > /var/tmp/sunos-4.1.4-source.tar.gz
+./tools/install-file-serial.sh /var/tmp/sunos-4.1.4-source.tar.gz \
+    /home/rebroad/sunos-4.1.4-source.tar.gz
+```
+
+Extract that archive in the guest, apply
+`tools/patches/qemu-idle-kernel.patch`, and build there with the native SunOS
+tools. The archive and the host build must come from the same source commit.
+
 When the `spod` bridge is available, prefer the network transfer over serial.
 The guest must use `137.205.192.4` and the bridge gateway is
 `137.205.192.1`; do not use a user-mode or other `10.x.x.x` address for this
