@@ -38,7 +38,8 @@ block_count=$(( (file_size + block_size - 1) / block_size ))
 
 printf 'waiting for the logged-in SunOS shell prompt...\n'
 until tail -c 2048 "$console_log" 2>/dev/null |
-	grep -aEq '(^|[[:space:]])(%|#)([[:space:]]|$)'; do
+	tr -d '\r' |
+	grep -aEq '(^|[[:space:]])(%|#)'; do
 	sleep 1
 done
 
