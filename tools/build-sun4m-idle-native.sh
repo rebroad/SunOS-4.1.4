@@ -34,8 +34,25 @@ sed 's/^IDENT=/IDENT=-DQEMU_IDLE_POWERDOWN -DQEMU_KERNEL_DIAGNOSTICS /' \
     Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
 
-make depend >"$logroot/kernel-depend.log" 2>&1
-make >"$logroot/kernel-build.log" 2>&1
+# SunOS cc emits #line directives for -E unless -P is supplied; the historical
+# host-generator recipes feed that output back to cc, which otherwise rejects
+# the directives as source characters.  Keep this compatibility change in the
+# native workflow rather than the shared source tree.
+sed 's/\${CC} -E /\${CC} -E -P /g' Makefile >Makefile.native-tmp
+mv Makefile.native-tmp Makefile
+
+if ! make depend >"$logroot/kernel-depend.log" 2>&1; then
+    echo "Native SunOS dependency generation failed; see $logroot/kernel-depend.log" >&2
+    exit 1
+fi
+if ! make >"$logroot/kernel-build.log" 2>&1; then
+    echo "Native SunOS kernel build failed; see $logroot/kernel-build.log" >&2
+    exit 1
+fi
+test -s vmunix_small || {
+    echo "Native SunOS kernel build produced no vmunix_small" >&2
+    exit 1
+}
 
 echo "Native SunOS build succeeded"
 ls -l vmunix_small
