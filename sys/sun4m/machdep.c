@@ -85,6 +85,7 @@ union ptpe 	*tmpptes = 0;
 u_int		PA_TMPPTES = 0;	/* Use as location for mapping */
 /* Snapshot monitor L2 entries before prom_map() changes its context. */
 static union ptpe prom_l2ptps[NKL2PTS * NL2PTEPERPT];
+static union ptpe prom_inherited_l2ptps[NKL2PTS * NL2PTEPERPT];
 static union ptpe prom_l3ptes[NKL2PTS * NL2PTEPERPT * NL3PTEPERPT];
 static u_int prom_call_page[MMU_PAGESIZE / sizeof (u_int)];
 
@@ -94,7 +95,7 @@ static u_int prom_call_page[MMU_PAGESIZE / sizeof (u_int)];
 #define PROM_ROMVEC_PTE		0x07000c3e
 #define PROM_CALL_L2_INDEX	0x3fb
 #define PROM_CALL_L3_INDEX	0x3f
-#define PROM_CALL_PA		0x003ffe000
+#define PROM_CALL_L3_PA		0x003feea00
 #define PROM_CALL_FLAGS		0x7e
 #endif	NOPROM
 
@@ -846,7 +847,9 @@ load_tmpptes()
 	}
 	physmem = npages;
 	if ((first_membank->size) > TMPPTES) {
-		PA_TMPPTES = ((first_membank->size) - TMPPTES);
+		/* Keep the PROM callback page and its adjacent PROM table page
+		 * outside the temporary mapping allocated by prom_map(). */
+		PA_TMPPTES = ((first_membank->size) - TMPPTES - 0x2000);
 	} else {
 		panic("no physical space for tmpptes");
 	}
@@ -892,8 +895,10 @@ load_tmpptes()
 	 * newly allocated RAM mapping for a PROM mapping.
 	 */
 	for (i = 0; i < NKL2PTS * NL2PTEPERPT; i++)
-		prom_l2ptps[i].ptpe_int =
+		prom_inherited_l2ptps[i].ptpe_int =
 			get_rom_l2_ptpe(i * L3PTSIZE + KERNELBASE, 0);
+	for (i = 0; i < NKL2PTS * NL2PTEPERPT; i++)
+		prom_l2ptps[i].ptpe_int = prom_inherited_l2ptps[i].ptpe_int;
 	for (i = 0; i < NKL2PTS * NL2PTEPERPT; i++)
 		if ((prom_l2ptps[i].ptpe_int & 3) == MMU_ET_PTP) {
 			unsigned rpa = prom_l2ptps[i].ptp.PageTablePointer <<
@@ -902,13 +907,9 @@ load_tmpptes()
 				prom_l3ptes[i * NL3PTEPERPT + k].ptpe_int =
 					ldphys(rpa + (k << 2));
 		}
-	/* The boot loader temporarily maps the PROM vector page over its own
-	 * page-table storage.  Restore the PROM mappings needed by prom_init()
-	 * and the PROM callbacks before making the kernel tables permanent. */
 	prom_l3ptes[PROM_ROMVEC_L2_INDEX * NL3PTEPERPT + PROM_ROMVEC_L3_INDEX]
 		.ptpe_int = PROM_ROMVEC_PTE;
-	for (k = 0; k < MMU_PAGESIZE / sizeof (u_int); k++)
-		prom_call_page[k] = ldphys(PROM_CALL_PA + k * sizeof (u_int));
+	bcopy((caddr_t)0xffeff000, (caddr_t)prom_call_page, MMU_PAGESIZE);
 	{
 		u_int prom_call_pte = PROM_CALL_FLAGS |
 			((VA2PA(prom_call_page) >> MMU_STD_PAGESHIFT) << 8);
@@ -916,12 +917,12 @@ load_tmpptes()
 		.ptpe_int = prom_call_pte;
 	/* Also repair the inherited PROM table for the short interval before
 	 * the new context table is active. */
-	if ((prom_l2ptps[PROM_ROMVEC_L2_INDEX].ptpe_int & 3) == MMU_ET_PTP)
-		stphys((prom_l2ptps[PROM_ROMVEC_L2_INDEX].ptp.PageTablePointer <<
+	if ((prom_inherited_l2ptps[PROM_ROMVEC_L2_INDEX].ptpe_int & 3) == MMU_ET_PTP)
+		stphys((prom_inherited_l2ptps[PROM_ROMVEC_L2_INDEX].ptp.PageTablePointer <<
 			MMU_STD_PTPSHIFT) + PROM_ROMVEC_L3_INDEX * sizeof (union ptpe),
 			PROM_ROMVEC_PTE);
-	if ((prom_l2ptps[PROM_CALL_L2_INDEX].ptpe_int & 3) == MMU_ET_PTP)
-		stphys((prom_l2ptps[PROM_CALL_L2_INDEX].ptp.PageTablePointer <<
+	if ((prom_inherited_l2ptps[PROM_CALL_L2_INDEX].ptpe_int & 3) == MMU_ET_PTP)
+		stphys((prom_inherited_l2ptps[PROM_CALL_L2_INDEX].ptp.PageTablePointer <<
 			MMU_STD_PTPSHIFT) + PROM_CALL_L3_INDEX * sizeof (union ptpe),
 			prom_call_pte);
 	}
@@ -931,6 +932,18 @@ load_tmpptes()
 		panic("can't map space for tmpptes");
 	}
 	kpteptr = tmpptes;	/* THIS IS A VA ABOVE KERNELBASE */
+	/* prom_map() may reuse the inherited PROM L3 entries; restore the
+	 * callback/vector mappings after it has finished changing them. */
+	{
+		u_int prom_call_pte = PROM_CALL_FLAGS |
+			((VA2PA(prom_call_page) >> MMU_STD_PAGESHIFT) << 8);
+		stphys((prom_inherited_l2ptps[PROM_ROMVEC_L2_INDEX].ptp.PageTablePointer <<
+			MMU_STD_PTPSHIFT) + PROM_ROMVEC_L3_INDEX * sizeof (union ptpe),
+			PROM_ROMVEC_PTE);
+		stphys((prom_inherited_l2ptps[PROM_CALL_L2_INDEX].ptp.PageTablePointer <<
+			MMU_STD_PTPSHIFT) + PROM_CALL_L3_INDEX * sizeof (union ptpe),
+			prom_call_pte);
+	}
 
 #else	NOPROM
 	kpteptr = TMPPTES;	/* THIS IS A VA ABOVE KERNELBASE */
@@ -1020,6 +1033,18 @@ load_tmpptes()
 
 	while (i-->0)
 		kpteptr[i].ptpe_int = PTEOF(0, i, MMU_STD_SRWX, 1);
+	/* The PROM allocator may have touched the inherited L3 tables while
+	 * the temporary tables were being built.  Restore them last. */
+	{
+		u_int prom_call_pte = PROM_CALL_FLAGS |
+			((VA2PA(prom_call_page) >> MMU_STD_PAGESHIFT) << 8);
+		stphys((prom_inherited_l2ptps[PROM_ROMVEC_L2_INDEX].ptp.PageTablePointer <<
+			MMU_STD_PTPSHIFT) + PROM_ROMVEC_L3_INDEX * sizeof (union ptpe),
+			PROM_ROMVEC_PTE);
+		stphys((prom_inherited_l2ptps[PROM_CALL_L2_INDEX].ptp.PageTablePointer <<
+			MMU_STD_PTPSHIFT) + PROM_CALL_L3_INDEX * sizeof (union ptpe),
+			prom_call_pte);
+	}
 	/*
 	 * convert the level1 page table ptr into something
 	 * that can be used as a context entry value,
