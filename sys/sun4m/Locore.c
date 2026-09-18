@@ -176,8 +176,6 @@ int	kadb_defer, kadb_want;
 extern u_int    load_tmpptes();
 extern void     early_startup();
 extern void     module_setup();
-extern void     (*v_mmu_setctp)();
-extern void     (*v_mmu_flushall)();
 
 trapvec         mon_clock14_vec;
 trapvec         mon_breakpoint_vec;
@@ -230,9 +228,7 @@ entry(iromp, idvec, indir)
 #ifdef IOC
 	ioc_flush(0);
 #endif IOC
-	(*v_mmu_setctp)(load_tmpptes());
-	/* Do not retain PROM TLB entries across the kernel table switch. */
-	(*v_mmu_flushall)();
+	mmu_setctp(load_tmpptes());
 	early_startup();
 #ifdef	MULTIPROCESSOR
 #ifdef	VAC
@@ -2804,3 +2800,4 @@ u_int get_efar1_vaddr() {
 
      return (u_int) 0;
 }
+

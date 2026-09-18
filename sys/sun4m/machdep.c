@@ -85,17 +85,6 @@ union ptpe 	*tmpptes = 0;
 u_int		PA_TMPPTES = 0;	/* Use as location for mapping */
 /* Snapshot monitor L2 entries before prom_map() changes its context. */
 static union ptpe prom_l2ptps[NKL2PTS * NL2PTEPERPT];
-static union ptpe prom_l3ptes[NKL2PTS * NL2PTEPERPT * NL3PTEPERPT];
-static u_int prom_call_page[MMU_PAGESIZE / sizeof (u_int)];
-
-/* The SS5 PROM boot path reuses these entries while loading the kernel. */
-#define PROM_ROMVEC_L2_INDEX	0x3f4
-#define PROM_ROMVEC_L3_INDEX	0x0c
-#define PROM_ROMVEC_PTE		0x07000c3e
-#define PROM_CALL_L2_INDEX	0x3fb
-#define PROM_CALL_L3_INDEX	0x3f
-#define PROM_CALL_PA		0x003ffe000
-#define PROM_CALL_FLAGS		0x7e
 #endif	NOPROM
 
 #include <os/dlyprf.h>
@@ -752,7 +741,7 @@ u_int rv;
 	union ptpe	ct, rp, l1, l2;
 	unsigned pa, po;
 
-	ct.ptpe_int = (*v_mmu_getctp)();
+	ct.ptpe_int = mmu_getctp();
 	pa = ct.ptp.PageTablePointer << MMU_STD_PTPSHIFT;
 	rp.ptpe_int = ldphys(pa);
 	switch (rp.ptp.EntryType) {
@@ -894,37 +883,6 @@ load_tmpptes()
 	for (i = 0; i < NKL2PTS * NL2PTEPERPT; i++)
 		prom_l2ptps[i].ptpe_int =
 			get_rom_l2_ptpe(i * L3PTSIZE + KERNELBASE, 0);
-	for (i = 0; i < NKL2PTS * NL2PTEPERPT; i++)
-		if ((prom_l2ptps[i].ptpe_int & 3) == MMU_ET_PTP) {
-			unsigned rpa = prom_l2ptps[i].ptp.PageTablePointer <<
-				MMU_STD_PTPSHIFT;
-			for (k = 0; k < NL3PTEPERPT; k++)
-				prom_l3ptes[i * NL3PTEPERPT + k].ptpe_int =
-					ldphys(rpa + (k << 2));
-		}
-	/* The boot loader temporarily maps the PROM vector page over its own
-	 * page-table storage.  Restore the PROM mappings needed by prom_init()
-	 * and the PROM callbacks before making the kernel tables permanent. */
-	prom_l3ptes[PROM_ROMVEC_L2_INDEX * NL3PTEPERPT + PROM_ROMVEC_L3_INDEX]
-		.ptpe_int = PROM_ROMVEC_PTE;
-	for (k = 0; k < MMU_PAGESIZE / sizeof (u_int); k++)
-		prom_call_page[k] = ldphys(PROM_CALL_PA + k * sizeof (u_int));
-	{
-		u_int prom_call_pte = PROM_CALL_FLAGS |
-			((VA2PA(prom_call_page) >> MMU_STD_PAGESHIFT) << 8);
-	prom_l3ptes[PROM_CALL_L2_INDEX * NL3PTEPERPT + PROM_CALL_L3_INDEX]
-		.ptpe_int = prom_call_pte;
-	/* Also repair the inherited PROM table for the short interval before
-	 * the new context table is active. */
-	if ((prom_l2ptps[PROM_ROMVEC_L2_INDEX].ptpe_int & 3) == MMU_ET_PTP)
-		stphys((prom_l2ptps[PROM_ROMVEC_L2_INDEX].ptp.PageTablePointer <<
-			MMU_STD_PTPSHIFT) + PROM_ROMVEC_L3_INDEX * sizeof (union ptpe),
-			PROM_ROMVEC_PTE);
-	if ((prom_l2ptps[PROM_CALL_L2_INDEX].ptpe_int & 3) == MMU_ET_PTP)
-		stphys((prom_l2ptps[PROM_CALL_L2_INDEX].ptp.PageTablePointer <<
-			MMU_STD_PTPSHIFT) + PROM_CALL_L3_INDEX * sizeof (union ptpe),
-			prom_call_pte);
-	}
 
 	if (!(tmpptes = (union ptpe *)prom_map((caddr_t)VA_TMPPTES, OBMEM,
 		PA_TMPPTES, TMPPTES))) {
@@ -978,13 +936,12 @@ load_tmpptes()
 		 * PTEs so the same mapping occurs.
 		 */
 		if ((prom_l2ptps[i].ptpe_int & 3) == MMU_ET_PTP) {
+			/* Copy monitor L3 entries before the temporary area is cleared. */
+			unsigned rpa = (prom_l2ptps[i].ptpe_int & ~3) <<
+				MMU_STD_PTPSHIFT;
 			for (k = 0; k < NL3PTEPERPT; k++)
-				kpteptr[j + k].ptpe_int =
-					prom_l3ptes[i * NL3PTEPERPT + k].ptpe_int;
-			/* The PROM L3 table may alias PA_TMPPTES.  Keep the
-			 * preserved copy in independent kernel storage. */
-			kl2ptps[i].ptpe_int = PTPOF(VA2PA(
-				prom_l3ptes + i * NL3PTEPERPT));
+				kpteptr[j + k].ptpe_int = ldphys(rpa + (k << 2));
+			kl2ptps[i].ptpe_int = PTPOF(VA2PA(kpteptr+j));
 		} else {
 			kl2ptps[i].ptpe_int = prom_l2ptps[i].ptpe_int;
 		}
@@ -992,12 +949,6 @@ load_tmpptes()
 			kl2ptps[i].ptpe_int = PTPOF(VA2PA(kpteptr+j));
 #endif	NOPROM
 	}
-	/* Retain the temporary pointers to the copied PROM L3 tables. */
-#ifndef NOPROM
-	for (i = 0; i < NKL2PTS * NL2PTEPERPT; i++)
-		if ((prom_l2ptps[i].ptpe_int & 3) == MMU_ET_PTP)
-			prom_l2ptps[i].ptpe_int = kl2ptps[i].ptpe_int;
-#endif NOPROM
 	/*
 	 * Invalidate the level 3 entries.
 	 */
@@ -2106,15 +2057,12 @@ startup()
 #ifndef NOPROM
 	/* OBP_V2_UNMAP also removes the temporary PROM-overlap mapping. */
 	for (j = 0; j < NKL2PTS * NL2PTEPERPT; j++) {
-		if ((prom_l2ptps[j].ptpe_int & 3) != MMU_ET_INVALID) {
-			kptp = &kas.a_hat.hat_l1pt->ptpe[NL1PTEPERPT - NKL2PTS +
+		if ((prom_l2ptps[j].ptpe_int & 3) == MMU_ET_PTP) {
+			kptp = &kl1pt->ptpe[NL1PTEPERPT - NKL2PTS +
 				j / NL2PTEPERPT];
 			((struct l2pt *)ptptopte(kptp->ptp.PageTablePointer))
 				->ptpe[j % NL2PTEPERPT].ptpe_int =
 				prom_l2ptps[j].ptpe_int;
-			stphys((kptp->ptp.PageTablePointer << MMU_STD_PTPSHIFT) +
-				(j % NL2PTEPERPT) * sizeof (union ptpe),
-				prom_l2ptps[j].ptpe_int);
 		}
 	}
 	mmu_flushall();
