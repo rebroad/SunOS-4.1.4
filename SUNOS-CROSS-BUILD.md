@@ -55,6 +55,20 @@ are off.
 The generated `vmunix_small` must be installed only into a throwaway VM disk until
 the QEMU idle, clock, sleep, networking, and clean-shutdown tests pass.
 
+To install the rebuilt kernel without modifying the persistent disk, start the
+launcher in a throwaway headless session with `--autologin`, then run this
+single command from another host shell while the logged-in shell is idle:
+
+```sh
+./tools/install-idle-kernel-serial.sh
+```
+
+The helper transfers a uuencoded copy over the live serial FIFO at a safe line
+rate, writes `/home/rebroad/vmunix_idle`, and asks SunOS to print its checksum.
+It intentionally does not replace `/vmunix`; use the PROM to boot the test
+image only after checking the reported checksum. The launcher must be run with
+`--throwaway`, and the VM must be shut down cleanly after testing.
+
 The stock `usr.bin/sleep` is intentionally unchanged. It calls the standard
 SunOS `sleep()` interface; the kernel places the calling process on a sleep
 queue and switches processes. The QEMU idle change belongs in the
