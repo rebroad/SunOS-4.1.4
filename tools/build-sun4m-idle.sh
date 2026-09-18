@@ -49,6 +49,12 @@ fi
 
 cd /build/sys/sun4m/SUN4M_IDLE
 
+# Always rebuild every kernel object after synchronizing the source tree.
+# The historical make dependencies do not reliably notice source changes
+# copied into the external build tree, which can otherwise produce a
+# successful but stale vmunix_small.
+make clean >/build/kernel-clean.log 2>&1
+
 # The VM has one SCSI hard disk and no floppy, optical, or tape device.
 sed -i -E "s/(fd_asm|sr|st_conf|st)\\.(o|L) //g" Makefile
 

@@ -36,6 +36,11 @@ The generated kernel directory is:
 
 `/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE`
 
+The driver cleans the generated kernel directory before compiling. This is
+intentional: the legacy dependency file can otherwise reuse an old object
+after a source edit and silently produce a stale kernel. The clean output is
+retained in `kernel-clean.log` beside the other build logs.
+
 The configuration omits HSFS and NFS because the test VM boots from its local
 disk and does not need those optional subsystems. Networking remains enabled.
 The serial-console idle configuration omits SunView, framebuffer, audio, and
