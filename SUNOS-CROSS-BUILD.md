@@ -52,7 +52,10 @@ the generic device sources remain available for a future full-hardware
 configuration. The historical lock-manager objects remain in the build
 because the UFS lock code references their entry points even when NFS clients
 are off.
-The generated `vmunix_small` must be installed only into a throwaway VM disk until
+The driver also emits `vmunix_small.aout`, the SunOS SPARC a.out form required
+by the PROM. The ELF `vmunix_small` is retained for host-side inspection; use
+the a.out file when installing a kernel through the PROM. Both must be
+installed only into a throwaway VM disk until
 the QEMU idle, clock, sleep, networking, and clean-shutdown tests pass.
 
 To install the rebuilt kernel without modifying the persistent disk, start the
@@ -73,7 +76,7 @@ When the `spod` bridge is available, prefer the network transfer over serial.
 Start the one-file TFTP server on the host:
 
 ```sh
-./tools/tftp-serve-one.py /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small
+./tools/tftp-serve-one.py /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small.aout
 ```
 
 In the logged-in guest, configure the temporary bridge address and fetch the
@@ -95,7 +98,7 @@ The preferred local installation method is the launcher’s read-only kernel
 disk, which avoids serial flow control altogether:
 
 ```sh
-cd /home/rebroad/SunOS && ./run_Solaris112.sh --nographic --throwaway --nocpuidle --kernel-disk /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small
+cd /home/rebroad/SunOS && ./run_Solaris112.sh --nographic --throwaway --nocpuidle --kernel-disk /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/vmunix_idle.disk
 ```
 
 After login, copy the attached target-1 disk into the throwaway guest:
@@ -111,7 +114,7 @@ running `dd`; the persistent disk remains unchanged.
 Build the labeled disk once before starting the launcher:
 
 ```sh
-./tools/make-kernel-disk.py /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/vmunix_idle.disk
+./tools/make-kernel-disk.py /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small.aout /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/vmunix_idle.disk
 ```
 
 Use `vmunix_idle.disk` as the `--kernel-disk` argument. In a throwaway

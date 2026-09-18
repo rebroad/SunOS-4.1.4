@@ -78,7 +78,13 @@ if ! make -j1 all \
     exit 1
 fi
 
+python3 /src/tools/elf-to-sparc-aout.py \
+    /build/sys/sun4m/SUN4M_IDLE/vmunix_small \
+    /build/sys/sun4m/SUN4M_IDLE/vmunix_small.aout
+chmod 755 /build/sys/sun4m/SUN4M_IDLE/vmunix_small.aout
+
 echo "SunOS kernel build succeeded:"
 ls -lh /build/sys/sun4m/SUN4M_IDLE/vmunix_small
+ls -lh /build/sys/sun4m/SUN4M_IDLE/vmunix_small.aout
 echo "Full build log: /build/kernel-build.log"
 '
