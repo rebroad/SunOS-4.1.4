@@ -49,6 +49,14 @@ fi
 sed 's/\${CC} -E /\${CC} -E -P /g' Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
 
+# Some SunOS config versions omit these source Makefile variables from the
+# generated kernel Makefile.  Without them, make falls back to a plain host
+# cc for the SPARC generator and links it as if it needed main().
+cat >>Makefile <<'EOF'
+HOSTCC=${CC}
+HOSTRUN=./a.out
+EOF
+
 make depend >"$logroot/kernel-depend.log" 2>&1
 status=$?
 if test "$status" -ne 0; then
