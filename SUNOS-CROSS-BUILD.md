@@ -108,6 +108,15 @@ sum /home/rebroad/vmunix_idle
 The exact device name should be confirmed from the guest boot messages before
 running `dd`; the persistent disk remains unchanged.
 
+Build the labeled disk once before starting the launcher:
+
+```sh
+./tools/make-kernel-disk.py /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/vmunix_idle.disk
+```
+
+Use `vmunix_idle.disk` as the `--kernel-disk` argument. In a throwaway
+single-user boot, the kernel is then available as `/dev/rsd1a`.
+
 The stock `usr.bin/sleep` is intentionally unchanged. It calls the standard
 SunOS `sleep()` interface; the kernel places the calling process on a sleep
 queue and switches processes. The QEMU idle change belongs in the
