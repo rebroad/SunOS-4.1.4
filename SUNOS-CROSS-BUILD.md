@@ -91,6 +91,23 @@ sum /home/rebroad/vmunix_idle
 
 Use only a throwaway VM for this transfer; do not replace `/vmunix`.
 
+The preferred local installation method is the launcher’s read-only kernel
+disk, which avoids serial flow control altogether:
+
+```sh
+cd /home/rebroad/SunOS && ./run_Solaris112.sh --nographic --throwaway --nocpuidle --kernel-disk /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small
+```
+
+After login, copy the attached target-1 disk into the throwaway guest:
+
+```sh
+dd if=/dev/rsd1a of=/home/rebroad/vmunix_idle bs=8192
+sum /home/rebroad/vmunix_idle
+```
+
+The exact device name should be confirmed from the guest boot messages before
+running `dd`; the persistent disk remains unchanged.
+
 The stock `usr.bin/sleep` is intentionally unchanged. It calls the standard
 SunOS `sleep()` interface; the kernel places the calling process on a sleep
 queue and switches processes. The QEMU idle change belongs in the
