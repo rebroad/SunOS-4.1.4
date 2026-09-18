@@ -49,11 +49,7 @@ printf 'stty raw -echo; dd of=%s bs=%s count=%s\r' \
 	"$guest_file" "$block_size" "$block_count" >&9
 sleep 1
 
-exec 7<"$source_file"
-for ((block = 0; block < block_count; block++)); do
-	dd bs="$block_size" count=1 status=none <&7 >&9
-done
-exec 7<&-
+dd if="$source_file" bs="$block_size" count="$block_count" status=none >&9
 
 # Let the guest consume the final socket-buffered bytes before returning the
 # terminal to the shell. The size listing makes a short transfer visible.
