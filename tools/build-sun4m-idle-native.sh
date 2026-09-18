@@ -7,11 +7,17 @@ set -eu
 root=${1:-/home/rebroad/sunos414}
 config=${2:-/home/rebroad/SUN4M_IDLE.conf}
 logroot=${3:-/home/rebroad/sunos414-native-build}
+apply_idle_patch=${SUNOS_NATIVE_IDLE_PATCH:-yes}
 
 mkdir -p "$logroot"
 
-"$root/tools/apply-qemu-idle-kernel-patch-native.sh" "$root" \
-    >"$logroot/patch.log" 2>&1
+if test "$apply_idle_patch" = yes; then
+    "$root/tools/apply-qemu-idle-kernel-patch-native.sh" "$root" \
+        >"$logroot/patch.log" 2>&1
+else
+    echo "Skipped QEMU idle kernel patch (SUNOS_NATIVE_IDLE_PATCH=$apply_idle_patch)" \
+        >"$logroot/patch.log"
+fi
 
 cp "$config" "$root/sys/sun4m/conf/SUN4M_IDLE"
 cd "$root/sys/sun4m/conf"
@@ -29,10 +35,12 @@ sed 's/fd_asm\.o //g; s/sr_conf\.o //g; s/st_conf\.o //g; s/st\.o //g' \
     Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
 
-# Keep the idle instructions and diagnostics enabled in this native build.
-sed 's/^IDENT=/IDENT=-DQEMU_IDLE_POWERDOWN -DQEMU_KERNEL_DIAGNOSTICS /' \
-    Makefile >Makefile.native-tmp
-mv Makefile.native-tmp Makefile
+if test "$apply_idle_patch" = yes; then
+    # Keep the idle instructions and diagnostics enabled in this native build.
+    sed 's/^IDENT=/IDENT=-DQEMU_IDLE_POWERDOWN -DQEMU_KERNEL_DIAGNOSTICS /' \
+        Makefile >Makefile.native-tmp
+    mv Makefile.native-tmp Makefile
+fi
 
 # SunOS cc emits #line directives for -E unless -P is supplied; the historical
 # host-generator recipes feed that output back to cc, which otherwise rejects
