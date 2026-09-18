@@ -105,9 +105,11 @@ git archive HEAD | gzip -9 > /var/tmp/sunos-4.1.4-source.tar.gz
     /home/rebroad/sunos-4.1.4-source.tar.gz
 ```
 
-Extract that archive in the guest, apply
-`tools/patches/qemu-idle-kernel.patch`, and build there with the native SunOS
-tools. The archive and the host build must come from the same source commit.
+Extract that archive under `/home/rebroad` in the guest, apply
+`tools/apply-qemu-idle-kernel-patch-native.sh`, and build there with the native
+SunOS tools. The archive and the host build must come from the same source
+commit. `/usr` on the test disk is intentionally small; keep the checkout and
+generated objects under `/home`.
 
 When the guest TCP service is available, the faster host-push method is:
 
