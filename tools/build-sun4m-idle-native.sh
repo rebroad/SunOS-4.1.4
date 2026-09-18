@@ -42,11 +42,11 @@ if test "$apply_idle_patch" = yes; then
     mv Makefile.native-tmp Makefile
 fi
 
-# SunOS cc emits #line directives for -E unless -P is supplied; the historical
-# host-generator recipes feed that output back to cc, which otherwise rejects
-# the directives as source characters.  Keep this compatibility change in the
-# native workflow rather than the shared source tree.
-sed 's/\${CC} -E /\${CC} -E -P /g' Makefile >Makefile.native-tmp
+# SunOS cc emits #line directives for -E, and its -P option is not the GCC
+# equivalent of suppressing those directives.  Strip only those preprocessor
+# lines between the generated source and the historical host-generator cc.
+sed 's|> ./a.out.c$|> ./a.out.c; sed "/^#/d" ./a.out.c > ./a.out.native-tmp; mv ./a.out.native-tmp ./a.out.c|' \
+    Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
 
 # config also hard-codes the generator compile recipe as plain `cc`, bypassing
