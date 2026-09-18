@@ -83,6 +83,8 @@ struct map *sunpcmap;
 #ifndef	NOPROM
 union ptpe 	*tmpptes = 0;
 u_int		PA_TMPPTES = 0;	/* Use as location for mapping */
+/* Snapshot monitor L2 entries before prom_map() changes its context. */
+static union ptpe prom_l2ptps[NKL2PTS * NL2PTEPERPT];
 #endif	NOPROM
 
 #include <os/dlyprf.h>
@@ -803,7 +805,7 @@ load_tmpptes()
 	register union ptpe *kpteptr;
 	struct l3pt *kl3ptr;
 	struct l2pt *kl2ptr;
-	register u_int i, j;
+	register u_int i, j, k;
 	int npages;
 	struct memlist *pmemptr;
 #ifndef NOPROM
@@ -873,6 +875,15 @@ load_tmpptes()
 	/*
 	 * Call to prom to get space for tmpptes
 	 */
+	/*
+	 * prom_map() may change the monitor's current translation tables.
+	 * Snapshot their entries first so a later lookup cannot mistake a
+	 * newly allocated RAM mapping for a PROM mapping.
+	 */
+	for (i = 0; i < NKL2PTS * NL2PTEPERPT; i++)
+		prom_l2ptps[i].ptpe_int =
+			get_rom_l2_ptpe(i * L3PTSIZE + KERNELBASE, 0);
+
 	if (!(tmpptes = (union ptpe *)prom_map((caddr_t)VA_TMPPTES, OBMEM,
 		PA_TMPPTES, TMPPTES))) {
 		panic("can't map space for tmpptes");
@@ -924,16 +935,30 @@ load_tmpptes()
 		 * merging part of the VA into the root and level-1
 		 * PTEs so the same mapping occurs.
 		 */
-		kl2ptps[i].ptpe_int =
-			get_rom_l2_ptpe(i * L3PTSIZE + KERNELBASE,
-					PTPOF(VA2PA(kpteptr+j)));
+		if ((prom_l2ptps[i].ptpe_int & 3) == MMU_ET_PTP) {
+			/* Copy monitor L3 entries before the temporary area is cleared. */
+			unsigned rpa = (prom_l2ptps[i].ptpe_int & ~3) <<
+				MMU_STD_PTPSHIFT;
+			for (k = 0; k < NL3PTEPERPT; k++)
+				kpteptr[j + k].ptpe_int = ldphys(rpa + (k << 2));
+			kl2ptps[i].ptpe_int = PTPOF(VA2PA(kpteptr+j));
+		} else {
+			kl2ptps[i].ptpe_int = prom_l2ptps[i].ptpe_int;
+		}
+		if (kl2ptps[i].ptpe_int == 0)
+			kl2ptps[i].ptpe_int = PTPOF(VA2PA(kpteptr+j));
 #endif	NOPROM
 	}
 	/*
 	 * Invalidate the level 3 entries.
 	 */
-	for (i = 0; i < NL3PTEPERPT * NKL3PTS; i++)
+	for (i = 0; i < NL3PTEPERPT * NKL3PTS; i++) {
+#ifndef NOPROM
+		if ((prom_l2ptps[i / NL3PTEPERPT].ptpe_int & 3) == MMU_ET_PTP)
+			continue;
+#endif NOPROM
 		kpteptr[i].ptpe_int = MMU_STD_INVALIDPTP;
+	}
 	/*
 	 * Validate the first MAINMEM_MAP_SIZE to map through.
 	 * (see sunromvec.h for details).
@@ -1998,7 +2023,7 @@ startup()
 	 */
 	
 	unmap_to_end_rgn((((u_int)eecontig + L3PTSIZE) & ~(L3PTSIZE-1)));
-    
+
 	mmu_flushall();
 
 	/*
@@ -2028,6 +2053,20 @@ startup()
 	i = ((u_int)tmpptes & ~(L2PTSIZE-1))/L2PTSIZE;
           
 	kl1pt->ptpe[i].ptpe_int  = 0;
+
+#ifndef NOPROM
+	/* OBP_V2_UNMAP also removes the temporary PROM-overlap mapping. */
+	for (j = 0; j < NKL2PTS * NL2PTEPERPT; j++) {
+		if ((prom_l2ptps[j].ptpe_int & 3) == MMU_ET_PTP) {
+			kptp = &kl1pt->ptpe[NL1PTEPERPT - NKL2PTS +
+				j / NL2PTEPERPT];
+			((struct l2pt *)ptptopte(kptp->ptp.PageTablePointer))
+				->ptpe[j % NL2PTEPERPT].ptpe_int =
+				prom_l2ptps[j].ptpe_int;
+		}
+	}
+	mmu_flushall();
+#endif NOPROM
 
 	/*
 	 * Initialize VM system, and map kernel address space.
