@@ -8,7 +8,7 @@ kernel=${SUNOS_IDLE_KERNEL:-/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/s
 serial_fifo=${SUNOS_SERIAL_INPUT_FIFO:-/home/rebroad/SunOS/sunos-serial-input}
 console_log=${SUNOS_CONSOLE_LOG:-/home/rebroad/SunOS/sunos-console.log}
 remote_kernel=/home/rebroad/vmunix_idle
-block_size=4096
+block_size=512
 kernel_size=$(stat -c '%s' "$kernel")
 full_blocks=$((kernel_size / block_size))
 remainder=$((kernel_size % block_size))
@@ -39,7 +39,11 @@ exec 9>"$serial_fifo"
 printf 'stty raw -echo; dd of=%s bs=%s count=%s\r' \
     "$remote_kernel" "$block_size" "$full_blocks" >&9
 sleep 2
-dd if="$kernel" of=/proc/self/fd/9 bs="$block_size" count="$full_blocks" status=none
+exec 7<"$kernel"
+for ((block = 0; block < full_blocks; block++)); do
+    dd bs="$block_size" count=1 status=none <&7 >&9
+    sleep 0.05
+done
 
 if ((remainder)); then
     # The first dd exits after its exact block count; give the shell time to
@@ -47,10 +51,10 @@ if ((remainder)); then
     sleep 2
     printf 'dd of=%s bs=%s count=1\r' "$remote_kernel" "$remainder" >&9
     sleep 1
-    dd if="$kernel" of=/proc/self/fd/9 bs=1 skip=$((full_blocks * block_size)) \
-        count="$remainder" status=none
+    dd bs=1 count="$remainder" status=none <&7 >&9
 fi
 
+exec 7<&-
 sleep 2
 printf 'stty -raw echo; chmod 755 %s; sum %s; ls -l %s\r' \
     "$remote_kernel" "$remote_kernel" "$remote_kernel" >&9
