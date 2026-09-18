@@ -10,6 +10,7 @@ cpto --no-lngit "$source_root" "$build_root" || true
 
 exec "$source_root/tools/build-in-bwrap.sh" -- /bin/bash -lc '
 set -euo pipefail
+/src/tools/apply-qemu-idle-kernel-patch.sh /build
 /src/tools/build-config-host.sh >/build/config-host.log 2>&1
 /src/tools/generate-sun4m-config.sh SUN4M_IDLE GENERIC_SMALL \
     --without=HSFS --without=NFSCLIENT --without=NFSSERVER \
@@ -65,7 +66,7 @@ sed -i "s/-T F0004000/-Ttext 0xF0004000/" Makefile
 sed -i "/@symorder /d" Makefile
 
 if ! make -j1 all \
-    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -fcommon -m32 -mno-v8plus -mcpu=v8 -fno-pie -fleading-underscore -Dsparc -Dsun -Uunix ${SUNOS_IDLE_DEFINE:--DQEMU_IDLE_POWERDOWN} -DQEMU_KERNEL_DIAGNOSTICS -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
+    CC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -fcommon -m32 -mno-v8plus -mcpu=v8 -fno-pie -fleading-underscore -Dsparc -Dsun -Uunix ${SUNOS_IDLE_DEFINE:--DQEMU_IDLE_POWERDOWN} -DQEMU_KERNEL_DIAGNOSTICS -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type ${SUNOS_EXTRA_CFLAGS:-}" \
     HOSTCC="sparc64-linux-gnu-gcc -std=gnu89 -fno-builtin -fcommon -m32 -mno-v8plus -mcpu=v8 -fno-pie -Dsparc -Dsun -Uunix -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type" \
     HOSTRUN="QEMU_LD_PREFIX=/build/sparc32root qemu-sparc32plus ./a.out" \
     AS=/src/tools/sparc-as-wrapper.sh \

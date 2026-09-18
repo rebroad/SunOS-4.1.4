@@ -20,6 +20,20 @@ that control image as the final idle implementation:
 SUNOS_IDLE_DEFINE= ./tools/build-sun4m-idle.sh
 ```
 
+The checked-in kernel sources remain portable for both the historical SunOS
+build and the Debian cross-build. QEMU-specific idle instructions and optional
+diagnostic prints are applied only to the external build tree by the
+reproducible workflow patch:
+
+```sh
+./tools/apply-qemu-idle-kernel-patch.sh /path/to/a/throwaway-sunos-tree
+```
+
+Apply that same patch to a throwaway source tree before an in-guest build; do
+not edit the authoritative source checkout. This keeps the host and guest
+builds on one source base while making their intentional QEMU build variant
+explicit and auditable.
+
 The driver synchronizes the source into the external build tree, runs the old
 `config` utility in the escalated bubblewrap environment, builds generators as
 32-bit SPARC programs, runs them with `qemu-sparc32plus`, and then builds the
@@ -147,6 +161,18 @@ SunOS `sleep()` interface; the kernel places the calling process on a sleep
 queue and switches processes. The QEMU idle change belongs in the
 multiprocessor `idlework()` polling loop, where the rebuilt kernel emits the
 sun4m `POWERDOWN` instruction when no runnable work exists.
+
+To set the temporary test root password on the persistent disk, use the
+explicitly destructive-to-the-disk helper (with the password supplied through
+the environment, not committed to source):
+
+```sh
+SUNOS_ROOT_PASSWORD=pass123 ./tools/set-root-password-serial.sh --persistent
+```
+
+It boots single-user mode, waits for each password prompt, and requests a
+clean guest reboot after updating the password. Do not run it against a
+throwaway VM when the password is intended to persist.
 
 Do not edit generated files in `.build` as a permanent fix: put build fixes in
 the source tree, commit them, and rerun the single driver command.
