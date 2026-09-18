@@ -96,6 +96,9 @@ the test image only after checking the reported checksum. The launcher must be
 run with `--throwaway`, and the VM must be shut down cleanly after testing.
 
 When the `spod` bridge is available, prefer the network transfer over serial.
+The guest must use `137.205.192.4` and the bridge gateway is
+`137.205.192.1`; do not use a user-mode or other `10.x.x.x` address for this
+workflow.
 Start the one-file TFTP server on the host:
 
 ```sh
