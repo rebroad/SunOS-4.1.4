@@ -120,6 +120,19 @@ sum /home/rebroad/vmunix_idle
 The exact device name should be confirmed from the guest boot messages before
 running `dd`; the persistent disk remains unchanged.
 
+For the complete prompt-gated install/reboot/boot check, run this from the
+source checkout instead of assembling the serial commands manually:
+
+```sh
+./tools/test-idle-kernel-serial.sh
+```
+
+It starts a throwaway headless VM, waits for each actual PROM or shell marker,
+copies the kernel from the read-only target-1 disk, requests a guest reboot,
+and reports whether the rebuilt kernel reaches its diagnostic marker. The
+launcher and QEMU paths may be overridden with environment variables, but the
+defaults match the documented external build tree.
+
 Build the labeled disk once before starting the launcher:
 
 ```sh
