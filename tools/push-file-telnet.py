@@ -101,12 +101,18 @@ def main():
         # the channel we are using.
         telnet.read_until(rb"(?:^|[\r\n])#[ \t]*(?:\r?$)", 30)
 
-        command = f"stty raw -echo; dd of={args.guest_file} bs={block_size} count={blocks}"
+        marker = "__SUNOS_FILE_TRANSFER_DONE__"
+        command = (
+            f"stty raw -echo; dd of={args.guest_file} bs={block_size} count={blocks}; "
+            f"stty -raw echo; chmod 644 {args.guest_file}; ls -l {args.guest_file}; "
+            f"sum {args.guest_file}; echo {marker}"
+        )
         telnet.line(command)
-        telnet.read_until(re.escape(str(blocks)).encode() + rb"\s*$", 30)
         telnet.file(args.source)
-        telnet.line(f"stty -raw echo; chmod 644 {args.guest_file}; ls -l {args.guest_file}")
-        result = telnet.read_until(re.escape(args.guest_file).encode(), 120)
+        result = telnet.read_until(
+            rb"(?:^|[\r\n])" + re.escape(marker.encode()) + rb"(?:[\r\n]|$)",
+            180,
+        )
 
     sys.stdout.write(result[-1000:].decode("ascii", "replace"))
     print(f"TCP telnet transfer complete: {args.source} -> {args.guest_file} ({size} bytes)")

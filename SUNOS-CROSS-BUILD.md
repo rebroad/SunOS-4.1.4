@@ -113,13 +113,15 @@ When the guest TCP service is available, the faster host-push method is:
 
 ```sh
 git archive HEAD | gzip -9 > /var/tmp/sunos-4.1.4-source.tar.gz
-./tools/push-file-telnet.py 137.205.192.4 \
+./tools/push-file-telnet.py 10.205.192.4 \
     /var/tmp/sunos-4.1.4-source.tar.gz \
     /home/rebroad/sunos-4.1.4-source.tar.gz
 ```
 
 The helper negotiates telnet binary mode and escapes telnet control bytes; it
-does not create a guest-to-host firewall exception.
+contacts the host-facing `10.205.192.4` address, which the host NATs onto the
+guest's internal `137.205.192.4` address. It does not create a guest-to-host
+firewall exception.
 
 When the `spod` bridge is available, prefer the network transfer over serial.
 The guest must use `137.205.192.4` and the bridge gateway is
