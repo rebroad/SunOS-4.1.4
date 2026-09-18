@@ -28,9 +28,7 @@
 #define	INTSTACKSIZE	(3 * PAGESIZE)
 #endif
 
-#define	PCPUELT_STR1(x)	#x
-#define	PCPUELT_STR(x)	PCPUELT_STR1(x)
-#define	PCPUELT(a,t,n,e,b) { a, PCPUELT_STR(t), PCPUELT_STR(n), sizeof (t), e, PCPUELT_STR(e), b }
+#define	PCPUELT(a,t,n,e,b) { a, "t", "n", sizeof (t), e, "e", b }
 
 #define	ST	struct
 

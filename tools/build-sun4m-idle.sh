@@ -11,6 +11,8 @@ cpto --no-lngit "$source_root" "$build_root" || true
 exec "$source_root/tools/build-in-bwrap.sh" -- /bin/bash -lc '
 set -euo pipefail
 /src/tools/apply-qemu-idle-kernel-patch.sh /build
+/src/tools/apply-qemu-idle-kernel-patch.sh /build \
+    /src/tools/patches/host-compiler-compat.patch
 /src/tools/build-config-host.sh >/build/config-host.log 2>&1
 /src/tools/generate-sun4m-config.sh SUN4M_IDLE GENERIC_SMALL \
     --without=HSFS --without=NFSCLIENT --without=NFSSERVER \

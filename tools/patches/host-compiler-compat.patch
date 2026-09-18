@@ -1,0 +1,14 @@
+diff --git a/sys/sys/genpercpu.c b/sys/sys/genpercpu.c
+index 3769a66..76b0a68 100644
+--- a/sys/sys/genpercpu.c
++++ b/sys/sys/genpercpu.c
+@@ -28,7 +28,9 @@
+ #define	INTSTACKSIZE	(3 * PAGESIZE)
+ #endif
+
+-#define	PCPUELT(a,t,n,e,b) { a, "t", "n", sizeof (t), e, "e", b }
++#define	PCPUELT_STR1(x)	#x
++#define	PCPUELT_STR(x)	PCPUELT_STR1(x)
++#define	PCPUELT(a,t,n,e,b) { a, PCPUELT_STR(t), PCPUELT_STR(n), sizeof (t), e, PCPUELT_STR(e), b }
+
+ #define	ST	struct
