@@ -96,8 +96,10 @@ def main():
         telnet.line("su - root")
         telnet.read_until(rb"Password:\s*$")
         telnet.line(args.password)
-        telnet.read_until(rb"su root.*succeeded", 30)
-        telnet.read_until(rb"(?:^|\n)# [^\n]*$", 30)
+        # SunOS logs the successful su audit record to the console tty, not
+        # to this telnet pty. The root prompt is the authoritative marker on
+        # the channel we are using.
+        telnet.read_until(rb"(?:^|[\r\n])#[ \t]*(?:\r?$)", 30)
 
         command = f"stty raw -echo; dd of={args.guest_file} bs={block_size} count={blocks}"
         telnet.line(command)
