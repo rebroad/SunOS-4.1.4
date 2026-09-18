@@ -30,7 +30,8 @@ fi
 # Last-login output is not the shell prompt. Wait for the prompt itself so
 # startup commands cannot consume the first part of the binary transfer.
 printf 'waiting for the logged-in SunOS shell prompt...\n'
-until tail -c 512 "$console_log" 2>/dev/null | grep -aEq '%[[:space:]]*$'; do
+until tail -c 1024 "$console_log" 2>/dev/null |
+    grep -aEq '(^|[[:space:]])%([[:space:]]|$)'; do
     sleep 2
 done
 
