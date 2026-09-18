@@ -6,6 +6,7 @@ set -euo pipefail
 
 kernel=${SUNOS_IDLE_KERNEL:-/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small}
 serial_fifo=${SUNOS_SERIAL_INPUT_FIFO:-/home/rebroad/SunOS/sunos-serial-input}
+console_log=${SUNOS_CONSOLE_LOG:-/home/rebroad/SunOS/sunos-console.log}
 remote_kernel=/home/rebroad/vmunix_idle
 block_size=4096
 kernel_size=$(stat -c '%s' "$kernel")
@@ -21,6 +22,17 @@ if [[ ! -p "$serial_fifo" ]]; then
     printf 'Start run_Solaris112.sh with --nographic --throwaway --autologin first.\n' >&2
     exit 2
 fi
+if [[ ! -f "$console_log" ]]; then
+    printf 'console log not found: %s\n' "$console_log" >&2
+    exit 2
+fi
+
+# Last-login output is not the shell prompt. Wait for the prompt itself so
+# startup commands cannot consume the first part of the binary transfer.
+printf 'waiting for the logged-in SunOS shell prompt...\n'
+until tail -c 512 "$console_log" 2>/dev/null | grep -aq 'sunos%'; do
+    sleep 2
+done
 
 exec 9>"$serial_fifo"
 printf 'stty raw -echo; dd of=%s bs=%s count=%s\r' \
