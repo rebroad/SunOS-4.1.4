@@ -49,11 +49,15 @@ fi
 sed 's/\${CC} -E /\${CC} -E -P /g' Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
 
-if ! make depend >"$logroot/kernel-depend.log" 2>&1; then
+make depend >"$logroot/kernel-depend.log" 2>&1
+status=$?
+if test "$status" -ne 0; then
     echo "Native SunOS dependency generation failed; see $logroot/kernel-depend.log" >&2
     exit 1
 fi
-if ! make >"$logroot/kernel-build.log" 2>&1; then
+make >"$logroot/kernel-build.log" 2>&1
+status=$?
+if test "$status" -ne 0; then
     echo "Native SunOS kernel build failed; see $logroot/kernel-build.log" >&2
     exit 1
 fi
