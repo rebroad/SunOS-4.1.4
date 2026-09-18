@@ -8,13 +8,14 @@ import sys
 
 BLOCK_SIZE = 512
 PORT = 1069
+HOST = "137.205.192.1"
 
 
 def serve(path):
     with open(path, "rb") as source, socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as listener:
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        listener.bind(("0.0.0.0", PORT))
-        print(f"serving {path} on UDP {PORT}", flush=True)
+        listener.bind((HOST, PORT))
+        print(f"serving {path} on {HOST}:{PORT}", flush=True)
         request, client = listener.recvfrom(2048)
         if len(request) < 4 or struct.unpack(">H", request[:2])[0] != 1:
             raise SystemExit("expected a tftp read request")
