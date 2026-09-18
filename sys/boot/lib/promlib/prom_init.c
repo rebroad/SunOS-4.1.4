@@ -28,6 +28,8 @@ void
 prom_init(pgmname)
 	char *pgmname;
 {
+	prom_printf("prom_init: romp=%x magic=%x version=%x\n",
+		(u_int)romp, romp->op_magic, romp->op_romvec_version);
 	if (romp->op_magic != OBP_MAGIC)  {
 		prom_printf("PROM Magic Number");
 		prom_enter_mon();

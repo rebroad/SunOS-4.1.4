@@ -36,7 +36,11 @@ def convert(source_path, output_path):
     text_size = data[4] - payload_offset
     payload = image[payload_offset:payload_offset + payload_size]
     bss_size = load[5] - load[4]
-    header = struct.pack(">BBH7I", 1, M_SPARC, OMAGIC, text_size, data[5], bss_size,
+    # SunOS kernels are statically linked.  The first byte is the packed
+    # a_dynamic/a_toolversion field; setting a_dynamic advertises a
+    # __DYNAMIC section that this image does not contain and is not valid for
+    # the PROM's kernel loader.
+    header = struct.pack(">BBH7I", 0, M_SPARC, OMAGIC, text_size, data[5], bss_size,
                          0, entry, 0, 0)
     with open(output_path, "wb") as output:
         output.write(header)

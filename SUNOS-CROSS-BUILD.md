@@ -11,6 +11,15 @@ The complete QEMU idle-test build is one command from this checkout:
 ./tools/build-sun4m-idle.sh
 ```
 
+The default build defines `QEMU_IDLE_POWERDOWN` and is the kernel intended for
+the idle tests. To produce a same-source control kernel without the new
+instruction, use `SUNOS_IDLE_DEFINE=` for a separate test build; do not use
+that control image as the final idle implementation:
+
+```sh
+SUNOS_IDLE_DEFINE= ./tools/build-sun4m-idle.sh
+```
+
 The driver synchronizes the source into the external build tree, runs the old
 `config` utility in the escalated bubblewrap environment, builds generators as
 32-bit SPARC programs, runs them with `qemu-sparc32plus`, and then builds the
