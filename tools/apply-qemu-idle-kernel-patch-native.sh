@@ -15,7 +15,7 @@ fi
 rewrite() {
 	src=$1
 	dst=$src.native-tmp
-	awk -v mode="$2" '
+	awk '
 	{
 		print
 		if (mode == "switch" && $0 == "#ifndef SAS") {
@@ -44,7 +44,7 @@ rewrite() {
 			print "\t\t(u_int)__builtin_return_address(0));"
 			print "#endif QEMU_KERNEL_DIAGNOSTICS"
 		}
-	}' "$src" > "$dst"
+	}' mode="$2" "$src" > "$dst"
 	mv "$dst" "$src"
 }
 
