@@ -8,7 +8,7 @@ kernel=${SUNOS_IDLE_KERNEL:-/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/s
 serial_fifo=${SUNOS_SERIAL_INPUT_FIFO:-/home/rebroad/SunOS/sunos-serial-input}
 console_log=${SUNOS_CONSOLE_LOG:-/home/rebroad/SunOS/sunos-console.log}
 remote_kernel=/home/rebroad/vmunix_idle
-block_size=64
+block_size=32
 kernel_size=$(stat -c '%s' "$kernel")
 full_blocks=$((kernel_size / block_size))
 remainder=$((kernel_size % block_size))
@@ -42,7 +42,7 @@ sleep 2
 exec 7<"$kernel"
 for ((block = 0; block < full_blocks; block++)); do
     dd bs="$block_size" count=1 status=none <&7 >&9
-    sleep 0.005
+    sleep 0.01
 done
 
 if ((remainder)); then
