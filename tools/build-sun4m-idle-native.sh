@@ -50,18 +50,11 @@ sed 's|> ./a.out.c$|> ./a.out.c; sed "/^#/d" ./a.out.c > ./a.out.native-tmp; mv 
 mv Makefile.native-tmp Makefile
 
 # config also hard-codes the generator compile recipe as plain `cc`, bypassing
-# HOSTCC.  Rewrite only the exact generated host-generator token.
-sed 's/cc \${COPTS}/\${HOSTCC} \${COPTS}/g' \
+# the SPARC flags.  Rewrite only the exact generated host-generator token;
+# literal flags avoid old make's unreliable late variable expansion here.
+sed 's/cc \${COPTS}/cc -sparc -Usun4 -Dsun4m \${COPTS}/g' \
     Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
-
-# Some SunOS config versions omit these source Makefile variables from the
-# generated kernel Makefile.  Without them, make falls back to a plain host
-# cc for the SPARC generator and links it as if it needed main().
-cat >>Makefile <<'EOF'
-HOSTCC=${CC}
-HOSTRUN=./a.out
-EOF
 
 make depend >"$logroot/kernel-depend.log" 2>&1
 status=$?
