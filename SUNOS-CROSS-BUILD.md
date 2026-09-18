@@ -69,6 +69,28 @@ its checksum. It intentionally does not replace `/vmunix`; use the PROM to boot
 the test image only after checking the reported checksum. The launcher must be
 run with `--throwaway`, and the VM must be shut down cleanly after testing.
 
+When the `spod` bridge is available, prefer the network transfer over serial.
+Start the one-file TFTP server on the host:
+
+```sh
+./tools/tftp-serve-one.py /mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build/sys/sun4m/SUN4M_IDLE/vmunix_small
+```
+
+In the logged-in guest, configure the temporary bridge address and fetch the
+kernel with SunOS's TFTP client:
+
+```sh
+ifconfig le0 137.205.192.2 netmask 255.255.255.248 up
+tftp 137.205.192.1
+connect 137.205.192.1 1069
+binary
+get vmunix_small /home/rebroad/vmunix_idle
+quit
+sum /home/rebroad/vmunix_idle
+```
+
+Use only a throwaway VM for this transfer; do not replace `/vmunix`.
+
 The stock `usr.bin/sleep` is intentionally unchanged. It calls the standard
 SunOS `sleep()` interface; the kernel places the calling process on a sleep
 queue and switches processes. The QEMU idle change belongs in the
