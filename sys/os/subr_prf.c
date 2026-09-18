@@ -545,10 +545,6 @@ int panic_opt = RB_DUMP | RB_AUTOBOOT;
 panic(s)
 	char *s;
 {
-#ifdef QEMU_KERNEL_DIAGNOSTICS
-	printf("panic argument=%x caller=%x\n", (u_int)s,
-		(u_int)__builtin_return_address(0));
-#endif QEMU_KERNEL_DIAGNOSTICS
 #ifdef sun4m
 	trigger_logan();
 #endif
