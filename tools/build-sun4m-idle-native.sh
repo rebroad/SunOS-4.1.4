@@ -50,8 +50,8 @@ sed 's/\${CC} -E /\${CC} -E -P /g' Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
 
 # config also hard-codes the generator compile recipe as plain `cc`, bypassing
-# HOSTCC.  Rewrite only those generated host-generator recipes.
-sed 's/^        cc \${COPTS}/        \${HOSTCC} \${COPTS}/' \
+# HOSTCC.  Rewrite only the exact generated host-generator token.
+sed 's/cc \${COPTS}/\${HOSTCC} \${COPTS}/g' \
     Makefile >Makefile.native-tmp
 mv Makefile.native-tmp Makefile
 
