@@ -443,17 +443,6 @@ idlework()
 		if (!cpu_enable)
 			continue; /* someone disabled this processor! */
 
-#ifdef QEMU_IDLE_POWERDOWN
-		/*
-		 * idlework() is the active multiprocessor idle loop.  The
-		 * traditional implementation polls the run queues here, which
-		 * otherwise leaves a TCG vCPU spinning even when every process is
-		 * asleep.  Sun4m POWERDOWN makes QEMU wait for the next interrupt;
-		 * the timer and console interrupts retain normal wakeup semantics.
-		 */
-		__asm__ __volatile__("wr %%g0, %%g0, %%asr19" ::: "memory");
-#endif
-
 		/*
 		 * If we recently entered the lock,
 		 * avoid trying to enter it again.
