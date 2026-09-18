@@ -15,7 +15,7 @@ set -euo pipefail
     /src/tools/patches/host-compiler-compat.patch
 /src/tools/build-config-host.sh >/build/config-host.log 2>&1
 /src/tools/generate-sun4m-config.sh SUN4M_IDLE GENERIC_SMALL \
-    --without=HSFS --without=NFSCLIENT --without=NFSSERVER \
+    --without=HSFS \
     >/build/config-generate.log 2>&1
 sed -i -E \
     "/^(device-driver|pseudo-device) (bwtwo|cgthree|cgsix|cgtwelve|gt|tcx|audioamd|dbri|audiocs|win256|dtop4|ms|kb|fd)( |$)/d" \
