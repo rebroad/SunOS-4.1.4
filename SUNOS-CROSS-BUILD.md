@@ -111,6 +111,22 @@ SunOS tools. The archive and the host build must come from the same source
 commit. `/usr` on the test disk is intentionally small; keep the checkout and
 generated objects under `/home`.
 
+The reproducible native build is automated by
+`tools/build-sun4m-idle-native.sh`. It expects the host-generated
+`SUN4M_IDLE.conf` at `/home/rebroad/SUN4M_IDLE.conf` and writes every build log
+under `/home/rebroad/sunos414-native-build`; in particular, the historical
+`make depend` reminder is captured in `kernel-depend.log` instead of being
+printed as build noise:
+
+```sh
+/home/rebroad/sunos414/tools/build-sun4m-idle-native.sh \
+    /home/rebroad/sunos414 /home/rebroad/SUN4M_IDLE.conf
+```
+
+The resulting native image is
+`/home/rebroad/sunos414/sys/sun4m/SUN4M_IDLE/vmunix_small`. Compare it with
+the host-built image before installing either one into a persistent disk.
+
 When the guest TCP service is available, the faster host-push method is:
 
 ```sh
