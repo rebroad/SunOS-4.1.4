@@ -63,11 +63,11 @@ single command from another host shell while the logged-in shell is idle:
 ./tools/install-idle-kernel-serial.sh
 ```
 
-The helper transfers a uuencoded copy over the live serial FIFO at a safe line
-rate, writes `/home/rebroad/vmunix_idle`, and asks SunOS to print its checksum.
-It intentionally does not replace `/vmunix`; use the PROM to boot the test
-image only after checking the reported checksum. The launcher must be run with
-`--throwaway`, and the VM must be shut down cleanly after testing.
+The helper switches the guest tty to raw mode, transfers the binary over the
+live serial FIFO, writes `/home/rebroad/vmunix_idle`, and asks SunOS to print
+its checksum. It intentionally does not replace `/vmunix`; use the PROM to boot
+the test image only after checking the reported checksum. The launcher must be
+run with `--throwaway`, and the VM must be shut down cleanly after testing.
 
 The stock `usr.bin/sleep` is intentionally unchanged. It calls the standard
 SunOS `sleep()` interface; the kernel places the calling process on a sleep
