@@ -70,8 +70,11 @@ class Telnet:
 
     def file(self, path):
         with open(path, "rb") as source:
-            while chunk := source.read(65536):
+            # SunOS telnetd feeds a small pty input queue. Pace the bulk
+            # stream so the queue cannot discard the command/data boundary.
+            while chunk := source.read(2048):
                 self.sock.sendall(chunk.replace(bytes((IAC,)), bytes((IAC, IAC))))
+                time.sleep(0.005)
 
 
 def main():
