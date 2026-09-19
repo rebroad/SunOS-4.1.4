@@ -36,8 +36,9 @@ sed 's/fd_asm\.o //g; s/sr_conf\.o //g; s/st_conf\.o //g; s/st\.o //g' \
 mv Makefile.native-tmp Makefile
 
 if test "$apply_idle_patch" = yes; then
-    # Keep the idle instructions and diagnostics enabled in this native build.
-    sed 's/^IDENT=/IDENT=-DQEMU_IDLE_POWERDOWN -DQEMU_KERNEL_DIAGNOSTICS /' \
+    # Keep the idle instruction enabled.  QEMU_KERNEL_DIAGNOSTICS uses GCC-only
+    # helpers and is intentionally reserved for the host-side toolchain.
+    sed 's/^IDENT=/IDENT=-DQEMU_IDLE_POWERDOWN /' \
         Makefile >Makefile.native-tmp
     mv Makefile.native-tmp Makefile
 fi
