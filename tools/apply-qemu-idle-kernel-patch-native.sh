@@ -17,6 +17,10 @@ rewrite() {
 	dst=$src.native-tmp
 	awk '
 	{
+		if (mode == "idle" && index($0, "__asm__ __volatile__") != 0) {
+			print "\t\tasm(\"wr %g0, %g0, %asr19\");"
+			next
+		}
 		print
 		if (mode == "switch" && $0 == "#ifndef SAS") {
 			print "#ifdef QEMU_IDLE_POWERDOWN"
