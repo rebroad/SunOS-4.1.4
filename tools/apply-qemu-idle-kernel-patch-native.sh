@@ -17,9 +17,21 @@ rewrite() {
 	dst=$src.native-tmp
 	awk '
 	{
-		if (mode == "idle" && (index($0, "__asm__ __volatile__") != 0 ||
-			index($0, "asm(\"wr ") != 0 ||
-			index($0, "asm(\".word 0xa7800000") != 0)) {
+		if (mode == "idle" && index($0, "__asm__ __volatile__") != 0) {
+			if (!idle_asm_seen) {
+				print "\t\tasm(\".word 0xa7800000\");"
+				idle_asm_seen = 1
+			}
+			next
+		}
+		if (mode == "idle" && index($0, "asm(\"wr ") != 0) {
+			if (!idle_asm_seen) {
+				print "\t\tasm(\".word 0xa7800000\");"
+				idle_asm_seen = 1
+			}
+			next
+		}
+		if (mode == "idle" && index($0, "asm(\".word 0xa7800000") != 0) {
 			if (!idle_asm_seen) {
 				print "\t\tasm(\".word 0xa7800000\");"
 				idle_asm_seen = 1
