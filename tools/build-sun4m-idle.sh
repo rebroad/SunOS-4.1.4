@@ -6,7 +6,7 @@ set -euo pipefail
 source_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 build_root=${SUNOS_BUILD_ROOT:-/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build}
 
-cpto --no-lngit "$source_root" "$build_root" || true
+cpto --no-lngit --delete "$source_root" "$build_root"
 
 exec "$source_root/tools/build-in-bwrap.sh" -- /bin/bash -lc '
 set -euo pipefail
