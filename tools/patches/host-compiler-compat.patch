@@ -1,277 +1,1202 @@
-diff --git a/sys/sys/genpercpu.c b/sys/sys/genpercpu.c
-index 3769a66..76b0a68 100644
---- a/sys/sys/genpercpu.c
-+++ b/sys/sys/genpercpu.c
-@@ -28,6 +28,8 @@
- #define	INTSTACKSIZE	(3 * PAGESIZE)
- #endif
+diff --git a/lib/libc/rpc/clnt_kudp.c b/lib/libc/rpc/clnt_kudp.c
+index 721943e..a2afe47 100644
+--- a/lib/libc/rpc/clnt_kudp.c
++++ b/lib/libc/rpc/clnt_kudp.c
+@@ -29,11 +29,12 @@
 
--#define	PCPUELT(a,t,n,e,b) { a, "t", "n", sizeof (t), e, "e", b }
-+#define	PCPUELT_STR1(x)	#x
-+#define	PCPUELT_STR(x)	PCPUELT_STR1(x)
-+#define	PCPUELT(a,t,n,e,b) { a, PCPUELT_STR(t), PCPUELT_STR(n), sizeof (t), e, PCPUELT_STR(e), b }
+ struct mbuf	*ku_recvfrom();
+ int		ckuwakeup();
++extern int	wakeup();
 
- #define	ST	struct
+ enum clnt_stat	clntkudp_callit();
+ void		clntkudp_abort();
+ void		clntkudp_error();
+-bool_t		clntkudp_freeres();
++static bool_t	clntkudp_freeres();
+ bool_t		clntkudp_control();
+ void		clntkudp_destroy();
 
-diff --git a/sys/nfs/nfs_dump.c b/sys/nfs/nfs_dump.c
-index 4c6bf42..a3f4d88 100644
---- a/sys/nfs/nfs_dump.c
-+++ b/sys/nfs/nfs_dump.c
-@@ -33,5 +33,7 @@
- #include <nfs/nfs_clnt.h>
- #include <nfs/rnode.h>
+diff --git a/sys/boot/lib/promlib/prom_support.c b/sys/boot/lib/promlib/prom_support.c
+index 14653b0..e51ecdb 100644
+--- a/sys/boot/lib/promlib/prom_support.c
++++ b/sys/boot/lib/promlib/prom_support.c
+@@ -6,6 +6,8 @@
 
-+static int dump_auth_marshall();
+ #include <promcommon.h>
+ 
++extern char *prom_stdoutpath();
 +
- #define	TIMEO		2	/* seconds before retransmitting request */
- #define	MAXTRIES	5	/* before giving up on server */
-
-diff --git a/sys/nfs/nfs_server.c b/sys/nfs/nfs_server.c
-index 3f8b5ce..0e5a6a7 100644
---- a/sys/nfs/nfs_server.c
-+++ b/sys/nfs/nfs_server.c
-@@ -37,6 +37,7 @@
- #include <machine/mmu.h>
-
- extern struct vnodeops nfs_vnodeops;
-+static int mbuf_to_iov();
  /*
-  * states of requests for duplicate request caching
+  * Kernel only promlib functions.  Don't even think about it in other SA's.
   */
+diff --git a/sys/conf.common/newvers.sh b/sys/conf.common/newvers.sh
+index 72c7754..bc077f0 100644
+--- a/sys/conf.common/newvers.sh
++++ b/sys/conf.common/newvers.sh
+@@ -19,10 +19,10 @@ echo '#include <sys/utsname.h>' > vers.c
+ echo >> vers.c
 
-diff --git a/sys/nfs/nfs_subr.c b/sys/nfs/nfs_subr.c
-index 5cc7e61..bd76079 100644
---- a/sys/nfs/nfs_subr.c
-+++ b/sys/nfs/nfs_subr.c
-@@ -66,5 +66,6 @@
+ echo $VERS `basename \`pwd\`` `cat $1` | \
+-awk '	{	version = $1; system = $2; release = $3; }\
+-END	{	printf "char version[] = \"SunOS Release %s (%s) #%d: ", release, system, version >> "vers.c";\
++awk '	{	version = $1; sysname = $2; release = $3; }\
++END	{	printf "char version[] = \"SunOS Release %s (%s) #%d: ", release, sysname, version >> "vers.c";\
+ 		printf "%d\n", version > "version"; }'
+-echo `date`'\nCopyright (c) 1983-1993, Sun Microsystems, Inc.\n";' >> vers.c
++printf '%s\\nCopyright (c) 1983-1993, Sun Microsystems, Inc.\\n";\n' "`date`" >> vers.c
 
- extern struct vnodeops nfs_vnodeops;
- static struct rnode *rfind();
-+static int rp_addhash();
+ echo >> vers.c
 
- extern int nrnode;		/* max rnodes to alloc, set in machdep.c */
-
-diff --git a/sys/nfs/nfs_vfsops.c b/sys/nfs/nfs_vfsops.c
-index 27bd6fa..37c1d4b 100644
---- a/sys/nfs/nfs_vfsops.c
-+++ b/sys/nfs/nfs_vfsops.c
-@@ -43,6 +43,13 @@
- #endif
-
- static int nfsrootvp();
-+extern char *strcpy();
-+static enum clnt_stat callrpc();
-+static int getfile();
-+static int mountnfs();
-+static int pathconf_get();
-+static int pathconf_rele();
-+static int hostpath();
- extern struct vnode *makenfsnode();
- #define	MAPSIZE  256/NBBY
- static char nfs_minmap[MAPSIZE]; /* Map for minor device allocation */
-
-diff --git a/sys/nfs/nfs_vnodeops.c b/sys/nfs/nfs_vnodeops.c
-index 42e191d..a47e6b9 100644
---- a/sys/nfs/nfs_vnodeops.c
-+++ b/sys/nfs/nfs_vnodeops.c
-@@ -116,6 +116,10 @@
- static	int nfs_putpage();
- static	int nfs_map();
- static	int nfs_dump();
-+static	int writerp();
-+static	int nfswrite();
-+static	int nfs_strategy();
-+static	int do_bio();
- static  int nfs_cmp();
- static  int nfs_realvp();
- static  int nfs_cntl();
-
-diff --git a/sys/os/kern_descrip.c b/sys/os/kern_descrip.c
-index 7e8de7c..4f9d3bb 100644
---- a/sys/os/kern_descrip.c
-+++ b/sys/os/kern_descrip.c
-@@ -41,7 +41,8 @@
-  */
- static void	dupit(/* fd, fp, flags */);
- static void	alloc_fd_slots();
-+static struct vnode *myfhtovp();
+@@ -31,4 +31,3 @@ echo $X_OS  $RELEASE  $VERS $ARCH | \
+ awk '	{	sysname = $1; release = $2; version = $3; arch = $4; }\
+ END	{	printf "struct utsname utsname =\n\t{ \"%s\", \"\", \"\", \"%s\", \"%s\", \"%s\" };\n\n", \
+ sysname, release, version, arch >> "vers.c" ; } '
+-
+diff --git a/sys/netinet/if_ether.c b/sys/netinet/if_ether.c
+index 9ba2f9f..9c0750f 100644
+--- a/sys/netinet/if_ether.c
++++ b/sys/netinet/if_ether.c
+@@ -63,6 +63,7 @@ int	arptab_size = ARPTAB_SIZE;	/* for arp command */
+ struct ether_addr etherbroadcastaddr = {{ 0xff, 0xff, 0xff, 0xff, 0xff, 0xff }};
+ #endif lint
+ extern struct ifnet loif;
++static void arpcomflush();
 
  /*
-  * System calls on descriptors.
-  */
-
-diff --git a/sys/sys/ioccom.h b/sys/sys/ioccom.h
-index b9d42ed..b57ded6 100644
---- a/sys/sys/ioccom.h
-+++ b/sys/sys/ioccom.h
-@@ -21,15 +21,47 @@
- #define	_IOC_OUT	0x40000000	/* copy out parameters */
- #define	_IOC_IN		0x80000000	/* copy in parameters */
- #define	_IOC_INOUT	(_IOC_IN|_IOC_OUT)
-+
-+#define _IOC_CHAR(x) _IOC_CHAR_##x
-+#define _IOC_CHAR_A 'A'
-+#define _IOC_CHAR_B 'B'
-+#define _IOC_CHAR_F 'F'
-+#define _IOC_CHAR_G 'G'
-+#define _IOC_CHAR_L 'L'
-+#define _IOC_CHAR_M 'M'
-+#define _IOC_CHAR_O 'O'
-+#define _IOC_CHAR_S 'S'
-+#define _IOC_CHAR_T 'T'
-+#define _IOC_CHAR_V 'V'
-+#define _IOC_CHAR_X 'X'
-+#define _IOC_CHAR_b 'b'
-+#define _IOC_CHAR_c 'c'
-+#define _IOC_CHAR_d 'd'
-+#define _IOC_CHAR_f 'f'
-+#define _IOC_CHAR_g 'g'
-+#define _IOC_CHAR_i 'i'
-+#define _IOC_CHAR_k 'k'
-+#define _IOC_CHAR_m 'm'
-+#define _IOC_CHAR_n 'n'
-+#define _IOC_CHAR_o 'o'
-+#define _IOC_CHAR_p 'p'
-+#define _IOC_CHAR_q 'q'
-+#define _IOC_CHAR_r 'r'
-+#define _IOC_CHAR_s 's'
-+#define _IOC_CHAR_t 't'
-+#define _IOC_CHAR_u 'u'
-+#define _IOC_CHAR_v 'v'
-+#define _IOC_CHAR_x 'x'
-+
- /* the 0x20000000 is so we can distinguish new ioctl's from old */
--#define	_IO(x,y)	(_IOC_VOID|('x'<<8)|y)
--#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
--#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
--#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
--#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
-+#define	_IO(x,y)	(_IOC_VOID|(_IOC_CHAR_##x<<8)|y)
-+#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-+#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-+#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-+#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
- /* this should be _IORW, but stdio got there first */
--#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
--#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
-+#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-+#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-
- /*
- * Registry of ioctl characters, culled from system sources
- */
-
-diff --git a/sys/os/uipc_domain.c b/sys/os/uipc_domain.c
-index 961c940..7e49730 100644
---- a/sys/os/uipc_domain.c
-+++ b/sys/os/uipc_domain.c
-@@ -13,10 +13,12 @@
- #include <sys/time.h>
- #include <sys/kernel.h>
-
-+#define	DOMAIN_NAME1(x)	x##domain
-+#define	DOMAIN_NAME(x)	DOMAIN_NAME1(x)
- #define	ADDDOMAIN(x)	{ \
--	extern struct domain x/**/domain; \
--	x/**/domain.dom_next = domains; \
--	domains = &x/**/domain; \
-+	extern struct domain DOMAIN_NAME(x); \
-+	DOMAIN_NAME(x).dom_next = domains; \
-+	domains = &DOMAIN_NAME(x); \
+  * Timeout routine.  Age arp_tab entries once a minute.
+@@ -465,7 +466,7 @@ arpioctl(cmd, data)
+ 	return (0);
  }
 
- domaininit()
+-static
++static void
+ arpcomflush(sin)
+ struct	sockaddr_in	*sin;
+ {
+diff --git a/sys/netinet/in.h b/sys/netinet/in.h
+index 1897fa4..1718e22 100644
+--- a/sys/netinet/in.h
++++ b/sys/netinet/in.h
+@@ -20,6 +20,10 @@
+ #ifndef _netinet_in_h
+ #define _netinet_in_h
 
++#ifdef KERNEL
++#include <sys/protosw.h>
++#endif
++
+ /*
+  * Protocols
+  */
+diff --git a/sys/netinet/ip_input.c b/sys/netinet/ip_input.c
+index 5a1f0ce..712ad7c 100644
+--- a/sys/netinet/ip_input.c
++++ b/sys/netinet/ip_input.c
+@@ -36,6 +36,8 @@
+ #include <netinet/tcp.h>
+ #include <netinet/in_var.h>
+
++extern int ip_printfs;
++
+ u_char	ip_protox[IPPROTO_MAX];
+ int	ipqmaxlen = IFQ_MAXLEN;
+ struct	in_ifaddr *in_ifaddr;			/* first inet address */
+@@ -754,8 +756,6 @@ save_rte(option, dst)
+ 	struct in_addr dst;
+ {
+ 	unsigned olen;
+-	extern int ip_printfs;
+-
+ 	olen = option[IPOPT_OLEN];
+ 	if (olen > sizeof(ip_srcrt) - 1) {
+ 		if (ip_printfs)
+diff --git a/sys/os/kern_clock.c b/sys/os/kern_clock.c
+index 2e5b952..2f6aacf 100644
+--- a/sys/os/kern_clock.c
++++ b/sys/os/kern_clock.c
+@@ -25,6 +25,8 @@
+ #endif
+ #include <machine/clock.h>
+
++extern int procset;
++
+ #include <vm/hat.h>
+ #include <vm/as.h>
+ #include <vm/rm.h>
+diff --git a/sys/os/kern_exec.c b/sys/os/kern_exec.c
+index 6c25a1b..712208b 100644
+--- a/sys/os/kern_exec.c
++++ b/sys/os/kern_exec.c
+@@ -53,6 +53,8 @@ extern int	cpuid;
+ #define	PREREAD(size) \
+ 	((int)btopr(size) < (int)(freemem - minfree) && btopr(size) < pgthresh)
+
++static int getxfile();
++
+ int pgthresh = btopr(PGTHRESH);		/* maximum preread size */
+
+ #define	ARG_HUNKSIZE	0x4000
+diff --git a/sys/os/kern_mman.c b/sys/os/kern_mman.c
+index 39d993c..bae01a6 100644
+--- a/sys/os/kern_mman.c
++++ b/sys/os/kern_mman.c
+@@ -26,6 +26,9 @@
+ #include <vm/seg_vn.h>
+ #include <machine/seg_kmem.h>
+
++static void sbrk1();
++static int sstk1();
++
+ /*
+  * Adjust UNIX break by incr, returning the old break value.
+  */
+@@ -44,7 +47,7 @@ sbrk()
+  * Common routine for sbrk() and brk().  Sets error in
+  * u.u_error on error and adjusts p->p_dsize if successful.
+  */
+-static
++static void
+ sbrk1(d)
+ 	register int d;
+ {
+@@ -379,7 +382,7 @@ mctl()
+ 		}
+ 		break;
+ 	case MC_ADVISE:
+-		switch (arg) {
++		switch ((int)arg) {
+ 		case MADV_WILLNEED:
+ 			fc = as_faulta(u.u_procp->p_as, addr, len);
+ 			if (fc) {
+diff --git a/sys/os/str_buf.c b/sys/os/str_buf.c
+index d9c7d48..2b58b33 100644
+--- a/sys/os/str_buf.c
++++ b/sys/os/str_buf.c
+@@ -121,11 +121,11 @@ dblk_t	*xdballoc();
+ 					dp = xdballoc(slpflg);
+ #else	notdef
+ #define	MBFREE(mp) { \
+-	kmem_fast_free(&(caddr_t)mbfreelist, (caddr_t)mp); \
++	kmem_fast_free((caddr_t *)&mbfreelist, (caddr_t)mp); \
+ 	strst.mblock.use--; \
+ }
+ #define	DBFREE(dp) { \
+-	kmem_fast_free(&(caddr_t)dbfreelist, (caddr_t)dp); \
++	kmem_fast_free((caddr_t *)&dbfreelist, (caddr_t)dp); \
+ 	strst.dblock.use--; \
+ }
+
+@@ -276,7 +276,7 @@ xdballoc(slpflag)
+ 	register dblk_t *dp;
+ 	register int s = splstr();
+
+-	dp = (dblk_t *)new_kmem_fast_alloc(&(caddr_t)dbfreelist, sizeof *dp,
++	dp = (dblk_t *)new_kmem_fast_alloc((caddr_t *)&dbfreelist, sizeof *dp,
+ 		DBLK_INCR, KMEM_NOSLEEP);
+ 	if (dp) {
+ 		dp->db_freep = NULL;
+@@ -314,7 +314,7 @@ xmballoc(slpflag)
+ 	register mblk_t *mp;
+ 	register int s = splstr();
+
+-	mp = (mblk_t *)new_kmem_fast_alloc(&(caddr_t)mbfreelist, sizeof *mp,
++	mp = (mblk_t *)new_kmem_fast_alloc((caddr_t *)&mbfreelist, sizeof *mp,
+ 		MBLK_INCR, KMEM_NOSLEEP);
+ 	if (mp) {
+ 		mp->b_next = NULL;
+@@ -1520,14 +1520,14 @@ strinit()
+ 	 */
+ #define	DBLK_INIT	64	/* XXX */
+ #define	MBLK_INIT	64	/* XXX */
+-	kmem_fast_free(&(caddr_t)stream_free, kmem_fast_alloc(
+-		&(caddr_t)stream_free, sizeof (struct stdata), stream_init));
+-	kmem_fast_free(&(caddr_t)queue_free, kmem_fast_alloc(
+-		&(caddr_t)queue_free, 2 * sizeof (queue_t), queue_init));
+-	kmem_fast_free(&(caddr_t)dbfreelist, kmem_fast_alloc(
+-		&(caddr_t)dbfreelist, sizeof (dblk_t), DBLK_INIT));
+-	kmem_fast_free(&(caddr_t)mbfreelist, kmem_fast_alloc(
+-		&(caddr_t)mbfreelist, sizeof (mblk_t), MBLK_INIT));
++	kmem_fast_free((caddr_t *)&stream_free, kmem_fast_alloc(
++		(caddr_t *)&stream_free, sizeof (struct stdata), stream_init));
++	kmem_fast_free((caddr_t *)&queue_free, kmem_fast_alloc(
++		(caddr_t *)&queue_free, 2 * sizeof (queue_t), queue_init));
++	kmem_fast_free((caddr_t *)&dbfreelist, kmem_fast_alloc(
++		(caddr_t *)&dbfreelist, sizeof (dblk_t), DBLK_INIT));
++	kmem_fast_free((caddr_t *)&mbfreelist, kmem_fast_alloc(
++		(caddr_t *)&mbfreelist, sizeof (mblk_t), MBLK_INIT));
+
+ 	/*
+ 	 * Allocate an array of alcdat structures for keeping track of buffer
+@@ -1565,7 +1565,7 @@ allocstr()
+ 	register struct stdata *stp;
+
+ 	s = splstr();
+-	stp = (struct stdata *)new_kmem_fast_alloc(&(caddr_t)stream_free,
++	stp = (struct stdata *)new_kmem_fast_alloc((caddr_t *)&stream_free,
+ 		sizeof (struct stdata), stream_incr, KMEM_NOSLEEP);
+ 	if (stp) {
+ 		BUMPUP(strst.stream);
+@@ -1619,7 +1619,7 @@ freestr(stp)
+ 			stp->sd_next->sd_prev = stp->sd_prev;
+ 		stp->sd_prev->sd_next = stp->sd_next;
+ 	}
+-	kmem_fast_free(&(caddr_t)stream_free, (caddr_t)stp);
++	kmem_fast_free((caddr_t *)&stream_free, (caddr_t)stp);
+ 	strst.stream.use--;
+
+ 	(void) splx(s);
+@@ -1646,7 +1646,7 @@ allocq()
+ 	register queue_t *qp;
+
+ 	s = splstr();
+-	qp = (queue_t *) new_kmem_fast_alloc(&(caddr_t)queue_free,
++	qp = (queue_t *) new_kmem_fast_alloc((caddr_t *)&queue_free,
+ 		2 * sizeof (queue_t), queue_incr, KMEM_NOSLEEP);
+ 	if (qp) {
+ 		*qp = zeroR;
+diff --git a/sys/os/str_io.c b/sys/os/str_io.c
+index 6e41b49..ff18b44 100644
+--- a/sys/os/str_io.c
++++ b/sys/os/str_io.c
+@@ -43,6 +43,8 @@
+
+ #define	HZ		hz
+
++extern int wakeup();
++
+ /*
+  * id value used to distinguish between different ioctl messages
+  */
+diff --git a/sys/os/subr_prf.c b/sys/os/subr_prf.c
+index f5ad2fc..9322d4f 100644
+--- a/sys/os/subr_prf.c
++++ b/sys/os/subr_prf.c
+@@ -65,7 +65,7 @@ label_t	panic_regs;
+ int	noprintf = 0;	/* patch to non-zero to suppress kernel printf's */
+
+ void prf();
+-void fnprn();
++static void fnprn();
+ void fnprf();
+ char *sprintf();
+
+diff --git a/sys/os/uipc_mbuf.c b/sys/os/uipc_mbuf.c
+index f4e970c..6e6cf50 100644
+--- a/sys/os/uipc_mbuf.c
++++ b/sys/os/uipc_mbuf.c
+@@ -38,6 +38,8 @@
+ extern	int cache;
+ #endif defined(sun4m) && defined(IOMMU)
+
++static void m_unfree();
++
+ /*
+  * The way the code stands, MCLBYTES must be a power of 2
+  * and type MCL_LOANED cluster mbufs, if swappable, must
+@@ -850,7 +852,8 @@ m_reclaim()
+ /*
+  * remove the given cluster from the free list
+  */
+-static m_unfree(m0)
++static void
++m_unfree(m0)
+ 	register struct mbuf *m0;
+ {
+ 	register struct mbuf *m;
+diff --git a/sys/os/vfs_dnlc.c b/sys/os/vfs_dnlc.c
+index a0a595f..e778436 100644
+--- a/sys/os/vfs_dnlc.c
++++ b/sys/os/vfs_dnlc.c
+@@ -59,7 +59,9 @@ struct	nc_lru	{
+
+ struct	ncstats ncstats;		/* cache effectiveness statistics */
+
+-struct ncache *dnlc_search();
++static struct ncache *dnlc_search();
++static void insque2();
++static void remque2();
+ int	doingcache = 1;
+ 
+ /*
+@@ -343,7 +345,7 @@ dnlc_search(dp, name, namlen, hash, cred)
+  * in the second two longwords.
+  * Should be in assembler like insque.
+  */
+-static
++static void
+ insque2(ncp2, ncp1)
+ 	register struct ncache *ncp2, *ncp1;
+ {
+@@ -359,7 +361,7 @@ insque2(ncp2, ncp1)
+ /*
+  * Remove from queue, like insque2.
+  */
+-static
++static void
+ remque2(ncp)
+ 	register struct ncache *ncp;
+ {
+diff --git a/sys/os/vfs_syscalls.c b/sys/os/vfs_syscalls.c
+index 62c777c..7ac319e 100644
+--- a/sys/os/vfs_syscalls.c
++++ b/sys/os/vfs_syscalls.c
+@@ -17,6 +17,10 @@
+
+ extern	struct fileops vnodefops;
+
++static int stat1();
++static int fdsetattr();
++static int copen();
++
+ /*
+  * System call routines for operations on files other
+  * than read, write and ioctl.  These calls manipulate
+diff --git a/sys/pcfs/pc_dir.c b/sys/pcfs/pc_dir.c
+index 5807a42..f9280ef 100644
+--- a/sys/pcfs/pc_dir.c
++++ b/sys/pcfs/pc_dir.c
+@@ -38,6 +38,9 @@ struct slot {
+ #define	SL_DOT		1	/* entry point to self */
+ #define	SL_DOTDOT	2	/* entry points to parent */
+
++static int pc_findentry();
++static int pc_parsename();
++
+ /*
+  * Lookup a name in a directory. Return a pointer to the pc_node
+  * which represents the entry.
+diff --git a/sys/pcfs/pc_vfsops.c b/sys/pcfs/pc_vfsops.c
+index fe950e3..ec7f4dd 100644
+--- a/sys/pcfs/pc_vfsops.c
++++ b/sys/pcfs/pc_vfsops.c
+@@ -32,6 +32,8 @@ static int pcfs_unmount();
+ static int pcfs_root();
+ static int pcfs_statfs();
+ static int pcfs_sync();
++static int pcfs_mountfs();
++static int pc_syncfsnodes();
+ #ifdef notdef
+ static int pcfs_vget();
+ #endif notdef
+diff --git a/sys/pcfs/pc_vnodeops.c b/sys/pcfs/pc_vnodeops.c
+index b1a897a..f4c7f5d 100644
+--- a/sys/pcfs/pc_vnodeops.c
++++ b/sys/pcfs/pc_vnodeops.c
+@@ -53,6 +53,7 @@ static int pcfs_fsync();
+ static int pcfs_inactive();
+ static int pcfs_getpage();
+ static int pcfs_putpage();
++static int rwpcp();
+ static int pcfs_map();
+ static int pcfs_cmp();
+ static int pcfs_realvp();
+diff --git a/sys/sbusdev/audio_4231.c b/sys/sbusdev/audio_4231.c
+index 7021334..7cbdbc0 100644
+--- a/sys/sbusdev/audio_4231.c
++++ b/sys/sbusdev/audio_4231.c
+@@ -2596,7 +2596,7 @@ audio_4231_pollpipe(unitp)
+ 		x++;
+ 	}
+
+-	unitp->chip->dmaregs.dmacsr | = APC_CMI;
++	unitp->chip->dmaregs.dmacsr |= APC_CMI;
+ }
+
+ void
+@@ -2611,7 +2611,7 @@ audio_4231_poll_ppipe(unitp)
+ 		x++;
+ 	}
+ 
+-	unitp->chip->dmaregs.dmacsr | = APC_PMI;
++	unitp->chip->dmaregs.dmacsr |= APC_PMI;
+ }
+
+ void
+diff --git a/sys/sbusdev/bwtwo.c b/sys/sbusdev/bwtwo.c
+index 7b5fb9c..16bfbc8 100644
+--- a/sys/sbusdev/bwtwo.c
++++ b/sys/sbusdev/bwtwo.c
+@@ -78,6 +78,8 @@ int bw2_debug = 0;
+ /* config info */
+ static int bw2_identify();
+ static int bw2_attach();
++static int bw2_probe();
++static int bw2_init();
+ STATIC int bw2_open();
+ STATIC int bw2_close();
+ STATIC int bw2_ioctl();
+diff --git a/sys/sbusdev/dbri_driver.c b/sys/sbusdev/dbri_driver.c
+index 8ca7e42..abd4318 100644
+--- a/sys/sbusdev/dbri_driver.c
++++ b/sys/sbusdev/dbri_driver.c
+@@ -35,8 +35,8 @@
+ #include "audiodebug.h"
+
+ #if defined(SUN4M_35) && defined(IOMMU)
+-#include <machine/cpu.h
+-#include <machine/iommu.h
++#include <machine/cpu.h>
++#include <machine/iommu.h>
+ #endif
+
+ /* Local declarations */
+@@ -44,8 +44,8 @@ dbri_dev_t	*Dbri_devices = NULL;	/* device ctrlr array */
+ int		Ndbri = 0;		/* number of devices found up to now */
+ int		Curdbri = 0;		/* current dbri attach unit */
+
+-int	dbri_identify();
+-int	dbri_attach();
++static int	dbri_identify();
++static int	dbri_attach();
+ addr_t	map_regs();
+ void	report_dev();
+
+diff --git a/sys/sbusdev/ledma.c b/sys/sbusdev/ledma.c
+index 962d913..261346c 100644
+--- a/sys/sbusdev/ledma.c
++++ b/sys/sbusdev/ledma.c
+@@ -191,7 +191,7 @@ register struct dev_info *dev;
+ #if defined(SUN4M_35)
+ 	if (iommu_info.ccoher == 0) {
+ 		for (kp = membase; (u_int)kp < ((u_int)membase + ledmabufsize) ;
+-                                        (u_int)kp += MMU_PAGESIZE) {
++								kp += MMU_PAGESIZE) {
+           		ptpe = hat_ptefind( &kas, kp);
+           		pp = ptetopp(&ptpe->pte);
+ 			(void)hat_pagecache(pp, 1);
+diff --git a/sys/scsi/adapters/esp.c b/sys/scsi/adapters/esp.c
+index b02bb89..f92ffeb 100644
+--- a/sys/scsi/adapters/esp.c
++++ b/sys/scsi/adapters/esp.c
+@@ -20,7 +20,7 @@
+ #define FAS100A_BUG
+
+ #ifdef FAS100A_BUG
+-esp_step567 = 0;
++static int esp_step567 = 0;
+ #endif
+
+ /*
+@@ -98,6 +98,9 @@ static int esp_ustart(), esp_startcmd(), esp_reset_recovery(), esp_istart();
+ static int esp_abort_curcmd(), esp_abort_allcmds(), esp_reset_bus();
+ static int esp_handle_selection();
+ static int esp_dopoll();
++static int esp_onebyte_msg();
++static int esp_twobyte_msg();
++static int esp_multibyte_msg();
+ 
+ #ifdef	VECTORED_INTERRUPTS
+ static int esp_intr();
 diff --git a/sys/sparc/sparc_subr.s b/sys/sparc/sparc_subr.s
-index dcd7002..872366e 100644
+index dcd7002..bc35a33 100644
 --- a/sys/sparc/sparc_subr.s
 +++ b/sys/sparc/sparc_subr.s
-@@ -251,7 +251,11 @@ catch_fault:
+@@ -251,7 +251,7 @@ catch_fault:
  	b	_longjmp		! let longjmp do the rest
  	clr	[%o2+U_LOFAULT]		! turn off lofault
 
--	.reserve lfault, (2*4), "data", 4	! special jmp_buf for on_fault
-+	.section	".data"
-+	.align	4
-+lfault:
-+	.skip	(2*4)			! special jmp_buf for on_fault
-+	.text
-
+-.reserve lfault, (2*4), "data", 4	! special jmp_buf for on_fault
++	.reserve lfault, (2*4), "data", 4	! special jmp_buf for on_fault
 
 
  /*
-diff --git a/sys/scsi/targets/sd.c b/sys/scsi/targets/sd.c
-index fa667a0..2de05f2 100644
---- a/sys/scsi/targets/sd.c
-+++ b/sys/scsi/targets/sd.c
-@@ -55,7 +55,8 @@ static char *diskokay = "disk okay";
- /*
-  * Forward reference definitions
+diff --git a/sys/specfs/spec_subr.c b/sys/specfs/spec_subr.c
+index 6da315a..eedf61e 100644
+--- a/sys/specfs/spec_subr.c
++++ b/sys/specfs/spec_subr.c
+@@ -21,6 +21,7 @@
+  * Find an appropriate snode.
   */
--extern char *sd_cmds[];
-+static char *sd_cmds[];
-+extern char *strcpy();
+ static struct snode *sfind();
++static void ssave();
+ 
+ /*
+  * Returns a special vnode for the given dev.  The vnode is the
+@@ -164,7 +165,7 @@ struct snode *stable[STABLESIZE];
+ /*
+  * Put a snode in the table
+  */
+-static
++static void
+ ssave(sp)
+ 	struct snode *sp;
+ {
+diff --git a/sys/sun/openprom_util.c b/sys/sun/openprom_util.c
+index 804564f..e215035 100644
+--- a/sys/sun/openprom_util.c
++++ b/sys/sun/openprom_util.c
+@@ -537,7 +537,7 @@ devi_to_path(name)
+ 		 */
+ 		if (encode_func == (char *(*)())0)
+ 			encode_func = obio_encode_reg;
+-		switch (encode_func(dip, addr))  {
++		switch ((int)encode_func(dip, addr))  {
+ 		case 0:
+ 			/*
+ 			 * Error return: nullify output buffer so
+diff --git a/sys/sun/swapgeneric.c b/sys/sun/swapgeneric.c
+index 256c760..bbd816b 100644
+--- a/sys/sun/swapgeneric.c
++++ b/sys/sun/swapgeneric.c
+@@ -58,6 +58,9 @@ static int bootpath_debug = 1;		/* Non-zero for debug messages */
+ dev_t	rootdev;
+ struct vnode *rootvp;
+
++static int chkopenable();
++static int build_bdevlist();
++
+ /*
+  * Flags in bdevlist/cdevlist.
+  * This stuff moved outside the "ifdef OPENPROM" for building
+@@ -1115,7 +1118,7 @@ found:
+ /*
+  * check if dev is openable, 0 no, 1 yes
+  */
+-static
++static int
+ chkopenable(dev)
+ 	dev_t	dev;
+ {
+diff --git a/sys/sun4m/autoconf.c b/sys/sun4m/autoconf.c
+index 6f6a17f..51158f8 100644
+--- a/sys/sun4m/autoconf.c
++++ b/sys/sun4m/autoconf.c
+@@ -68,6 +68,9 @@ extern int no_vme;
+ #endif
+
+ extern int swap_present;
++static void	add_drv_layer();
++static void	add_a_device();
++static void	rem_a_device();
+ /*
+  * The following several variables are related to
+  * the configuration process, and are used in initializing
+@@ -945,7 +948,6 @@ add_drv(dev_ops)
+ {
+ 	struct add_drv_info	adi;
+ 	register struct add_drv_info	*adip = &adi;
+-	void			add_drv_layer();
+ 	register struct new_devlist *ndp;
+ 	int	attached = 0;
+
+@@ -1004,7 +1006,6 @@ add_drv_layer(dev, adip)
+ 	struct dev_info	*dev;
+ 	struct add_drv_info	*adip;
+ {
+-	void	add_a_device();
+
+ 	walk_layer(dev,
+ 		(int (*)()) add_a_device, (caddr_t) &new_devlist_head);
+@@ -1065,7 +1066,6 @@ void
+ rem_drv(dev_ops)
+ 	struct dev_ops *dev_ops;
+ {
+-	void	rem_a_device();
+
+ 	walk_devs(top_devinfo,
+ 		(int (*)()) rem_a_device, (caddr_t) dev_ops);
+@@ -1647,30 +1647,37 @@ char	busname_svec[] = "SBus ";
+ char	busname_vvec[] = "VME ";
+ char	busname_vec[] = "";
+
++#define	AUTOCONF_CAT1(a, b)	a##b
++#define	AUTOCONF_CAT(a, b)	AUTOCONF_CAT1(a, b)
++
+ #define	OVECTOR(n)		\
+-int	olvl/**/n/**/_spurious;	\
+-struct autovec olvl/**/n[NVECT]
++int	AUTOCONF_CAT(AUTOCONF_CAT(olvl, n), _spurious);	\
++struct autovec AUTOCONF_CAT(olvl, n)[NVECT]
+
+ #define	SVECTOR(n)		\
+-int	slvl/**/n/**/_spurious;	\
+-struct autovec slvl/**/n[NVECT]
++int	AUTOCONF_CAT(AUTOCONF_CAT(slvl, n), _spurious);	\
++struct autovec AUTOCONF_CAT(slvl, n)[NVECT]
+
+ #define	VVECTOR(n)		\
+-int	vlvl/**/n/**/_spurious;	\
+-struct autovec vlvl/**/n[NVECT]
++int	AUTOCONF_CAT(AUTOCONF_CAT(vlvl, n), _spurious);	\
++struct autovec AUTOCONF_CAT(vlvl, n)[NVECT]
+
+ #define	XVECTOR(n)		\
+-struct autovec xlvl/**/n[NVECT]
++struct autovec AUTOCONF_CAT(xlvl, n)[NVECT]
+
+ #define	VECTOR(n)		\
+-int	level/**/n/**/_spurious;	\
+-struct autovec level/**/n[NVECT]
++int	AUTOCONF_CAT(AUTOCONF_CAT(level, n), _spurious);	\
++struct autovec AUTOCONF_CAT(level, n)[NVECT]
+
+ typedef int (*func)();
+
+ extern int	softint();
+ extern int	process_aflt();
+ extern int	hardlevel10();
++extern u_short	*doprobe();
++#ifndef SAS
++static int	mouseconfig();
++#endif
 
  /*
-  * Configuration Data
-@@ -106,6 +107,9 @@ static int sd_unit_ready();
- static void sdprintf(), sdlog();
- static void sd_setlink();
- static int sd_testlink(), sd_maptouscsi();
-+static void sd_uselabel();
-+static int sdrw(), sdioctl_cmd();
-+static int sd_handle_incomplete(), sd_handle_sense(), sd_check_error();
- #ifdef	ADAPTEC
- static void sdintr_adaptec();
- #endif	/* ADAPTEC */
+  * These structures are used in locore.s to jump to device interrupt routines.
+@@ -2624,7 +2631,7 @@ kbddone:
+ }
 
-diff --git a/sys/scsi/targets/sddef.h b/sys/scsi/targets/sddef.h
-index c697fde..2cfb266 100644
---- a/sys/scsi/targets/sddef.h
-+++ b/sys/scsi/targets/sddef.h
-@@ -45,13 +45,13 @@
- #define	CUNIT		devp->sd_dev->md_mc->mc_ctlr
- #endif	OPENPROMS
+ #ifndef SAS
+-static
++static int
+ mouseconfig(msdev)
+ 	dev_t msdev;
+ {
+@@ -3182,7 +3189,6 @@ mbconfctrl(mc, mdr)
+ 	u_short		 *reg;
+ 	int		     err = 0;
+ 	int		     stat;
+-	u_short		 *doprobe();
+ 	struct dev_info *dev = NULL;
 
--#define	UPTR		((struct scsi_disk *)(devp)->sd_private)
-+#define	UPTR		(*(struct scsi_disk **)&(devp)->sd_private)
- #define	ROUTE		(&devp->sd_address)
+ 	if ((reg = doprobe((u_long)mc->mc_addr, (u_long)mc->mc_space,
+diff --git a/sys/sun4m/conf/Makefile.src b/sys/sun4m/conf/Makefile.src
+index 5118e9d..0eeb67a 100644
+--- a/sys/sun4m/conf/Makefile.src
++++ b/sys/sun4m/conf/Makefile.src
+@@ -32,6 +32,8 @@ ARCHF=-U$(USER) -D$(ARCH)
+ #
+ CPP=	/lib/cpp -undef -Dsparc -Dsun $(ARCHF)
+ CC=	cc -sparc $(ARCHF)
++HOSTCC=${CC}
++HOSTRUN=./a.out
+ AS=	as
+ LD=	ld
+ AWK=	awk
+@@ -221,14 +223,14 @@ locore.o: assym.s percpu.s
 
- #define	SCBP(pkt)	((struct scsi_status *)(pkt)->pkt_scbp)
- #define	SCBP_C(pkt)	((*(pkt)->pkt_scbp) & STATUS_MASK)
- #define	CDBP(pkt)	((union scsi_cdb *)(pkt)->pkt_cdbp)
--#define	BP_PKT(bp)	((struct scsi_pkt *)bp->av_back)
-+#define	BP_PKT(bp)	(*(struct scsi_pkt **)&(bp)->av_back)
+ assym.s: ${MACHINE}/genassym.c
+ 	${CC} -E ${CPPOPTS} ${MACHINE}/genassym.c > ./a.out.c
+-	cc ${COPTS} ./a.out.c
+-	./a.out >assym.s
++	${HOSTCC} ${COPTS} ./a.out.c
++	${HOSTRUN} >assym.s
+ 	rm -f ./a.out ./a.out.c
+
+ percpu.h percpu_str.h percpu_def.h percpu.s: ${SYSDIR}/sys/genpercpu.c Makefile
+ 	${CC} -E ${CPPOPTS} ${SYSDIR}/sys/genpercpu.c > ./a.out.c
+-	cc ${COPTS} ./a.out.c
+-	./a.out >percpu.s
++	${HOSTCC} ${COPTS} ./a.out.c
++	${HOSTRUN} >percpu.s
+ 	rm -f ./a.out ./a.out.c
+
+ Locore.L:
+@@ -259,4 +261,3 @@ param.L:
+ %RULES
+
+ # DO NOT DELETE THIS LINE -- make depend uses it
+-
+diff --git a/sys/sun4m/fillsysinfo.c b/sys/sun4m/fillsysinfo.c
+index 1b207fc..203bc91 100644
+--- a/sys/sun4m/fillsysinfo.c
++++ b/sys/sun4m/fillsysinfo.c
+@@ -54,21 +54,21 @@ struct memlist *availmemory = 0;
+ struct memlist *physmemory = 0;
+ struct memlist *virtmemory = 0;
+
+-struct machinfo		mach_info 		= 0;
++struct machinfo		mach_info 		= { 0, };
+ #ifdef	VME
+-struct vmeinfo 		vme_info 		= 0;
++struct vmeinfo 		vme_info 		= { 0, };
+ #endif	VME
+-struct iommuinfo	iommu_info 		= 0;
+-struct mmcinfo 		mmc_info 		= 0;
+-struct modinfo 		mod_info[NMODULES] 	= 0;
++struct iommuinfo	iommu_info 		= { 0, };
++struct mmcinfo 		mmc_info 		= { 0, };
++struct modinfo 		mod_info[NMODULES] 	= { 0, };
+
+-char   sysname[MAXSYSNAME] 			= 0; /* system name */
+-char   modname[NMODULES][MAXSYSNAME] 		= 0; /* module names */
+-char   mcname[MAXSYSNAME] 			= 0; /* mmc name (if any) */
++char   sysname[MAXSYSNAME] 			= { 0, }; /* system name */
++char   modname[NMODULES][MAXSYSNAME] 		= { 0, }; /* module names */
++char   mcname[MAXSYSNAME] 			= { 0, }; /* mmc name (if any) */
+
+-struct dev_reg  obpctx	= 0; /* obp's context table info, reg struc */
++struct dev_reg  obpctx	= { 0, }; /* obp's context table info, reg struc */
+
+-struct dev_reg	obp_mailbox = 0; /* obp's mailbox phy addr, each cpu
++struct dev_reg	obp_mailbox = { 0, }; /* obp's mailbox phy addr, each cpu
+ 				    have different mail box address.
+ 				    however, they are all within the
+ 				    same page.  This is used when
+diff --git a/sys/sun4m/genassym.c b/sys/sun4m/genassym.c
+index fcd0472..1004007 100644
+--- a/sys/sun4m/genassym.c
++++ b/sys/sun4m/genassym.c
+@@ -66,8 +66,9 @@
+
+ struct zsops *zs_proto[] = { 0 };
+
++int bit();
+
+-main()
++int main()
+ {
+ 	register struct proc *p = (struct proc *)0;
+ 	register struct vmmeter *vm = (struct vmmeter *)0;
+@@ -238,13 +239,13 @@ main()
+ 	printf("#define\tOP_PLUGIN_VERSION 0x%x\n", &romp->op_plugin_version);
+ 	printf("#define\tOP_MON_ID 0x%x\n", &romp->op_mon_id);
+ #ifdef  SUNDBE
+-        printf("#define EINTR %d\n",EINTR);
+-        printf("#define NORMALRETURN %d\n", NORMALRETURN);
++		printf("#define EINTR %d\n",EINTR);
++		printf("#define NORMALRETURN %d\n", NORMALRETURN);
+ #endif SUNDBE
+ 	exit(0);
+ }
+
+-bit(mask)
++int bit(mask)
+ 	register long mask;
+ {
+ 	register int i;
+diff --git a/sys/sun4m/machdep.c b/sys/sun4m/machdep.c
+index c4a3b5c..3b5c104 100644
+--- a/sys/sun4m/machdep.c
++++ b/sys/sun4m/machdep.c
+@@ -29,6 +29,21 @@
+ #include <machine/async.h>
+ #include <mon/sunromvec.h>
  
- #define	Tgt(devp)	(devp->sd_address.a_target)
- #define	Lun(devp)	(devp->sd_address.a_lun)
++extern char *strcpy();
++extern void mmu_flushall();
++extern int report_ce_console;
++static int unmap_to_end_rgn();
++
++char *
++memcpy(dst, src, len)
++	char *dst;
++	char *src;
++	int len;
++{
++	bcopy((caddr_t)src, (caddr_t)dst, (u_int)len);
++	return (dst);
++}
++
+ /*Placeholder when UFS isn't included, like for DL kernels.*/
+ int ufs_lock_released;
 
-diff --git a/lib/libc/rpc/auth_des.c b/lib/libc/rpc/auth_des.c
---- a/lib/libc/rpc/auth_des.c
-+++ b/lib/libc/rpc/auth_des.c
-@@ -37,1 +37,4 @@
-+static bool_t authdes_refresh();
-+static bool_t synchronize();
-+static int msgout();
- static struct auth_ops *authdes_ops();
+@@ -5652,7 +5667,7 @@ struct	ce_info {
+ };
 
-diff --git a/lib/libc/rpc/key_call.c b/lib/libc/rpc/key_call.c
---- a/lib/libc/rpc/key_call.c
-+++ b/lib/libc/rpc/key_call.c
-@@ -25,1 +25,2 @@
- #define	KEY_NRETRY	12	/* number of retries */
-+static int key_call();
+ #define	MAX_SIMM	256
+-struct	ce_info	mem_ce_simm[MAX_SIMM] = 0;
++struct	ce_info	mem_ce_simm[MAX_SIMM] = { 0, };
 
-diff --git a/lib/libc/rpc/svc_kudp.c b/lib/libc/rpc/svc_kudp.c
---- a/lib/libc/rpc/svc_kudp.c
-+++ b/lib/libc/rpc/svc_kudp.c
-@@ -61,1 +61,2 @@
- void		xdrmbuf_init();
-+static int unhash();
 
+ log_ce_mem_err(afsr, afar0, afar1, get_unum)
+@@ -7456,7 +7471,7 @@ klock_reqfail(fn, ln, where, act, exp, mid)
+  * Assumes kl1pt as the pointer to level 1 table
+  * Used at startup by the kernel to cleanup unused maps.
+  */
+-static
++static int
+ unmap_to_end_rgn(addr)
+ u_int addr;
+ {
+@@ -7484,4 +7499,3 @@ u_int addr;
+ 	     sptp->ptpe_int = 0;
+ 	}
+    }
+-
+diff --git a/sys/sun4m/mem.c b/sys/sun4m/mem.c
+index 36592c8..860afa0 100644
+--- a/sys/sun4m/mem.c
++++ b/sys/sun4m/mem.c
+@@ -34,6 +34,8 @@ static	char sccsid[] = "@(#)mem.c 1.1 94/10/31 SMI";
+ #include <os/atom.h>
+
+ extern struct memlist *availmemory;
++static int mmpeekio();
++static int mmeeprom();
+ 
+ /*
+  * SBUS space layout information
+@@ -403,7 +405,7 @@ fault:
+ 	return (EFAULT);
+ }
+
+-static
++static int
+ mmpeekio(uio, rw, addr, len, xfersize)
+ 	struct uio *uio;
+ 	enum uio_rw rw;
+@@ -480,7 +482,7 @@ mmpeekio(uio, rw, addr, len, xfersize)
+  * Since reading the clock also requires writing the EEPROM, we
+  * splclock() to prevent interference.
+  */
+-static
++static int
+ mmeeprom(uio, rw, addr, len)
+ 	struct uio *uio;
+ 	enum uio_rw rw;
+diff --git a/sys/sun4m/module_mp.c b/sys/sun4m/module_mp.c
+index 4fd1f6d..950c424 100644
+--- a/sys/sun4m/module_mp.c
++++ b/sys/sun4m/module_mp.c
+@@ -72,7 +72,10 @@ void	      (*s_vac_flush)() = 0;
+
+ mp_init()
+ {
+-#define	TAKE(name)	s_/**/name = v_/**/name; v_/**/name = mp_/**/name
++#define	MODULE_CAT1(a, b)	a##b
++#define	MODULE_CAT(a, b)	MODULE_CAT1(a, b)
++#define	TAKE(name)	MODULE_CAT(s_, name) = MODULE_CAT(v_, name); \
++		MODULE_CAT(v_, name) = MODULE_CAT(mp_, name)
+
+ 	TAKE(mmu_flushall);
+ 	TAKE(mmu_flushctx);
+@@ -93,6 +96,8 @@ mp_init()
+ 	TAKE(vac_pagectxflush);
+ 	TAKE(vac_flush);
+ #endif
++#undef	MODULE_CAT
++#undef	MODULE_CAT1
+ #undef	TAKE
+ }
+ 
 diff --git a/sys/sun4m/module_ross.c b/sys/sun4m/module_ross.c
+index be92ddc..ba31dd7 100644
 --- a/sys/sun4m/module_ross.c
 +++ b/sys/sun4m/module_ross.c
-@@ -161,1 +161,2 @@
+@@ -161,6 +161,7 @@ ross_module_setup(mcr)
+ 	extern void ross_na_module_setup();
+ #endif	ROSS_NOASI
  	extern int	cpuid;
 +	extern int	vac_copyback;
+
+ 	if (ross_test_mcr) {
+ 		prom_printf("ross_module_setup: pretending mcr is %x, not %x\n",
+diff --git a/sys/sun4m/module_swift.c b/sys/sun4m/module_swift.c
+index 14733ae..806b84d 100644
+--- a/sys/sun4m/module_swift.c
++++ b/sys/sun4m/module_swift.c
+@@ -324,7 +324,7 @@ swift_pte_offon(ptpe, aval, oval)
+ 	        pte = &ptpe->pte;
+ 	        vaddr = ptetovaddr(pte);
+ 		if (vaddr > (addr_t)&etext) {
+-			aval | = 0x80;
++			aval |= 0x80;
+ 			oval &= ~0x80;
+ 		}
+ 	}
+diff --git a/sys/sun4m/trap.c b/sys/sun4m/trap.c
+index de9506f..bcd6913 100644
+--- a/sys/sun4m/trap.c
++++ b/sys/sun4m/trap.c
+@@ -35,6 +35,9 @@ static char sccsid[] = "@(#)trap.c 1.1 94/10/31";
+
+ #include <os/atom.h>
+
++extern int cpuid;
++static int getkureg();
++
+ #ifdef  SUNDBE
+ #include <sys/syscall.h>
+ #endif  /* SUNDBE */
+@@ -2502,4 +2505,3 @@ getkureg(rgs, rw, reg, val, kernelregs)
+         }
+         return (0);
+ }
+-
+diff --git a/sys/sunif/if_le.c b/sys/sunif/if_le.c
+index 553ca9e..e97e233 100644
+--- a/sys/sunif/if_le.c
++++ b/sys/sunif/if_le.c
+@@ -69,10 +69,12 @@
+ #endif
+
+ extern	char	DVMA[];
++static int	lecoll();
+
+ #ifdef	OPENPROMS
+
+-int	leidentify(), leattach(), leintr();
++static int	leidentify(), leattach();
++int	leintr();
+ struct	dev_ops le_ops = {
+ 	1,
+ 	leidentify,
+@@ -688,7 +690,7 @@ leinit(unit)
+ 			if (iommu_info.ccoher == 0) {
+ 				for (kp = es->es_membase;
+ 				    (u_int) kp < ((u_int) es->es_membase
+-				    + LEBUFSIZE); (u_int)kp += MMU_PAGESIZE) {
++					+ LEBUFSIZE); kp += MMU_PAGESIZE) {
+ 					ptpe = hat_ptefind(&kas, kp);
+ 					pp = ptetopp(&ptpe->pte);
+ 					(void) hat_pagecache(pp, 1);
+@@ -1595,7 +1597,7 @@ leintr()
+ 	return (serviced);
+ }
+
+-static
++static int
+ lecoll(coll)
+ int	coll;
+ {
+diff --git a/sys/sys/mbuf.h b/sys/sys/mbuf.h
+index 1affa04..5b90558 100644
+--- a/sys/sys/mbuf.h
++++ b/sys/sys/mbuf.h
+@@ -15,6 +15,10 @@
+ #ifndef _sys_mbuf_h
+ #define _sys_mbuf_h
+
++#ifdef sun4m
++#include <machine/pte.h>
++#endif
++
+ /*
+  * Constants related to memory allocator.
+  *
+diff --git a/sys/sys/stream.h b/sys/sys/stream.h
+index 1fc3901..6189840 100644
+--- a/sys/sys/stream.h
++++ b/sys/sys/stream.h
+@@ -458,7 +458,7 @@ struct stroptions {
+  * free a queue pair
+  */
+ #define freeq(q) { \
+-	kmem_fast_free(&(caddr_t)queue_free, (caddr_t)q); \
++	kmem_fast_free((caddr_t *)&queue_free, (caddr_t)q); \
+ 	strst.queue.use--; \
+ }
+
+diff --git a/sys/ufs/ufs_bmap.c b/sys/ufs/ufs_bmap.c
+index 029b345..30710ce 100644
+--- a/sys/ufs/ufs_bmap.c
++++ b/sys/ufs/ufs_bmap.c
+@@ -24,6 +24,8 @@
+ #include <vm/seg.h>
+ #include <sys/trace.h>
+
++static int findextent();
++
+ /*
+  * Find the extent, and the matching block number.
+  */
+diff --git a/sys/ufs/ufs_dir.c b/sys/ufs/ufs_dir.c
+index c076f99..483ead5 100644
+--- a/sys/ufs/ufs_dir.c
++++ b/sys/ufs/ufs_dir.c
+@@ -40,6 +40,20 @@ struct dirtemplate mastertemplate = {
+
+ int dirchk = 0;
+
++static int dircheckforname();
++static int dirrename();
++static int dirfixdotdot();
++static int diraddentry();
++static int dirprepareentry();
++static int dirmakeinode();
++static int dirmakedirect();
++static int blkatoff();
++static int dirmangled();
++static int dirbad();
++static int dirbadname();
++static int dirempty();
++static int dircheckpath();
++
+ /*
+  * Look for a certain name in a directory
+  * On successful return, *ipp will point to the (locked) inode.
+diff --git a/sys/ufs/ufs_inode.c b/sys/ufs/ufs_inode.c
+index 0b48026..ae2b3ef 100644
+--- a/sys/ufs/ufs_inode.c
++++ b/sys/ufs/ufs_inode.c
+@@ -36,6 +36,8 @@
+ #include <vm/as.h>
+ #include <vm/pvn.h>
+ #include <vm/seg.h>
++
++static int inode_dnlc_purge();
+ #include <vm/swap.h>
+ #include <vm/page.h>
+
+@@ -139,8 +141,6 @@ iget(dev, fs, ino, ipp)
+ 	register struct dinode *dp;
+ 	register struct inode *iq;
+ 	struct mount *mp;
+-	int inode_dnlc_purge();
+-
+ 	/*
+ 	 * Lookup inode in cache.
+ 	 */
+diff --git a/sys/ufs/ufs_lockf.c b/sys/ufs/ufs_lockf.c
+index fb9ffe1..0ce2949 100644
+--- a/sys/ufs/ufs_lockf.c
++++ b/sys/ufs/ufs_lockf.c
+@@ -91,10 +91,12 @@ int			max_file_locks = 0;
+ int			max_lock_refs = 0;
+
+ #ifdef LOCK_DEBUG
+-void    	print_depend();
++static void	print_depend();
+ extern int	lock_debug_on;
+ #endif
+
++static int has_remote_locks();
++
+ /* to keep track of granted locks to be supplied to local lock mgr thru	*/
+ /* fcntl(F_RSETLKW, F_UNLCK) calls					*/
+ static struct grant_lock	grant_locks;
+diff --git a/sys/ufs/ufs_vfsops.c b/sys/ufs/ufs_vfsops.c
+index a15844f..a2c1b73 100644
+--- a/sys/ufs/ufs_vfsops.c
++++ b/sys/ufs/ufs_vfsops.c
+@@ -39,6 +39,9 @@ static int ufs_sync();
+ static int ufs_vget();
+ static int ufs_mountroot();
+ static int ufs_badop();
++static int mountfs();
++static int unmount1();
++static int getmdev();
+
+ struct vfsops ufs_vfsops = {
+ 	ufs_mount,
+diff --git a/sys/ufs/ufs_vnodeops.c b/sys/ufs/ufs_vnodeops.c
+index f81172c..3c09c8b 100644
+--- a/sys/ufs/ufs_vnodeops.c
++++ b/sys/ufs/ufs_vnodeops.c
+@@ -83,6 +83,11 @@ static  int ufs_cmp();
+ static  int ufs_realvp();
+ static	int ufs_cntl();
+ static	int ufs_badop();
++static	int rwip();
++static	int chown1();
++static	int ufs_fiolfs();
++static	int ufs_fioffs();
++static	int ufs_fiolfss();
+
+ /*
+  * ulockfs intercepts
+diff --git a/sys/vm/vm_swap.c b/sys/vm/vm_swap.c
+index f8bc847..ed20291 100644
+--- a/sys/vm/vm_swap.c
++++ b/sys/vm/vm_swap.c
+@@ -53,6 +53,8 @@
+
+ /* these includes are used for the "fake" swap support of /dev/drum */
+ #include <sun/mem.h>
++
++static int sw_rdwr();
+ #include <specfs/snode.h>
+
+ static struct swapinfo *silast;
+diff --git a/usr.etc/config/mkbootconf.c b/usr.etc/config/mkbootconf.c
+index d78afb9..01f8405 100644
+--- a/usr.etc/config/mkbootconf.c
++++ b/usr.etc/config/mkbootconf.c
+@@ -56,7 +56,7 @@ doconf(fp, fl, name)
+ {
+ 	fprintf(fp, "\nstruct bootobj %s = {\n", name);
+ 	if (fl) {
+-		fprintf(fp, "\t{ \"");
++		fprintf(fp, "\t\"");
+ 		if (fl->f_fstype) {
+ 			fprintf(fp, "%s", fl->f_fstype);
+ 		}
+@@ -64,9 +64,9 @@ doconf(fp, fl, name)
+ 		if (fl->f_fn) {
+ 			fprintf(fp, "%s", fl->f_fn);
+ 		}
+-		fprintf(fp, "\",\t0, %d, (struct vnode *)0 },\n", fl->f_size);
++		fprintf(fp, "\",\t0, %d, (struct vnode *)0,\n", fl->f_size);
+ 	} else {
+-		fprintf(fp, "\t{ \"\",\t\"\",\t0, 0, (struct vnode *)0 },\n");
++		fprintf(fp, "\t\"\",\t\"\",\t0, 0, (struct vnode *)0,\n");
+ 	}
+ 	fprintf(fp, "};\n");
+ }
+diff --git a/usr.etc/config/mkheaders.c b/usr.etc/config/mkheaders.c
+index 613436a..3b6558e 100644
+--- a/usr.etc/config/mkheaders.c
++++ b/usr.etc/config/mkheaders.c
+@@ -163,8 +163,12 @@ do_header(dev, hname, count)
+ 	}
+ 	(void) fclose(inf);
+ 	if (count == oldcount) {
+-		for (fl = fl_head; fl != 0; fl = fl->f_next)
++		for (fl = fl_head; fl != 0; ) {
++			struct file_list *next = fl->f_next;
++
+ 			free((char *)fl);
++			fl = next;
++		}
+ 		return;
+ 	}
+ 	if (oldcount == -1) {
+@@ -179,10 +183,13 @@ do_header(dev, hname, count)
+ 		perror(file);
+ 		exit(1);
+ 	}
+-	for (fl = fl_head; fl != 0; fl = fl->f_next) {
++	for (fl = fl_head; fl != 0; ) {
++		struct file_list *next = fl->f_next;
++
+ 		fprintf(outf, "#define %s %d\n",
+ 		    fl->f_fn, fl->f_type);
+ 		free((char *)fl);
++		fl = next;
+ 	}
+ 	(void) fclose(outf);
+ }
+diff --git a/usr.lib/libpixrect/gt/gtvar.h b/usr.lib/libpixrect/gt/gtvar.h
+index 04ae5ae..442badf 100644
+--- a/usr.lib/libpixrect/gt/gtvar.h
++++ b/usr.lib/libpixrect/gt/gtvar.h
+@@ -298,7 +298,7 @@ int gt_dummy_extern;
+       {								\
+ 	*(gt_a) = (*(mem_a) << (off));					\
+ 	(gt_a)  = (type *) PTR_ADD((gt_a), GT_IMAGE_LINEBYTES);		\
+-	(mem_a) = (type *)(((int)(by_a) += (s_lb)) & (val));		\
++	(mem_a) = (type *)(((int)((by_a) += (s_lb))) & (val));		\
+     }
+
+ #define gt_sten_rop_2(gt_a, mem_a)					\
+diff --git a/usr.lib/libpixrect/mem/mem_rop_impl_util.h b/usr.lib/libpixrect/mem/mem_rop_impl_util.h
+index 9279c33..1eb6dfe 100644
+--- a/usr.lib/libpixrect/mem/mem_rop_impl_util.h
++++ b/usr.lib/libpixrect/mem/mem_rop_impl_util.h
+@@ -14,8 +14,8 @@
+ /*
+  * Code selection macros
+  */
+-#define	IFTRUET(t, a, b)	_STMT(if (t) {a;} else {b;})
+-#define	IFFALSET(t, a, b)	_STMT(b;)
++#define	IFTRUET(t, a, b)	_STMT(if (t) {a;} else {b;});
++#define	IFFALSET(t, a, b)	_STMT(b;);
+
+ /*
+  * Option control macros
+diff --git a/usr.lib/libpixrect/pr/pr_impl_util.h b/usr.lib/libpixrect/pr/pr_impl_util.h
+index d0f4476..3e6814b 100644
+--- a/usr.lib/libpixrect/pr/pr_impl_util.h
++++ b/usr.lib/libpixrect/pr/pr_impl_util.h
+@@ -13,9 +13,8 @@
+ 
+ /* Reiser cpp concatenation macros */
+ #ifndef _CAT
+-#undef	_IDENT
+-#define _IDENT(x)	x
+-#define	_CAT(a,b)	_IDENT(a)b
++#define	_CAT1(a,b)	a##b
++#define	_CAT(a,b)	_CAT1(a,b)
+ #endif
+ 
+ /*
