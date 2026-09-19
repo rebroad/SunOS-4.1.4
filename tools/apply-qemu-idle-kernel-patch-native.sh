@@ -1,12 +1,12 @@
 #!/bin/sh
 set -eu
 
-# Apply the checked-in QEMU-only kernel workflow changes on a native SunOS
-# checkout. SunOS 4.1.4 does not include patch(1), so this is the portable,
-# idempotent equivalent of applying tools/patches/qemu-idle-kernel.patch.
+# Apply the QEMU idle instruction to a native SunOS checkout.  SunOS 4.1.4
+# does not include patch(1), and its old awk rejects newer multi-line awk
+# expressions, so keep this applicator deliberately small and portable.
 
 root=${1:-.}
-marker=$root/.qemu-idle-kernel-patch-applied-v2
+marker=$root/.qemu-idle-kernel-patch-applied-v3
 if test -f "$marker"; then
 	echo "QEMU idle kernel patch already applied: $root"
 	exit 0
@@ -16,72 +16,23 @@ move_force() {
 	/bin/mv -f "$@"
 }
 
-rewrite() {
-	src=$1
-	dst=$src.native-tmp
-	awk '
-	{
-		if (mode == "switch" && switch_close && $0 == "\tnop") {
-			print
-			print "#endif QEMU_IDLE_POWERDOWN"
-			switch_close = 0
-			next
-		}
-		if (mode == "switch" && index($0, "\tbz\t_idle") == 1) {
-			print "#ifdef QEMU_IDLE_POWERDOWN"
-			print "! Only enter POWERDOWN when no stream work is pending."
-			print "bnz qemu_idle_runqueues"
-			print "nop"
-			print "wr %g0, %g0, %asr19"
-			print "b _idle"
-			print "nop"
-			print "qemu_idle_runqueues:"
-			print "#else"
-			print
-			switch_close = 1
-			next
-		}
-		if (mode == "idle" && index($0, "__asm__ __volatile__") != 0) {
-			if (!idle_asm_seen) {
-				print "\t\tasm(\".word 0xa7800000\");"
-				idle_asm_seen = 1
-			}
-			next
-		}
-		if (mode == "idle" && index($0, "asm(\"wr ") != 0) {
-			if (!idle_asm_seen) {
-				print "\t\tasm(\".word 0xa7800000\");"
-				idle_asm_seen = 1
-			}
-			next
-		}
-		if (mode == "idle" && index($0, "asm(\".word 0xa7800000") != 0) {
-			if (!idle_asm_seen) {
-				print "\t\tasm(\".word 0xa7800000\");"
-				idle_asm_seen = 1
-			}
-			next
-		}
-		print
-		if (mode == "prom" && $0 == "prom_init(pgmname)") seen_prom = 1
-		if (mode == "prom" && seen_prom && $0 == "{") {
-			print "\tprom_printf(\"prom_init: romp=%x magic=%x version=%x\\n\","
-			print "\t\t(u_int)romp, romp->op_magic, romp->op_romvec_version);"
-			seen_prom = 0
-		}
-		if (mode == "panic" && $0 == "\tchar *s;") {
-			print "#ifdef QEMU_KERNEL_DIAGNOSTICS"
-			print "\tprintf(\"panic argument=%x caller=%x\\n\", (u_int)s,"
-			print "\t\t(u_int)__builtin_return_address(0));"
-			print "#endif QEMU_KERNEL_DIAGNOSTICS"
-		}
-	}' mode="$2" "$src" > "$dst"
-	move_force "$dst" "$src"
-}
-
-rewrite "$root/sys/sun4m/swtch.s" switch
-rewrite "$root/sys/os/init_main.c" idle
-rewrite "$root/sys/boot/lib/promlib/prom_init.c" prom
-rewrite "$root/sys/os/subr_prf.c" panic
+src=$root/sys/os/init_main.c
+dst=$src.native-tmp
+awk '
+{
+	if ($0 == "#if defined(SAS)") {
+		print "#ifdef QEMU_IDLE_POWERDOWN"
+		print "\t\tif (!whichqs"
+		print "#ifdef LWP"
+		print "\t\t    && !__Nrunnable"
+		print "#endif LWP"
+		print "\t\t    && !qrunflag)"
+		print "\t\t\tasm(\".word 0xa7800000\");"
+		print "#endif QEMU_IDLE_POWERDOWN"
+		print ""
+	}
+	print
+}' "$src" > "$dst"
+move_force "$dst" "$src"
 > "$marker"
 echo "Applied native QEMU idle kernel patch: $root"

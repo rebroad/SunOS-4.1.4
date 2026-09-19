@@ -34,7 +34,9 @@ else
         >"$logroot/patch.log"
 fi
 
-/bin/cp -f "$config" "$root/sys/sun4m/conf/SUN4M_IDLE"
+# The SunOS 4.1.4 cp has no GNU-style -f option; using the absolute utility
+# already bypasses the interactive shell alias that this workflow must avoid.
+/bin/cp "$config" "$root/sys/sun4m/conf/SUN4M_IDLE"
 cd "$root/sys/sun4m/conf"
 /etc/config -n SUN4M_IDLE >"$logroot/config.log" 2>&1
 
@@ -73,12 +75,16 @@ replace_from_sed Makefile Makefile \
 replace_from_sed Makefile Makefile \
 	's/cc \${COPTS}/cc -sparc -Usun4 -Dsun4m \${COPTS}/g'
 
-if ! make depend >"$logroot/kernel-depend.log" 2>&1; then
+make depend >"$logroot/kernel-depend.log" 2>&1
+depend_status=$?
+if test "$depend_status" -ne 0; then
 	echo "Native SunOS dependency generation failed; see $logroot/kernel-depend.log" >&2
 	tail -20 "$logroot/kernel-depend.log" >&2 || true
 	exit 1
 fi
-if ! make >"$logroot/kernel-build.log" 2>&1; then
+make >"$logroot/kernel-build.log" 2>&1
+build_status=$?
+if test "$build_status" -ne 0; then
 	echo "Native SunOS kernel build failed; see $logroot/kernel-build.log" >&2
 	tail -20 "$logroot/kernel-build.log" >&2 || true
 	exit 1
