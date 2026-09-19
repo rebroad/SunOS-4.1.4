@@ -159,7 +159,7 @@ ross_module_setup(mcr)
 	register int vers;
 #ifdef	ROSS_NOASI
 	extern void ross_na_module_setup();
-	#endif	ROSS_NOASI
+#endif	ROSS_NOASI
 	extern int	cpuid;
 	extern int	vac_copyback;
 
