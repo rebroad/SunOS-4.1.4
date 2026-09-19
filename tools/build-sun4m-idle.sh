@@ -6,14 +6,12 @@ set -euo pipefail
 source_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 build_root=${SUNOS_BUILD_ROOT:-/mnt/kingston/builds/rebroad/src/SunOS-4.1.4.build}
 
-if git -C "$build_root" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    # The external tree is disposable build state.  Clear tracked workflow
-    # patches and generated files before synchronizing the authoritative
-    # source tree, so an earlier interrupted build cannot poison this one.
-    git -C "$build_root" restore --worktree --staged -- .
-    git -C "$build_root" clean -fdx >/dev/null
-fi
-cpto --no-lngit --update-existing "$source_root" "$build_root"
+# The external tree is disposable build state. Recreate it from the
+# authoritative source and exclude Git metadata; this prevents stale patches
+# or a copied .git directory from feeding state back into the source workflow.
+rm -rf "$build_root"
+mkdir -p "$build_root"
+cpto --nogit --no-lngit "$source_root" "$build_root"
 
 exec "$source_root/tools/build-in-bwrap.sh" -- /bin/bash -lc '
 set -euo pipefail
