@@ -22,46 +22,15 @@
 #define	_IOC_IN		0x80000000	/* copy in parameters */
 #define	_IOC_INOUT	(_IOC_IN|_IOC_OUT)
 
-#define _IOC_CHAR(x) _IOC_CHAR_##x
-#define _IOC_CHAR_A 'A'
-#define _IOC_CHAR_B 'B'
-#define _IOC_CHAR_F 'F'
-#define _IOC_CHAR_G 'G'
-#define _IOC_CHAR_L 'L'
-#define _IOC_CHAR_M 'M'
-#define _IOC_CHAR_O 'O'
-#define _IOC_CHAR_S 'S'
-#define _IOC_CHAR_T 'T'
-#define _IOC_CHAR_V 'V'
-#define _IOC_CHAR_X 'X'
-#define _IOC_CHAR_b 'b'
-#define _IOC_CHAR_c 'c'
-#define _IOC_CHAR_d 'd'
-#define _IOC_CHAR_f 'f'
-#define _IOC_CHAR_g 'g'
-#define _IOC_CHAR_i 'i'
-#define _IOC_CHAR_k 'k'
-#define _IOC_CHAR_m 'm'
-#define _IOC_CHAR_n 'n'
-#define _IOC_CHAR_o 'o'
-#define _IOC_CHAR_p 'p'
-#define _IOC_CHAR_q 'q'
-#define _IOC_CHAR_r 'r'
-#define _IOC_CHAR_s 's'
-#define _IOC_CHAR_t 't'
-#define _IOC_CHAR_u 'u'
-#define _IOC_CHAR_v 'v'
-#define _IOC_CHAR_x 'x'
-
 /* the 0x20000000 is so we can distinguish new ioctl's from old */
-#define	_IO(x,y)	(_IOC_VOID|(_IOC_CHAR_##x<<8)|y)
-#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+#define	_IO(x,y)	(_IOC_VOID|('x'<<8)|y)
+#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
 /* this should be _IORW, but stdio got there first */
-#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
-#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
 
 /*
  * Registry of ioctl characters, culled from system sources
