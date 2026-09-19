@@ -11,7 +11,9 @@ config_root="$build_root/usr.etc/config"
 
 mkdir -p "$config_root/hostinclude/sun"
 cp "$source_root/usr.etc/config/config.h" "$config_root/config.h"
-cp "$source_root/usr.etc/config/"*.c "$config_root/"
+# The external tree has already received host-compiler-compat.patch.  Do not
+# copy the pristine config C sources over those workflow-transformed files;
+# doing so loses the generated-host fixes in mkheaders.c and mkbootconf.c.
 sed -i '/char[[:space:]]*\*malloc/d; /char[[:space:]]*\*sprintf/d' \
     "$config_root/config.h"
 sed -i '1i#include <stdlib.h>\n#include <string.h>' "$config_root/config.h"
