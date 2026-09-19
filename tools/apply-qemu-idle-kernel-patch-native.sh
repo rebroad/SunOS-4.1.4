@@ -17,8 +17,13 @@ rewrite() {
 	dst=$src.native-tmp
 	awk '
 	{
-		if (mode == "idle" && index($0, "__asm__ __volatile__") != 0) {
-			print "\t\tasm(\"wr %%g0, %%g0, %%asr19\");"
+		if (mode == "idle" && (index($0, "__asm__ __volatile__") != 0 ||
+			index($0, "asm(\"wr ") != 0 ||
+			index($0, "asm(\".word 0xa7800000") != 0)) {
+			if (!idle_asm_seen) {
+				print "\t\tasm(\".word 0xa7800000\");"
+				idle_asm_seen = 1
+			}
 			next
 		}
 		print
@@ -33,7 +38,8 @@ rewrite() {
 			print ""
 			print "#ifdef QEMU_IDLE_POWERDOWN"
 			print "/* Sun4m POWERDOWN lets QEMU wait for the next interrupt. */"
-			print "asm(\"wr %%g0, %%g0, %%asr19\");"
+			print "asm(\".word 0xa7800000\");"
+			idle_asm_seen = 1
 			print "#endif"
 		}
 		if (mode == "prom" && $0 == "prom_init(pgmname)") seen_prom = 1
