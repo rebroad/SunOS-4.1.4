@@ -85,3 +85,17 @@ index 42e191d..a47e6b9 100644
  static  int nfs_cmp();
  static  int nfs_realvp();
  static  int nfs_cntl();
+
+diff --git a/sys/os/kern_descrip.c b/sys/os/kern_descrip.c
+index 7e8de7c..4f9d3bb 100644
+--- a/sys/os/kern_descrip.c
++++ b/sys/os/kern_descrip.c
+@@ -41,7 +41,8 @@
+  */
+ static void	dupit(/* fd, fp, flags */);
+ static void	alloc_fd_slots();
++static struct vnode *myfhtovp();
+
+ /*
+  * System calls on descriptors.
+  */
