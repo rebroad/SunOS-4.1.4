@@ -42,6 +42,12 @@ if test "$apply_idle_patch" = yes; then
     mv Makefile.native-tmp Makefile
 fi
 
+# The generated makefile's historical `syssrc` prerequisite can regenerate
+# sources from the old SCCS material.  The checkout/archive is authoritative;
+# skip that regeneration so native compilation uses exactly this source.
+sed 's/ syssrc / /' Makefile >Makefile.native-tmp
+mv Makefile.native-tmp Makefile
+
 # SunOS cc emits #line directives for -E, and its -P option is not the GCC
 # equivalent of suppressing those directives.  Strip only those preprocessor
 # lines between the generated source and the historical host-generator cc.
