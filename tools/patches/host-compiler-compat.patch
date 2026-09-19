@@ -1200,3 +1200,252 @@ index d0f4476..3e6814b 100644
  #endif
  
  /*
+diff --git a/sys/sys/genpercpu.c b/sys/sys/genpercpu.c
+index 3769a66..76b0a68 100644
+--- a/sys/sys/genpercpu.c
++++ b/sys/sys/genpercpu.c
+@@ -28,6 +28,8 @@
+ #define	INTSTACKSIZE	(3 * PAGESIZE)
+ #endif
+
+-#define	PCPUELT(a,t,n,e,b) { a, "t", "n", sizeof (t), e, "e", b }
++#define	PCPUELT_STR1(x)	#x
++#define	PCPUELT_STR(x)	PCPUELT_STR1(x)
++#define	PCPUELT(a,t,n,e,b) { a, PCPUELT_STR(t), PCPUELT_STR(n), sizeof (t), e, PCPUELT_STR(e), b }
+
+ #define	ST	struct
+diff --git a/sys/nfs/nfs_dump.c b/sys/nfs/nfs_dump.c
+index 4c6bf42..a3f4d88 100644
+--- a/sys/nfs/nfs_dump.c
++++ b/sys/nfs/nfs_dump.c
+@@ -33,5 +33,7 @@
+ #include <nfs/nfs_clnt.h>
+ #include <nfs/rnode.h>
+
++static int dump_auth_marshall();
++
+ #define	TIMEO		2	/* seconds before retransmitting request */
+ #define	MAXTRIES	5	/* before giving up on server */
+diff --git a/sys/nfs/nfs_server.c b/sys/nfs/nfs_server.c
+index 3f8b5ce..0e5a6a7 100644
+--- a/sys/nfs/nfs_server.c
++++ b/sys/nfs/nfs_server.c
+@@ -37,6 +37,7 @@
+ #include <machine/mmu.h>
+
+ extern struct vnodeops nfs_vnodeops;
++static int mbuf_to_iov();
+ /*
+  * states of requests for duplicate request caching
+  */
+diff --git a/sys/nfs/nfs_subr.c b/sys/nfs/nfs_subr.c
+index 5cc7e61..bd76079 100644
+--- a/sys/nfs/nfs_subr.c
++++ b/sys/nfs/nfs_subr.c
+@@ -66,5 +66,6 @@
+
+ extern struct vnodeops nfs_vnodeops;
+ static struct rnode *rfind();
++static int rp_addhash();
+
+ extern int nrnode;		/* max rnodes to alloc, set in machdep.c */
+diff --git a/sys/nfs/nfs_vfsops.c b/sys/nfs/nfs_vfsops.c
+index 27bd6fa..37c1d4b 100644
+--- a/sys/nfs/nfs_vfsops.c
++++ b/sys/nfs/nfs_vfsops.c
+@@ -43,6 +43,13 @@
+ #endif
+
+ static int nfsrootvp();
++extern char *strcpy();
++static enum clnt_stat callrpc();
++static int getfile();
++static int mountnfs();
++static int pathconf_get();
++static int pathconf_rele();
++static int hostpath();
+ extern struct vnode *makenfsnode();
+ #define	MAPSIZE  256/NBBY
+ static char nfs_minmap[MAPSIZE]; /* Map for minor device allocation */
+diff --git a/sys/nfs/nfs_vnodeops.c b/sys/nfs/nfs_vnodeops.c
+index 42e191d..a47e6b9 100644
+--- a/sys/nfs/nfs_vnodeops.c
++++ b/sys/nfs/nfs_vnodeops.c
+@@ -116,6 +116,10 @@
+ static	int nfs_putpage();
+ static	int nfs_map();
+ static	int nfs_dump();
++static	int writerp();
++static	int nfswrite();
++static	int nfs_strategy();
++static	int do_bio();
+ static  int nfs_cmp();
+ static  int nfs_realvp();
+ static  int nfs_cntl();
+diff --git a/sys/os/kern_descrip.c b/sys/os/kern_descrip.c
+index 7e8de7c..4f9d3bb 100644
+--- a/sys/os/kern_descrip.c
++++ b/sys/os/kern_descrip.c
+@@ -41,7 +41,8 @@
+  */
+ static void	dupit(/* fd, fp, flags */);
+ static void	alloc_fd_slots();
++static struct vnode *myfhtovp();
+
+ /*
+  * System calls on descriptors.
+  */
+diff --git a/sys/sys/ioccom.h b/sys/sys/ioccom.h
+index b9d42ed..b57ded6 100644
+--- a/sys/sys/ioccom.h
++++ b/sys/sys/ioccom.h
+@@ -19,18 +19,50 @@
+ #define	_IOCPARM_MASK	0xff		/* parameters must be < 256 bytes */
+ #define	_IOC_VOID	0x20000000	/* no parameters */
+ #define	_IOC_OUT	0x40000000	/* copy out parameters */
+ #define	_IOC_IN		0x80000000	/* copy in parameters */
+ #define	_IOC_INOUT	(_IOC_IN|_IOC_OUT)
++
++#define _IOC_CHAR(x) _IOC_CHAR_##x
++#define _IOC_CHAR_A 'A'
++#define _IOC_CHAR_B 'B'
++#define _IOC_CHAR_F 'F'
++#define _IOC_CHAR_G 'G'
++#define _IOC_CHAR_L 'L'
++#define _IOC_CHAR_M 'M'
++#define _IOC_CHAR_O 'O'
++#define _IOC_CHAR_S 'S'
++#define _IOC_CHAR_T 'T'
++#define _IOC_CHAR_V 'V'
++#define _IOC_CHAR_X 'X'
++#define _IOC_CHAR_b 'b'
++#define _IOC_CHAR_c 'c'
++#define _IOC_CHAR_d 'd'
++#define _IOC_CHAR_f 'f'
++#define _IOC_CHAR_g 'g'
++#define _IOC_CHAR_i 'i'
++#define _IOC_CHAR_k 'k'
++#define _IOC_CHAR_m 'm'
++#define _IOC_CHAR_n 'n'
++#define _IOC_CHAR_o 'o'
++#define _IOC_CHAR_p 'p'
++#define _IOC_CHAR_q 'q'
++#define _IOC_CHAR_r 'r'
++#define _IOC_CHAR_s 's'
++#define _IOC_CHAR_t 't'
++#define _IOC_CHAR_u 'u'
++#define _IOC_CHAR_v 'v'
++#define _IOC_CHAR_x 'x'
++
+ /* the 0x20000000 is so we can distinguish new ioctl's from old */
+-#define	_IO(x,y)	(_IOC_VOID|('x'<<8)|y)
+-#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+-#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+-#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+-#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
++#define	_IO(x,y)	(_IOC_VOID|(_IOC_CHAR_##x<<8)|y)
++#define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
++#define	_IORN(x,y,t)	(_IOC_OUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
++#define	_IOW(x,y,t)	(_IOC_IN|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
++#define	_IOWN(x,y,t)	(_IOC_IN|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+ /* this should be _IORW, but stdio got there first */
+-#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
+-#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
++#define	_IOWR(x,y,t)	(_IOC_INOUT|((sizeof(t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
++#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
+
+ /*
+  * Registry of ioctl characters, culled from system sources
+  *
+  */
+diff --git a/sys/os/uipc_domain.c b/sys/os/uipc_domain.c
+index 961c940..7e49730 100644
+--- a/sys/os/uipc_domain.c
++++ b/sys/os/uipc_domain.c
+@@ -13,10 +13,12 @@
+ #include <sys/time.h>
+ #include <sys/kernel.h>
+
++#define	DOMAIN_NAME1(x)	x##domain
++#define	DOMAIN_NAME(x)	DOMAIN_NAME1(x)
+ #define	ADDDOMAIN(x)	{ \
+-	extern struct domain x/**/domain; \
+-	x/**/domain.dom_next = domains; \
+-	domains = &x/**/domain; \
++	extern struct domain DOMAIN_NAME(x); \
++	DOMAIN_NAME(x).dom_next = domains; \
++	domains = &DOMAIN_NAME(x); \
+ }
+
+ domaininit()
+diff --git a/sys/scsi/targets/sd.c b/sys/scsi/targets/sd.c
+index fa667a0..2de05f2 100644
+--- a/sys/scsi/targets/sd.c
++++ b/sys/scsi/targets/sd.c
+@@ -55,7 +55,8 @@ static char *diskokay = "disk okay";
+ /*
+  * Forward reference definitions
+  */
+-extern char *sd_cmds[];
++static char *sd_cmds[];
++extern char *strcpy();
+
+ /*
+  * Configuration Data
+@@ -106,6 +107,9 @@ static int sd_unit_ready();
+ static void sdprintf(), sdlog();
+ static void sd_setlink();
+ static int sd_testlink(), sd_maptouscsi();
++static void sd_uselabel();
++static int sdrw(), sdioctl_cmd();
++static int sd_handle_incomplete(), sd_handle_sense(), sd_check_error();
+ #ifdef	ADAPTEC
+ static void sdintr_adaptec();
+ #endif	/* ADAPTEC */
+diff --git a/sys/scsi/targets/sddef.h b/sys/scsi/targets/sddef.h
+index c697fde..2cfb266 100644
+--- a/sys/scsi/targets/sddef.h
++++ b/sys/scsi/targets/sddef.h
+@@ -45,13 +45,13 @@
+ #define	CUNIT		devp->sd_dev->md_mc->mc_ctlr
+ #endif	OPENPROMS
+
+-#define	UPTR		((struct scsi_disk *)(devp)->sd_private)
++#define	UPTR		(*(struct scsi_disk **)&(devp)->sd_private)
+ #define	ROUTE		(&devp->sd_address)
+
+ #define	SCBP(pkt)	((struct scsi_status *)(pkt)->pkt_scbp)
+ #define	SCBP_C(pkt)	((*(pkt)->pkt_scbp) & STATUS_MASK)
+ #define	CDBP(pkt)	((union scsi_cdb *)(pkt)->pkt_cdbp)
+-#define	BP_PKT(bp)	((struct scsi_pkt *)bp->av_back)
++#define	BP_PKT(bp)	(*(struct scsi_pkt **)&(bp)->av_back)
+
+ #define	Tgt(devp)	(devp->sd_address.a_target)
+ #define	Lun(devp)	(devp->sd_address.a_lun)
+diff --git a/lib/libc/rpc/auth_des.c b/lib/libc/rpc/auth_des.c
+--- a/lib/libc/rpc/auth_des.c
++++ b/lib/libc/rpc/auth_des.c
+@@ -37,1 +37,4 @@
++static bool_t authdes_refresh();
++static bool_t synchronize();
++static int msgout();
+ static struct auth_ops *authdes_ops();
+diff --git a/lib/libc/rpc/key_call.c b/lib/libc/rpc/key_call.c
+--- a/lib/libc/rpc/key_call.c
++++ b/lib/libc/rpc/key_call.c
+@@ -24,4 +24,5 @@
+ #define	KEY_TIMEOUT	5	/* per-try timeout in seconds */
+ #define	KEY_NRETRY	12	/* number of retries */
++static int key_call();
+
+ #define	debug(msg)		/* turn off debugging */
+diff --git a/lib/libc/rpc/svc_kudp.c b/lib/libc/rpc/svc_kudp.c
+--- a/lib/libc/rpc/svc_kudp.c
++++ b/lib/libc/rpc/svc_kudp.c
+@@ -59,5 +59,6 @@
+
+ struct mbuf	*ku_recvfrom();
+ void		xdrmbuf_init();
++static int unhash();
+
+ /*
