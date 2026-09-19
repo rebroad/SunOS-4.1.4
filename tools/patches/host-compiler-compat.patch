@@ -25,3 +25,12 @@ index 4c6bf42..a3f4d88 100644
 +
  #define	TIMEO		2	/* seconds before retransmitting request */
  #define	MAXTRIES	5	/* before giving up on server */
+ #define	MAXTRIES	5	/* before giving up on server */
+
+diff --git a/sys/nfs/nfs_server.c b/sys/nfs/nfs_server.c
+index 3f8b5ce..0e5a6a7 100644
+--- a/sys/nfs/nfs_server.c
++++ b/sys/nfs/nfs_server.c
+@@ -39,1 +39,2 @@
++static int mbuf_to_iov();
+ extern struct vnodeops nfs_vnodeops;
