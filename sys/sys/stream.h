@@ -458,7 +458,7 @@ struct stroptions {
  * free a queue pair
  */
 #define freeq(q) { \
-	kmem_fast_free((caddr_t *)&queue_free, (caddr_t)q); \
+	kmem_fast_free(&(caddr_t)queue_free, (caddr_t)q); \
 	strst.queue.use--; \
 }
 

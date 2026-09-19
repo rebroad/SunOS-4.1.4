@@ -53,8 +53,6 @@
 
 /* these includes are used for the "fake" swap support of /dev/drum */
 #include <sun/mem.h>
-
-static int sw_rdwr();
 #include <specfs/snode.h>
 
 static struct swapinfo *silast;

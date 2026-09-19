@@ -24,8 +24,6 @@
 #include <vm/seg.h>
 #include <sys/trace.h>
 
-static int findextent();
-
 /*
  * Find the extent, and the matching block number.
  */

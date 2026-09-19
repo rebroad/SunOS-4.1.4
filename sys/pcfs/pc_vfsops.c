@@ -32,8 +32,6 @@ static int pcfs_unmount();
 static int pcfs_root();
 static int pcfs_statfs();
 static int pcfs_sync();
-static int pcfs_mountfs();
-static int pc_syncfsnodes();
 #ifdef notdef
 static int pcfs_vget();
 #endif notdef

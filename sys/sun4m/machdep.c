@@ -29,21 +29,6 @@
 #include <machine/async.h>
 #include <mon/sunromvec.h>
 
-extern char *strcpy();
-extern void mmu_flushall();
-extern int report_ce_console;
-static int unmap_to_end_rgn();
-
-char *
-memcpy(dst, src, len)
-	char *dst;
-	char *src;
-	int len;
-{
-	bcopy((caddr_t)src, (caddr_t)dst, (u_int)len);
-	return (dst);
-}
-
 /*Placeholder when UFS isn't included, like for DL kernels.*/
 int ufs_lock_released;
 
@@ -5667,7 +5652,7 @@ struct	ce_info {
 };
 
 #define	MAX_SIMM	256
-struct	ce_info	mem_ce_simm[MAX_SIMM] = { 0, };
+struct	ce_info	mem_ce_simm[MAX_SIMM] = 0;
 
 
 log_ce_mem_err(afsr, afar0, afar1, get_unum)
@@ -7471,7 +7456,7 @@ klock_reqfail(fn, ln, where, act, exp, mid)
  * Assumes kl1pt as the pointer to level 1 table
  * Used at startup by the kernel to cleanup unused maps.
  */
-static int
+static
 unmap_to_end_rgn(addr)
 u_int addr;
 {
@@ -7499,3 +7484,4 @@ u_int addr;
 	     sptp->ptpe_int = 0;
 	}
    }
+

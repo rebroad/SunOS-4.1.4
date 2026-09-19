@@ -38,9 +38,6 @@ struct slot {
 #define	SL_DOT		1	/* entry point to self */
 #define	SL_DOTDOT	2	/* entry points to parent */
 
-static int pc_findentry();
-static int pc_parsename();
-
 /*
  * Lookup a name in a directory. Return a pointer to the pc_node
  * which represents the entry.

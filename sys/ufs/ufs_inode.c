@@ -36,8 +36,6 @@
 #include <vm/as.h>
 #include <vm/pvn.h>
 #include <vm/seg.h>
-
-static int inode_dnlc_purge();
 #include <vm/swap.h>
 #include <vm/page.h>
 
@@ -141,6 +139,8 @@ iget(dev, fs, ino, ipp)
 	register struct dinode *dp;
 	register struct inode *iq;
 	struct mount *mp;
+	int inode_dnlc_purge();
+
 	/*
 	 * Lookup inode in cache.
 	 */

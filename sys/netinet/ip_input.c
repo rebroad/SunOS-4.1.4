@@ -36,8 +36,6 @@
 #include <netinet/tcp.h>
 #include <netinet/in_var.h>
 
-extern int ip_printfs;
-
 u_char	ip_protox[IPPROTO_MAX];
 int	ipqmaxlen = IFQ_MAXLEN;
 struct	in_ifaddr *in_ifaddr;			/* first inet address */
@@ -756,6 +754,8 @@ save_rte(option, dst)
 	struct in_addr dst;
 {
 	unsigned olen;
+	extern int ip_printfs;
+
 	olen = option[IPOPT_OLEN];
 	if (olen > sizeof(ip_srcrt) - 1) {
 		if (ip_printfs)

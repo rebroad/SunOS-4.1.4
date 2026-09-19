@@ -11,6 +11,21 @@ apply_idle_patch=${SUNOS_NATIVE_IDLE_PATCH:-yes}
 
 mkdir -p "$logroot"
 
+# SunOS's interactive shell commonly aliases mv/cp with confirmation flags.
+# Always invoke the absolute utilities so this workflow never stops for a
+# prompt while replacing generated files.
+move_force() {
+	/bin/mv -f "$@"
+}
+
+replace_from_sed() {
+	input=$1
+	output=$2
+	shift 2
+	sed "$@" "$input" >"$output.native-tmp"
+	move_force "$output.native-tmp" "$output"
+}
+
 if test "$apply_idle_patch" = yes; then
     "$root/tools/apply-qemu-idle-kernel-patch-native.sh" "$root" \
         >"$logroot/patch.log" 2>&1
@@ -19,7 +34,7 @@ else
         >"$logroot/patch.log"
 fi
 
-cp "$config" "$root/sys/sun4m/conf/SUN4M_IDLE"
+/bin/cp -f "$config" "$root/sys/sun4m/conf/SUN4M_IDLE"
 cd "$root/sys/sun4m/conf"
 /etc/config -n SUN4M_IDLE >"$logroot/config.log" 2>&1
 
@@ -31,53 +46,47 @@ cd "$root/sys/sun4m/SUN4M_IDLE"
 make clean >"$logroot/kernel-clean.log" 2>&1 || true
 
 # The throwaway SS-5 disk has no floppy, tape, or removable SCSI devices.
-sed 's/fd_asm\.o //g; s/sr_conf\.o //g; s/st_conf\.o //g; s/st\.o //g' \
-    Makefile >Makefile.native-tmp
-mv Makefile.native-tmp Makefile
+replace_from_sed Makefile Makefile \
+	's/fd_asm\.o //g; s/sr_conf\.o //g; s/st_conf\.o //g; s/st\.o //g'
 
 if test "$apply_idle_patch" = yes; then
     # Keep the idle instruction enabled.  QEMU_KERNEL_DIAGNOSTICS uses GCC-only
     # helpers and is intentionally reserved for the host-side toolchain.
-    sed 's/^IDENT=/IDENT=-DQEMU_IDLE_POWERDOWN /' \
-        Makefile >Makefile.native-tmp
-    mv Makefile.native-tmp Makefile
+	replace_from_sed Makefile Makefile \
+		's/^IDENT=/IDENT=-DQEMU_IDLE_POWERDOWN /'
 fi
 
 # The generated makefile's historical `syssrc` prerequisite can regenerate
 # sources from the old SCCS material.  The checkout/archive is authoritative;
 # skip that regeneration so native compilation uses exactly this source.
-sed 's/ syssrc / /' Makefile >Makefile.native-tmp
-mv Makefile.native-tmp Makefile
+replace_from_sed Makefile Makefile 's/ syssrc / /'
 
 # SunOS cc emits #line directives for -E, and its -P option is not the GCC
 # equivalent of suppressing those directives.  Strip only those preprocessor
 # lines between the generated source and the historical host-generator cc.
-sed 's|> ./a.out.c$|> ./a.out.c; sed "/^#/d" ./a.out.c > ./a.out.native-tmp; mv ./a.out.native-tmp ./a.out.c|' \
-    Makefile >Makefile.native-tmp
-mv Makefile.native-tmp Makefile
+replace_from_sed Makefile Makefile \
+	's|> ./a.out.c$|> ./a.out.c; sed "/^#/d" ./a.out.c > ./a.out.native-tmp; /bin/mv -f ./a.out.native-tmp ./a.out.c|'
 
 # config also hard-codes the generator compile recipe as plain `cc`, bypassing
 # the SPARC flags.  Rewrite only the exact generated host-generator token;
 # literal flags avoid old make's unreliable late variable expansion here.
-sed 's/cc \${COPTS}/cc -sparc -Usun4 -Dsun4m \${COPTS}/g' \
-    Makefile >Makefile.native-tmp
-mv Makefile.native-tmp Makefile
+replace_from_sed Makefile Makefile \
+	's/cc \${COPTS}/cc -sparc -Usun4 -Dsun4m \${COPTS}/g'
 
-make depend >"$logroot/kernel-depend.log" 2>&1
-status=$?
-if test "$status" -ne 0; then
-    echo "Native SunOS dependency generation failed; see $logroot/kernel-depend.log" >&2
-    exit 1
+if ! make depend >"$logroot/kernel-depend.log" 2>&1; then
+	echo "Native SunOS dependency generation failed; see $logroot/kernel-depend.log" >&2
+	tail -20 "$logroot/kernel-depend.log" >&2 || true
+	exit 1
 fi
-make >"$logroot/kernel-build.log" 2>&1
-status=$?
-if test "$status" -ne 0; then
-    echo "Native SunOS kernel build failed; see $logroot/kernel-build.log" >&2
-    exit 1
+if ! make >"$logroot/kernel-build.log" 2>&1; then
+	echo "Native SunOS kernel build failed; see $logroot/kernel-build.log" >&2
+	tail -20 "$logroot/kernel-build.log" >&2 || true
+	exit 1
 fi
 test -s vmunix_small || {
-    echo "Native SunOS kernel build produced no vmunix_small" >&2
-    exit 1
+	echo "Native SunOS kernel build produced no vmunix_small" >&2
+	tail -20 "$logroot/kernel-build.log" >&2 || true
+	exit 1
 }
 
 echo "Native SunOS build succeeded"

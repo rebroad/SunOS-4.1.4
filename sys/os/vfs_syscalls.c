@@ -17,10 +17,6 @@
 
 extern	struct fileops vnodefops;
 
-static int stat1();
-static int fdsetattr();
-static int copen();
-
 /*
  * System call routines for operations on files other
  * than read, write and ioctl.  These calls manipulate

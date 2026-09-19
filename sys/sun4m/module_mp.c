@@ -72,10 +72,7 @@ void	      (*s_vac_flush)() = 0;
 
 mp_init()
 {
-#define	MODULE_CAT1(a, b)	a##b
-#define	MODULE_CAT(a, b)	MODULE_CAT1(a, b)
-#define	TAKE(name)	MODULE_CAT(s_, name) = MODULE_CAT(v_, name); \
-		MODULE_CAT(v_, name) = MODULE_CAT(mp_, name)
+#define	TAKE(name)	s_/**/name = v_/**/name; v_/**/name = mp_/**/name
 
 	TAKE(mmu_flushall);
 	TAKE(mmu_flushctx);
@@ -96,8 +93,6 @@ mp_init()
 	TAKE(vac_pagectxflush);
 	TAKE(vac_flush);
 #endif
-#undef	MODULE_CAT
-#undef	MODULE_CAT1
 #undef	TAKE
 }
 

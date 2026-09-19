@@ -20,10 +20,6 @@
 #ifndef _netinet_in_h
 #define _netinet_in_h
 
-#ifdef KERNEL
-#include <sys/protosw.h>
-#endif
-
 /*
  * Protocols
  */

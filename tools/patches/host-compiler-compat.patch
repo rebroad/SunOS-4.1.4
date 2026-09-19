@@ -268,3 +268,10 @@ diff --git a/lib/libc/rpc/svc_kudp.c b/lib/libc/rpc/svc_kudp.c
 @@ -61,1 +61,2 @@
  void		xdrmbuf_init();
 +static int unhash();
+
+diff --git a/sys/sun4m/module_ross.c b/sys/sun4m/module_ross.c
+--- a/sys/sun4m/module_ross.c
++++ b/sys/sun4m/module_ross.c
+@@ -161,1 +161,2 @@
+ 	extern int	cpuid;
++	extern int	vac_copyback;

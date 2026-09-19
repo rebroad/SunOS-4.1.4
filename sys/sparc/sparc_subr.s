@@ -251,7 +251,7 @@ catch_fault:
 	b	_longjmp		! let longjmp do the rest
 	clr	[%o2+U_LOFAULT]		! turn off lofault
 
-	.reserve lfault, (2*4), "data", 4	! special jmp_buf for on_fault
+.reserve lfault, (2*4), "data", 4	! special jmp_buf for on_fault
 
 
 /*

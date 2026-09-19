@@ -161,7 +161,6 @@ ross_module_setup(mcr)
 	extern void ross_na_module_setup();
 #endif	ROSS_NOASI
 	extern int	cpuid;
-	extern int	vac_copyback;
 
 	if (ross_test_mcr) {
 		prom_printf("ross_module_setup: pretending mcr is %x, not %x\n",

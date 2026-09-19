@@ -78,8 +78,6 @@ int bw2_debug = 0;
 /* config info */
 static int bw2_identify();
 static int bw2_attach();
-static int bw2_probe();
-static int bw2_init();
 STATIC int bw2_open();
 STATIC int bw2_close();
 STATIC int bw2_ioctl();

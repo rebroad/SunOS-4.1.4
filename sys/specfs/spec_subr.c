@@ -21,7 +21,6 @@
  * Find an appropriate snode.
  */
 static struct snode *sfind();
-static void ssave();
 
 /*
  * Returns a special vnode for the given dev.  The vnode is the
@@ -165,7 +164,7 @@ struct snode *stable[STABLESIZE];
 /*
  * Put a snode in the table
  */
-static void
+static
 ssave(sp)
 	struct snode *sp;
 {

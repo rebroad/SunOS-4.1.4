@@ -298,7 +298,7 @@ int gt_dummy_extern;
       {								\
 	*(gt_a) = (*(mem_a) << (off));					\
 	(gt_a)  = (type *) PTR_ADD((gt_a), GT_IMAGE_LINEBYTES);		\
-	(mem_a) = (type *)(((int)((by_a) += (s_lb))) & (val));		\
+	(mem_a) = (type *)(((int)(by_a) += (s_lb)) & (val));		\
     }
 
 #define gt_sten_rop_2(gt_a, mem_a)					\

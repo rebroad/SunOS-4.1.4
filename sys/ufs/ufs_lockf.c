@@ -91,11 +91,9 @@ int			max_file_locks = 0;
 int			max_lock_refs = 0;
 
 #ifdef LOCK_DEBUG
-static void	print_depend();
+void    	print_depend();
 extern int	lock_debug_on;
 #endif
-
-static int has_remote_locks();
 
 /* to keep track of granted locks to be supplied to local lock mgr thru	*/
 /* fcntl(F_RSETLKW, F_UNLCK) calls					*/

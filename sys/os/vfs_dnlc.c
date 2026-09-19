@@ -59,9 +59,7 @@ struct	nc_lru	{
 
 struct	ncstats ncstats;		/* cache effectiveness statistics */
 
-static struct ncache *dnlc_search();
-static void insque2();
-static void remque2();
+struct ncache *dnlc_search();
 int	doingcache = 1;
 
 /*
@@ -345,7 +343,7 @@ dnlc_search(dp, name, namlen, hash, cred)
  * in the second two longwords.
  * Should be in assembler like insque.
  */
-static void
+static
 insque2(ncp2, ncp1)
 	register struct ncache *ncp2, *ncp1;
 {
@@ -361,7 +359,7 @@ insque2(ncp2, ncp1)
 /*
  * Remove from queue, like insque2.
  */
-static void
+static
 remque2(ncp)
 	register struct ncache *ncp;
 {

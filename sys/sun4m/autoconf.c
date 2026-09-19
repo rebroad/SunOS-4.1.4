@@ -68,9 +68,6 @@ extern int no_vme;
 #endif
 
 extern int swap_present;
-static void	add_drv_layer();
-static void	add_a_device();
-static void	rem_a_device();
 /*
  * The following several variables are related to
  * the configuration process, and are used in initializing
@@ -948,6 +945,7 @@ add_drv(dev_ops)
 {
 	struct add_drv_info	adi;
 	register struct add_drv_info	*adip = &adi;
+	void			add_drv_layer();
 	register struct new_devlist *ndp;
 	int	attached = 0;
 
@@ -1006,6 +1004,7 @@ add_drv_layer(dev, adip)
 	struct dev_info	*dev;
 	struct add_drv_info	*adip;
 {
+	void	add_a_device();
 
 	walk_layer(dev,
 		(int (*)()) add_a_device, (caddr_t) &new_devlist_head);
@@ -1066,6 +1065,7 @@ void
 rem_drv(dev_ops)
 	struct dev_ops *dev_ops;
 {
+	void	rem_a_device();
 
 	walk_devs(top_devinfo,
 		(int (*)()) rem_a_device, (caddr_t) dev_ops);
@@ -1647,37 +1647,30 @@ char	busname_svec[] = "SBus ";
 char	busname_vvec[] = "VME ";
 char	busname_vec[] = "";
 
-#define	AUTOCONF_CAT1(a, b)	a##b
-#define	AUTOCONF_CAT(a, b)	AUTOCONF_CAT1(a, b)
-
 #define	OVECTOR(n)		\
-int	AUTOCONF_CAT(AUTOCONF_CAT(olvl, n), _spurious);	\
-struct autovec AUTOCONF_CAT(olvl, n)[NVECT]
+int	olvl/**/n/**/_spurious;	\
+struct autovec olvl/**/n[NVECT]
 
 #define	SVECTOR(n)		\
-int	AUTOCONF_CAT(AUTOCONF_CAT(slvl, n), _spurious);	\
-struct autovec AUTOCONF_CAT(slvl, n)[NVECT]
+int	slvl/**/n/**/_spurious;	\
+struct autovec slvl/**/n[NVECT]
 
 #define	VVECTOR(n)		\
-int	AUTOCONF_CAT(AUTOCONF_CAT(vlvl, n), _spurious);	\
-struct autovec AUTOCONF_CAT(vlvl, n)[NVECT]
+int	vlvl/**/n/**/_spurious;	\
+struct autovec vlvl/**/n[NVECT]
 
 #define	XVECTOR(n)		\
-struct autovec AUTOCONF_CAT(xlvl, n)[NVECT]
+struct autovec xlvl/**/n[NVECT]
 
 #define	VECTOR(n)		\
-int	AUTOCONF_CAT(AUTOCONF_CAT(level, n), _spurious);	\
-struct autovec AUTOCONF_CAT(level, n)[NVECT]
+int	level/**/n/**/_spurious;	\
+struct autovec level/**/n[NVECT]
 
 typedef int (*func)();
 
 extern int	softint();
 extern int	process_aflt();
 extern int	hardlevel10();
-extern u_short	*doprobe();
-#ifndef SAS
-static int	mouseconfig();
-#endif
 
 /*
  * These structures are used in locore.s to jump to device interrupt routines.
@@ -2631,7 +2624,7 @@ kbddone:
 }
 
 #ifndef SAS
-static int
+static
 mouseconfig(msdev)
 	dev_t msdev;
 {
@@ -3189,6 +3182,7 @@ mbconfctrl(mc, mdr)
 	u_short		 *reg;
 	int		     err = 0;
 	int		     stat;
+	u_short		 *doprobe();
 	struct dev_info *dev = NULL;
  
 	if ((reg = doprobe((u_long)mc->mc_addr, (u_long)mc->mc_space,

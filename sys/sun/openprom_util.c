@@ -537,7 +537,7 @@ devi_to_path(name)
 		 */
 		if (encode_func == (char *(*)())0)
 			encode_func = obio_encode_reg;
-		switch ((int)encode_func(dip, addr))  {
+		switch (encode_func(dip, addr))  {
 		case 0:
 			/*
 			 * Error return: nullify output buffer so

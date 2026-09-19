@@ -121,11 +121,11 @@ dblk_t	*xdballoc();
 					dp = xdballoc(slpflg);
 #else	notdef
 #define	MBFREE(mp) { \
-	kmem_fast_free((caddr_t *)&mbfreelist, (caddr_t)mp); \
+	kmem_fast_free(&(caddr_t)mbfreelist, (caddr_t)mp); \
 	strst.mblock.use--; \
 }
 #define	DBFREE(dp) { \
-	kmem_fast_free((caddr_t *)&dbfreelist, (caddr_t)dp); \
+	kmem_fast_free(&(caddr_t)dbfreelist, (caddr_t)dp); \
 	strst.dblock.use--; \
 }
 
@@ -276,7 +276,7 @@ xdballoc(slpflag)
 	register dblk_t *dp;
 	register int s = splstr();
 
-	dp = (dblk_t *)new_kmem_fast_alloc((caddr_t *)&dbfreelist, sizeof *dp,
+	dp = (dblk_t *)new_kmem_fast_alloc(&(caddr_t)dbfreelist, sizeof *dp,
 		DBLK_INCR, KMEM_NOSLEEP);
 	if (dp) {
 		dp->db_freep = NULL;
@@ -314,7 +314,7 @@ xmballoc(slpflag)
 	register mblk_t *mp;
 	register int s = splstr();
 
-	mp = (mblk_t *)new_kmem_fast_alloc((caddr_t *)&mbfreelist, sizeof *mp,
+	mp = (mblk_t *)new_kmem_fast_alloc(&(caddr_t)mbfreelist, sizeof *mp,
 		MBLK_INCR, KMEM_NOSLEEP);
 	if (mp) {
 		mp->b_next = NULL;
@@ -1520,14 +1520,14 @@ strinit()
 	 */
 #define	DBLK_INIT	64	/* XXX */
 #define	MBLK_INIT	64	/* XXX */
-	kmem_fast_free((caddr_t *)&stream_free, kmem_fast_alloc(
-		(caddr_t *)&stream_free, sizeof (struct stdata), stream_init));
-	kmem_fast_free((caddr_t *)&queue_free, kmem_fast_alloc(
-		(caddr_t *)&queue_free, 2 * sizeof (queue_t), queue_init));
-	kmem_fast_free((caddr_t *)&dbfreelist, kmem_fast_alloc(
-		(caddr_t *)&dbfreelist, sizeof (dblk_t), DBLK_INIT));
-	kmem_fast_free((caddr_t *)&mbfreelist, kmem_fast_alloc(
-		(caddr_t *)&mbfreelist, sizeof (mblk_t), MBLK_INIT));
+	kmem_fast_free(&(caddr_t)stream_free, kmem_fast_alloc(
+		&(caddr_t)stream_free, sizeof (struct stdata), stream_init));
+	kmem_fast_free(&(caddr_t)queue_free, kmem_fast_alloc(
+		&(caddr_t)queue_free, 2 * sizeof (queue_t), queue_init));
+	kmem_fast_free(&(caddr_t)dbfreelist, kmem_fast_alloc(
+		&(caddr_t)dbfreelist, sizeof (dblk_t), DBLK_INIT));
+	kmem_fast_free(&(caddr_t)mbfreelist, kmem_fast_alloc(
+		&(caddr_t)mbfreelist, sizeof (mblk_t), MBLK_INIT));
 
 	/*
 	 * Allocate an array of alcdat structures for keeping track of buffer
@@ -1565,7 +1565,7 @@ allocstr()
 	register struct stdata *stp;
 
 	s = splstr();
-	stp = (struct stdata *)new_kmem_fast_alloc((caddr_t *)&stream_free,
+	stp = (struct stdata *)new_kmem_fast_alloc(&(caddr_t)stream_free,
 		sizeof (struct stdata), stream_incr, KMEM_NOSLEEP);
 	if (stp) {
 		BUMPUP(strst.stream);
@@ -1619,7 +1619,7 @@ freestr(stp)
 			stp->sd_next->sd_prev = stp->sd_prev;
 		stp->sd_prev->sd_next = stp->sd_next;
 	}
-	kmem_fast_free((caddr_t *)&stream_free, (caddr_t)stp);
+	kmem_fast_free(&(caddr_t)stream_free, (caddr_t)stp);
 	strst.stream.use--;
 
 	(void) splx(s);
@@ -1646,7 +1646,7 @@ allocq()
 	register queue_t *qp;
 
 	s = splstr();
-	qp = (queue_t *) new_kmem_fast_alloc((caddr_t *)&queue_free,
+	qp = (queue_t *) new_kmem_fast_alloc(&(caddr_t)queue_free,
 		2 * sizeof (queue_t), queue_incr, KMEM_NOSLEEP);
 	if (qp) {
 		*qp = zeroR;

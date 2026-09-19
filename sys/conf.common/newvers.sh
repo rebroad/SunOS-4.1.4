@@ -19,10 +19,10 @@ echo '#include <sys/utsname.h>' > vers.c
 echo >> vers.c
 
 echo $VERS `basename \`pwd\`` `cat $1` | \
-awk '	{	version = $1; sysname = $2; release = $3; }\
-END	{	printf "char version[] = \"SunOS Release %s (%s) #%d: ", release, sysname, version >> "vers.c";\
+awk '	{	version = $1; system = $2; release = $3; }\
+END	{	printf "char version[] = \"SunOS Release %s (%s) #%d: ", release, system, version >> "vers.c";\
 		printf "%d\n", version > "version"; }' 
-printf '%s\\nCopyright (c) 1983-1993, Sun Microsystems, Inc.\\n";\n' "`date`" >> vers.c
+echo `date`'\nCopyright (c) 1983-1993, Sun Microsystems, Inc.\n";' >> vers.c
 
 echo >> vers.c
 
@@ -31,3 +31,4 @@ echo $X_OS  $RELEASE  $VERS $ARCH | \
 awk '	{	sysname = $1; release = $2; version = $3; arch = $4; }\
 END	{	printf "struct utsname utsname =\n\t{ \"%s\", \"\", \"\", \"%s\", \"%s\", \"%s\" };\n\n", \
 sysname, release, version, arch >> "vers.c" ; } '
+

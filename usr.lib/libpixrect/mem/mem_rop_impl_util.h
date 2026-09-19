@@ -14,8 +14,8 @@
 /* 
  * Code selection macros 
  */
-#define	IFTRUET(t, a, b)	_STMT(if (t) {a;} else {b;});
-#define	IFFALSET(t, a, b)	_STMT(b;);
+#define	IFTRUET(t, a, b)	_STMT(if (t) {a;} else {b;})
+#define	IFFALSET(t, a, b)	_STMT(b;)
 
 /*
  * Option control macros

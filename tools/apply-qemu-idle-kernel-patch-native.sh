@@ -12,6 +12,10 @@ if test -f "$marker"; then
 	exit 0
 fi
 
+move_force() {
+	/bin/mv -f "$@"
+}
+
 rewrite() {
 	src=$1
 	dst=$src.native-tmp
@@ -72,7 +76,7 @@ rewrite() {
 			print "#endif QEMU_KERNEL_DIAGNOSTICS"
 		}
 	}' mode="$2" "$src" > "$dst"
-	mv "$dst" "$src"
+	move_force "$dst" "$src"
 }
 
 rewrite "$root/sys/sun4m/swtch.s" switch
