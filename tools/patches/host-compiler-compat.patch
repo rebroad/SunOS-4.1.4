@@ -69,3 +69,19 @@ index 27bd6fa..37c1d4b 100644
  extern struct vnode *makenfsnode();
  #define	MAPSIZE  256/NBBY
  static char nfs_minmap[MAPSIZE]; /* Map for minor device allocation */
+
+diff --git a/sys/nfs/nfs_vnodeops.c b/sys/nfs/nfs_vnodeops.c
+index 42e191d..a47e6b9 100644
+--- a/sys/nfs/nfs_vnodeops.c
++++ b/sys/nfs/nfs_vnodeops.c
+@@ -116,6 +116,10 @@
+ static	int nfs_putpage();
+ static	int nfs_map();
+ static	int nfs_dump();
++static	int writerp();
++static	int nfswrite();
++static	int nfs_strategy();
++static	int do_bio();
+ static  int nfs_cmp();
+ static  int nfs_realvp();
+ static  int nfs_cntl();
