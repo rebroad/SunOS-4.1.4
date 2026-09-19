@@ -29,7 +29,7 @@ rewrite() {
 			print ""
 			print "#ifdef QEMU_IDLE_POWERDOWN"
 			print "/* Sun4m POWERDOWN lets QEMU wait for the next interrupt. */"
-			print "__asm__ __volatile__(\"wr %%g0, %%g0, %%asr19\" ::: \"memory\");"
+			print "asm(\"wr %g0, %g0, %asr19\");"
 			print "#endif"
 		}
 		if (mode == "prom" && $0 == "prom_init(pgmname)") seen_prom = 1

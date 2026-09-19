@@ -30,7 +30,7 @@ index a899a1d..0cddf48 100644
 +		 * asleep.  Sun4m POWERDOWN makes QEMU wait for the next interrupt;
 +		 * the timer and console interrupts retain normal wakeup semantics.
 +		 */
-+		__asm__ __volatile__("wr %%g0, %%g0, %%asr19" ::: "memory");
++		asm("wr %g0, %g0, %asr19");
 +#endif
 +
  		/*
