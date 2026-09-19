@@ -21,7 +21,6 @@
 #define	_IOC_OUT	0x40000000	/* copy out parameters */
 #define	_IOC_IN		0x80000000	/* copy in parameters */
 #define	_IOC_INOUT	(_IOC_IN|_IOC_OUT)
-
 /* the 0x20000000 is so we can distinguish new ioctl's from old */
 #define	_IO(x,y)	(_IOC_VOID|('x'<<8)|y)
 #define	_IOR(x,y,t)	(_IOC_OUT|((sizeof(t)&_IOCPARM_MASK)<<16)|('x'<<8)|y)
