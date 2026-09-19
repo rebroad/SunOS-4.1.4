@@ -158,4 +158,72 @@ index b9d42ed..b57ded6 100644
 +#define	_IOWRN(x,y,t)	(_IOC_INOUT|(((t)&_IOCPARM_MASK)<<16)|(_IOC_CHAR_##x<<8)|y)
 
  /*
-  * Registry of ioctl characters, culled from system sources
+ * Registry of ioctl characters, culled from system sources
+ */
+
+diff --git a/sys/os/uipc_domain.c b/sys/os/uipc_domain.c
+index 961c940..7e49730 100644
+--- a/sys/os/uipc_domain.c
++++ b/sys/os/uipc_domain.c
+@@ -13,10 +13,12 @@
+ #include <sys/time.h>
+ #include <sys/kernel.h>
+
++#define	DOMAIN_NAME1(x)	x##domain
++#define	DOMAIN_NAME(x)	DOMAIN_NAME1(x)
+ #define	ADDDOMAIN(x)	{ \
+-	extern struct domain x/**/domain; \
+-	x/**/domain.dom_next = domains; \
+-	domains = &x/**/domain; \
++	extern struct domain DOMAIN_NAME(x); \
++	DOMAIN_NAME(x).dom_next = domains; \
++	domains = &DOMAIN_NAME(x); \
+ }
+
+ domaininit()
+
+diff --git a/sys/scsi/targets/sd.c b/sys/scsi/targets/sd.c
+index fa667a0..2de05f2 100644
+--- a/sys/scsi/targets/sd.c
++++ b/sys/scsi/targets/sd.c
+@@ -55,7 +55,8 @@ static char *diskokay = "disk okay";
+ /*
+  * Forward reference definitions
+  */
+-extern char *sd_cmds[];
++static char *sd_cmds[];
++extern char *strcpy();
+
+ /*
+  * Configuration Data
+@@ -106,6 +107,9 @@ static int sd_unit_ready();
+ static void sdprintf(), sdlog();
+ static void sd_setlink();
+ static int sd_testlink(), sd_maptouscsi();
++static void sd_uselabel();
++static int sdrw(), sdioctl_cmd();
++static int sd_handle_incomplete(), sd_handle_sense(), sd_check_error();
+ #ifdef	ADAPTEC
+ static void sdintr_adaptec();
+ #endif	/* ADAPTEC */
+
+diff --git a/sys/scsi/targets/sddef.h b/sys/scsi/targets/sddef.h
+index c697fde..2cfb266 100644
+--- a/sys/scsi/targets/sddef.h
++++ b/sys/scsi/targets/sddef.h
+@@ -45,13 +45,13 @@
+ #define	CUNIT		devp->sd_dev->md_mc->mc_ctlr
+ #endif	OPENPROMS
+
+-#define	UPTR		((struct scsi_disk *)(devp)->sd_private)
++#define	UPTR		(*(struct scsi_disk **)&(devp)->sd_private)
+ #define	ROUTE		(&devp->sd_address)
+
+ #define	SCBP(pkt)	((struct scsi_status *)(pkt)->pkt_scbp)
+ #define	SCBP_C(pkt)	((*(pkt)->pkt_scbp) & STATUS_MASK)
+ #define	CDBP(pkt)	((union scsi_cdb *)(pkt)->pkt_cdbp)
+-#define	BP_PKT(bp)	((struct scsi_pkt *)bp->av_back)
++#define	BP_PKT(bp)	(*(struct scsi_pkt **)&(bp)->av_back)
+ 
+ #define	Tgt(devp)	(devp->sd_address.a_target)
+ #define	Lun(devp)	(devp->sd_address.a_lun)

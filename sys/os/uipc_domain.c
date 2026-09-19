@@ -13,12 +13,10 @@
 #include <sys/time.h>
 #include <sys/kernel.h>
 
-#define	DOMAIN_NAME1(x)	x##domain
-#define	DOMAIN_NAME(x)	DOMAIN_NAME1(x)
 #define	ADDDOMAIN(x)	{ \
-	extern struct domain DOMAIN_NAME(x); \
-	DOMAIN_NAME(x).dom_next = domains; \
-	domains = &DOMAIN_NAME(x); \
+	extern struct domain x/**/domain; \
+	x/**/domain.dom_next = domains; \
+	domains = &x/**/domain; \
 }
 
 domaininit()
