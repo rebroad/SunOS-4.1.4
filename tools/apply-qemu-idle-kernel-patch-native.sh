@@ -18,7 +18,7 @@ rewrite() {
 	awk '
 	{
 		if (mode == "idle" && index($0, "__asm__ __volatile__") != 0) {
-			print "\t\tasm(\"wr %g0, %g0, %asr19\");"
+			print "\t\tasm(\"wr %%g0, %%g0, %%asr19\");"
 			next
 		}
 		print
@@ -33,7 +33,7 @@ rewrite() {
 			print ""
 			print "#ifdef QEMU_IDLE_POWERDOWN"
 			print "/* Sun4m POWERDOWN lets QEMU wait for the next interrupt. */"
-			print "asm(\"wr %g0, %g0, %asr19\");"
+			print "asm(\"wr %%g0, %%g0, %%asr19\");"
 			print "#endif"
 		}
 		if (mode == "prom" && $0 == "prom_init(pgmname)") seen_prom = 1
