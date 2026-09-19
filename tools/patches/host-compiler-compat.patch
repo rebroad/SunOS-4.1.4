@@ -30,14 +30,42 @@ diff --git a/sys/nfs/nfs_server.c b/sys/nfs/nfs_server.c
 index 3f8b5ce..0e5a6a7 100644
 --- a/sys/nfs/nfs_server.c
 +++ b/sys/nfs/nfs_server.c
-@@ -39,1 +39,2 @@
-+static int mbuf_to_iov();
+@@ -37,6 +37,7 @@
+ #include <machine/mmu.h>
+
  extern struct vnodeops nfs_vnodeops;
++static int mbuf_to_iov();
+ /*
+  * states of requests for duplicate request caching
+  */
+
 diff --git a/sys/nfs/nfs_subr.c b/sys/nfs/nfs_subr.c
 index 5cc7e61..bd76079 100644
 --- a/sys/nfs/nfs_subr.c
 +++ b/sys/nfs/nfs_subr.c
-@@ -59,2 +59,3 @@
+@@ -66,5 +66,6 @@
+
  extern struct vnodeops nfs_vnodeops;
-+static int rp_addhash();
  static struct rnode *rfind();
++static int rp_addhash();
+
+ extern int nrnode;		/* max rnodes to alloc, set in machdep.c */
+
+diff --git a/sys/nfs/nfs_vfsops.c b/sys/nfs/nfs_vfsops.c
+index 27bd6fa..37c1d4b 100644
+--- a/sys/nfs/nfs_vfsops.c
++++ b/sys/nfs/nfs_vfsops.c
+@@ -43,6 +43,13 @@
+ #endif
+
+ static int nfsrootvp();
++extern char *strcpy();
++static enum clnt_stat callrpc();
++static int getfile();
++static int mountnfs();
++static int pathconf_get();
++static int pathconf_rele();
++static int hostpath();
+ extern struct vnode *makenfsnode();
+ #define	MAPSIZE  256/NBBY
+ static char nfs_minmap[MAPSIZE]; /* Map for minor device allocation */
