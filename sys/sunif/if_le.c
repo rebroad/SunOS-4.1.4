@@ -688,7 +688,7 @@ leinit(unit)
 			if (iommu_info.ccoher == 0) {
 				for (kp = es->es_membase;
 				    (u_int) kp < ((u_int) es->es_membase
-					+ LEBUFSIZE); (u_int)kp += MMU_PAGESIZE) {
+				    + LEBUFSIZE); (u_int)kp += MMU_PAGESIZE) {
 					ptpe = hat_ptefind(&kas, kp);
 					pp = ptetopp(&ptpe->pte);
 					(void) hat_pagecache(pp, 1);

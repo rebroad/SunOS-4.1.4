@@ -238,8 +238,8 @@ main()
 	printf("#define\tOP_PLUGIN_VERSION 0x%x\n", &romp->op_plugin_version);
 	printf("#define\tOP_MON_ID 0x%x\n", &romp->op_mon_id);
 #ifdef  SUNDBE
-		printf("#define EINTR %d\n",EINTR);
-		printf("#define NORMALRETURN %d\n", NORMALRETURN);
+        printf("#define EINTR %d\n",EINTR);
+        printf("#define NORMALRETURN %d\n", NORMALRETURN);
 #endif SUNDBE
 	exit(0);
 }

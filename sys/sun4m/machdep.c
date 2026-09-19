@@ -7456,7 +7456,7 @@ klock_reqfail(fn, ln, where, act, exp, mid)
  * Assumes kl1pt as the pointer to level 1 table
  * Used at startup by the kernel to cleanup unused maps.
  */
-static
+static 
 unmap_to_end_rgn(addr)
 u_int addr;
 {

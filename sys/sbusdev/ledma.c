@@ -191,7 +191,7 @@ register struct dev_info *dev;
 #if defined(SUN4M_35)
 	if (iommu_info.ccoher == 0) {
 		for (kp = membase; (u_int)kp < ((u_int)membase + ledmabufsize) ;
-										(u_int)kp += MMU_PAGESIZE) {
+                                        (u_int)kp += MMU_PAGESIZE) {
           		ptpe = hat_ptefind( &kas, kp);
           		pp = ptetopp(&ptpe->pte);
 			(void)hat_pagecache(pp, 1);
