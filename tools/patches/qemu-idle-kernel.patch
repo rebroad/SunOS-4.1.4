@@ -2,40 +2,23 @@ diff --git a/sys/sun4m/swtch.s b/sys/sun4m/swtch.s
 index a1ab804..320d5c8 100644
 --- a/sys/sun4m/swtch.s
 +++ b/sys/sun4m/swtch.s
-@@ -248,6 +248,11 @@ _testq:
+@@ -248,6 +248,16 @@ _testq:
  	ldub	[%g1 + %lo(_qrunflag)], %g1
  	tst	%g1
  #ifndef SAS
-+	#ifdef QEMU_IDLE_POWERDOWN
-+	! Tell a SPARC implementation with wrpowerdown to sleep until an interrupt.
-+	! This is emitted only after the idle path has enabled interrupts.
++#ifdef QEMU_IDLE_POWERDOWN
++	! Only enter POWERDOWN when no stream work is pending.
++	bnz	qemu_idle_runqueues
++	nop
 +	wr	%g0, %g0, %asr19
-+	#endif QEMU_IDLE_POWERDOWN
++	b	_idle
++	nop
++qemu_idle_runqueues:
++#else
  	bz	_idle			! no
  	nop
++#endif QEMU_IDLE_POWERDOWN
  #else	SAS
-diff --git a/sys/os/init_main.c b/sys/os/init_main.c
-index a899a1d..0cddf48 100644
---- a/sys/os/init_main.c
-+++ b/sys/os/init_main.c
-@@ -443,6 +443,17 @@ idlework()
- 		if (!cpu_enable)
- 			continue; /* someone disabled this processor! */
-
-+#ifdef QEMU_IDLE_POWERDOWN
-+		/*
-+		 * idlework() is the active multiprocessor idle loop.  The
-+		 * traditional implementation polls the run queues here, which
-+		 * otherwise leaves a TCG vCPU spinning even when every process is
-+		 * asleep.  Sun4m POWERDOWN makes QEMU wait for the next interrupt;
-+		 * the timer and console interrupts retain normal wakeup semantics.
-+		 */
-+		asm(".word 0xa7800000");
-+#endif
-+
- 		/*
- 		 * If we recently entered the lock,
- 		 * avoid trying to enter it again.
 diff --git a/sys/boot/lib/promlib/prom_init.c b/sys/boot/lib/promlib/prom_init.c
 index c7b236a..5c4b328 100644
 --- a/sys/boot/lib/promlib/prom_init.c

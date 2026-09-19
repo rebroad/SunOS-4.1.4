@@ -6,7 +6,7 @@ set -eu
 # idempotent equivalent of applying tools/patches/qemu-idle-kernel.patch.
 
 root=${1:-.}
-marker=$root/.qemu-idle-kernel-patch-applied
+marker=$root/.qemu-idle-kernel-patch-applied-v2
 if test -f "$marker"; then
 	echo "QEMU idle kernel patch already applied: $root"
 	exit 0
@@ -17,6 +17,26 @@ rewrite() {
 	dst=$src.native-tmp
 	awk '
 	{
+		if (mode == "switch" && switch_close && $0 == "\tnop") {
+			print
+			print "#endif QEMU_IDLE_POWERDOWN"
+			switch_close = 0
+			next
+		}
+		if (mode == "switch" && index($0, "\tbz\t_idle") == 1) {
+			print "#ifdef QEMU_IDLE_POWERDOWN"
+			print "! Only enter POWERDOWN when no stream work is pending."
+			print "bnz qemu_idle_runqueues"
+			print "nop"
+			print "wr %g0, %g0, %asr19"
+			print "b _idle"
+			print "nop"
+			print "qemu_idle_runqueues:"
+			print "#else"
+			print
+			switch_close = 1
+			next
+		}
 		if (mode == "idle" && index($0, "__asm__ __volatile__") != 0) {
 			if (!idle_asm_seen) {
 				print "\t\tasm(\".word 0xa7800000\");"
@@ -39,21 +59,6 @@ rewrite() {
 			next
 		}
 		print
-		if (mode == "switch" && $0 == "#ifndef SAS") {
-			print "#ifdef QEMU_IDLE_POWERDOWN"
-			print "! Tell a SPARC implementation with wrpowerdown to sleep until an interrupt."
-			print "! This is emitted only after the idle path has enabled interrupts."
-			print "wr %g0, %g0, %asr19"
-			print "#endif QEMU_IDLE_POWERDOWN"
-		}
-		if (mode == "idle" && $0 == "\t\t\tcontinue; /* someone disabled this processor! */") {
-			print ""
-			print "#ifdef QEMU_IDLE_POWERDOWN"
-			print "/* Sun4m POWERDOWN lets QEMU wait for the next interrupt. */"
-			print "asm(\".word 0xa7800000\");"
-			idle_asm_seen = 1
-			print "#endif"
-		}
 		if (mode == "prom" && $0 == "prom_init(pgmname)") seen_prom = 1
 		if (mode == "prom" && seen_prom && $0 == "{") {
 			print "\tprom_printf(\"prom_init: romp=%x magic=%x version=%x\\n\","

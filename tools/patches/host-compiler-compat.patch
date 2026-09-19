@@ -245,3 +245,26 @@ index c697fde..2cfb266 100644
  
  #define	Tgt(devp)	(devp->sd_address.a_target)
  #define	Lun(devp)	(devp->sd_address.a_lun)
+
+diff --git a/lib/libc/rpc/auth_des.c b/lib/libc/rpc/auth_des.c
+--- a/lib/libc/rpc/auth_des.c
++++ b/lib/libc/rpc/auth_des.c
+@@ -37,1 +37,4 @@
++static bool_t authdes_refresh();
++static bool_t synchronize();
++static int msgout();
+ static struct auth_ops *authdes_ops();
+
+diff --git a/lib/libc/rpc/key_call.c b/lib/libc/rpc/key_call.c
+--- a/lib/libc/rpc/key_call.c
++++ b/lib/libc/rpc/key_call.c
+@@ -25,1 +25,2 @@
+ #define	KEY_NRETRY	12	/* number of retries */
++static int key_call();
+
+diff --git a/lib/libc/rpc/svc_kudp.c b/lib/libc/rpc/svc_kudp.c
+--- a/lib/libc/rpc/svc_kudp.c
++++ b/lib/libc/rpc/svc_kudp.c
+@@ -61,1 +61,2 @@
+ void		xdrmbuf_init();
++static int unhash();
